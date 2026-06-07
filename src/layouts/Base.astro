@@ -190,12 +190,17 @@ import '../styles/global.css';
   .nav-link  { font-size: 13px; font-weight: 500; letter-spacing: .04em; color: rgba(247,243,236,.78); padding: 8px 12px; border-radius: 2px; transition: color .2s; }
   .nav-link:hover { color: #B8960C; }
   .has-dropdown { position: relative; }
-  .dropdown { display: none; position: absolute; top: calc(100% + 8px); left: 0; background: #0D1B2A; border-top: 2px solid #B8960C; min-width: 220px; padding: 8px 0; list-style: none; box-shadow: 0 8px 32px rgba(0,0,0,.4); z-index: 200; }
+  /* Dropdown: top:100% = zero gap; padding-top:12px = transparent CSS bridge so
+     the mouse stays inside .has-dropdown while travelling from trigger to menu */
+  .dropdown { display: none; position: absolute; top: 100%; padding-top: 12px; left: 0; background: transparent; isolation: isolate; min-width: 220px; list-style: none; z-index: 200; }
+  /* Visual navy box rendered via ::before, starting below the 12px bridge */
+  .dropdown::before { content: ''; position: absolute; inset: 12px 0 0; background: #0D1B2A; border-top: 2px solid #B8960C; box-shadow: 0 8px 32px rgba(0,0,0,.4); z-index: -1; }
   .has-dropdown.is-open > .dropdown { display: block; }
   .dropdown-link { display: block; padding: 10px 20px; font-size: 13px; color: rgba(247,243,236,.72); transition: color .15s; }
   .dropdown-link:hover { color: #B8960C; }
   @media (max-width: 900px) {
-    .has-dropdown.is-open > .dropdown { position: static; background: transparent; border-top: 1px solid rgba(184,150,12,.2); border-left: 2px solid rgba(184,150,12,.3); box-shadow: none; padding: 4px 0 4px 12px; min-width: 0; margin: 4px 0 8px; }
+    .has-dropdown.is-open > .dropdown { position: static; background: transparent; isolation: auto; padding: 4px 0 4px 12px; border-top: 1px solid rgba(184,150,12,.2); border-left: 2px solid rgba(184,150,12,.3); box-shadow: none; min-width: 0; margin: 4px 0 8px; }
+    .has-dropdown.is-open > .dropdown::before { display: none; }
     .has-dropdown.is-open > .dropdown .dropdown-link { padding: 7px 12px; font-size: 12px; }
   }
   .header-cta { font-family: 'Inter', sans-serif; font-size: 12px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: #0D1B2A; background: #B8960C; padding: 10px 20px; border-radius: 2px; transition: opacity .2s; }
@@ -246,7 +251,7 @@ import '../styles/global.css';
   }
   function closeDD(el, immediate) {
     if (immediate) { el.classList.remove('is-open'); return; }
-    closeTimers.set(el, setTimeout(() => el.classList.remove('is-open'), 300));
+    closeTimers.set(el, setTimeout(() => el.classList.remove('is-open'), 500));
   }
 
   ddItems.forEach(el => {
