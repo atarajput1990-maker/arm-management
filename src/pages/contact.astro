@@ -1,0 +1,108 @@
+---
+import Base from '../layouts/Base.astro';
+---
+<Base
+  title="Contact ARM Management | International Business Advisory"
+  description="Start with a confidential conversation. Every ARM engagement begins with a direct conversation with a senior advisor who will assess your situation honestly."
+>
+<main>
+
+  <section class="page-hero">
+    <div class="page-hero__bg" style="background-image:url('https://images.unsplash.com/photo-1497366216548-37526070297c?w=1600&q=80&auto=format&fit=crop')"></div>
+    <div class="page-hero__overlay"></div>
+    <div class="page-hero__content container">
+      <span class="eyebrow">Contact</span>
+      <h1>Start With a Confidential<br>Conversation.</h1>
+      <p>Every ARM engagement begins the same way: a direct conversation with a senior advisor who will assess your situation honestly and tell you exactly what is achievable.</p>
+    </div>
+  </section>
+
+  <section class="section section--cream">
+    <div class="container">
+      <div class="contact-grid reveal">
+        <div class="contact-card">
+          <span class="eyebrow">Email</span>
+          <h3>Write to Us</h3>
+          <p>For detailed enquiries or where you prefer to communicate in writing. A senior advisor responds within one business day.</p>
+          <a href="mailto:info@arm-management.com" class="btn-navy">info@arm-management.com</a>
+        </div>
+        <div class="contact-card">
+          <span class="eyebrow">Schedule</span>
+          <h3>Book a Consultation</h3>
+          <p>Select a time that works for you. A senior ARM advisor will join the call prepared to discuss your specific situation.</p>
+          <a href="mailto:info@arm-management.com?subject=Consultation Request" class="btn-navy">Request a Time →</a>
+        </div>
+        <div class="contact-card">
+          <span class="eyebrow">Confidentiality</span>
+          <h3>Complete Discretion</h3>
+          <p>ARM Management treats all enquiries with complete confidentiality. Your information is not shared with any third party. All engagements are governed by formal service agreements.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--warm" style="border-top:1px solid #E2DDD6">
+    <div class="container--narrow">
+      <h2 class="reveal">Send Us a Message</h2>
+      <div class="gold-rule reveal"></div>
+      <p class="reveal" style="color:#6B7280;margin-bottom:40px">Complete the form below and a senior ARM advisor will respond within one business day.</p>
+
+      <form class="contact-form reveal" name="contact" method="POST" netlify netlify-honeypot="bot-field" action="/thank-you">
+        <input type="hidden" name="form-name" value="contact">
+        <p style="display:none"><input name="bot-field"></p>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label" for="name">Full Name *</label>
+            <input class="form-input" type="text" id="name" name="name" required placeholder="Your full name">
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="email">Email Address *</label>
+            <input class="form-input" type="email" id="email" name="email" required placeholder="your@email.com">
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label" for="company">Company / Organisation</label>
+            <input class="form-input" type="text" id="company" name="company" placeholder="Your company name">
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="country">Country of Residence</label>
+            <input class="form-input" type="text" id="country" name="country" placeholder="e.g. United Arab Emirates">
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="service">Service Area</label>
+          <select class="form-select" id="service" name="service">
+            <option value="">Select a service area</option>
+            <option>Transaction Advisory</option>
+            <option>Company Formation</option>
+            <option>Accounting &amp; Tax</option>
+            <option>Payroll &amp; HR Advisory</option>
+            <option>Global Mobility &amp; Residency</option>
+            <option>Crypto &amp; Web3</option>
+            <option>Other</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="message">Brief Description *</label>
+          <textarea class="form-textarea" id="message" name="message" required placeholder="Please briefly describe your situation and what you need assistance with..."></textarea>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="source">How did you hear about ARM Management?</label>
+          <select class="form-select" id="source" name="source">
+            <option value="">Please select</option>
+            <option>Google Search</option>
+            <option>Referral</option>
+            <option>LinkedIn</option>
+            <option>Event / Conference</option>
+            <option>Other</option>
+          </select>
+        </div>
+        <button type="submit" class="btn-primary" style="border:none;cursor:pointer;font-size:12px">Submit Enquiry →</button>
+      </form>
+    </div>
+  </section>
+
+</main>
+</Base>

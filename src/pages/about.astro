@@ -1,0 +1,63 @@
+---
+import Base from '../layouts/Base.astro';
+---
+<Base
+  title="About ARM Management | International Advisory — UAE Headquartered"
+  description="ARM Management is an international business advisory headquartered in the UAE, delivering senior-led advisory across cross-border transactions, company formation, and compliance."
+>
+<main>
+
+  <section class="page-hero">
+    <div class="page-hero__bg" style="background-image:url('https://images.unsplash.com/photo-1486325212027-8081e485255e?w=1600&q=80&auto=format&fit=crop')"></div>
+    <div class="page-hero__overlay"></div>
+    <div class="page-hero__content container">
+      <span class="eyebrow">About ARM Management</span>
+      <h1>An Advisory Built on<br>Accountability, Not Process.</h1>
+      <p>ARM Management was founded on a conviction: that clients engaged in complex, cross-border business deserve an advisor who is genuinely accountable for outcomes.</p>
+    </div>
+  </section>
+
+  <section class="section section--cream">
+    <div class="container--narrow">
+      <h2 class="reveal">Our Story</h2>
+      <div class="gold-rule reveal"></div>
+      <p class="reveal">ARM Management was established in the UAE, at the intersection of the world's most dynamic cross-border business environments. We work with international companies expanding into new markets, investment funds deploying capital across borders, family offices managing complex multi-jurisdiction structures, and founders building businesses without boundaries.</p>
+      <p class="reveal" style="margin-top:20px">What we observed in the international advisory market was a consistent failure: sophisticated clients being served by firms whose senior partners were present at pitch stage and absent at every stage after. ARM Management was built to be different in three specific ways: senior advisors on every engagement, honest assessment from the first conversation, and a commitment to finding an alternative when the primary route is not available.</p>
+    </div>
+  </section>
+
+  <section class="section section--warm" style="border-top:1px solid #E2DDD6">
+    <div class="container">
+      <h2 class="reveal">The ARM Methodology</h2>
+      <div class="gold-rule reveal"></div>
+      <div class="grid-2" style="margin-top:40px;gap:40px">
+        {[
+          ["1","Honest Assessment Before Commitment","Every mandate begins with a frank conversation about what is achievable. ARM does not accept mandates it cannot execute."],
+          ["2","Senior Advisory — No Handoffs","The senior advisor who assesses your mandate is the person who manages it. We do not operate a model where relationship partners hand off to delivery teams."],
+          ["3","Always an Alternative","ARM has never closed an engagement without providing a viable path forward. When the obvious route is unavailable, we identify what else is possible."],
+          ["4","24/7 Accessibility","Active clients reach their ARM advisor directly, at any hour. International business does not keep office hours and neither do we."],
+          ["5","Vetted Partner Network","Where local professionals are required, ARM works with partners selected for track record, compliance culture, and responsiveness — not for commercial convenience."],
+          ["6","Transparent Fees","All fees are agreed before work begins. Scope changes are discussed before additional charges are incurred. No surprise invoices."],
+        ].map(([n, heading, body], i) => (
+          <div class={`reveal reveal-delay-${(i % 2) + 1}`} style="display:flex;gap:24px;align-items:flex-start">
+            <span style="font-family:'Cormorant Garamond',serif;font-size:52px;font-weight:300;color:#B8960C;line-height:1;flex-shrink:0">{n}</span>
+            <div>
+              <h4 style="font-family:'Inter',sans-serif;font-size:12px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:#0D1B2A;margin-bottom:10px;padding-bottom:10px;border-bottom:1px solid #E2DDD6">{heading}</h4>
+              <p style="font-size:16px;color:#6B7280;line-height:1.75">{body}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-section">
+    <h2 class="reveal">Work With an Advisory That Is Accountable.</h2>
+    <p class="reveal reveal-delay-1">Begin with a confidential conversation. No obligation. No pitch. A senior advisor will tell you honestly what ARM can do for your situation.</p>
+    <div class="btn-row reveal reveal-delay-2">
+      <a href="/contact" class="btn-primary">Schedule a Consultation →</a>
+    </div>
+  </section>
+
+</main>
+</Base>

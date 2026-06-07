@@ -1,0 +1,250 @@
+---
+interface Props {
+  title:       string;
+  description: string;
+  canonical?:  string;
+  ogImage?:    string;
+}
+const {
+  title,
+  description,
+  canonical  = `https://arm-management.com${Astro.url.pathname}`,
+  ogImage    = '/images/og-default.jpg',
+} = Astro.props;
+
+import '../styles/global.css';
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#0D1B2A">
+
+  <title>{title}</title>
+  <meta name="description" content={description}>
+  <link rel="canonical" href={canonical}>
+
+  <meta property="og:type"        content="website">
+  <meta property="og:title"       content={title}>
+  <meta property="og:description" content={description}>
+  <meta property="og:image"       content={ogImage}>
+  <meta property="og:url"         content={canonical}>
+  <meta property="og:site_name"   content="ARM Management">
+  <meta name="twitter:card"       content="summary_large_image">
+  <meta name="twitter:title"      content={title}>
+  <meta name="twitter:description"content={description}>
+  <meta name="twitter:image"      content={ogImage}>
+
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type":    "Organization",
+    name:       "ARM Management",
+    url:        "https://www.arm-management.com",
+    description:"International business advisory headquartered in the UAE.",
+    email:      "info@arm-management.com",
+    address:    { "@type": "PostalAddress", addressCountry: "AE" },
+  })} />
+
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="apple-touch-icon"          href="/apple-touch-icon.png">
+
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-QQTF5Z21P7"></script>
+  <meta name="google-site-verification" content="BPZ_wd1phtBCyHHvjD0zLeWu_pvydXm2ayOUj54sTos">
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-QQTF5Z21P7');
+  </script>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- global.css injected via Astro import in frontmatter -->
+</head>
+<body>
+
+<!-- ── HEADER ──────────────────────────────────────────────────────────────── -->
+<header class="site-header" id="site-header">
+  <div class="header-inner">
+    <a href="/" class="header-logo" aria-label="ARM Management Home">
+      <span class="logo-arm">ARM</span>
+      <span class="logo-rule"></span>
+      <span class="logo-mgmt">Management</span>
+    </a>
+    <nav class="header-nav" id="main-nav">
+      <ul class="nav-list">
+        <li class="has-dropdown">
+          <a href="/services" class="nav-link">Services</a>
+          <ul class="dropdown">
+            <li><a href="/services/transaction-advisory" class="dropdown-link">Transaction Advisory</a></li>
+            <li><a href="/services/company-formation"    class="dropdown-link">Company Formation</a></li>
+            <li><a href="/services/accounting-tax"       class="dropdown-link">Accounting &amp; Tax</a></li>
+            <li><a href="/services/payroll-hr"           class="dropdown-link">Payroll &amp; HR</a></li>
+            <li><a href="/services/global-mobility"      class="dropdown-link">Global Mobility</a></li>
+            <li><a href="/services/crypto-web3"          class="dropdown-link">Crypto &amp; Web3</a></li>
+          </ul>
+        </li>
+        <li class="has-dropdown">
+          <a href="#" class="nav-link">Regions</a>
+          <ul class="dropdown">
+            <li><a href="/regions/european-union" class="dropdown-link">European Union</a></li>
+            <li><a href="/regions/gcc-middle-east" class="dropdown-link">GCC &amp; Middle East</a></li>
+            <li><a href="/regions/asia-pacific"    class="dropdown-link">Asia Pacific</a></li>
+            <li><a href="/regions/latin-america"   class="dropdown-link">Latin America</a></li>
+          </ul>
+        </li>
+        <li><a href="/about"       class="nav-link">About</a></li>
+        <li><a href="/clients"     class="nav-link">Clients</a></li>
+        <li><a href="/insights"    class="nav-link">Insights</a></li>
+        <li><a href="/partnership" class="nav-link">Partnership</a></li>
+      </ul>
+    </nav>
+    <div style="display:flex;align-items:center;gap:12px">
+      <a href="/contact" class="header-cta">Contact</a>
+      <button class="mobile-toggle" id="mobile-toggle" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<slot />
+
+<!-- ── FOOTER ──────────────────────────────────────────────────────────────── -->
+<footer class="site-footer">
+  <div class="footer-main">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="/" class="footer-logo">
+            <span class="logo-arm">ARM</span>
+            <span class="logo-rule"></span>
+            <span class="logo-mgmt">Management</span>
+          </a>
+          <p class="footer-tagline">Empowering Innovation —<br>Quietly, across every border</p>
+          <div class="footer-cities">Brussels &nbsp;·&nbsp; Zurich &nbsp;·&nbsp; Dubai &nbsp;·&nbsp; Shenzhen</div>
+          <a href="mailto:info@arm-management.com" class="footer-email">info@arm-management.com</a>
+        </div>
+        <div class="footer-col">
+          <h4 class="footer-col-title">Services</h4>
+          <ul class="footer-links">
+            <li><a href="/services/transaction-advisory">Transaction Advisory</a></li>
+            <li><a href="/services/company-formation">Company Formation</a></li>
+            <li><a href="/services/accounting-tax">Accounting &amp; Tax</a></li>
+            <li><a href="/services/payroll-hr">Payroll &amp; HR</a></li>
+            <li><a href="/services/global-mobility">Global Mobility</a></li>
+            <li><a href="/services/crypto-web3">Crypto &amp; Web3</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4 class="footer-col-title">Company</h4>
+          <ul class="footer-links">
+            <li><a href="/about">About ARM</a></li>
+            <li><a href="/clients">Who We Work With</a></li>
+            <li><a href="/insights">Insights</a></li>
+            <li><a href="/partnership">Partnership</a></li>
+            <li><a href="/contact">Contact</a></li>
+            <li><a href="https://verify.arm-management.com">ARM Verify</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4 class="footer-col-title">Regions</h4>
+          <ul class="footer-links">
+            <li><a href="/regions/european-union">European Union</a></li>
+            <li><a href="/regions/gcc-middle-east">GCC &amp; Middle East</a></li>
+            <li><a href="/regions/asia-pacific">Asia Pacific</a></li>
+            <li><a href="/regions/latin-america">Latin America</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="container">
+      <div class="footer-bottom-inner">
+        <p>© 2026 ARM Management. All rights reserved. ARM Management is an independent international business advisory. Nothing on this website constitutes regulated investment, legal, financial, or immigration advice.</p>
+        <div class="footer-legal">
+          <a href="/privacy-policy">Privacy Policy</a>
+          <a href="/legal-disclaimer">Legal Disclaimer</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<style>
+  /* Header */
+  .site-header { position: fixed; top: 0; left: 0; right: 0; z-index: 100; padding: 18px 0; transition: background .3s, box-shadow .3s; }
+  .site-header.scrolled { background: rgba(13,27,42,.96); box-shadow: 0 2px 24px rgba(0,0,0,.28); }
+  .header-inner { display: flex; align-items: center; justify-content: space-between; max-width: 1160px; margin: 0 auto; padding: 0 32px; }
+  .header-logo  { display: flex; align-items: center; gap: 10px; }
+  .logo-arm  { font-family: 'Cormorant Garamond', serif; font-size: 22px; font-weight: 700; color: #B8960C; letter-spacing: .04em; }
+  .logo-rule { width: 1px; height: 22px; background: rgba(184,150,12,.4); }
+  .logo-mgmt { font-family: 'Inter', sans-serif; font-size: 11px; font-weight: 500; letter-spacing: .18em; text-transform: uppercase; color: rgba(247,243,236,.65); }
+  .nav-list  { display: flex; gap: 4px; list-style: none; }
+  .nav-link  { font-size: 13px; font-weight: 500; letter-spacing: .04em; color: rgba(247,243,236,.78); padding: 8px 12px; border-radius: 2px; transition: color .2s; }
+  .nav-link:hover { color: #B8960C; }
+  .has-dropdown { position: relative; }
+  .dropdown { display: none; position: absolute; top: calc(100% + 8px); left: 0; background: #0D1B2A; border-top: 2px solid #B8960C; min-width: 220px; padding: 8px 0; list-style: none; box-shadow: 0 8px 32px rgba(0,0,0,.4); z-index: 200; }
+  .has-dropdown:hover .dropdown { display: block; }
+  .dropdown-link { display: block; padding: 10px 20px; font-size: 13px; color: rgba(247,243,236,.72); transition: color .15s; }
+  .dropdown-link:hover { color: #B8960C; }
+  .header-cta { font-family: 'Inter', sans-serif; font-size: 12px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: #0D1B2A; background: #B8960C; padding: 10px 20px; border-radius: 2px; transition: opacity .2s; }
+  .header-cta:hover { opacity: .88; }
+  .mobile-toggle { display: none; background: none; border: none; cursor: pointer; padding: 4px; }
+  .mobile-toggle span { display: block; width: 22px; height: 2px; background: rgba(247,243,236,.8); margin: 5px 0; }
+  @media (max-width: 900px) { .header-nav { display: none; } .mobile-toggle { display: block; } }
+
+  /* Footer */
+  .site-footer { background: #0D1B2A; }
+  .footer-main { padding: 80px 0 40px; }
+  .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px; }
+  .footer-logo { display: flex; align-items: center; gap: 10px; margin-bottom: 20px; }
+  .footer-tagline { font-style: italic; color: rgba(247,243,236,.5); font-size: 14px; line-height: 1.65; margin-bottom: 16px; }
+  .footer-cities  { font-size: 11px; letter-spacing: .12em; color: rgba(247,243,236,.3); text-transform: uppercase; margin-bottom: 16px; }
+  .footer-email   { font-size: 14px; color: #B8960C; transition: opacity .2s; }
+  .footer-email:hover { opacity: .8; }
+  .footer-col-title { font-family: 'Inter', sans-serif; font-size: 11px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: rgba(247,243,236,.38); margin-bottom: 18px; }
+  .footer-links { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+  .footer-links a { font-size: 14px; color: rgba(247,243,236,.58); transition: color .2s; }
+  .footer-links a:hover { color: #B8960C; }
+  .footer-bottom { border-top: 1px solid rgba(247,243,236,.07); padding: 24px 0; }
+  .footer-bottom-inner { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; }
+  .footer-bottom p { font-size: 12px; color: rgba(247,243,236,.3); max-width: 680px; line-height: 1.6; }
+  .footer-legal { display: flex; gap: 24px; }
+  .footer-legal a { font-size: 12px; color: rgba(247,243,236,.32); transition: color .2s; }
+  .footer-legal a:hover { color: #B8960C; }
+  @media (max-width: 900px) { .footer-grid { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 560px) { .footer-grid { grid-template-columns: 1fr; } }
+</style>
+
+<script>
+  const header = document.getElementById('site-header');
+  window.addEventListener('scroll', () => {
+    header?.classList.toggle('scrolled', window.scrollY > 60);
+  }, { passive: true });
+
+  const toggle = document.getElementById('mobile-toggle');
+  const nav    = document.getElementById('main-nav');
+  toggle?.addEventListener('click', () => {
+    const open = nav?.style.display === 'flex';
+    if (nav) {
+      nav.style.display = open ? '' : 'flex';
+      if (!open) Object.assign(nav.style, { flexDirection:'column', position:'absolute', top:'70px', left:'0', right:'0', background:'#0D1B2A', padding:'20px 32px', gap:'4px', zIndex:'999' });
+    }
+  });
+
+  const reveals   = document.querySelectorAll('.reveal');
+  const observer  = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
+  }, { threshold: 0.12 });
+  reveals.forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>

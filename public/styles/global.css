@@ -1,0 +1,4 @@
+/* This file is served from /public/styles/global.css
+   Source: src/styles/global.css — changes should be made there.
+   Astro copies src/styles/global.css to public/styles/global.css at build time.
+   For local dev, this file is served directly by Astro's dev server from /public. */
