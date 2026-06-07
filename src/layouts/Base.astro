@@ -191,9 +191,13 @@ import '../styles/global.css';
   .nav-link:hover { color: #B8960C; }
   .has-dropdown { position: relative; }
   .dropdown { display: none; position: absolute; top: calc(100% + 8px); left: 0; background: #0D1B2A; border-top: 2px solid #B8960C; min-width: 220px; padding: 8px 0; list-style: none; box-shadow: 0 8px 32px rgba(0,0,0,.4); z-index: 200; }
-  .has-dropdown:hover .dropdown { display: block; }
+  .has-dropdown.is-open > .dropdown { display: block; }
   .dropdown-link { display: block; padding: 10px 20px; font-size: 13px; color: rgba(247,243,236,.72); transition: color .15s; }
   .dropdown-link:hover { color: #B8960C; }
+  @media (max-width: 900px) {
+    .has-dropdown.is-open > .dropdown { position: static; background: transparent; border-top: 1px solid rgba(184,150,12,.2); border-left: 2px solid rgba(184,150,12,.3); box-shadow: none; padding: 4px 0 4px 12px; min-width: 0; margin: 4px 0 8px; }
+    .has-dropdown.is-open > .dropdown .dropdown-link { padding: 7px 12px; font-size: 12px; }
+  }
   .header-cta { font-family: 'Inter', sans-serif; font-size: 12px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: #0D1B2A; background: #B8960C; padding: 10px 20px; border-radius: 2px; transition: opacity .2s; }
   .header-cta:hover { opacity: .88; }
   .mobile-toggle { display: none; background: none; border: none; cursor: pointer; padding: 4px; }
@@ -224,21 +228,65 @@ import '../styles/global.css';
 </style>
 
 <script>
+  // Scroll header
   const header = document.getElementById('site-header');
   window.addEventListener('scroll', () => {
     header?.classList.toggle('scrolled', window.scrollY > 60);
   }, { passive: true });
 
+  // ── Dropdown: hover (pointer devices) + click/tap (all devices) ──────────────
+  const ddItems = document.querySelectorAll('.has-dropdown');
+  const closeTimers = new Map();
+  const hasHover = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+
+  function openDD(el) {
+    clearTimeout(closeTimers.get(el));
+    ddItems.forEach(d => { if (d !== el) closeDD(d, true); });
+    el.classList.add('is-open');
+  }
+  function closeDD(el, immediate) {
+    if (immediate) { el.classList.remove('is-open'); return; }
+    closeTimers.set(el, setTimeout(() => el.classList.remove('is-open'), 300));
+  }
+
+  ddItems.forEach(el => {
+    // Desktop hover (only on true pointer devices — not touch)
+    if (hasHover) {
+      el.addEventListener('mouseenter', () => openDD(el));
+      el.addEventListener('mouseleave', () => closeDD(el));
+    }
+    // Click/tap toggles on every device
+    const trigger = el.querySelector(':scope > .nav-link');
+    trigger?.addEventListener('click', e => {
+      const href = trigger.getAttribute('href');
+      if (el.classList.contains('is-open')) {
+        closeDD(el, true);
+        if (!href || href === '#') e.preventDefault(); // don't jump to top on #
+      } else {
+        e.preventDefault();
+        openDD(el);
+      }
+    });
+  });
+
+  // Close dropdowns when clicking anywhere outside
+  document.addEventListener('click', e => {
+    if (!e.target.closest('.has-dropdown')) ddItems.forEach(d => closeDD(d, true));
+  });
+
+  // ── Mobile nav toggle ─────────────────────────────────────────────────────────
   const toggle = document.getElementById('mobile-toggle');
   const nav    = document.getElementById('main-nav');
   toggle?.addEventListener('click', () => {
-    const open = nav?.style.display === 'flex';
+    const isOpen = nav?.style.display === 'flex';
     if (nav) {
-      nav.style.display = open ? '' : 'flex';
-      if (!open) Object.assign(nav.style, { flexDirection:'column', position:'absolute', top:'70px', left:'0', right:'0', background:'#0D1B2A', padding:'20px 32px', gap:'4px', zIndex:'999' });
+      nav.style.display = isOpen ? '' : 'flex';
+      if (!isOpen) Object.assign(nav.style, { flexDirection:'column', position:'absolute', top:'70px', left:'0', right:'0', background:'#0D1B2A', padding:'20px 32px', gap:'4px', zIndex:'999' });
+      if (isOpen) ddItems.forEach(d => closeDD(d, true)); // close all dropdowns when nav closes
     }
   });
 
+  // ── Reveal animations ─────────────────────────────────────────────────────────
   const reveals   = document.querySelectorAll('.reveal');
   const observer  = new IntersectionObserver(entries => {
     entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
