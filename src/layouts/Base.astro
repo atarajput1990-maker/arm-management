@@ -41,9 +41,16 @@ import '../styles/global.css';
     "@type":    "Organization",
     name:       "ARM Management",
     url:        "https://www.arm-management.com",
-    description:"International business advisory headquartered in the UAE.",
+    description:"International business advisory headquartered in the UAE, with offices in Brussels, Zurich, Dubai, Riyadh and Shenzhen.",
     email:      "info@arm-management.com",
     address:    { "@type": "PostalAddress", addressCountry: "AE" },
+    location: [
+      { "@type": "Place", name: "ARM Management — Brussels", address: { "@type": "PostalAddress", addressLocality: "Brussels", addressCountry: "BE" } },
+      { "@type": "Place", name: "ARM Management — Zurich",   address: { "@type": "PostalAddress", addressLocality: "Zurich",   addressCountry: "CH" } },
+      { "@type": "Place", name: "ARM Management — Dubai",    address: { "@type": "PostalAddress", addressLocality: "Dubai",    addressCountry: "AE" } },
+      { "@type": "Place", name: "ARM Management — Riyadh",   address: { "@type": "PostalAddress", addressLocality: "Riyadh",   addressCountry: "SA" } },
+      { "@type": "Place", name: "ARM Management — Shenzhen", address: { "@type": "PostalAddress", addressLocality: "Shenzhen", addressCountry: "CN" } },
+    ],
   })} />
 
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
@@ -127,7 +134,7 @@ import '../styles/global.css';
             <span class="logo-mgmt">Management</span>
           </a>
           <p class="footer-tagline">Empowering Innovation —<br>Quietly, across every border</p>
-          <div class="footer-cities">Brussels &nbsp;·&nbsp; Zurich &nbsp;·&nbsp; Dubai &nbsp;·&nbsp; Shenzhen</div>
+          <div class="footer-cities">Brussels &nbsp;·&nbsp; Zurich &nbsp;·&nbsp; Riyadh &nbsp;·&nbsp; Dubai &nbsp;·&nbsp; Shenzhen</div>
           <a href="mailto:info@arm-management.com" class="footer-email">info@arm-management.com</a>
         </div>
         <div class="footer-col">
