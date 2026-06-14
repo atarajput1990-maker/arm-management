@@ -1,0 +1,94 @@
+---
+import Base from '../../layouts/Base.astro';
+const reviewed = "June 2026";
+---
+<Base
+  title="Company Formation & Tax in Germany 2026: GmbH, UG & Corporate Tax | ARM Management"
+  description="A current guide to setting up a company in Germany — the GmbH and UG, the corporate tax stack (15.825% plus trade tax, ~30% combined), 19% VAT and registration, with official sources."
+>
+  <main>
+    <section class="page-hero">
+      <div class="page-hero__bg" style="background-image:url('/images/ed-zurich.jpg')"></div>
+      <div class="page-hero__overlay"></div>
+      <div class="page-hero__content container">
+        <span class="eyebrow">Guide · Germany</span>
+        <h1>Company Formation &amp; Tax in Germany</h1>
+        <p>Europe's largest economy — the entity types, the three-part corporate tax burden, VAT and what registration actually involves in 2026.</p>
+      </div>
+    </section>
+
+    <section class="section section--warm">
+      <div class="container--narrow">
+        <div class="guide-meta reveal">
+          <span><strong>Last reviewed:</strong> {reviewed}</span>
+          <span><strong>Primary sources:</strong>
+            <a href="https://www.gtai.de/en/invest" target="_blank" rel="noopener">Germany Trade &amp; Invest</a>,
+            <a href="https://www.bundesfinanzministerium.de" target="_blank" rel="noopener">Federal Ministry of Finance</a>
+          </span>
+        </div>
+
+        <div class="prose">
+          <p class="reveal lede">Germany offers access to the EU's largest market and a deep base of talent and capital — alongside a corporate tax system that rewards careful planning. The headline that catches most founders out is that there is no single "corporate tax rate": the real burden is a stack of three taxes, and one of them depends on which city you register in.</p>
+
+          <h2 class="reveal">Choosing an entity</h2>
+          <p class="reveal">The standard vehicle is the <strong>GmbH</strong> (limited liability company), which requires EUR 25,000 of share capital (half payable on incorporation). For founders starting lean, the <strong>UG (haftungsbeschränkt)</strong> — often called the "mini-GmbH" — can be formed from as little as EUR 1, building reserves toward GmbH status over time. Larger and capital-raising businesses use the <strong>AG</strong> (stock corporation), and a common hybrid for investment structures is the <strong>GmbH &amp; Co. KG</strong>. Incorporation is notarised and the company is entered in the commercial register (Handelsregister).</p>
+
+          <h2 class="reveal">The corporate tax stack</h2>
+          <p class="reveal">A German company's profits are taxed in three layers:</p>
+          <div class="rate-table reveal">
+            <table>
+              <thead><tr><th>Component</th><th>Rate</th></tr></thead>
+              <tbody>
+                <tr><td>Corporate income tax (Körperschaftsteuer)</td><td>15%</td></tr>
+                <tr><td>Solidarity surcharge (5.5% of the CIT)</td><td>≈ 0.825% → CIT effectively 15.825%</td></tr>
+                <tr><td>Trade tax (Gewerbesteuer) — set by the municipality</td><td>typically ≈ 14–17%</td></tr>
+                <tr><td><strong>Combined effective burden</strong></td><td><strong>≈ 30% (varies by location)</strong></td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="reveal">Corporate income tax plus the solidarity surcharge is a flat <strong>15.825%</strong> nationwide. Trade tax is where location matters: it is calculated from a federal base rate of 3.5% multiplied by each municipality's own multiplier (Hebesatz), so the effective rate differs from city to city — higher in major hubs like Munich or Frankfurt, lower in smaller towns competing for investment. The combined corporate burden generally lands around 30%.</p>
+
+          <h2 class="reveal">VAT</h2>
+          <p class="reveal">VAT (Umsatzsteuer, USt) has a standard rate of <strong>19%</strong>, with a reduced <strong>7%</strong> rate for items such as food, books and public transport, and some exemptions. Companies charge VAT on sales, reclaim input VAT on purchases, and file periodic VAT returns. Registration and filing run through the local tax office (Finanzamt) and the ELSTER online portal.</p>
+
+          <div class="callout reveal">
+            <strong>Location is a tax decision, not just a logistics one.</strong> Because trade tax varies by municipality, two otherwise identical companies can face a meaningfully different effective rate purely based on where they register. For profit-heavy businesses, the municipal multiplier is worth modelling before you choose a seat.
+          </div>
+
+          <h2 class="reveal">Incentives and compliance</h2>
+          <p class="reveal">Germany operates a research allowance (Forschungszulage) offering a tax credit on qualifying R&amp;D wages and costs, expanded in recent reforms. Companies must keep formal accounts, file annual financial statements and corporate and trade-tax returns, and submit regular VAT filings. Resident companies are taxed on worldwide income; double-tax treaties typically relieve foreign permanent-establishment profits.</p>
+
+          <h2 class="reveal">Frequently asked questions</h2>
+          <div class="reveal">
+            <div class="faq-item"><h4>What is the corporate tax rate in Germany?</h4><p>Corporate income tax plus the solidarity surcharge is a flat 15.825%, on top of which municipal trade tax of roughly 14–17% applies — a combined burden of around 30%, depending on location.</p></div>
+            <div class="faq-item"><h4>How much capital do I need for a GmbH?</h4><p>EUR 25,000, with half payable on incorporation. A UG ("mini-GmbH") can be formed from as little as EUR 1.</p></div>
+            <div class="faq-item"><h4>What is the VAT rate in Germany?</h4><p>The standard VAT rate is 19%, with a reduced 7% rate for certain goods and services.</p></div>
+            <div class="faq-item"><h4>Why does the tax rate depend on the city?</h4><p>Trade tax uses a municipal multiplier (Hebesatz) that each city sets, so the effective combined rate varies by where the company is registered.</p></div>
+          </div>
+
+          <h2 class="reveal">Official sources</h2>
+          <ul class="sources reveal">
+            <li><a href="https://www.gtai.de/en/invest/investment-guide/corporate-taxation-in-germany" target="_blank" rel="noopener">Germany Trade &amp; Invest — Corporate Taxation</a></li>
+            <li><a href="https://www.bundesfinanzministerium.de" target="_blank" rel="noopener">Federal Ministry of Finance (Bundesfinanzministerium)</a></li>
+            <li><a href="https://www.elster.de" target="_blank" rel="noopener">ELSTER</a> — official tax-filing portal</li>
+          </ul>
+
+          <p class="reveal disclaimer">This guide is general information prepared by ARM Management and is current as at {reviewed}. It is not legal or tax advice; trade-tax rates vary by municipality and rules change. Confirm against the official sources above, or with an advisor, before acting.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta-section guide-cta">
+      <span class="eyebrow is-center reveal" style="justify-content:center">Speak With ARM</span>
+      <h2 class="reveal">Enter the German market with the right structure.</h2>
+      <p class="reveal">From our Brussels and Zurich base, ARM Management advises international companies on German entity selection, tax positioning and cross-border structuring. Begin with a confidential conversation.</p>
+      <div class="btn-row reveal">
+        <a href="/contact" class="btn-primary">Schedule a Consultation →</a>
+        <a href="/services/company-formation" class="btn-secondary">Company Formation Services</a>
+      </div>
+    </section>
+  </main>
+
+  <script type="application/ld+json" set:html={JSON.stringify({"@context":"https://schema.org","@type":"Article","headline":"Company Formation & Tax in Germany 2026","author":{"@type":"Organization","name":"ARM Management"},"publisher":{"@type":"Organization","name":"ARM Management"},"dateModified":"2026-06-01","mainEntityOfPage":"https://arm-management.com/insights/germany-company-formation"})} />
+  <script type="application/ld+json" set:html={JSON.stringify({"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is the corporate tax rate in Germany?","acceptedAnswer":{"@type":"Answer","text":"Corporate income tax plus the solidarity surcharge is a flat 15.825%, on top of which municipal trade tax of roughly 14-17% applies — a combined burden of around 30%, depending on location."}},{"@type":"Question","name":"How much capital do I need for a GmbH?","acceptedAnswer":{"@type":"Answer","text":"EUR 25,000, with half payable on incorporation. A UG (mini-GmbH) can be formed from as little as EUR 1."}},{"@type":"Question","name":"What is the VAT rate in Germany?","acceptedAnswer":{"@type":"Answer","text":"The standard VAT rate is 19%, with a reduced 7% rate for certain goods and services."}}]})} />
+</Base>

@@ -1,0 +1,92 @@
+---
+import Base from '../../layouts/Base.astro';
+const reviewed = "June 2026";
+---
+<Base
+  title="Company Formation & Tax in Switzerland 2026: GmbH, AG & Cantonal Tax | ARM Management"
+  description="A current guide to setting up a company in Switzerland — the GmbH and AG, the three-tier corporate tax (8.5% federal plus cantonal/communal, ~12–21% combined), 8.1% VAT and the participation exemption, with official sources."
+>
+  <main>
+    <section class="page-hero">
+      <div class="page-hero__bg" style="background-image:url('/images/ed-zurich.jpg')"></div>
+      <div class="page-hero__overlay"></div>
+      <div class="page-hero__content container">
+        <span class="eyebrow">Guide · Switzerland</span>
+        <h1>Company Formation &amp; Tax in Switzerland</h1>
+        <p>Stability, credibility and a genuinely competitive tax base — but the rate you pay depends heavily on the canton you choose.</p>
+      </div>
+    </section>
+
+    <section class="section section--warm">
+      <div class="container--narrow">
+        <div class="guide-meta reveal">
+          <span><strong>Last reviewed:</strong> {reviewed}</span>
+          <span><strong>Primary source:</strong>
+            <a href="https://www.estv.admin.ch" target="_blank" rel="noopener">Swiss Federal Tax Administration (ESTV)</a>
+          </span>
+        </div>
+
+        <div class="prose">
+          <p class="reveal lede">Switzerland pairs political and legal stability with one of the more tax-efficient corporate environments in the OECD — but "Swiss tax is low" is only half the story. The federal rate is just the first of three layers, and the canton you incorporate in does most of the work in determining your effective rate.</p>
+
+          <h2 class="reveal">Choosing an entity</h2>
+          <p class="reveal">The two main forms are the <strong>GmbH/Sàrl</strong> (limited liability company), requiring CHF 20,000 of capital fully paid on incorporation, and the <strong>AG/SA</strong> (stock corporation), requiring CHF 100,000 of capital with at least CHF 50,000 paid in. For tax purposes the choice between them makes little difference; the AG is generally preferred for larger ventures and fundraising. Capital is deposited in a blocked account before notarisation, and the company is entered in the commercial register (Handelsregister).</p>
+
+          <h2 class="reveal">The three-tier corporate tax</h2>
+          <p class="reveal">Corporate profit is taxed at federal, cantonal and communal level. Federal corporate income tax is a flat 8.5% on profit after tax (an effective ~7.83%), identical everywhere. Cantons and communes then add their own rates, producing combined effective rates that vary widely:</p>
+          <div class="rate-table reveal">
+            <table>
+              <thead><tr><th>Layer</th><th>Rate</th></tr></thead>
+              <tbody>
+                <tr><td>Federal (flat, nationwide)</td><td>8.5% statutory (~7.83% effective)</td></tr>
+                <tr><td>Cantonal + communal (varies)</td><td>added on top</td></tr>
+                <tr><td><strong>Combined effective</strong></td><td><strong>≈ 11.9% (Zug) to ≈ 21% (Bern)</strong></td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="reveal">Around ten cantons sit below 14%, with low-tax cantons like Zug and Lucerne at the bottom of the range and others such as Bern and Geneva towards the higher end. For a profitable company, the canton (and even the commune) is one of the most consequential decisions at formation.</p>
+
+          <h2 class="reveal">VAT and withholding tax</h2>
+          <p class="reveal">Swiss VAT has a standard rate of <strong>8.1%</strong> (with a reduced 2.6% rate and a 3.8% accommodation rate); registration is mandatory once worldwide taxable turnover exceeds CHF 100,000 a year. Switzerland also levies a <strong>35% withholding tax</strong> on dividends — fully refundable for Swiss-resident shareholders, and reduced (typically to 5–15%) for non-residents under the applicable double-tax treaty.</p>
+
+          <div class="callout reveal">
+            <strong>Choose the canton before you incorporate.</strong> The nine-point spread between the lowest and highest cantons is the single biggest lever on a Swiss company's tax bill — far more than the choice of GmbH versus AG. Where a cantonal relief (such as the patent box) is central to a plan, securing an advance tax ruling before executing is standard practice.
+          </div>
+
+          <h2 class="reveal">Holding and IP reliefs</h2>
+          <p class="reveal">The <strong>participation exemption</strong> relieves dividends and capital gains from qualifying participations (broadly a stake of at least 10% or CHF 1 million), which is the main reason Switzerland is favoured for holding companies. Following the TRAF reform, cantons also offer a patent box and an R&amp;D super-deduction, with the combined relief capped per year. Groups above EUR 750 million in consolidated revenue may be in scope of the 15% global minimum tax, but most SMEs are not.</p>
+
+          <h2 class="reveal">Frequently asked questions</h2>
+          <div class="reveal">
+            <div class="faq-item"><h4>What is the corporate tax rate in Switzerland?</h4><p>Federal corporate tax is a flat 8.5% (~7.83% effective), and combined federal/cantonal/communal effective rates range from roughly 11.9% to 21% depending on the canton.</p></div>
+            <div class="faq-item"><h4>How much capital do I need — GmbH or AG?</h4><p>A GmbH requires CHF 20,000 fully paid; an AG requires CHF 100,000 with at least CHF 50,000 paid in.</p></div>
+            <div class="faq-item"><h4>What is the Swiss VAT rate?</h4><p>The standard VAT rate is 8.1%, with a 2.6% reduced rate and a 3.8% accommodation rate; registration is required above CHF 100,000 turnover.</p></div>
+            <div class="faq-item"><h4>Why does the canton matter so much?</h4><p>Cantonal and communal taxes sit on top of the flat federal rate, so the combined effective rate — and your final bill — depends heavily on where you incorporate.</p></div>
+          </div>
+
+          <h2 class="reveal">Official sources</h2>
+          <ul class="sources reveal">
+            <li><a href="https://www.estv.admin.ch" target="_blank" rel="noopener">Swiss Federal Tax Administration (ESTV)</a></li>
+            <li><a href="https://www.zefix.ch" target="_blank" rel="noopener">Zefix</a> — central commercial register</li>
+            <li>Federal Direct Tax Act (DBG) and cantonal tax acts; VAT Act (MWSTG)</li>
+          </ul>
+
+          <p class="reveal disclaimer">This guide is general information prepared by ARM Management and is current as at {reviewed}. It is not legal or tax advice; cantonal and communal rates vary and rules change. Confirm against the ESTV and the relevant cantonal authority, or with an advisor, before acting.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta-section guide-cta">
+      <span class="eyebrow is-center reveal" style="justify-content:center">Speak With ARM</span>
+      <h2 class="reveal">Incorporate in the right canton.</h2>
+      <p class="reveal">With a Zurich presence, ARM Management advises international companies on Swiss entity selection, canton choice, holding structures and tax positioning. Begin with a confidential conversation.</p>
+      <div class="btn-row reveal">
+        <a href="/contact" class="btn-primary">Schedule a Consultation →</a>
+        <a href="/services/company-formation" class="btn-secondary">Company Formation Services</a>
+      </div>
+    </section>
+  </main>
+
+  <script type="application/ld+json" set:html={JSON.stringify({"@context":"https://schema.org","@type":"Article","headline":"Company Formation & Tax in Switzerland 2026","author":{"@type":"Organization","name":"ARM Management"},"publisher":{"@type":"Organization","name":"ARM Management"},"dateModified":"2026-06-01","mainEntityOfPage":"https://arm-management.com/insights/switzerland-company-formation"})} />
+  <script type="application/ld+json" set:html={JSON.stringify({"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is the corporate tax rate in Switzerland?","acceptedAnswer":{"@type":"Answer","text":"Federal corporate tax is a flat 8.5% (~7.83% effective), and combined federal/cantonal/communal effective rates range from roughly 11.9% to 21% depending on the canton."}},{"@type":"Question","name":"How much capital do I need for a Swiss GmbH or AG?","acceptedAnswer":{"@type":"Answer","text":"A GmbH requires CHF 20,000 fully paid; an AG requires CHF 100,000 with at least CHF 50,000 paid in."}},{"@type":"Question","name":"What is the Swiss VAT rate?","acceptedAnswer":{"@type":"Answer","text":"The standard VAT rate is 8.1%, with a 2.6% reduced rate and a 3.8% accommodation rate; registration is required above CHF 100,000 turnover."}}]})} />
+</Base>
