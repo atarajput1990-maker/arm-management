@@ -1,0 +1,101 @@
+---
+import Base from '../../layouts/Base.astro';
+const reviewed = "June 2026";
+---
+<Base
+  title="MiCA Regulation 2026: CASP Authorisation & the 1 July Deadline | ARM Management"
+  description="A current guide to the EU's Markets in Crypto-Assets Regulation (MiCA) — CASP authorisation, the own-funds classes, the ESMA register and passporting, and the transitional period that expires 1 July 2026, with official ESMA sources."
+>
+  <main>
+    <section class="page-hero">
+      <div class="page-hero__bg" style="background-image:url('/images/ed-brussels.jpg')"></div>
+      <div class="page-hero__overlay"></div>
+      <div class="page-hero__content container">
+        <span class="eyebrow">Guide · Crypto &amp; Web3</span>
+        <h1>MiCA: The EU Crypto Rulebook</h1>
+        <p>The framework that now governs crypto-asset services across the EU — what CASP authorisation requires, and why 1 July 2026 is the date that matters.</p>
+      </div>
+    </section>
+
+    <section class="section section--warm">
+      <div class="container--narrow">
+        <div class="guide-meta reveal">
+          <span><strong>Last reviewed:</strong> {reviewed}</span>
+          <span><strong>Primary source:</strong>
+            <a href="https://www.esma.europa.eu/esmas-activities/digital-finance-and-innovation/markets-crypto-assets-regulation-mica" target="_blank" rel="noopener">ESMA — MiCA</a>
+          </span>
+        </div>
+
+        <div class="prose">
+          <p class="reveal lede">MiCA — the Markets in Crypto-Assets Regulation, <strong>Regulation (EU) 2023/1114</strong> — is the EU's single, harmonised framework for crypto-assets and the firms that provide services around them. It replaced a patchwork of national regimes with one rulebook across all 27 member states. For any firm serving EU clients, MiCA is no longer on the horizon — it is in force, and a critical deadline falls in 2026.</p>
+
+          <div class="callout reveal">
+            <strong>The deadline:</strong> the transitional "grandfathering" period under Article 143 of MiCA <strong>expires across the EU on 1 July 2026</strong>. After that date, ESMA has been explicit that any firm providing crypto-asset services to EU clients without MiCA authorisation is in breach of EU law and must stop. Several member states set shorter national windows that have already closed.
+          </div>
+
+          <h2 class="reveal">How MiCA came into effect</h2>
+          <div class="rate-table reveal">
+            <table>
+              <thead><tr><th>Date</th><th>Milestone</th></tr></thead>
+              <tbody>
+                <tr><td>29 June 2023</td><td>MiCA enters into force (published in the Official Journal 9 June 2023)</td></tr>
+                <tr><td>30 June 2024</td><td>Stablecoin rules apply — asset-referenced tokens (ART) and e-money tokens (EMT)</td></tr>
+                <tr><td>30 December 2024</td><td>The CASP authorisation regime applies — MiCA becomes mandatory for service providers</td></tr>
+                <tr><td>1 July 2026</td><td>EU-wide expiry of the transitional period; full authorisation required</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h2 class="reveal">CASP authorisation and passporting</h2>
+          <p class="reveal">A Crypto-Asset Service Provider (CASP) is authorised by the National Competent Authority (NCA) of the member state where it is based — for example a national financial regulator. Once authorised, a CASP benefits from an EU "passport": it can provide its services across all member states without separate authorisation in each. A firm relying on a national transitional regime does <em>not</em> hold a passport until it secures full MiCA authorisation. Users can check a provider's status on ESMA's interim MiCA register, which lists authorised CASPs, white papers and non-compliant entities.</p>
+
+          <h2 class="reveal">Own-funds (capital) classes</h2>
+          <p class="reveal">CASPs must hold minimum own funds according to the services they provide, in three classes:</p>
+          <div class="rate-table reveal">
+            <table>
+              <thead><tr><th>Class</th><th>Minimum own funds</th><th>Typical services</th></tr></thead>
+              <tbody>
+                <tr><td>Class 1</td><td>EUR 50,000</td><td>Advice, reception/transmission of orders, execution, placing</td></tr>
+                <tr><td>Class 2</td><td>EUR 125,000</td><td>Custody, exchange of crypto for funds or other crypto</td></tr>
+                <tr><td>Class 3</td><td>EUR 150,000</td><td>Operating a crypto-asset trading platform</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h2 class="reveal">Who supervises what</h2>
+          <p class="reveal">ESMA (the European Securities and Markets Authority) leads on CASPs and market integrity; the EBA (European Banking Authority) leads on significant stablecoins (ART/EMT) and prudential matters; and the ECB and national central banks provide input where monetary policy or payment systems are affected. Authorisation itself is handled by each member state's NCA.</p>
+
+          <h2 class="reveal">Frequently asked questions</h2>
+          <div class="reveal">
+            <div class="faq-item"><h4>What happens after 1 July 2026?</h4><p>The EU-wide transitional period ends. A firm serving EU clients without MiCA authorisation would be operating in breach of EU law and must cease those services.</p></div>
+            <div class="faq-item"><h4>Does grandfathering give an EU passport?</h4><p>No. Firms operating under a national transitional regime do not get the EU passport until they obtain full MiCA authorisation.</p></div>
+            <div class="faq-item"><h4>How much capital does a CASP need?</h4><p>Minimum own funds of EUR 50,000, EUR 125,000 or EUR 150,000 depending on the services provided.</p></div>
+            <div class="faq-item"><h4>How can I check if a provider is authorised?</h4><p>ESMA publishes an interim MiCA register of authorised CASPs and non-compliant entities.</p></div>
+          </div>
+
+          <h2 class="reveal">Official sources</h2>
+          <ul class="sources reveal">
+            <li><a href="https://www.esma.europa.eu/esmas-activities/digital-finance-and-innovation/markets-crypto-assets-regulation-mica" target="_blank" rel="noopener">ESMA — Markets in Crypto-Assets Regulation (MiCA)</a></li>
+            <li>Legal basis — Regulation (EU) 2023/1114; transitional measures under Article 143</li>
+            <li><a href="https://www.eba.europa.eu" target="_blank" rel="noopener">European Banking Authority (EBA)</a> — stablecoins / prudential</li>
+          </ul>
+
+          <p class="reveal disclaimer">This guide is general information prepared by ARM Management and is current as at {reviewed}. National transitional windows and procedures differ by member state and change. Confirm requirements against ESMA, the relevant NCA, or an advisor before acting — particularly given the 1 July 2026 deadline.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta-section guide-cta">
+      <span class="eyebrow is-center reveal" style="justify-content:center">Speak With ARM</span>
+      <h2 class="reveal">Get MiCA-ready before the deadline.</h2>
+      <p class="reveal">ARM Management advises crypto-asset businesses on MiCA authorisation, member-state selection and cross-border structuring between the EU and the GCC. Begin with a confidential conversation.</p>
+      <div class="btn-row reveal">
+        <a href="/contact" class="btn-primary">Schedule a Consultation →</a>
+        <a href="/services/crypto-web3" class="btn-secondary">Crypto &amp; Web3 Advisory</a>
+      </div>
+    </section>
+  </main>
+
+  <script type="application/ld+json" set:html={JSON.stringify({"@context":"https://schema.org","@type":"Article","headline":"MiCA Regulation 2026: CASP Authorisation & the 1 July Deadline","author":{"@type":"Organization","name":"ARM Management"},"publisher":{"@type":"Organization","name":"ARM Management"},"dateModified":"2026-06-01","mainEntityOfPage":"https://arm-management.com/insights/mica-regulation"})} />
+  <script type="application/ld+json" set:html={JSON.stringify({"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What happens after 1 July 2026 under MiCA?","acceptedAnswer":{"@type":"Answer","text":"The EU-wide transitional period ends. A firm serving EU clients without MiCA authorisation would be in breach of EU law and must cease those services."}},{"@type":"Question","name":"Does MiCA grandfathering give an EU passport?","acceptedAnswer":{"@type":"Answer","text":"No. Firms under a national transitional regime do not get the EU passport until they obtain full MiCA authorisation."}},{"@type":"Question","name":"How much capital does a CASP need under MiCA?","acceptedAnswer":{"@type":"Answer","text":"Minimum own funds of EUR 50,000, EUR 125,000 or EUR 150,000 depending on the services provided."}}]})} />
+</Base>

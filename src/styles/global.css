@@ -396,3 +396,30 @@ cite { display: block; font-size: 12px; font-weight: 600; letter-spacing: .12em;
   .verify-banner__right  { width: 100%; }
   .verify-banner__cta    { width: 100%; justify-content: center; }
 }
+
+/* ── Guide / article pages ─────────────────────────────────────────────────── */
+.guide-meta{ display:flex; flex-wrap:wrap; gap:8px 28px; padding-bottom:26px; margin-bottom:40px; border-bottom:1px solid var(--border); font-family:'Inter',sans-serif; font-size:13px; color:var(--muted); }
+.guide-meta a{ color:var(--gold); border-bottom:1px solid transparent; }
+.guide-meta a:hover{ border-color:var(--gold); }
+.prose{ max-width:760px; }
+.prose .lede{ font-size:clamp(17px,1.5vw,20px); line-height:1.75; color:var(--navy); }
+.prose p{ margin-bottom:22px; }
+.prose h2{ margin:54px 0 8px; }
+.prose h3{ margin:34px 0 6px; color:var(--navy); }
+.prose ul{ margin:0 0 22px; padding-left:20px; }
+.prose li{ margin-bottom:8px; color:var(--text); line-height:1.7; }
+.prose strong{ color:var(--navy); }
+.prose a{ color:var(--gold); border-bottom:1px solid rgba(184,150,12,.4); }
+.prose a:hover{ border-color:var(--gold); }
+.rate-table{ margin:26px 0 30px; overflow-x:auto; }
+.rate-table table{ width:100%; border-collapse:collapse; font-family:'Inter',sans-serif; }
+.rate-table th{ text-align:left; font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:var(--gold); padding:12px 16px; border-bottom:1px solid var(--gold); }
+.rate-table td{ padding:14px 16px; border-bottom:1px solid var(--border); font-size:14.5px; color:var(--navy); vertical-align:top; }
+.callout{ background:var(--cream); border-left:2px solid var(--gold); padding:22px 26px; margin:30px 0; font-size:15px; line-height:1.7; color:var(--navy); }
+.faq-item{ border-top:1px solid var(--border); padding:22px 0; }
+.faq-item h4{ font-family:'Cormorant Garamond',serif; font-weight:500; font-size:1.25rem; color:var(--navy); margin-bottom:8px; }
+.faq-item p{ margin:0; color:var(--text); }
+.sources{ list-style:none; padding:0; margin:14px 0 0; }
+.sources li{ padding:10px 0; border-bottom:1px solid var(--border); font-size:15px; color:var(--text); }
+.disclaimer{ margin-top:40px; padding-top:24px; border-top:1px solid var(--border); font-size:13px; line-height:1.7; color:var(--muted); font-style:italic; }
+.guide-cta .eyebrow{ margin-bottom:20px; }
