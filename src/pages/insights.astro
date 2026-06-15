@@ -62,16 +62,11 @@ import JurisdictionDirectory from '../components/JurisdictionDirectory.astro';
     </div>
   </section>
 
-  <section class="section" style="border-top:1px solid #E2DDD6">
-    <div class="container">
-      <span class="eyebrow reveal">Jurisdiction Guides</span>
-      <h2 class="reveal">Company Formation &amp; Tax by Country</h2>
-      <div class="gold-rule reveal"></div>
-      <p class="reveal" style="max-width:680px">Verified, regularly reviewed overviews of how to incorporate and what you'll pay — entity types, corporate tax, VAT and the local regimes that matter — across the markets ARM advises in. Each pairs with our <a href="/services/company-formation" style="color:var(--gold);border-bottom:1px solid rgba(184,150,12,.4)">company formation service</a>.</p>
-
-      <JurisdictionDirectory />
-    </div>
-  </section>
+  <JurisdictionDirectory
+    eyebrow="Jurisdiction Guides"
+    title="Company Formation & Tax by Country"
+    intro="Verified, regularly reviewed overviews of how to incorporate and what you'll pay — entity types, corporate tax and VAT — across the markets ARM advises in."
+  />
 
   <section class="section section--cream" style="border-top:1px solid #E2DDD6">
     <div class="container">

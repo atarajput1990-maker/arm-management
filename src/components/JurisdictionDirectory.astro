@@ -1,69 +1,276 @@
 ---
-// Shared, region-grouped directory of all jurisdiction (company formation & tax) guides.
-// Single source of truth — used on /insights and /services/company-formation.
-// To add a country guide: add a card to the relevant region group below.
-const regions = [
-  {
-    label: "Middle East · GCC",
-    countries: [
-      { slug: "uae", name: "United Arab Emirates", blurb: "Mainland, free-zone and offshore — 100% foreign ownership, licence types and the setup process." },
-      { slug: "saudi-arabia", name: "Saudi Arabia", blurb: "MISA licensing, the 20% tax / 2.5% Zakat split, 15% VAT and the 30-year RHQ incentive." },
-    ],
-  },
-  {
-    label: "Western Europe",
-    countries: [
-      { slug: "united-kingdom", name: "United Kingdom", blurb: "The Ltd, tiered corporation tax (19%–25% with marginal relief), 20% VAT and Companies House." },
-      { slug: "netherlands", name: "Netherlands", blurb: "The BV, 19% / 25.8% corporate tax, 21% VAT and the participation exemption & Innovation Box." },
-      { slug: "france", name: "France", blurb: "SAS/SARL, 25% / 15% SME corporate tax, 20% VAT and the CIR R&D credit." },
-      { slug: "germany", name: "Germany", blurb: "The GmbH and UG, the three-part corporate tax stack (~30% combined) and 19% VAT." },
-      { slug: "belgium", name: "Belgium", blurb: "The BV/SRL, 25% / 20% SME corporate tax, 21% VAT and the holding & IP regimes." },
-      { slug: "switzerland", name: "Switzerland", blurb: "GmbH vs AG, the three-tier tax (~12–21% by canton), 8.1% VAT and the participation exemption." },
-      { slug: "italy", name: "Italy", blurb: "The SRL, IRES 24% plus IRAP (~28% combined), 22% VAT and mandatory e-invoicing." },
-      { slug: "spain", name: "Spain", blurb: "The SL, 25% / 15% new-company corporate tax, 21% VAT and the Startup Law." },
-    ],
-  },
-  {
-    label: "Northern Europe",
-    countries: [
-      { slug: "estonia", name: "Estonia", blurb: "e-Residency and the OÜ — 0% on retained profit, 22% on distributions, 24% VAT." },
-      { slug: "sweden", name: "Sweden", blurb: "The aktiebolag (AB), a flat 20.6% corporate tax, 25% VAT and the 3:12 owner rules." },
-      { slug: "finland", name: "Finland", blurb: "The Oy, a flat 20% corporate tax (18% from 2027) and 25.5% VAT." },
-      { slug: "norway", name: "Norway", blurb: "The AS, a flat 22% corporate tax, 25% VAT and EEA single-market access." },
-      { slug: "denmark", name: "Denmark", blurb: "The ApS, a flat 22% corporate tax, a single 25% VAT and fast digital setup." },
-      { slug: "latvia", name: "Latvia", blurb: "The SIA — 0% on retained profit, 20% on distributions, 21% VAT and a new 2026 regime." },
-      { slug: "lithuania", name: "Lithuania", blurb: "The UAB, a 17% corporate tax (7% for small companies) from 2026, and 21% VAT." },
-    ],
-  },
-  {
-    label: "Central Europe",
-    countries: [
-      { slug: "poland", name: "Poland", blurb: "The sp. z o.o., 19% / 9% corporate tax, 23% VAT and the optional Estonian-CIT regime." },
-      { slug: "czech-republic", name: "Czech Republic", blurb: "The s.r.o., a flat 21% corporate tax and 21% VAT in a stable CEE base." },
-      { slug: "slovakia", name: "Slovakia", blurb: "The s.r.o., a revenue-tiered 10% / 21% / 24% corporate tax and 23% VAT." },
-      { slug: "hungary", name: "Hungary", blurb: "The Kft and the EU's lowest corporate tax at 9% — plus 27% VAT and local business tax." },
-    ],
-  },
-  {
-    label: "Caucasus",
-    countries: [
-      { slug: "georgia", name: "Georgia", blurb: "The Estonian model — 15% on distributed profit only — plus the Virtual Zone for IT." },
-    ],
-  },
+// Shared jurisdiction directory: interactive globe + server-rendered, searchable country list.
+// Single source of truth for /insights and /services/company-formation.
+// The list is real HTML (crawlable, works without JS); the globe is progressive enhancement.
+const { eyebrow = "Jurisdiction Guides", title = "Company Formation & Tax by Country", intro = "Verified, regularly reviewed overviews of how to incorporate and what you'll pay — entity types, corporate tax and VAT — across the markets ARM advises in." } = Astro.props;
+
+const J = [
+  {n:"United Arab Emirates", r:"Middle East · GCC", lat:23.4, lng:53.8, ct:"9%", vat:"5%", s:"uae"},
+  {n:"Saudi Arabia", r:"Middle East · GCC", lat:23.9, lng:45.1, ct:"20%", vat:"15%", s:"saudi-arabia"},
+  {n:"United Kingdom", r:"Western Europe", lat:54.0, lng:-2.0, ct:"19–25%", vat:"20%", s:"united-kingdom"},
+  {n:"Netherlands", r:"Western Europe", lat:52.1, lng:5.3, ct:"19–25.8%", vat:"21%", s:"netherlands"},
+  {n:"France", r:"Western Europe", lat:46.6, lng:2.2, ct:"25%", vat:"20%", s:"france"},
+  {n:"Germany", r:"Western Europe", lat:51.2, lng:10.4, ct:"~30%", vat:"19%", s:"germany"},
+  {n:"Belgium", r:"Western Europe", lat:50.5, lng:4.5, ct:"25%", vat:"21%", s:"belgium"},
+  {n:"Switzerland", r:"Western Europe", lat:46.8, lng:8.2, ct:"12–21%", vat:"8.1%", s:"switzerland"},
+  {n:"Italy", r:"Western Europe", lat:42.8, lng:12.6, ct:"~28%", vat:"22%", s:"italy"},
+  {n:"Spain", r:"Western Europe", lat:40.2, lng:-3.7, ct:"25%", vat:"21%", s:"spain"},
+  {n:"Estonia", r:"Northern Europe", lat:58.6, lng:25.0, ct:"0 / 22%", vat:"24%", s:"estonia"},
+  {n:"Sweden", r:"Northern Europe", lat:62.0, lng:15.0, ct:"20.6%", vat:"25%", s:"sweden"},
+  {n:"Finland", r:"Northern Europe", lat:64.0, lng:26.0, ct:"20%", vat:"25.5%", s:"finland"},
+  {n:"Norway", r:"Northern Europe", lat:61.0, lng:8.5, ct:"22%", vat:"25%", s:"norway"},
+  {n:"Denmark", r:"Northern Europe", lat:56.0, lng:9.5, ct:"22%", vat:"25%", s:"denmark"},
+  {n:"Latvia", r:"Northern Europe", lat:56.9, lng:24.6, ct:"0 / 20%", vat:"21%", s:"latvia"},
+  {n:"Lithuania", r:"Northern Europe", lat:55.2, lng:23.9, ct:"17%", vat:"21%", s:"lithuania"},
+  {n:"Poland", r:"Central Europe", lat:52.1, lng:19.4, ct:"19 / 9%", vat:"23%", s:"poland"},
+  {n:"Czech Republic", r:"Central Europe", lat:49.8, lng:15.5, ct:"21%", vat:"21%", s:"czech-republic"},
+  {n:"Slovakia", r:"Central Europe", lat:48.7, lng:19.7, ct:"10–24%", vat:"23%", s:"slovakia"},
+  {n:"Hungary", r:"Central Europe", lat:47.2, lng:19.5, ct:"9%", vat:"27%", s:"hungary"},
+  {n:"Georgia", r:"Caucasus", lat:42.3, lng:43.4, ct:"15%", vat:"18%", s:"georgia"},
 ];
-const delay = ["", "reveal-delay-1", "reveal-delay-2"];
+const ORDER = ["Middle East · GCC","Western Europe","Northern Europe","Central Europe","Caucasus"];
+const groups = ORDER.map(r => ({ r, items: J.filter(d => d.r === r) }));
+const pills = [{r:"All", n:J.length}].concat(ORDER.map(r => ({ r, n: J.filter(d=>d.r===r).length })));
 ---
-{regions.map((region, ri) => (
-  <Fragment>
-    <div class="reveal" style={`margin-top:${ri === 0 ? 44 : 52}px`}><span class="eyebrow">{region.label}</span></div>
-    <div class="grid-3" style="margin-top:20px">
-      {region.countries.map((c, i) => (
-        <a class={`card reveal ${delay[i % 3]}`} href={`/insights/${c.slug}-company-formation`} style="display:block;text-decoration:none">
-          <h3>{c.name}</h3>
-          <p>{c.blurb}</p>
-          <span style="font-family:'Inter',sans-serif;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--gold)">Read the guide →</span>
-        </a>
-      ))}
+
+<section class="jdir">
+  <div class="jdir__bg jdir__base"></div>
+  <div class="jdir__bg jdir__nebula"></div>
+  <div class="jdir__stars" id="jdir-stars"></div>
+  <div class="jdir__globe" id="jdir-globe"></div>
+  <div class="jdir__bg jdir__vignette"></div>
+
+  <div class="jdir__head">
+    <span class="jdir__eyebrow">{eyebrow}</span>
+    <h2 class="jdir__title">{title}</h2>
+    <p class="jdir__sub">{intro}</p>
+  </div>
+
+  <div class="jdir__pills" id="jdir-pills">
+    {pills.map((p, i) => (
+      <button class={"jdir__pill" + (i===0 ? " is-active" : "")} data-region={p.r}>{p.r}<span class="jdir__pilln">{p.n}</span></button>
+    ))}
+  </div>
+
+  <aside class="jdir__panel">
+    <div class="jdir__phead">
+      <div class="jdir__plbl" id="jdir-count">{J.length} Jurisdictions</div>
+      <div class="jdir__search">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></svg>
+        <input id="jdir-q" type="text" placeholder="Search a country…" autocomplete="off" aria-label="Search jurisdictions" />
+      </div>
     </div>
-  </Fragment>
-))}
+    <div class="jdir__list" id="jdir-list">
+      {groups.map(g => (
+        <div class="jdir__group" data-region={g.r}>
+          <div class="jdir__glabel">{g.r}</div>
+          {g.items.map(d => (
+            <a class="jdir__row" href={`/insights/${d.s}-company-formation`}
+               data-name={d.n} data-region={d.r} data-lat={d.lat} data-lng={d.lng} data-ct={d.ct} data-vat={d.vat}>
+              <span class="jdir__cn">{d.n}</span>
+              <span class="jdir__mini">{d.ct} · VAT {d.vat}</span>
+            </a>
+          ))}
+        </div>
+      ))}
+      <div class="jdir__nohit" id="jdir-nohit">No country matches that search.</div>
+    </div>
+  </aside>
+
+  <div class="jdir__tip" id="jdir-tip"></div>
+
+  <script type="application/json" id="jdir-data" set:html={JSON.stringify(J)}></script>
+</section>
+
+<style is:global>
+  .jdir{position:relative;width:100%;
+    min-height:380px;background:#070d16;overflow:hidden;font-family:'Inter',sans-serif;
+    border-top:1px solid rgba(184,150,12,.18);border-bottom:1px solid rgba(184,150,12,.18)}
+  .jdir__bg{position:absolute;inset:0;z-index:0;pointer-events:none}
+  .jdir__base{background:radial-gradient(circle at 42% 48%, #15263c 0%, #0a1422 44%, #070d16 78%)}
+  .jdir__nebula{background:
+     radial-gradient(40% 50% at 22% 28%, rgba(184,150,12,.10), transparent 70%),
+     radial-gradient(45% 55% at 78% 72%, rgba(40,90,150,.12), transparent 72%)}
+  .jdir__vignette{z-index:2;background:radial-gradient(circle at 44% 50%, transparent 54%, rgba(2,4,8,.55) 100%)}
+  .jdir__stars{position:absolute;inset:0;z-index:0;pointer-events:none}
+  .jdir__stars i{position:absolute;background:#fff;border-radius:50%}
+  .jdir__stars i.big{box-shadow:0 0 6px 1px rgba(255,255,255,.7)}
+  .jdir__globe{position:absolute;inset:0;z-index:1}
+
+  .jdir__head{position:relative;z-index:10;padding:46px 44px 0;max-width:480px;pointer-events:none}
+  .jdir__eyebrow{font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:#C9A227;font-weight:600;font-family:'Inter',sans-serif}
+  .jdir__title{font-family:'Cormorant Garamond',serif !important;font-weight:300;font-size:clamp(28px,3.4vw,44px);
+    line-height:1.04;margin:16px 0 10px;letter-spacing:-.01em;color:#fff}
+  .jdir__sub{color:#9AA4B2;font-size:14px;max-width:360px;line-height:1.6}
+
+  .jdir__pills{position:relative;z-index:10;display:flex;gap:8px;flex-wrap:wrap;padding:18px 44px 40px}
+  .jdir__pill{font-family:'Inter',sans-serif;font-size:12px;letter-spacing:.05em;padding:9px 16px;border-radius:999px;
+    border:1px solid rgba(226,221,214,.20);background:rgba(10,18,28,.5);color:#F7F3EC;cursor:pointer;
+    backdrop-filter:blur(10px);transition:all .2s;white-space:nowrap}
+  .jdir__pill:hover{border-color:#B8960C;color:#fff}
+  .jdir__pill.is-active{background:#B8960C;color:#0D1B2A;border-color:#B8960C;font-weight:600;box-shadow:0 0 22px rgba(184,150,12,.4)}
+  .jdir__pilln{opacity:.55;margin-left:6px;font-size:11px}
+
+  .jdir__panel{position:relative;z-index:10;margin:0 16px 22px;background:linear-gradient(180deg, rgba(10,17,27,.86), rgba(7,12,20,.84));
+    backdrop-filter:blur(18px);border:1px solid rgba(184,150,12,.22);border-radius:6px;overflow:hidden;box-shadow:0 24px 60px rgba(0,0,0,.45)}
+  .jdir__phead{padding:18px 18px 14px;border-bottom:1px solid rgba(255,255,255,.06)}
+  .jdir__plbl{font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:#C9A227;font-weight:600}
+  .jdir__search{position:relative;margin-top:12px}
+  .jdir__search input{width:100%;padding:11px 14px 11px 38px;border:1px solid rgba(226,221,214,.16);border-radius:3px;
+    background:rgba(255,255,255,.04);color:#fff;font-family:'Inter',sans-serif;font-size:13px;transition:border-color .2s}
+  .jdir__search input::placeholder{color:#6b7686}
+  .jdir__search input:focus{outline:none;border-color:#B8960C;box-shadow:0 0 0 3px rgba(184,150,12,.12)}
+  .jdir__search svg{position:absolute;left:13px;top:50%;transform:translateY(-50%);width:15px;height:15px;stroke:#6b7686}
+  .jdir__list{max-height:520px;overflow-y:auto;padding:4px 12px 14px}
+  .jdir__list::-webkit-scrollbar{width:7px}.jdir__list::-webkit-scrollbar-thumb{background:rgba(184,150,12,.3);border-radius:4px}
+  .jdir__glabel{font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:#C9A227;font-weight:600;padding:15px 8px 7px}
+  .jdir__row{display:flex;justify-content:space-between;align-items:baseline;gap:10px;padding:11px 12px;border-radius:3px;
+    border-left:2px solid transparent;text-decoration:none;transition:background .15s,border-color .15s}
+  .jdir__row:hover{background:rgba(184,150,12,.10);border-left-color:#B8960C}
+  .jdir__cn{font-family:'Cormorant Garamond',serif !important;font-size:20px;font-weight:500;color:#fff;line-height:1.1}
+  .jdir__mini{font-size:11px;color:#9AA4B2;white-space:nowrap;letter-spacing:.02em}
+  .jdir__group.is-hidden,.jdir__row.is-hidden{display:none}
+  .jdir__nohit{display:none;text-align:center;color:#9AA4B2;font-size:13px;padding:26px 10px}
+  .jdir__nohit.show{display:block}
+
+  /* JS-created markers / hubs / tooltip (global, unscoped) */
+  .jdir-marker{position:relative;pointer-events:none}
+  .jdir-marker .d{position:absolute;width:8px;height:8px;border-radius:50%;background:#E6C44E;
+    box-shadow:0 0 12px 3px rgba(230,196,78,.85);transform:translate(-50%,-50%);cursor:pointer;pointer-events:auto;transition:all .3s}
+  .jdir-marker .rg{position:absolute;width:8px;height:8px;border-radius:50%;border:1px solid #E6C44E;
+    transform:translate(-50%,-50%);animation:jdirpulse 2.8s ease-out infinite;opacity:0;pointer-events:none}
+  .jdir-marker.dim .d{background:rgba(184,150,12,.4);box-shadow:none;width:5px;height:5px}
+  .jdir-marker.dim .rg{display:none}
+  .jdir-marker.hot .d{width:13px;height:13px;box-shadow:0 0 20px 6px rgba(230,196,78,1)}
+  @keyframes jdirpulse{0%{opacity:.7;width:8px;height:8px}100%{opacity:0;width:50px;height:50px}}
+  .jdir-hub{position:relative;pointer-events:none}
+  .jdir-hub .hd{position:absolute;width:5px;height:5px;border-radius:50%;background:#fff;box-shadow:0 0 10px 2px rgba(255,255,255,.7);transform:translate(-50%,-50%)}
+  .jdir-hub .hl{position:absolute;left:9px;top:-7px;font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.78);white-space:nowrap;text-shadow:0 1px 3px #000}
+  .jdir__tip{position:fixed;z-index:60;pointer-events:none;background:rgba(8,14,22,.94);border:1px solid rgba(184,150,12,.4);
+    border-radius:3px;padding:8px 12px;font-size:12px;color:#fff;opacity:0;transition:opacity .15s;white-space:nowrap}
+  .jdir__tip b{font-family:'Cormorant Garamond',serif;font-size:16px;font-weight:600}.jdir__tip span{color:#C9A227;margin-left:8px}
+
+  /* Desktop: globe fills, overlays float */
+  @media(min-width:861px){
+    .jdir{min-height:660px}
+    .jdir__head{position:absolute;top:0;left:0}
+    .jdir__pills{position:absolute;bottom:0;left:50%;transform:translateX(-50%);justify-content:center;padding:0 0 34px;max-width:60%}
+    .jdir__panel{position:absolute;top:34px;right:34px;width:332px;margin:0;display:flex;flex-direction:column;height:calc(100% - 68px)}
+    .jdir__list{max-height:none;flex:1}
+  }
+</style>
+
+<script is:inline src="https://unpkg.com/globe.gl"></script>
+<script is:inline>
+(function(){
+  var sec=document.querySelector('.jdir'); if(!sec) return;
+  var dataEl=document.getElementById('jdir-data'); if(!dataEl) return;
+  var DATA=JSON.parse(dataEl.textContent);
+  var HUBS=[{city:"Brussels",lat:50.85,lng:4.35},{city:"Zurich",lat:47.37,lng:8.54},{city:"Dubai",lat:25.20,lng:55.27},{city:"Riyadh",lat:24.71,lng:46.68},{city:"Shenzhen",lat:22.54,lng:114.06}];
+  var PAIRS=[[0,1],[1,2],[2,3],[2,4],[0,2],[1,4]];
+  var ARCS=PAIRS.map(function(p){return {startLat:HUBS[p[0]].lat,startLng:HUBS[p[0]].lng,endLat:HUBS[p[1]].lat,endLng:HUBS[p[1]].lng};});
+  var VIEW={"All":{lat:38,lng:26,altitude:2.2},"Middle East · GCC":{lat:24,lng:47,altitude:1.5},"Western Europe":{lat:47,lng:4,altitude:1.3},"Northern Europe":{lat:60,lng:18,altitude:1.4},"Central Europe":{lat:49,lng:18,altitude:1.3},"Caucasus":{lat:42,lng:43,altitude:1.3}};
+  var ALIAS={"Czechia":"Czech Republic"};
+  var COVERED={}; DATA.forEach(function(d){COVERED[d.n]=d;});
+  var active="All", query="";
+  function norm(n){return ALIAS[n]||n;}
+  function isCov(n){return !!COVERED[norm(n)];}
+  function inAct(n){var d=COVERED[norm(n)];return d&&(active==="All"||d.r===active);}
+
+  (function(){var h='';for(var i=0;i<200;i++){var x=Math.random()*100,y=Math.random()*100,o=(Math.random()*.6+.12).toFixed(2),s=(Math.random()*1.3+.4).toFixed(1),big=Math.random()>0.94?' class="big"':'';h+='<i'+big+' style="left:'+x+'%;top:'+y+'%;opacity:'+o+';width:'+s+'px;height:'+s+'px"></i>';}var el=document.getElementById('jdir-stars');if(el)el.innerHTML=h;})();
+
+  var tip=document.getElementById('jdir-tip');
+  function showTip(d){tip.innerHTML='<b>'+d.n+'</b><span>'+d.ct+' · VAT '+d.vat+'</span>';tip.style.opacity='1';if(world)world.controls().autoRotate=false;}
+  function hideTip(){tip.style.opacity='0';if(world)world.controls().autoRotate=true;}
+  document.addEventListener('mousemove',function(e){tip.style.left=(e.clientX+15)+'px';tip.style.top=(e.clientY-8)+'px';});
+
+  var markerEls={};
+  function refreshMarker(d){var el=markerEls[d.n];if(el)el.classList.toggle('dim',!inAct(d.n));}
+  function capColor(f){var n=f.properties.ADMIN;if(!isCov(n))return 'rgba(150,170,190,0.07)';return inAct(n)?'rgba(214,176,52,0.85)':'rgba(184,150,12,0.30)';}
+  function strokeColor(f){var n=f.properties.ADMIN;return isCov(n)?'rgba(230,196,78,0.55)':'rgba(150,170,190,0.16)';}
+
+  var globeEl=document.getElementById('jdir-globe');
+  var world=null;
+  if(typeof Globe!=='undefined' && globeEl){
+    world=Globe()(globeEl)
+      .backgroundColor('rgba(0,0,0,0)')
+      .showGlobe(true).showAtmosphere(true).atmosphereColor('#C9A227').atmosphereAltitude(0.20)
+      .pointOfView(VIEW["All"],0);
+    var m=world.globeMaterial(); m.color.set('#0A1322'); m.emissive.set('#0a1626'); m.emissiveIntensity=0.85; m.shininess=6;
+
+    fetch('https://raw.githubusercontent.com/vasturiano/globe.gl/master/example/datasets/ne_110m_admin_0_countries.geojson')
+      .then(function(r){return r.json();}).then(function(geo){
+        var feats=geo.features.filter(function(f){return f.properties.ISO_A2!=='AQ';});
+        world.polygonsData(feats)
+          .polygonAltitude(function(f){return isCov(f.properties.ADMIN)?0.012:0.006;})
+          .polygonCapColor(capColor).polygonSideColor(function(){return 'rgba(13,27,42,0.30)';})
+          .polygonStrokeColor(strokeColor)
+          .onPolygonClick(function(f){var d=COVERED[norm(f.properties.ADMIN)];if(d)go(d);});
+      }).catch(function(){});
+
+    world.arcsData(ARCS)
+      .arcColor(function(){return ['rgba(184,150,12,0.05)','rgba(230,196,78,0.85)','rgba(184,150,12,0.05)'];})
+      .arcStroke(0.45).arcAltitudeAutoScale(0.45).arcDashLength(0.45).arcDashGap(1.1).arcDashAnimateTime(4200);
+
+    world.ringsData(HUBS).ringLat('lat').ringLng('lng')
+      .ringColor(function(){return function(t){return 'rgba(255,255,255,'+(0.5-0.5*t)+')';};})
+      .ringMaxRadius(2.2).ringPropagationSpeed(1.1).ringRepeatPeriod(1900);
+
+    world.htmlElementsData(DATA.concat(HUBS.map(function(h){return {hub:true,city:h.city,lat:h.lat,lng:h.lng};})))
+      .htmlLat('lat').htmlLng('lng')
+      .htmlElement(function(o){
+        if(o.hub){var hel=document.createElement('div');hel.className='jdir-hub';hel.innerHTML='<span class="hd"></span><span class="hl">'+o.city+'</span>';return hel;}
+        var el=document.createElement('div');el.className='jdir-marker';el.innerHTML='<span class="d"></span><span class="rg"></span>';
+        var dot=el.querySelector('.d');
+        dot.onclick=function(e){e.stopPropagation();go(o);};
+        dot.onmouseenter=function(){showTip(o);};dot.onmouseleave=hideTip;
+        markerEls[o.n]=el;refreshMarker(o);return el;
+      });
+
+    world.controls().autoRotate=true; world.controls().autoRotateSpeed=0.42; world.controls().enableDamping=true;
+    var size=function(){world.width(globeEl.clientWidth).height(globeEl.clientHeight);};
+    size(); window.addEventListener('resize',size);
+  }
+
+  function go(d){ window.location.href='/insights/'+d.s+'-company-formation'; }
+
+  sec.querySelectorAll('.jdir__pill').forEach(function(b){
+    b.addEventListener('click',function(){
+      active=b.getAttribute('data-region');
+      sec.querySelectorAll('.jdir__pill').forEach(function(p){p.classList.remove('is-active');});
+      b.classList.add('is-active');
+      DATA.forEach(refreshMarker);
+      if(world){world.polygonCapColor(capColor);if(VIEW[active])world.pointOfView(VIEW[active],1100);world.controls().autoRotate=true;}
+      applyFilter();
+    });
+  });
+
+  var q=document.getElementById('jdir-q');
+  if(q)q.addEventListener('input',function(){query=q.value.toLowerCase().trim();applyFilter();});
+
+  var rows=Array.prototype.slice.call(sec.querySelectorAll('.jdir__row'));
+  rows.forEach(function(row){
+    var name=row.getAttribute('data-name');
+    row.addEventListener('mouseenter',function(){var el=markerEls[name];if(el)el.classList.add('hot');var d=COVERED[name];if(d)showTip(d);});
+    row.addEventListener('mouseleave',function(){var el=markerEls[name];if(el)el.classList.remove('hot');hideTip();});
+  });
+
+  function applyFilter(){
+    var shown=0;
+    rows.forEach(function(row){
+      var nm=row.getAttribute('data-name').toLowerCase();
+      var rg=row.getAttribute('data-region');
+      var ok=(active==="All"||rg===active)&&(query===""||nm.indexOf(query)>-1);
+      row.classList.toggle('is-hidden',!ok); if(ok)shown++;
+    });
+    sec.querySelectorAll('.jdir__group').forEach(function(g){
+      var vis=g.querySelectorAll('.jdir__row:not(.is-hidden)').length;
+      g.classList.toggle('is-hidden',vis===0);
+    });
+    var c=document.getElementById('jdir-count');
+    if(c)c.textContent=shown+' Jurisdiction'+(shown!==1?'s':'')+(active==="All"?'':' · '+active);
+    var nh=document.getElementById('jdir-nohit');
+    if(nh)nh.classList.toggle('show',shown===0);
+  }
+})();
+</script>
