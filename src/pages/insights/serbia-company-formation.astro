@@ -1,0 +1,85 @@
+---
+import Base from '../../layouts/Base.astro';
+const reviewed = "June 2026";
+---
+<Base
+  title="Company Formation & Tax in Serbia 2026: d.o.o. & 15% Corporate Tax | ARM Management"
+  description="A current guide to setting up a company in Serbia — the d.o.o., the flat 15% corporate tax, 20% VAT, and remote registration via the APR, with official sources."
+>
+  <main>
+    <section class="page-hero">
+      <div class="page-hero__bg" style="background-image:url('/images/ed-brussels.jpg')"></div>
+      <div class="page-hero__overlay"></div>
+      <div class="page-hero__content container">
+        <span class="eyebrow">Guide · Serbia</span>
+        <h1>Company Formation &amp; Tax in Serbia</h1>
+        <p>A near-EU base outside the single market — the d.o.o., a flat 15% corporate tax, low operating costs and a wide treaty network.</p>
+      </div>
+    </section>
+
+    <section class="section section--warm">
+      <div class="container--narrow">
+        <div class="guide-meta reveal">
+          <span><strong>Last reviewed:</strong> {reviewed}</span>
+          <span><strong>Primary source:</strong>
+            <a href="https://www.purs.gov.rs/en.html" target="_blank" rel="noopener">Tax Administration (Poreska uprava)</a>
+          </span>
+        </div>
+
+        <div class="prose">
+          <p class="reveal lede">Serbia is an EU candidate with a Stabilisation and Association Agreement, so it sits close to the European market without being inside the single market. For internationally minded founders it offers a flat 15% corporate tax, low labour costs and fast, fully remote incorporation.</p>
+
+          <h2 class="reveal">Choosing an entity</h2>
+          <p class="reveal">The standard vehicle is the <strong>d.o.o.</strong> (društvo s ograničenom odgovornošću, private limited company), which can be formed with nominal share capital (from RSD 100, around €1). Registration is filed with the <strong>APR</strong> (Serbian Business Registers Agency / Agencija za privredne registre), which is required to decide within five business days and assigns the company a tax number (PIB); tax matters are then administered by the <strong>Tax Administration (Poreska uprava)</strong>. The whole process can be completed remotely by power of attorney or qualified e-signature, with no requirement for the owner to be present.</p>
+
+          <h2 class="reveal">Corporate tax and VAT</h2>
+          <div class="rate-table reveal">
+            <table>
+              <thead><tr><th>Tax</th><th>Rate</th></tr></thead>
+              <tbody>
+                <tr><td>Corporate income tax</td><td>15%</td></tr>
+                <tr><td>VAT (standard)</td><td>20%</td></tr>
+                <tr><td>VAT (reduced)</td><td>10%</td></tr>
+                <tr><td>VAT registration threshold</td><td>RSD 8,000,000 (~€68,000)</td></tr>
+                <tr><td>Dividend withholding (non-resident)</td><td>20% (treaty-reducible)</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="reveal">Corporate income tax is a flat <strong>15%</strong>, with no surcharges and no minimum tax — among the lowest rates in Europe. VAT is <strong>20%</strong> standard with a 10% reduced rate; registration becomes mandatory once turnover exceeds RSD 8,000,000 (about €68,000) over twelve months. Dividends paid to non-residents carry a <strong>20%</strong> withholding tax, typically reduced to 5% or 10% under one of Serbia's 60-plus double-tax treaties where a residence certificate is held. Serbia also offers an IP box (an effective 3% on qualifying IP income) and a double deduction for qualifying R&D.</p>
+
+          <div class="callout reveal">
+            <strong>Near-EU, not in-EU.</strong> Serbia's costs and 15% rate are attractive, and the treaty network makes profit repatriation efficient — but it is outside the EU single market and the euro, so customs, VAT and banking flows to EU counterparties need planning. ARM helps weigh a Serbian base against EU alternatives.
+          </div>
+
+          <h2 class="reveal">Frequently asked questions</h2>
+          <div class="reveal">
+            <div class="faq-item"><h4>What is the corporate tax rate in Serbia?</h4><p>A flat 15% on profits, with no surcharges or minimum tax.</p></div>
+            <div class="faq-item"><h4>How much capital do I need for a Serbian d.o.o.?</h4><p>Nominal — from RSD 100 (about €1).</p></div>
+            <div class="faq-item"><h4>What is the Serbian VAT rate?</h4><p>20% standard with a 10% reduced rate; registration applies above RSD 8,000,000 (about €68,000) turnover.</p></div>
+          </div>
+
+          <h2 class="reveal">Official sources</h2>
+          <ul class="sources reveal">
+            <li><a href="https://www.purs.gov.rs/en.html" target="_blank" rel="noopener">Tax Administration (Poreska uprava)</a></li>
+            <li><a href="https://www.apr.gov.rs/eng/home.1825.html" target="_blank" rel="noopener">Serbian Business Registers Agency (APR)</a></li>
+          </ul>
+
+          <p class="reveal disclaimer">This guide is general information prepared by ARM Management and is current as at {reviewed}. It is not legal or tax advice; rules and thresholds change. Confirm against the Tax Administration (Poreska uprava), or with an advisor, before acting.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta-section guide-cta">
+      <span class="eyebrow is-center reveal" style="justify-content:center">Speak With ARM</span>
+      <h2 class="reveal">Set up in Serbia with confidence.</h2>
+      <p class="reveal">ARM Management advises international companies on Serbian entity formation, registration and tax compliance, alongside wider Balkan and EU structuring. Begin with a confidential conversation.</p>
+      <div class="btn-row reveal">
+        <a href="/contact" class="btn-primary">Schedule a Consultation →</a>
+        <a href="/services/company-formation" class="btn-secondary">Company Formation Services</a>
+      </div>
+    </section>
+  </main>
+
+  <script type="application/ld+json" set:html={JSON.stringify({"@context":"https://schema.org","@type":"Article","headline":"Company Formation & Tax in Serbia 2026","author":{"@type":"Organization","name":"ARM Management"},"publisher":{"@type":"Organization","name":"ARM Management"},"dateModified":"2026-06-01","mainEntityOfPage":"https://arm-management.com/insights/serbia-company-formation"})} />
+  <script type="application/ld+json" set:html={JSON.stringify({"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is the corporate tax rate in Serbia?","acceptedAnswer":{"@type":"Answer","text":"A flat 15% on profits, with no surcharges or minimum tax."}},{"@type":"Question","name":"How much capital do I need for a Serbian d.o.o.?","acceptedAnswer":{"@type":"Answer","text":"Nominal — from RSD 100 (about €1)."}},{"@type":"Question","name":"What is the Serbian VAT rate?","acceptedAnswer":{"@type":"Answer","text":"20% standard with a 10% reduced rate; registration applies above RSD 8,000,000 (about €68,000) turnover."}}]})} />
+</Base>
