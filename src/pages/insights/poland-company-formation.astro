@@ -1,0 +1,86 @@
+---
+import Base from '../../layouts/Base.astro';
+const reviewed = "June 2026";
+---
+<Base
+  title="Company Formation & Tax in Poland 2026: Sp. z o.o. & Corporate Tax | ARM Management"
+  description="A current guide to setting up a company in Poland — the sp. z o.o., the 19% / 9% corporate tax, 23% VAT, the optional Estonian-CIT regime, and registration via the KRS, with official sources."
+>
+  <main>
+    <section class="page-hero">
+      <div class="page-hero__bg" style="background-image:url('/images/ed-brussels.jpg')"></div>
+      <div class="page-hero__overlay"></div>
+      <div class="page-hero__content container">
+        <span class="eyebrow">Guide · Poland</span>
+        <h1>Company Formation &amp; Tax in Poland</h1>
+        <p>The EU's fifth-largest economy and a major CEE hub — the sp. z o.o., a competitive corporate tax with a 9% small-company rate, VAT, and an Estonian-style option.</p>
+      </div>
+    </section>
+
+    <section class="section section--warm">
+      <div class="container--narrow">
+        <div class="guide-meta reveal">
+          <span><strong>Last reviewed:</strong> {reviewed}</span>
+          <span><strong>Primary source:</strong>
+            <a href="https://www.biznes.gov.pl/en" target="_blank" rel="noopener">Biznes.gov.pl</a>
+          </span>
+        </div>
+
+        <div class="prose">
+          <p class="reveal lede">Poland pairs full EU market access with a large, skilled workforce and a competitive tax regime — a 9% rate for smaller companies, and an optional Estonian-style CIT that defers tax until profits are distributed. It's a leading base for technology, logistics and manufacturing in Central Europe.</p>
+
+          <h2 class="reveal">Choosing an entity</h2>
+          <p class="reveal">The standard vehicle is the <strong>sp. z o.o.</strong> (spółka z ograniczoną odpowiedzialnością, private limited company), with a minimum share capital of PLN 5,000. Startups often use the <strong>PSA</strong> (simple joint-stock company). On registration with the National Court Register (KRS), a company receives its KRS number plus a NIP (tax ID) and REGON (statistical number); beneficial owners must be reported within 7 days. Tax obligations begin at registration — not at first invoice.</p>
+
+          <h2 class="reveal">Corporate tax and VAT</h2>
+          <div class="rate-table reveal">
+            <table>
+              <thead><tr><th>Tax</th><th>Rate</th></tr></thead>
+              <tbody>
+                <tr><td>Corporate income tax (standard)</td><td>19%</td></tr>
+                <tr><td>Reduced rate — small taxpayers (revenue under €2m)</td><td>9% (operating income only)</td></tr>
+                <tr><td>VAT (standard)</td><td>23% (reduced 8% / 5% / 0%)</td></tr>
+                <tr><td>Dividend withholding tax</td><td>19%</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="reveal">Corporate income tax is <strong>19%</strong> standard, with a reduced <strong>9%</strong> rate for small taxpayers (prior-year revenue under €2 million) on operating income — capital gains are always taxed at 19%. Poland also offers an optional <strong>Estonian CIT</strong> (ryczałt) regime that defers tax until profits are distributed, for qualifying companies. VAT is <strong>23%</strong> standard, with reduced rates of 8%, 5% and 0% and a PLN 200,000 registration threshold; mandatory KSeF e-invoicing is being phased in during 2026.</p>
+
+          <div class="callout reveal">
+            <strong>The 9% rate is not automatic.</strong> It applies only to small taxpayers and only to operating income, with conditions checked each year — one of the most commonly misunderstood points for foreign founders. For reinvesting businesses, the Estonian CIT option can be more valuable than the headline rate.
+          </div>
+
+          <h2 class="reveal">Frequently asked questions</h2>
+          <div class="reveal">
+            <div class="faq-item"><h4>What is the corporate tax rate in Poland?</h4><p>19% standard, with a reduced 9% rate for small taxpayers (revenue under €2 million) on operating income.</p></div>
+            <div class="faq-item"><h4>How much capital do I need for a sp. z o.o.?</h4><p>A minimum share capital of PLN 5,000.</p></div>
+            <div class="faq-item"><h4>What is the Polish VAT rate?</h4><p>23% standard, with reduced rates of 8%, 5% and 0%; registration applies above PLN 200,000 turnover.</p></div>
+            <div class="faq-item"><h4>What is Estonian CIT in Poland?</h4><p>An optional regime under which qualifying companies defer corporate tax until profits are distributed.</p></div>
+          </div>
+
+          <h2 class="reveal">Official sources</h2>
+          <ul class="sources reveal">
+            <li><a href="https://www.biznes.gov.pl/en" target="_blank" rel="noopener">Biznes.gov.pl — business registration</a></li>
+            <li><a href="https://www.podatki.gov.pl/en/" target="_blank" rel="noopener">Ministry of Finance — tax portal</a></li>
+            <li><a href="https://www.paih.gov.pl/en" target="_blank" rel="noopener">Polish Investment & Trade Agency (PAIH)</a></li>
+          </ul>
+
+          <p class="reveal disclaimer">This guide is general information prepared by ARM Management and is current as at {reviewed}. It is not legal or tax advice; the 9% rate and Estonian CIT carry conditions and rules change. Confirm against the official sources, or with an advisor, before acting.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta-section guide-cta">
+      <span class="eyebrow is-center reveal" style="justify-content:center">Speak With ARM</span>
+      <h2 class="reveal">Establish in Poland with the right regime.</h2>
+      <p class="reveal">ARM Management advises international companies on Polish entity formation, the 9% rate and Estonian-CIT eligibility, alongside wider CEE structuring. Begin with a confidential conversation.</p>
+      <div class="btn-row reveal">
+        <a href="/contact" class="btn-primary">Schedule a Consultation →</a>
+        <a href="/services/company-formation" class="btn-secondary">Company Formation Services</a>
+      </div>
+    </section>
+  </main>
+
+  <script type="application/ld+json" set:html={JSON.stringify({"@context":"https://schema.org","@type":"Article","headline":"Company Formation & Tax in Poland 2026","author":{"@type":"Organization","name":"ARM Management"},"publisher":{"@type":"Organization","name":"ARM Management"},"dateModified":"2026-06-01","mainEntityOfPage":"https://arm-management.com/insights/poland-company-formation"})} />
+  <script type="application/ld+json" set:html={JSON.stringify({"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is the corporate tax rate in Poland?","acceptedAnswer":{"@type":"Answer","text":"19% standard, with a reduced 9% rate for small taxpayers (revenue under €2 million) on operating income."}},{"@type":"Question","name":"How much capital do I need for a Polish sp. z o.o.?","acceptedAnswer":{"@type":"Answer","text":"A minimum share capital of PLN 5,000."}},{"@type":"Question","name":"What is the Polish VAT rate?","acceptedAnswer":{"@type":"Answer","text":"23% standard, with reduced rates of 8%, 5% and 0%; registration applies above PLN 200,000 turnover."}}]})} />
+</Base>

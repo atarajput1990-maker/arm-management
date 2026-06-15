@@ -1,0 +1,85 @@
+---
+import Base from '../../layouts/Base.astro';
+const reviewed = "June 2026";
+---
+<Base
+  title="Company Formation & Tax in Latvia 2026: SIA & the Distributed-Profit Tax | ARM Management"
+  description="A current guide to setting up a company in Latvia — the SIA, the 0%-on-retained / 20%-on-distributions corporate tax, the new 2026 alternative regime, and 21% VAT, with official sources."
+>
+  <main>
+    <section class="page-hero">
+      <div class="page-hero__bg" style="background-image:url('/images/ed-brussels.jpg')"></div>
+      <div class="page-hero__overlay"></div>
+      <div class="page-hero__content container">
+        <span class="eyebrow">Guide · Latvia</span>
+        <h1>Company Formation &amp; Tax in Latvia</h1>
+        <p>A Baltic EU base built around reinvestment — the SIA, a corporate tax that falls due only on distribution, and a new alternative regime from 2026.</p>
+      </div>
+    </section>
+
+    <section class="section section--warm">
+      <div class="container--narrow">
+        <div class="guide-meta reveal">
+          <span><strong>Last reviewed:</strong> {reviewed}</span>
+          <span><strong>Primary source:</strong>
+            <a href="https://www.vid.gov.lv/en" target="_blank" rel="noopener">State Revenue Service (VID)</a>
+          </span>
+        </div>
+
+        <div class="prose">
+          <p class="reveal lede">Latvia runs an Estonian-style corporate tax: retained and reinvested profits are untaxed, and tax arises only when profit is distributed. Combined with full EU access and low setup cost, it's a practical Baltic base for reinvesting businesses — and from 2026 it offers a second, lower-rate regime for individually owned companies.</p>
+
+          <h2 class="reveal">Choosing an entity</h2>
+          <p class="reveal">The standard vehicle is the <strong>SIA</strong> (sabiedrība ar ierobežotu atbildību, private limited company), with a minimum share capital of EUR 2,800 (at least half paid at registration); a reduced-capital micro-SIA option exists. Registration runs through the Latvian Register of Enterprises (typically 1–5 business days), after which the company is managed for tax through the State Revenue Service (VID) and its EDS e-system.</p>
+
+          <h2 class="reveal">The distributed-profit model</h2>
+          <div class="rate-table reveal">
+            <table>
+              <thead><tr><th>Situation</th><th>Corporate tax</th></tr></thead>
+              <tbody>
+                <tr><td>Profits retained / reinvested</td><td>0%</td></tr>
+                <tr><td>Profits distributed (standard)</td><td>20% of the gross-up (0.2/0.8 → effective 25% of the net dividend)</td></tr>
+                <tr><td>Alternative regime from 2026 (individual shareholders)</td><td>15% CIT + 6% PIT on dividends</td></tr>
+                <tr><td>VAT (standard)</td><td>21% (reduced 12% / 5%)</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="reveal">No corporate income tax is due on retained profit. On distribution, the standard rate is <strong>20%</strong>, applied to the taxable base divided by 0.8 — an effective 25% of the net dividend. From <strong>1 January 2026</strong>, companies whose shareholders are exclusively individuals may opt for an alternative regime: 15% CIT (0.15/0.85) plus 6% personal income tax withheld on the dividend, chosen per distribution. VAT is <strong>21%</strong> standard (reduced 12% and 5%), with a €40,000 registration threshold; notably, Latvia generally levies no withholding tax on dividends to non-residents (offshore jurisdictions excepted).</p>
+
+          <div class="callout reveal">
+            <strong>Reinvest and you pay nothing — until you distribute.</strong> Latvia's model rewards keeping capital in the business. The new 2026 alternative regime is worth modelling for individually owned companies, since it can improve a foreign shareholder's ability to claim a credit at home.
+          </div>
+
+          <h2 class="reveal">Frequently asked questions</h2>
+          <div class="reveal">
+            <div class="faq-item"><h4>What is the corporate tax rate in Latvia?</h4><p>0% on retained profit; 20% on distributions (an effective 25% of the net dividend). From 2026, individually owned companies may opt for 15% CIT + 6% PIT.</p></div>
+            <div class="faq-item"><h4>How much capital do I need for an SIA?</h4><p>EUR 2,800, with at least half paid at registration (a reduced-capital micro-SIA option exists).</p></div>
+            <div class="faq-item"><h4>What is the Latvian VAT rate?</h4><p>21% standard, with reduced rates of 12% and 5%; registration applies above €40,000 turnover.</p></div>
+          </div>
+
+          <h2 class="reveal">Official sources</h2>
+          <ul class="sources reveal">
+            <li><a href="https://www.vid.gov.lv/en" target="_blank" rel="noopener">State Revenue Service (VID)</a></li>
+            <li><a href="https://www.ur.gov.lv/en/" target="_blank" rel="noopener">Register of Enterprises of Latvia</a></li>
+            <li><a href="https://www.liaa.gov.lv/en" target="_blank" rel="noopener">Investment and Development Agency of Latvia (LIAA)</a></li>
+          </ul>
+
+          <p class="reveal disclaimer">This guide is general information prepared by ARM Management and is current as at {reviewed}. It is not legal or tax advice; the 2026 alternative regime carries conditions and rules change. Confirm against the State Revenue Service, or with an advisor, before acting.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta-section guide-cta">
+      <span class="eyebrow is-center reveal" style="justify-content:center">Speak With ARM</span>
+      <h2 class="reveal">Set up your Latvian company correctly.</h2>
+      <p class="reveal">ARM Management advises international founders on Latvian SIA formation, the distributed-profit model and the new alternative regime. Begin with a confidential conversation.</p>
+      <div class="btn-row reveal">
+        <a href="/contact" class="btn-primary">Schedule a Consultation →</a>
+        <a href="/services/company-formation" class="btn-secondary">Company Formation Services</a>
+      </div>
+    </section>
+  </main>
+
+  <script type="application/ld+json" set:html={JSON.stringify({"@context":"https://schema.org","@type":"Article","headline":"Company Formation & Tax in Latvia 2026","author":{"@type":"Organization","name":"ARM Management"},"publisher":{"@type":"Organization","name":"ARM Management"},"dateModified":"2026-06-01","mainEntityOfPage":"https://arm-management.com/insights/latvia-company-formation"})} />
+  <script type="application/ld+json" set:html={JSON.stringify({"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is the corporate tax rate in Latvia?","acceptedAnswer":{"@type":"Answer","text":"0% on retained profit; 20% on distributions (an effective 25% of the net dividend). From 2026, individually owned companies may opt for 15% CIT plus 6% PIT."}},{"@type":"Question","name":"How much capital do I need for a Latvian SIA?","acceptedAnswer":{"@type":"Answer","text":"EUR 2,800, with at least half paid at registration; a reduced-capital micro-SIA option exists."}},{"@type":"Question","name":"What is the Latvian VAT rate?","acceptedAnswer":{"@type":"Answer","text":"21% standard, with reduced rates of 12% and 5%; registration applies above €40,000 turnover."}}]})} />
+</Base>
