@@ -1,0 +1,89 @@
+---
+import Base from '../../layouts/Base.astro';
+const reviewed = "June 2026";
+---
+<Base
+  title="Company Formation & Tax in France 2026: SAS, SARL & Corporate Tax | ARM Management"
+  description="A current guide to setting up a company in France — the SAS and SARL, the 25% corporate tax (15% SME rate on the first €42,500), 20% VAT, and the CIR R&D credit, with official sources."
+>
+  <main>
+    <section class="page-hero">
+      <div class="page-hero__bg" style="background-image:url('/images/ed-zurich.jpg')"></div>
+      <div class="page-hero__overlay"></div>
+      <div class="page-hero__content container">
+        <span class="eyebrow">Guide · France</span>
+        <h1>Company Formation &amp; Tax in France</h1>
+        <p>The EU's second-largest economy — the flexible SAS, the corporate tax rate and SME relief, VAT, and one of the world's most generous R&amp;D credits.</p>
+      </div>
+    </section>
+
+    <section class="section section--warm">
+      <div class="container--narrow">
+        <div class="guide-meta reveal">
+          <span><strong>Last reviewed:</strong> {reviewed}</span>
+          <span><strong>Primary source:</strong>
+            <a href="https://www.impots.gouv.fr" target="_blank" rel="noopener">impots.gouv.fr</a>
+          </span>
+        </div>
+
+        <div class="prose">
+          <p class="reveal lede">France combines a large domestic market and EU single-market access with a corporate tax rate that has fallen sharply in recent years — from 33% to a flat 25%. For innovative businesses, the real draw is the CIR research credit, among the most generous R&amp;D incentives anywhere.</p>
+
+          <h2 class="reveal">Choosing an entity</h2>
+          <p class="reveal">The most popular vehicle for foreign investors is the <strong>SAS</strong> (société par actions simplifiée), prized for its governance flexibility and formable from EUR 1 of capital. The <strong>SARL</strong> (société à responsabilité limitée) is the traditional small-business form, also with no minimum capital since 2003, while the <strong>SA</strong> (société anonyme) suits larger, capital-raising businesses. Companies with share capital are taxed under corporate income tax (impôt sur les sociétés) by default. Registration runs through the national one-stop guichet unique (INPI).</p>
+
+          <h2 class="reveal">Corporate tax and VAT</h2>
+          <div class="rate-table reveal">
+            <table>
+              <thead><tr><th>Tax</th><th>Rate</th></tr></thead>
+              <tbody>
+                <tr><td>Corporate income tax (standard)</td><td>25%</td></tr>
+                <tr><td>Reduced SME rate (first €42,500 of profit)</td><td>15%</td></tr>
+                <tr><td>VAT (standard)</td><td>20%</td></tr>
+                <tr><td>VAT (reduced)</td><td>10% / 5.5% / 2.1%</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="reveal">Corporate income tax is a flat <strong>25%</strong>. Qualifying SMEs — turnover under €10 million with at least 75% of capital held by individuals — pay a reduced <strong>15%</strong> on their first €42,500 of profit. A 3.3% social contribution applies to companies with a large CIT liability, and very large companies (French turnover over €1 billion) face an exceptional surtax for fiscal years ending in 2025 and 2026. VAT (TVA) is <strong>20%</strong> standard, with reduced rates of 10%, 5.5% and 2.1%.</p>
+
+          <div class="callout reveal">
+            <strong>The CIR is the reason many R&amp;D businesses choose France.</strong> The Crédit Impôt Recherche returns up to 30% of qualifying research spending, and a patent box taxes qualifying IP income at around 10%. For research- or IP-heavy companies, those reliefs can outweigh the mid-table headline rate.
+          </div>
+
+          <h2 class="reveal">Compliance</h2>
+          <p class="reveal">Companies register for corporate tax and VAT, file annual financial statements, and submit a corporate tax return (calendar-year filers generally by mid-May). Employer social contributions are significant — broadly 40–45% of gross salary — and should be built into any hiring model. Dividends to qualifying EU parent companies are generally exempt under the Parent-Subsidiary Directive.</p>
+
+          <h2 class="reveal">Frequently asked questions</h2>
+          <div class="reveal">
+            <div class="faq-item"><h4>What is the corporate tax rate in France?</h4><p>A flat 25%, with a reduced 15% rate on the first €42,500 of profit for qualifying SMEs.</p></div>
+            <div class="faq-item"><h4>What is an SAS versus an SARL?</h4><p>Both are taxed the same way; the SAS offers greater governance flexibility and is generally preferred by foreign investors, while the SARL is the traditional small-business form.</p></div>
+            <div class="faq-item"><h4>What is the French VAT rate?</h4><p>20% standard, with reduced rates of 10%, 5.5% and 2.1%.</p></div>
+            <div class="faq-item"><h4>What is the CIR?</h4><p>The Crédit Impôt Recherche — France's R&D tax credit, worth up to 30% of qualifying research expenditure.</p></div>
+          </div>
+
+          <h2 class="reveal">Official sources</h2>
+          <ul class="sources reveal">
+            <li><a href="https://www.impots.gouv.fr/international-professionnel/tax4business" target="_blank" rel="noopener">impots.gouv.fr — Tax4Business</a></li>
+            <li><a href="https://www.inpi.fr" target="_blank" rel="noopener">INPI — guichet unique (business registration)</a></li>
+            <li><a href="https://entreprendre.service-public.fr" target="_blank" rel="noopener">Service-Public — Entreprendre</a></li>
+          </ul>
+
+          <p class="reveal disclaimer">This guide is general information prepared by ARM Management and is current as at {reviewed}. It is not legal or tax advice; reliefs carry conditions and rules change. Confirm against the official sources above, or with an advisor, before acting.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta-section guide-cta">
+      <span class="eyebrow is-center reveal" style="justify-content:center">Speak With ARM</span>
+      <h2 class="reveal">Establish in France with the right structure.</h2>
+      <p class="reveal">From our Brussels base, ARM Management advises international companies on French entity selection, tax positioning and R&amp;D incentives. Begin with a confidential conversation.</p>
+      <div class="btn-row reveal">
+        <a href="/contact" class="btn-primary">Schedule a Consultation →</a>
+        <a href="/services/company-formation" class="btn-secondary">Company Formation Services</a>
+      </div>
+    </section>
+  </main>
+
+  <script type="application/ld+json" set:html={JSON.stringify({"@context":"https://schema.org","@type":"Article","headline":"Company Formation & Tax in France 2026","author":{"@type":"Organization","name":"ARM Management"},"publisher":{"@type":"Organization","name":"ARM Management"},"dateModified":"2026-06-01","mainEntityOfPage":"https://arm-management.com/insights/france-company-formation"})} />
+  <script type="application/ld+json" set:html={JSON.stringify({"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is the corporate tax rate in France?","acceptedAnswer":{"@type":"Answer","text":"A flat 25%, with a reduced 15% rate on the first €42,500 of profit for qualifying SMEs."}},{"@type":"Question","name":"What is the French VAT rate?","acceptedAnswer":{"@type":"Answer","text":"20% standard, with reduced rates of 10%, 5.5% and 2.1%."}},{"@type":"Question","name":"What is the CIR in France?","acceptedAnswer":{"@type":"Answer","text":"The Credit Impot Recherche — France's R&D tax credit, worth up to 30% of qualifying research expenditure."}}]})} />
+</Base>

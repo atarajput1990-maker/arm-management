@@ -1,0 +1,90 @@
+---
+import Base from '../../layouts/Base.astro';
+const reviewed = "June 2026";
+---
+<Base
+  title="Company Formation & Tax in the UK 2026: Ltd & Corporation Tax | ARM Management"
+  description="A current guide to setting up a company in the United Kingdom — the private limited company, corporation tax (19% small profits to 25% main rate with marginal relief), 20% VAT, and Companies House, with official sources."
+>
+  <main>
+    <section class="page-hero">
+      <div class="page-hero__bg" style="background-image:url('/images/ed-brussels.jpg')"></div>
+      <div class="page-hero__overlay"></div>
+      <div class="page-hero__content container">
+        <span class="eyebrow">Guide · United Kingdom</span>
+        <h1>Company Formation &amp; Tax in the UK</h1>
+        <p>Fast, low-cost incorporation and a globally recognised company law — the Ltd, the tiered corporation tax, VAT, and what compliance involves.</p>
+      </div>
+    </section>
+
+    <section class="section section--warm">
+      <div class="container--narrow">
+        <div class="guide-meta reveal">
+          <span><strong>Last reviewed:</strong> {reviewed}</span>
+          <span><strong>Primary sources:</strong>
+            <a href="https://www.gov.uk/browse/business" target="_blank" rel="noopener">GOV.UK</a> ·
+            <a href="https://www.gov.uk/government/organisations/companies-house" target="_blank" rel="noopener">Companies House</a>
+          </span>
+        </div>
+
+        <div class="prose">
+          <p class="reveal lede">The UK remains one of the quickest and cheapest places in the world to incorporate — a private limited company can be registered online with Companies House in hours, with no minimum capital and no residency requirement for directors. Its company law is internationally familiar, which is part of why it's a default choice for cross-border structures.</p>
+
+          <h2 class="reveal">Choosing an entity</h2>
+          <p class="reveal">The standard vehicle is the <strong>private limited company (Ltd)</strong>, formed at Companies House with as little as £1 of share capital. Professional and partnership-based businesses often use the <strong>LLP</strong> (limited liability partnership), and larger or listed businesses the <strong>PLC</strong>. After incorporation the company registers with HMRC for corporation tax, and for VAT and PAYE where applicable.</p>
+
+          <h2 class="reveal">Corporation tax and VAT</h2>
+          <div class="rate-table reveal">
+            <table>
+              <thead><tr><th>Profit / measure</th><th>Rate</th></tr></thead>
+              <tbody>
+                <tr><td>Profits up to £50,000 (small profits rate)</td><td>19%</td></tr>
+                <tr><td>Profits between £50,000 and £250,000</td><td>marginal relief (effective up to ~26.5%)</td></tr>
+                <tr><td>Profits above £250,000 (main rate)</td><td>25%</td></tr>
+                <tr><td>VAT (standard) — registration above £90,000 turnover</td><td>20%</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="reveal">Corporation tax has a <strong>19%</strong> small profits rate up to £50,000 and a <strong>25%</strong> main rate above £250,000, with marginal relief tapering the effective rate in between. These rates continue for the financial year beginning April 2026. VAT is <strong>20%</strong> standard; registration becomes mandatory once taxable turnover exceeds <strong>£90,000</strong>, with a reduced 5% rate and zero-rating on certain supplies. Note that profit thresholds are shared across associated companies.</p>
+
+          <div class="callout reveal">
+            <strong>Speed and familiarity are the UK's edge.</strong> Incorporation is same-day and inexpensive, the Ltd is recognised by banks and counterparties worldwide, and a Patent Box can reduce the effective rate on qualifying patent profits to 10%. The trade-off is annual filing discipline — accounts and a CT600 return every year.
+          </div>
+
+          <h2 class="reveal">Compliance</h2>
+          <p class="reveal">Companies must file annual accounts and a confirmation statement with Companies House, and a corporation tax return (CT600) with HMRC. Corporation tax is due nine months and one day after the year-end; the return is due within twelve months. Recent reforms have increased identity-verification requirements at Companies House, which new incorporations should factor in.</p>
+
+          <h2 class="reveal">Frequently asked questions</h2>
+          <div class="reveal">
+            <div class="faq-item"><h4>What is the UK corporation tax rate?</h4><p>19% on profits up to £50,000 and 25% above £250,000, with marginal relief (an effective rate up to about 26.5%) in between.</p></div>
+            <div class="faq-item"><h4>How much capital do I need for a UK Ltd?</h4><p>As little as £1 — there is no minimum capital requirement.</p></div>
+            <div class="faq-item"><h4>When must I register for VAT?</h4><p>Once taxable turnover exceeds £90,000; voluntary registration is available below that.</p></div>
+            <div class="faq-item"><h4>Do I need a UK-resident director?</h4><p>No — there is no residency requirement for directors, though identity verification at Companies House applies.</p></div>
+          </div>
+
+          <h2 class="reveal">Official sources</h2>
+          <ul class="sources reveal">
+            <li><a href="https://www.gov.uk/limited-company-formation" target="_blank" rel="noopener">GOV.UK — Set up a limited company</a></li>
+            <li><a href="https://www.gov.uk/corporation-tax" target="_blank" rel="noopener">GOV.UK — Corporation Tax</a></li>
+            <li><a href="https://www.gov.uk/vat-registration" target="_blank" rel="noopener">GOV.UK — VAT registration</a></li>
+          </ul>
+
+          <p class="reveal disclaimer">This guide is general information prepared by ARM Management and is current as at {reviewed}. It is not legal or tax advice; thresholds and rules change. Confirm against GOV.UK and HMRC, or with an advisor, before acting.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta-section guide-cta">
+      <span class="eyebrow is-center reveal" style="justify-content:center">Speak With ARM</span>
+      <h2 class="reveal">Incorporate in the UK with confidence.</h2>
+      <p class="reveal">ARM Management advises international founders on UK entity selection, registration and ongoing compliance, alongside wider EU and GCC structuring. Begin with a confidential conversation.</p>
+      <div class="btn-row reveal">
+        <a href="/contact" class="btn-primary">Schedule a Consultation →</a>
+        <a href="/services/company-formation" class="btn-secondary">Company Formation Services</a>
+      </div>
+    </section>
+  </main>
+
+  <script type="application/ld+json" set:html={JSON.stringify({"@context":"https://schema.org","@type":"Article","headline":"Company Formation & Tax in the UK 2026","author":{"@type":"Organization","name":"ARM Management"},"publisher":{"@type":"Organization","name":"ARM Management"},"dateModified":"2026-06-01","mainEntityOfPage":"https://arm-management.com/insights/united-kingdom-company-formation"})} />
+  <script type="application/ld+json" set:html={JSON.stringify({"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is the UK corporation tax rate?","acceptedAnswer":{"@type":"Answer","text":"19% on profits up to £50,000 and 25% above £250,000, with marginal relief (an effective rate up to about 26.5%) in between."}},{"@type":"Question","name":"How much capital do I need for a UK Ltd?","acceptedAnswer":{"@type":"Answer","text":"As little as £1 — there is no minimum capital requirement."}},{"@type":"Question","name":"When must I register for VAT in the UK?","acceptedAnswer":{"@type":"Answer","text":"Once taxable turnover exceeds £90,000; voluntary registration is available below that."}}]})} />
+</Base>

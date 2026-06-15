@@ -1,0 +1,89 @@
+---
+import Base from '../../layouts/Base.astro';
+const reviewed = "June 2026";
+---
+<Base
+  title="Company Formation & Tax in Spain 2026: SL & Corporate Tax | ARM Management"
+  description="A current guide to setting up a company in Spain — the Sociedad Limitada (SL), the 25% corporate tax with a 15% rate for new companies, 21% VAT, and the Startup Law, with official sources."
+>
+  <main>
+    <section class="page-hero">
+      <div class="page-hero__bg" style="background-image:url('/images/ed-zurich.jpg')"></div>
+      <div class="page-hero__overlay"></div>
+      <div class="page-hero__content container">
+        <span class="eyebrow">Guide · Spain</span>
+        <h1>Company Formation &amp; Tax in Spain</h1>
+        <p>A large EU market with a low-capital company form — the SL, the corporate tax rate and new-company relief, VAT, and the Startup Law incentives.</p>
+      </div>
+    </section>
+
+    <section class="section section--warm">
+      <div class="container--narrow">
+        <div class="guide-meta reveal">
+          <span><strong>Last reviewed:</strong> {reviewed}</span>
+          <span><strong>Primary source:</strong>
+            <a href="https://sede.agenciatributaria.gob.es" target="_blank" rel="noopener">Agencia Tributaria</a>
+          </span>
+        </div>
+
+        <div class="prose">
+          <p class="reveal lede">Spain offers full EU single-market access, a low minimum-capital company form and a growing reputation as a startup hub since its 2022 Startup Law. It is not a low-tax jurisdiction, but for businesses that want a genuine European presence — or residency through business — it is a credible, well-regulated base.</p>
+
+          <h2 class="reveal">Choosing an entity</h2>
+          <p class="reveal">The standard vehicle is the <strong>SL</strong> (Sociedad Limitada / Sociedad de Responsabilidad Limitada), the private limited company used by most SMEs, with a minimum share capital of EUR 3,000 fully paid at incorporation. A single-owner variant, the <strong>SLU</strong>, is common. Larger and listed businesses use the <strong>SA</strong> (Sociedad Anónima, minimum EUR 60,000). Non-residents can own and direct an SL but need a Spanish tax number (NIE); incorporation is notarised and registered with the Mercantile Registry, and can be handled remotely by power of attorney.</p>
+
+          <h2 class="reveal">Corporate tax and VAT</h2>
+          <div class="rate-table reveal">
+            <table>
+              <thead><tr><th>Company</th><th>Corporate tax rate</th></tr></thead>
+              <tbody>
+                <tr><td>Standard rate</td><td>25%</td></tr>
+                <tr><td>Newly created companies (first two profitable years)</td><td>15%</td></tr>
+                <tr><td>Micro / small enterprises</td><td>reduced rates (~19–23%, phasing under Ley 7/2024)</td></tr>
+                <tr><td>VAT (IVA, standard)</td><td>21%</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="reveal">Corporate income tax (Impuesto sobre Sociedades) has a standard rate of <strong>25%</strong>. Newly created companies pay a reduced <strong>15%</strong> in their first two profitable years, and micro and small enterprises benefit from reduced rates that are being phased down under Ley 7/2024 (broadly in the 19–23% range depending on size). VAT (IVA) is <strong>21%</strong> standard, with reduced rates of 10% and 4%; there is no registration threshold — a company must register before issuing its first invoice. Spain is rolling out mandatory e-invoicing (Verifactu).</p>
+
+          <div class="callout reveal">
+            <strong>Spain wins on access, not on tax.</strong> If the goal is purely the lowest rate, other jurisdictions usually beat it. Where Spain wins is real European presence, market access and the Startup Law regime — which offers reduced tax and incentives for ENISA-certified "empresas emergentes."
+          </div>
+
+          <h2 class="reveal">Compliance</h2>
+          <p class="reveal">Companies file quarterly advance corporate-tax payments and an annual corporate tax return, quarterly VAT returns, and annual accounts with the Mercantile Registry. Employer social security contributions are substantial and should be factored into hiring costs. R&amp;D and innovation activities can access generous tax credits.</p>
+
+          <h2 class="reveal">Frequently asked questions</h2>
+          <div class="reveal">
+            <div class="faq-item"><h4>What is the corporate tax rate in Spain?</h4><p>25% standard, with a reduced 15% rate for newly created companies in their first two profitable years and lower phased rates for small and micro enterprises.</p></div>
+            <div class="faq-item"><h4>How much capital do I need for an SL?</h4><p>EUR 3,000, fully paid at incorporation.</p></div>
+            <div class="faq-item"><h4>What is the Spanish VAT rate?</h4><p>21% standard, with reduced rates of 10% and 4%; there is no registration threshold.</p></div>
+            <div class="faq-item"><h4>Can a non-resident own a Spanish company?</h4><p>Yes — non-residents can be sole owners and directors, but need a Spanish NIE number.</p></div>
+          </div>
+
+          <h2 class="reveal">Official sources</h2>
+          <ul class="sources reveal">
+            <li><a href="https://sede.agenciatributaria.gob.es" target="_blank" rel="noopener">Agencia Tributaria (Spanish Tax Agency)</a></li>
+            <li><a href="https://www.investinspain.org/en" target="_blank" rel="noopener">Invest in Spain (ICEX)</a></li>
+            <li>Company law — the Capital Companies Act; Startup Law (Ley 28/2022)</li>
+          </ul>
+
+          <p class="reveal disclaimer">This guide is general information prepared by ARM Management and is current as at {reviewed}. It is not legal or tax advice; small-company rates are being phased and rules change. Confirm against the Agencia Tributaria, or with an advisor, before acting.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta-section guide-cta">
+      <span class="eyebrow is-center reveal" style="justify-content:center">Speak With ARM</span>
+      <h2 class="reveal">Establish your Spanish company correctly.</h2>
+      <p class="reveal">ARM Management advises international founders on Spanish entity formation, tax positioning and the Startup Law regime, alongside wider EU structuring. Begin with a confidential conversation.</p>
+      <div class="btn-row reveal">
+        <a href="/contact" class="btn-primary">Schedule a Consultation →</a>
+        <a href="/services/company-formation" class="btn-secondary">Company Formation Services</a>
+      </div>
+    </section>
+  </main>
+
+  <script type="application/ld+json" set:html={JSON.stringify({"@context":"https://schema.org","@type":"Article","headline":"Company Formation & Tax in Spain 2026","author":{"@type":"Organization","name":"ARM Management"},"publisher":{"@type":"Organization","name":"ARM Management"},"dateModified":"2026-06-01","mainEntityOfPage":"https://arm-management.com/insights/spain-company-formation"})} />
+  <script type="application/ld+json" set:html={JSON.stringify({"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is the corporate tax rate in Spain?","acceptedAnswer":{"@type":"Answer","text":"25% standard, with a reduced 15% rate for newly created companies in their first two profitable years and lower phased rates for small and micro enterprises."}},{"@type":"Question","name":"How much capital do I need for a Spanish SL?","acceptedAnswer":{"@type":"Answer","text":"EUR 3,000, fully paid at incorporation."}},{"@type":"Question","name":"What is the Spanish VAT rate?","acceptedAnswer":{"@type":"Answer","text":"21% standard, with reduced rates of 10% and 4%; there is no registration threshold."}}]})} />
+</Base>

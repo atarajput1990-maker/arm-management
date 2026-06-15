@@ -1,0 +1,90 @@
+---
+import Base from '../../layouts/Base.astro';
+const reviewed = "June 2026";
+---
+<Base
+  title="Company Formation & Tax in the Netherlands 2026: BV & Corporate Tax | ARM Management"
+  description="A current guide to setting up a company in the Netherlands — the BV, the 19% / 25.8% corporate tax, 21% VAT, and the participation exemption and Innovation Box, with official sources."
+>
+  <main>
+    <section class="page-hero">
+      <div class="page-hero__bg" style="background-image:url('/images/ed-brussels.jpg')"></div>
+      <div class="page-hero__overlay"></div>
+      <div class="page-hero__content container">
+        <span class="eyebrow">Guide · Netherlands</span>
+        <h1>Company Formation &amp; Tax in the Netherlands</h1>
+        <p>A stable, English-friendly gateway to the EU — the BV, the two-tier corporate tax, VAT, and the holding regimes that make the Netherlands a structuring favourite.</p>
+      </div>
+    </section>
+
+    <section class="section section--warm">
+      <div class="container--narrow">
+        <div class="guide-meta reveal">
+          <span><strong>Last reviewed:</strong> {reviewed}</span>
+          <span><strong>Primary source:</strong>
+            <a href="https://business.gov.nl" target="_blank" rel="noopener">Business.gov.nl</a> ·
+            <a href="https://www.belastingdienst.nl" target="_blank" rel="noopener">Belastingdienst</a>
+          </span>
+        </div>
+
+        <div class="prose">
+          <p class="reveal lede">The Netherlands is one of Europe's most open economies and a long-standing base for international holding and trading structures. Incorporation is fast and can be handled in English, and the country's participation exemption and Innovation Box are among the reasons so many groups route activity through a Dutch entity.</p>
+
+          <h2 class="reveal">Choosing an entity</h2>
+          <p class="reveal">The standard vehicle is the <strong>BV</strong> (besloten vennootschap, private limited company). Since the "Flex-BV" reform, there is effectively no minimum capital — a BV can be formed with EUR 0.01. Larger and listed businesses use the <strong>NV</strong> (public limited company). Incorporation is via a civil-law notary and registration with the Chamber of Commerce (KvK), which passes details to the tax administration (Belastingdienst). Foreign founders can own a BV fully, and the process is typically completed within a few days, remotely.</p>
+
+          <h2 class="reveal">Corporate tax and VAT</h2>
+          <div class="rate-table reveal">
+            <table>
+              <thead><tr><th>Tax</th><th>Rate</th></tr></thead>
+              <tbody>
+                <tr><td>Corporate income tax — profits up to €200,000</td><td>19%</td></tr>
+                <tr><td>Corporate income tax — profits above €200,000</td><td>25.8%</td></tr>
+                <tr><td>VAT (standard)</td><td>21%</td></tr>
+                <tr><td>VAT (reduced)</td><td>9%</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="reveal">Dutch corporate income tax (vennootschapsbelasting) is two-tier: <strong>19%</strong> on taxable profit up to €200,000 and <strong>25.8%</strong> above, unchanged for 2026. VAT (BTW) is <strong>21%</strong> standard with a 9% reduced rate; companies file VAT returns (usually quarterly) through the Belastingdienst.</p>
+
+          <h2 class="reveal">The regimes that matter</h2>
+          <p class="reveal">Two features make the Netherlands attractive for structuring. The <strong>participation exemption</strong> can fully exempt dividends and capital gains from qualifying shareholdings (broadly a 5%+ stake meeting conditions) — the foundation of the Dutch holding company. The <strong>Innovation Box</strong> reduces the effective rate to around 9% on qualifying income from self-developed intangibles. The Netherlands also runs the well-known 30% ruling for qualifying inbound employees, a fiscal-unity regime for groups, and one of the world's widest treaty networks. Note a conditional withholding tax applies to certain interest, royalty and dividend payments to low-tax jurisdictions.</p>
+
+          <div class="callout reveal">
+            <strong>The Netherlands earns its place on structure, not headline rate.</strong> At 25.8% the top rate is mid-table for Europe — but the participation exemption and Innovation Box are why it remains a first-choice holding and IP jurisdiction. Those reliefs reward planning before incorporation.
+          </div>
+
+          <h2 class="reveal">Frequently asked questions</h2>
+          <div class="reveal">
+            <div class="faq-item"><h4>What is the corporate tax rate in the Netherlands?</h4><p>19% on taxable profit up to €200,000 and 25.8% above that.</p></div>
+            <div class="faq-item"><h4>How much capital do I need for a BV?</h4><p>Effectively none — since the Flex-BV reform a BV can be formed with EUR 0.01 of share capital.</p></div>
+            <div class="faq-item"><h4>What is the Dutch VAT rate?</h4><p>21% standard, with a 9% reduced rate.</p></div>
+            <div class="faq-item"><h4>Why use a Dutch holding company?</h4><p>The participation exemption can fully exempt qualifying dividends and capital gains, making the Netherlands efficient for holding structures when conditions are met.</p></div>
+          </div>
+
+          <h2 class="reveal">Official sources</h2>
+          <ul class="sources reveal">
+            <li><a href="https://business.gov.nl/starting-your-business/" target="_blank" rel="noopener">Business.gov.nl — Starting a Business</a></li>
+            <li><a href="https://www.belastingdienst.nl" target="_blank" rel="noopener">Belastingdienst (Dutch Tax Administration)</a></li>
+            <li><a href="https://www.kvk.nl/en/" target="_blank" rel="noopener">KvK — Netherlands Chamber of Commerce</a></li>
+          </ul>
+
+          <p class="reveal disclaimer">This guide is general information prepared by ARM Management and is current as at {reviewed}. It is not legal or tax advice; reliefs carry conditions and rules change. Confirm against the official sources above, or with an advisor, before acting.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta-section guide-cta">
+      <span class="eyebrow is-center reveal" style="justify-content:center">Speak With ARM</span>
+      <h2 class="reveal">Build your EU structure in the Netherlands.</h2>
+      <p class="reveal">From our Brussels base, ARM Management advises international companies on Dutch entity formation, holding structures and tax positioning. Begin with a confidential conversation.</p>
+      <div class="btn-row reveal">
+        <a href="/contact" class="btn-primary">Schedule a Consultation →</a>
+        <a href="/services/company-formation" class="btn-secondary">Company Formation Services</a>
+      </div>
+    </section>
+  </main>
+
+  <script type="application/ld+json" set:html={JSON.stringify({"@context":"https://schema.org","@type":"Article","headline":"Company Formation & Tax in the Netherlands 2026","author":{"@type":"Organization","name":"ARM Management"},"publisher":{"@type":"Organization","name":"ARM Management"},"dateModified":"2026-06-01","mainEntityOfPage":"https://arm-management.com/insights/netherlands-company-formation"})} />
+  <script type="application/ld+json" set:html={JSON.stringify({"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is the corporate tax rate in the Netherlands?","acceptedAnswer":{"@type":"Answer","text":"19% on taxable profit up to €200,000 and 25.8% above that."}},{"@type":"Question","name":"How much capital do I need for a Dutch BV?","acceptedAnswer":{"@type":"Answer","text":"Effectively none — since the Flex-BV reform a BV can be formed with EUR 0.01 of share capital."}},{"@type":"Question","name":"What is the Dutch VAT rate?","acceptedAnswer":{"@type":"Answer","text":"21% standard, with a 9% reduced rate."}}]})} />
+</Base>

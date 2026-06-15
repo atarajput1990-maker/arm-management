@@ -1,0 +1,89 @@
+---
+import Base from '../../layouts/Base.astro';
+const reviewed = "June 2026";
+---
+<Base
+  title="Company Formation & Tax in Italy 2026: SRL, IRES & IRAP | ARM Management"
+  description="A current guide to setting up a company in Italy — the SRL, IRES corporate tax (24%) plus IRAP (~3.9%), 22% VAT and mandatory e-invoicing, with official sources."
+>
+  <main>
+    <section class="page-hero">
+      <div class="page-hero__bg" style="background-image:url('/images/ed-brussels.jpg')"></div>
+      <div class="page-hero__overlay"></div>
+      <div class="page-hero__content container">
+        <span class="eyebrow">Guide · Italy</span>
+        <h1>Company Formation &amp; Tax in Italy</h1>
+        <p>A major EU market with a two-part corporate tax — the SRL, IRES and IRAP, VAT, and the e-invoicing regime every business must use.</p>
+      </div>
+    </section>
+
+    <section class="section section--warm">
+      <div class="container--narrow">
+        <div class="guide-meta reveal">
+          <span><strong>Last reviewed:</strong> {reviewed}</span>
+          <span><strong>Primary source:</strong>
+            <a href="https://www.agenziaentrate.gov.it" target="_blank" rel="noopener">Agenzia delle Entrate</a>
+          </span>
+        </div>
+
+        <div class="prose">
+          <p class="reveal lede">Italy is the EU's third-largest economy and a substantial consumer and manufacturing market. Its corporate tax has two components — national IRES and regional IRAP — and its VAT system is fully digital, with mandatory e-invoicing for essentially all businesses.</p>
+
+          <h2 class="reveal">Choosing an entity</h2>
+          <p class="reveal">The standard vehicle is the <strong>SRL</strong> (società a responsabilità limitata), the private limited company; a simplified low-capital form (SRLS) exists, and capital can start very low, though adequate funding for the activity is expected. Larger and listed businesses use the <strong>SPA</strong> (società per azioni, minimum €50,000). Incorporation is via a notary, and the tax authority (Agenzia delle Entrate) issues a VAT number (partita IVA) and tax code, typically within a week or two.</p>
+
+          <h2 class="reveal">Corporate tax and VAT</h2>
+          <div class="rate-table reveal">
+            <table>
+              <thead><tr><th>Tax</th><th>Rate</th></tr></thead>
+              <tbody>
+                <tr><td>IRES — national corporate income tax</td><td>24%</td></tr>
+                <tr><td>IRAP — regional production tax (standard)</td><td>≈ 3.9% (regions adjust ±0.92%)</td></tr>
+                <tr><td><strong>Combined effective</strong></td><td><strong>≈ 27.9%</strong></td></tr>
+                <tr><td>VAT (IVA, standard)</td><td>22%</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="reveal">Italian companies pay <strong>IRES</strong> (corporate income tax) at a flat <strong>24%</strong> plus <strong>IRAP</strong>, a regional production tax at a standard <strong>3.9%</strong> (regions can adjust within limits, and higher rates apply to banks, financial and insurance entities) — a combined effective rate of around 27.9%. VAT (IVA) is <strong>22%</strong> standard, with reduced rates of 10%, 5% and 4%; there is no registration threshold, and <strong>electronic invoicing via the SdI platform is mandatory</strong> for VAT-registered businesses.</p>
+
+          <div class="callout reveal">
+            <strong>Budget for two taxes and full digital compliance.</strong> The headline figure most people quote (24%) is only IRES — IRAP adds roughly another four points. And Italy's e-invoicing obligation means even a zero-balance VAT period still requires correctly filed, structured electronic invoices.
+          </div>
+
+          <h2 class="reveal">Reliefs and Pillar Two</h2>
+          <p class="reveal">Italy's participation exemption can exempt 95% of qualifying dividends and capital gains from IRES where conditions are met (including a minimum holding), making it usable for holding structures. Italy has implemented the OECD Pillar Two rules, including a qualified domestic minimum top-up tax ensuring an effective 15% rate for large multinational groups — relevant only to very large groups, not typical SMEs.</p>
+
+          <h2 class="reveal">Frequently asked questions</h2>
+          <div class="reveal">
+            <div class="faq-item"><h4>What is the corporate tax rate in Italy?</h4><p>IRES at 24% plus regional IRAP at around 3.9% — a combined effective rate of roughly 27.9%.</p></div>
+            <div class="faq-item"><h4>What is the most common company type?</h4><p>The SRL (società a responsabilità limitata), the private limited company; a simplified SRLS variant exists for low-capital startups.</p></div>
+            <div class="faq-item"><h4>What is the Italian VAT rate?</h4><p>22% standard, with reduced rates of 10%, 5% and 4%; e-invoicing via the SdI platform is mandatory.</p></div>
+            <div class="faq-item"><h4>Is there a VAT registration threshold?</h4><p>No — any taxable business activity requires a partita IVA (VAT number).</p></div>
+          </div>
+
+          <h2 class="reveal">Official sources</h2>
+          <ul class="sources reveal">
+            <li><a href="https://www.agenziaentrate.gov.it" target="_blank" rel="noopener">Agenzia delle Entrate (Italian Revenue Agency)</a></li>
+            <li><a href="https://www.infocamere.it/en/" target="_blank" rel="noopener">InfoCamere — Italian business registry</a></li>
+            <li>Corporate tax — IRES and IRAP; e-invoicing via the Sistema di Interscambio (SdI)</li>
+          </ul>
+
+          <p class="reveal disclaimer">This guide is general information prepared by ARM Management and is current as at {reviewed}. It is not legal or tax advice; IRAP varies by region and rules change. Confirm against the Agenzia delle Entrate, or with an advisor, before acting.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta-section guide-cta">
+      <span class="eyebrow is-center reveal" style="justify-content:center">Speak With ARM</span>
+      <h2 class="reveal">Set up in Italy the right way.</h2>
+      <p class="reveal">ARM Management advises international companies on Italian entity formation, IRES/IRAP positioning and VAT compliance, alongside wider EU structuring. Begin with a confidential conversation.</p>
+      <div class="btn-row reveal">
+        <a href="/contact" class="btn-primary">Schedule a Consultation →</a>
+        <a href="/services/company-formation" class="btn-secondary">Company Formation Services</a>
+      </div>
+    </section>
+  </main>
+
+  <script type="application/ld+json" set:html={JSON.stringify({"@context":"https://schema.org","@type":"Article","headline":"Company Formation & Tax in Italy 2026","author":{"@type":"Organization","name":"ARM Management"},"publisher":{"@type":"Organization","name":"ARM Management"},"dateModified":"2026-06-01","mainEntityOfPage":"https://arm-management.com/insights/italy-company-formation"})} />
+  <script type="application/ld+json" set:html={JSON.stringify({"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is the corporate tax rate in Italy?","acceptedAnswer":{"@type":"Answer","text":"IRES at 24% plus regional IRAP at around 3.9% — a combined effective rate of roughly 27.9%."}},{"@type":"Question","name":"What is the most common company type in Italy?","acceptedAnswer":{"@type":"Answer","text":"The SRL (società a responsabilità limitata), the private limited company; a simplified SRLS variant exists for low-capital startups."}},{"@type":"Question","name":"What is the Italian VAT rate?","acceptedAnswer":{"@type":"Answer","text":"22% standard, with reduced rates of 10%, 5% and 4%; e-invoicing via the SdI platform is mandatory."}}]})} />
+</Base>
