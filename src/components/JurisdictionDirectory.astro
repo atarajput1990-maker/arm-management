@@ -15,6 +15,7 @@ const J = [
   {n:"Switzerland", r:"Western Europe", lat:46.8, lng:8.2, ct:"12–21%", vat:"8.1%", s:"switzerland"},
   {n:"Italy", r:"Western Europe", lat:42.8, lng:12.6, ct:"~28%", vat:"22%", s:"italy"},
   {n:"Spain", r:"Western Europe", lat:40.2, lng:-3.7, ct:"25%", vat:"21%", s:"spain"},
+  {n:"Portugal", r:"Western Europe", lat:39.5, lng:-8.0, ct:"20%", vat:"23%", s:"portugal"},
   {n:"Estonia", r:"Northern Europe", lat:58.6, lng:25.0, ct:"0 / 22%", vat:"24%", s:"estonia"},
   {n:"Sweden", r:"Northern Europe", lat:62.0, lng:15.0, ct:"20.6%", vat:"25%", s:"sweden"},
   {n:"Finland", r:"Northern Europe", lat:64.0, lng:26.0, ct:"20%", vat:"25.5%", s:"finland"},
@@ -36,9 +37,12 @@ const J = [
   {n:"North Macedonia", r:"Balkans & Türkiye", lat:41.6, lng:21.7, ct:"10%", vat:"18%", s:"north-macedonia"},
   {n:"Albania", r:"Balkans & Türkiye", lat:41.2, lng:20.0, ct:"0 / 15%", vat:"20%", s:"albania"},
   {n:"Turkey", r:"Balkans & Türkiye", lat:39.0, lng:35.0, ct:"25%", vat:"20%", s:"turkey"},
+  {n:"Greece", r:"Mediterranean", lat:39.0, lng:22.0, ct:"22%", vat:"24%", s:"greece"},
+  {n:"Cyprus", r:"Mediterranean", lat:35.0, lng:33.0, ct:"15%", vat:"19%", s:"cyprus"},
+  {n:"Malta", r:"Mediterranean", lat:35.9, lng:14.4, ct:"35% / 5%", vat:"18%", s:"malta"},
   {n:"Georgia", r:"Caucasus", lat:42.3, lng:43.4, ct:"15%", vat:"18%", s:"georgia"},
 ];
-const ORDER = ["Middle East · GCC","Western Europe","Northern Europe","Central Europe","Southeast Europe","Balkans & Türkiye","Caucasus"];
+const ORDER = ["Middle East · GCC","Western Europe","Northern Europe","Central Europe","Southeast Europe","Balkans & Türkiye","Mediterranean","Caucasus"];
 const groups = ORDER.map(r => ({ r, items: J.filter(d => d.r === r) }));
 const pills = [{r:"All", n:J.length}].concat(ORDER.map(r => ({ r, n: J.filter(d=>d.r===r).length })));
 ---
@@ -179,7 +183,7 @@ const pills = [{r:"All", n:J.length}].concat(ORDER.map(r => ({ r, n: J.filter(d=
   var HUBS=[{city:"Brussels",lat:50.85,lng:4.35},{city:"Zurich",lat:47.37,lng:8.54},{city:"Dubai",lat:25.20,lng:55.27},{city:"Riyadh",lat:24.71,lng:46.68},{city:"Shenzhen",lat:22.54,lng:114.06}];
   var PAIRS=[[0,1],[1,2],[2,3],[2,4],[0,2],[1,4]];
   var ARCS=PAIRS.map(function(p){return {startLat:HUBS[p[0]].lat,startLng:HUBS[p[0]].lng,endLat:HUBS[p[1]].lat,endLng:HUBS[p[1]].lng};});
-  var VIEW={"All":{lat:38,lng:26,altitude:2.2},"Middle East · GCC":{lat:24,lng:47,altitude:1.5},"Western Europe":{lat:47,lng:4,altitude:1.3},"Northern Europe":{lat:60,lng:18,altitude:1.4},"Central Europe":{lat:49,lng:18,altitude:1.3},"Southeast Europe":{lat:44,lng:23,altitude:1.4},"Balkans & Türkiye":{lat:42,lng:26,altitude:1.7},"Caucasus":{lat:42,lng:43,altitude:1.3}};
+  var VIEW={"All":{lat:38,lng:26,altitude:2.2},"Middle East · GCC":{lat:24,lng:47,altitude:1.5},"Western Europe":{lat:47,lng:4,altitude:1.3},"Northern Europe":{lat:60,lng:18,altitude:1.4},"Central Europe":{lat:49,lng:18,altitude:1.3},"Southeast Europe":{lat:44,lng:23,altitude:1.4},"Balkans & Türkiye":{lat:42,lng:26,altitude:1.7},"Mediterranean":{lat:36,lng:23,altitude:1.6},"Caucasus":{lat:42,lng:43,altitude:1.3}};
   var ALIAS={"Czechia":"Czech Republic","Republic of Serbia":"Serbia","Macedonia":"North Macedonia"};
   var COVERED={}; DATA.forEach(function(d){COVERED[d.n]=d;});
   var active="All", query="";

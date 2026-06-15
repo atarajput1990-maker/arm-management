@@ -1,0 +1,84 @@
+---
+import Base from '../../layouts/Base.astro';
+const reviewed = "June 2026";
+---
+<Base
+  title="Company Formation & Tax in Malta 2026: Ltd, 35% & the 6/7 Refund | ARM Management"
+  description="A current guide to setting up a company in Malta — the Ltd, the 35% corporate tax with the 6/7ths refund (≈5% effective), the new 15% option, 18% VAT, and Pillar Two, with official sources."
+>
+  <main>
+    <section class="page-hero">
+      <div class="page-hero__bg" style="background-image:url('/images/ed-brussels.jpg')"></div>
+      <div class="page-hero__overlay"></div>
+      <div class="page-hero__content container">
+        <span class="eyebrow">Guide · Malta</span>
+        <h1>Company Formation &amp; Tax in Malta</h1>
+        <p>An English-speaking EU holding centre with an unusual tax mechanism — a 35% headline rate that, via the refund system, can fall to an effective 5%.</p>
+      </div>
+    </section>
+
+    <section class="section section--warm">
+      <div class="container--narrow">
+        <div class="guide-meta reveal">
+          <span><strong>Last reviewed:</strong> {reviewed}</span>
+          <span><strong>Primary source:</strong>
+            <a href="https://cfr.gov.mt/en/Pages/Home.aspx" target="_blank" rel="noopener">Commissioner for Revenue (CFR)</a>
+          </span>
+        </div>
+
+        <div class="prose">
+          <p class="reveal lede">Malta is an English-speaking EU and eurozone member with a long-standing reputation as a holding and trading centre. Its corporate tax framework is unusual and frequently misunderstood: the headline rate is a high 35%, but a full-imputation refund system can bring the effective rate down to around 5% — with important caveats that have grown sharper under recent EU rules.</p>
+
+          <h2 class="reveal">Choosing an entity</h2>
+          <p class="reveal">The standard vehicle is the private <strong>Ltd</strong> (limited liability company). The usual minimum share capital is about <strong>€1,165</strong>, of which 20% is paid up. Registration is with the <strong>Malta Business Registry (MBR)</strong>, and the company registers with the <strong>Commissioner for Revenue (CFR)</strong> within 30 days of commencing activity. Annual compliance has three pillars: the annual return to the MBR, VAT returns, and a mandatory annual audit. Owners and directors can be non-residents.</p>
+
+          <h2 class="reveal">How the tax system actually works</h2>
+          <div class="rate-table reveal">
+            <table>
+              <thead><tr><th>Tax</th><th>Rate</th></tr></thead>
+              <tbody>
+                <tr><td>Corporate income tax (headline)</td><td>35%</td></tr>
+                <tr><td>Effective after 6/7ths refund (trading)</td><td>~5%</td></tr>
+                <tr><td>Alternative final-tax option</td><td>15% (no refund)</td></tr>
+                <tr><td>VAT (standard)</td><td>18%</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="reveal">A Maltese company pays corporate tax at <strong>35%</strong> on its profits. When it distributes a dividend, non-resident (or non-domiciled) shareholders can claim a refund of <strong>6/7ths</strong> of the tax on trading income, leaving an effective rate of about <strong>5%</strong> (different fractions apply to passive income — 5/7ths, giving ~10%). Crucially, the company must pay the full 35% first and the refund follows on distribution, so there is a real <strong>cash-flow timing gap</strong>; a fiscal-unit / tax-consolidation election can deliver the net 5% directly and avoid that lag. From 2025–2026 Malta also introduced a <strong>15% final-tax option</strong> (no refund) and a Pillar Two domestic minimum top-up tax for large groups. VAT is <strong>18%</strong>, among the EU's lowest, with registration thresholds of €35,000 (services) / €70,000 (goods).</p>
+
+          <div class="callout reveal">
+            <strong>The 5% is real, but it is not automatic — and it is under scrutiny.</strong> The refund system is a long-standing, EU-reviewed imputation regime, not a loophole; but it requires correct filing, creates a cash-flow lag, and foreign tax authorities increasingly assess the 5% effective rate (not the 35% paid) for CFC and anti-avoidance purposes. Malta works best with genuine substance and proper advice — this is a structure to plan carefully, not a headline to chase.
+          </div>
+
+          <h2 class="reveal">Frequently asked questions</h2>
+          <div class="reveal">
+            <div class="faq-item"><h4>What is the corporate tax rate in Malta?</h4><p>The headline rate is 35%, but the 6/7ths shareholder refund on trading income brings the effective rate to about 5%; a 15% final-tax option (without refund) also now exists.</p></div>
+            <div class="faq-item"><h4>Is the 5% effective rate guaranteed?</h4><p>No. It depends on correct filing, the type of income (different refund fractions apply), shareholder profile, and how foreign CFC rules treat the structure. It needs proper advice.</p></div>
+            <div class="faq-item"><h4>What is the Maltese VAT rate?</h4><p>18% standard — among the lowest in the EU — with registration thresholds of €35,000 for services and €70,000 for goods.</p></div>
+          </div>
+
+          <h2 class="reveal">Official sources</h2>
+          <ul class="sources reveal">
+            <li><a href="https://cfr.gov.mt/en/Pages/Home.aspx" target="_blank" rel="noopener">Commissioner for Revenue (CFR)</a></li>
+            <li><a href="https://mbr.mt/" target="_blank" rel="noopener">Malta Business Registry (MBR)</a></li>
+          </ul>
+
+          <p class="reveal disclaimer">This guide is general information prepared by ARM Management and is current as at {reviewed}. It is not legal or tax advice; Malta's refund system is complex and increasingly scrutinised under EU and CFC rules. Confirm against the Commissioner for Revenue, or with an advisor, before acting.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta-section guide-cta">
+      <span class="eyebrow is-center reveal" style="justify-content:center">Speak With ARM</span>
+      <h2 class="reveal">Set up in Malta with confidence.</h2>
+      <p class="reveal">ARM Management advises international companies on Maltese holding and trading structures, the refund system and tax compliance, alongside wider EU and GCC structuring. Begin with a confidential conversation.</p>
+      <div class="btn-row reveal">
+        <a href="/contact" class="btn-primary">Schedule a Consultation →</a>
+        <a href="/services/company-formation" class="btn-secondary">Company Formation Services</a>
+      </div>
+    </section>
+  </main>
+
+  <script type="application/ld+json" set:html={JSON.stringify({"@context":"https://schema.org","@type":"Article","headline":"Company Formation & Tax in Malta 2026","author":{"@type":"Organization","name":"ARM Management"},"publisher":{"@type":"Organization","name":"ARM Management"},"dateModified":"2026-06-01","mainEntityOfPage":"https://arm-management.com/insights/malta-company-formation"})} />
+  <script type="application/ld+json" set:html={JSON.stringify({"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is the corporate tax rate in Malta?","acceptedAnswer":{"@type":"Answer","text":"The headline rate is 35%, but the 6/7ths shareholder refund on trading income brings the effective rate to about 5%; a 15% final-tax option without refund also now exists."}},{"@type":"Question","name":"Is the 5% effective rate in Malta guaranteed?","acceptedAnswer":{"@type":"Answer","text":"No. It depends on correct filing, the type of income, shareholder profile, and how foreign CFC rules treat the structure. It needs proper advice."}},{"@type":"Question","name":"What is the Maltese VAT rate?","acceptedAnswer":{"@type":"Answer","text":"18% standard — among the lowest in the EU — with registration thresholds of €35,000 for services and €70,000 for goods."}}]})} />
+</Base>
