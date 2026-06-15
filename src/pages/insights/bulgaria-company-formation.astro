@@ -1,0 +1,85 @@
+---
+import Base from '../../layouts/Base.astro';
+const reviewed = "June 2026";
+---
+<Base
+  title="Company Formation & Tax in Bulgaria 2026: EOOD, 10% Tax & the Euro | ARM Management"
+  description="A current guide to setting up a company in Bulgaria — the EOOD/OOD, the EU's lowest 10% corporate tax, 20% VAT, and euro adoption from 2026, with official sources."
+>
+  <main>
+    <section class="page-hero">
+      <div class="page-hero__bg" style="background-image:url('/images/ed-brussels.jpg')"></div>
+      <div class="page-hero__overlay"></div>
+      <div class="page-hero__content container">
+        <span class="eyebrow">Guide · Bulgaria</span>
+        <h1>Company Formation &amp; Tax in Bulgaria</h1>
+        <p>The EU's lowest headline corporate tax, a nominal capital requirement and — from 2026 — the euro: the EOOD and OOD explained.</p>
+      </div>
+    </section>
+
+    <section class="section section--warm">
+      <div class="container--narrow">
+        <div class="guide-meta reveal">
+          <span><strong>Last reviewed:</strong> {reviewed}</span>
+          <span><strong>Primary source:</strong>
+            <a href="https://nra.bg/en" target="_blank" rel="noopener">National Revenue Agency (NRA)</a>
+          </span>
+        </div>
+
+        <div class="prose">
+          <p class="reveal lede">Bulgaria has combined the EU's lowest flat corporate tax with cheap, fast incorporation for years. The headline change for 2026 is monetary: on 1 January 2026 Bulgaria adopted the <strong>euro</strong> at the fixed rate of 1 EUR = 1.95583 BGN, removing currency risk for cross-border operations.</p>
+
+          <h2 class="reveal">Choosing an entity</h2>
+          <p class="reveal">The standard vehicles are the <strong>EOOD</strong> (single-member private limited company) and the <strong>OOD</strong> (two or more members). Minimum share capital is nominal — effectively <strong>€1</strong>. Registration is filed with the <strong>Commercial Register</strong> at the Registry Agency, typically within a few working days, and tax matters are administered by the <strong>National Revenue Agency (NRA)</strong>. Foreign nationals can own and direct a company with no residency requirement, and formation can be completed remotely by power of attorney; in practice, opening a bank account for a non-resident is the slowest step.</p>
+
+          <h2 class="reveal">Corporate tax and VAT</h2>
+          <div class="rate-table reveal">
+            <table>
+              <thead><tr><th>Tax</th><th>Rate</th></tr></thead>
+              <tbody>
+                <tr><td>Corporate income tax</td><td>10%</td></tr>
+                <tr><td>VAT (standard)</td><td>20%</td></tr>
+                <tr><td>VAT (reduced)</td><td>9%</td></tr>
+                <tr><td>VAT registration threshold</td><td>BGN 100,000 (~€51,130)</td></tr>
+                <tr><td>Dividend withholding</td><td>5% (0% for qualifying EU parents)</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="reveal">Corporate income tax is a flat <strong>10%</strong> — the lowest headline rate in the EU — and has been stable since 2007. VAT is <strong>20%</strong> standard with a 9% reduced rate; mandatory registration applies above BGN 100,000 (about €51,130) of turnover, and the EU-wide SME scheme allows small businesses under €100,000 of EU turnover to trade cross-border without charging VAT. Distributed profits carry a <strong>5%</strong> dividend withholding tax, reduced to nil for qualifying EU parent companies under the Parent-Subsidiary Directive; because dividend treatment has been the subject of recent proposals, confirm the current rate at the point of distribution. The combined corporate-plus-dividend burden is roughly 14.5%, among the lowest in the Union.</p>
+
+          <div class="callout reveal">
+            <strong>Low-tax, and now euro-denominated.</strong> Euro adoption in 2026 removes the lev conversion friction that used to complicate Bulgarian structures, while the 10% rate and nominal capital keep set-up costs minimal. The practical gating item remains non-resident banking, which ARM helps coordinate.
+          </div>
+
+          <h2 class="reveal">Frequently asked questions</h2>
+          <div class="reveal">
+            <div class="faq-item"><h4>What is the corporate tax rate in Bulgaria?</h4><p>A flat 10%, the lowest headline corporate tax rate in the EU, stable since 2007.</p></div>
+            <div class="faq-item"><h4>Has Bulgaria adopted the euro?</h4><p>Yes — Bulgaria joined the eurozone on 1 January 2026 at the fixed rate of 1 EUR = 1.95583 BGN.</p></div>
+            <div class="faq-item"><h4>What is the Bulgarian VAT rate?</h4><p>20% standard, with a 9% reduced rate; registration applies above BGN 100,000 (about €51,130) turnover.</p></div>
+          </div>
+
+          <h2 class="reveal">Official sources</h2>
+          <ul class="sources reveal">
+            <li><a href="https://nra.bg/en" target="_blank" rel="noopener">National Revenue Agency (NRA)</a></li>
+            <li><a href="https://www.registryagency.bg/en/" target="_blank" rel="noopener">Registry Agency (Commercial Register)</a></li>
+          </ul>
+
+          <p class="reveal disclaimer">This guide is general information prepared by ARM Management and is current as at {reviewed}. It is not legal or tax advice; rules and thresholds change. Confirm against the National Revenue Agency, or with an advisor, before acting.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta-section guide-cta">
+      <span class="eyebrow is-center reveal" style="justify-content:center">Speak With ARM</span>
+      <h2 class="reveal">Set up in Bulgaria with confidence.</h2>
+      <p class="reveal">ARM Management advises international companies on Bulgarian entity formation, banking coordination and tax compliance, alongside wider CEE structuring. Begin with a confidential conversation.</p>
+      <div class="btn-row reveal">
+        <a href="/contact" class="btn-primary">Schedule a Consultation →</a>
+        <a href="/services/company-formation" class="btn-secondary">Company Formation Services</a>
+      </div>
+    </section>
+  </main>
+
+  <script type="application/ld+json" set:html={JSON.stringify({"@context":"https://schema.org","@type":"Article","headline":"Company Formation & Tax in Bulgaria 2026","author":{"@type":"Organization","name":"ARM Management"},"publisher":{"@type":"Organization","name":"ARM Management"},"dateModified":"2026-06-01","mainEntityOfPage":"https://arm-management.com/insights/bulgaria-company-formation"})} />
+  <script type="application/ld+json" set:html={JSON.stringify({"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is the corporate tax rate in Bulgaria?","acceptedAnswer":{"@type":"Answer","text":"A flat 10%, the lowest headline corporate tax rate in the EU, stable since 2007."}},{"@type":"Question","name":"Has Bulgaria adopted the euro?","acceptedAnswer":{"@type":"Answer","text":"Yes — Bulgaria joined the eurozone on 1 January 2026 at the fixed rate of 1 EUR = 1.95583 BGN."}},{"@type":"Question","name":"What is the Bulgarian VAT rate?","acceptedAnswer":{"@type":"Answer","text":"20% standard, with a 9% reduced rate; registration applies above BGN 100,000 (about €51,130) turnover."}}]})} />
+</Base>

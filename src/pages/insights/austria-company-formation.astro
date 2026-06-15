@@ -1,0 +1,86 @@
+---
+import Base from '../../layouts/Base.astro';
+const reviewed = "June 2026";
+---
+<Base
+  title="Company Formation & Tax in Austria 2026: GmbH & Corporate Tax | ARM Management"
+  description="A current guide to setting up a company in Austria — the GmbH, the new FlexCo, the 23% corporate tax, 20% VAT, and registration via the Firmenbuch, with official sources."
+>
+  <main>
+    <section class="page-hero">
+      <div class="page-hero__bg" style="background-image:url('/images/ed-zurich.jpg')"></div>
+      <div class="page-hero__overlay"></div>
+      <div class="page-hero__content container">
+        <span class="eyebrow">Guide · Austria</span>
+        <h1>Company Formation &amp; Tax in Austria</h1>
+        <p>A central European base with a lowered capital barrier — the GmbH, the new FlexCo, a flat corporate tax and a fully digital incorporation route.</p>
+      </div>
+    </section>
+
+    <section class="section section--warm">
+      <div class="container--narrow">
+        <div class="guide-meta reveal">
+          <span><strong>Last reviewed:</strong> {reviewed}</span>
+          <span><strong>Primary source:</strong>
+            <a href="https://www.bmf.gv.at/en.html" target="_blank" rel="noopener">Federal Ministry of Finance (BMF)</a>
+          </span>
+        </div>
+
+        <div class="prose">
+          <p class="reveal lede">Austria pairs a German-speaking, central-EU location with a corporate tax regime that has steadily fallen and a 2024 reform package that cut the cost of incorporation sharply. Foreign founders can own 100% of an Austrian company, with no residency requirement, and complete the whole process remotely by video.</p>
+
+          <h2 class="reveal">Choosing an entity</h2>
+          <p class="reveal">The standard vehicle is the <strong>GmbH</strong> (Gesellschaft mit beschränkter Haftung, private limited company). Since 1 January 2024 the minimum share capital is <strong>€10,000</strong> (down from €35,000), of which at least <strong>€5,000</strong> must be paid in. The 2024 reform also introduced the <strong>FlexCo</strong> (Flexible Kapitalgesellschaft / FlexKapG), a startup-friendly hybrid designed for employee equity and staged investment. Larger or listed businesses use the <strong>AG</strong> (Aktiengesellschaft, €70,000 minimum). Registration is via the <strong>Firmenbuch</strong> (Commercial Register, accessed through JustizOnline), followed by tax registration with the <strong>Finanzamt</strong>. Notarial deeds and signatures can be executed digitally, so the company can be formed without travelling to Austria; typical timelines run from roughly one to four weeks.</p>
+
+          <h2 class="reveal">Corporate tax and VAT</h2>
+          <div class="rate-table reveal">
+            <table>
+              <thead><tr><th>Tax</th><th>Rate</th></tr></thead>
+              <tbody>
+                <tr><td>Corporate income tax (KöSt)</td><td>23%</td></tr>
+                <tr><td>Minimum corporate tax (GmbH)</td><td>€500 / year (credited forward)</td></tr>
+                <tr><td>VAT (USt, standard)</td><td>20%</td></tr>
+                <tr><td>VAT (reduced)</td><td>13% / 10%</td></tr>
+                <tr><td>VAT registration threshold</td><td>€55,000</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="reveal">Corporate income tax (Körperschaftsteuer) is a flat <strong>23%</strong>, the end point of a phased reduction from 25% (2022) to 24% (2023) and 23% from 2024, with no further cut currently planned. A <strong>minimum corporate tax</strong> of €500 a year applies to a GmbH even in loss years and is credited against future liabilities. VAT (Umsatzsteuer) is <strong>20%</strong> standard, with reduced rates of 13% and 10%; the registration threshold rose to <strong>€55,000</strong> on 1 January 2025. Distributed profits carry withholding tax of 27.5% for individuals and 23% for corporate shareholders, reducible to nil for qualifying EU parents under the Parent-Subsidiary Directive (a 10% holding held for at least a year). Austria also offers a 14% research premium on qualifying R&D.</p>
+
+          <div class="callout reveal">
+            <strong>Lower barrier, same substance.</strong> The 2024 capital cut and digital notarisation make an Austrian GmbH far cheaper and faster to launch than before, while the 23% rate and an extensive treaty network keep it credible for holding and operating structures across the DACH region and CEE.
+          </div>
+
+          <h2 class="reveal">Frequently asked questions</h2>
+          <div class="reveal">
+            <div class="faq-item"><h4>What is the corporate tax rate in Austria?</h4><p>A flat 23% (reduced from 24% in 2023 and 25% in 2022), with a €500 minimum annual corporate tax for a GmbH that is credited against future liabilities.</p></div>
+            <div class="faq-item"><h4>How much capital do I need for an Austrian GmbH?</h4><p>Since 2024 the minimum is €10,000, of which €5,000 must be paid in. The new FlexCo follows the same €10,000 minimum.</p></div>
+            <div class="faq-item"><h4>What is the Austrian VAT rate?</h4><p>20% standard, with reduced rates of 13% and 10%; registration is required once turnover exceeds €55,000.</p></div>
+          </div>
+
+          <h2 class="reveal">Official sources</h2>
+          <ul class="sources reveal">
+            <li><a href="https://www.bmf.gv.at/en.html" target="_blank" rel="noopener">Federal Ministry of Finance (BMF)</a></li>
+            <li><a href="https://justizonline.gv.at/" target="_blank" rel="noopener">Firmenbuch / JustizOnline (Commercial Register)</a></li>
+            <li><a href="https://www.usp.gv.at/en/index.html" target="_blank" rel="noopener">Business Service Portal (USP)</a></li>
+          </ul>
+
+          <p class="reveal disclaimer">This guide is general information prepared by ARM Management and is current as at {reviewed}. It is not legal or tax advice; rules and thresholds change. Confirm against the Federal Ministry of Finance, or with an advisor, before acting.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta-section guide-cta">
+      <span class="eyebrow is-center reveal" style="justify-content:center">Speak With ARM</span>
+      <h2 class="reveal">Set up in Austria with confidence.</h2>
+      <p class="reveal">ARM Management advises international companies on Austrian entity formation, registration and tax compliance, alongside wider DACH and CEE structuring. Begin with a confidential conversation.</p>
+      <div class="btn-row reveal">
+        <a href="/contact" class="btn-primary">Schedule a Consultation →</a>
+        <a href="/services/company-formation" class="btn-secondary">Company Formation Services</a>
+      </div>
+    </section>
+  </main>
+
+  <script type="application/ld+json" set:html={JSON.stringify({"@context":"https://schema.org","@type":"Article","headline":"Company Formation & Tax in Austria 2026","author":{"@type":"Organization","name":"ARM Management"},"publisher":{"@type":"Organization","name":"ARM Management"},"dateModified":"2026-06-01","mainEntityOfPage":"https://arm-management.com/insights/austria-company-formation"})} />
+  <script type="application/ld+json" set:html={JSON.stringify({"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is the corporate tax rate in Austria?","acceptedAnswer":{"@type":"Answer","text":"A flat 23% (reduced from 24% in 2023 and 25% in 2022), with a €500 minimum annual corporate tax for a GmbH credited against future liabilities."}},{"@type":"Question","name":"How much capital do I need for an Austrian GmbH?","acceptedAnswer":{"@type":"Answer","text":"Since 2024 the minimum is €10,000, of which €5,000 must be paid in."}},{"@type":"Question","name":"What is the Austrian VAT rate?","acceptedAnswer":{"@type":"Answer","text":"20% standard, with reduced rates of 13% and 10%; registration is required once turnover exceeds €55,000."}}]})} />
+</Base>
