@@ -40,10 +40,37 @@ import '../styles/global.css';
     "@context": "https://schema.org",
     "@type":    "Organization",
     name:       "ARM Management",
-    url:        "https://www.arm-management.com",
-    description:"International business advisory headquartered in the UAE, with offices in Brussels, Zurich, Dubai, Riyadh and Shenzhen.",
+    alternateName: "ARM",
+    url:        "https://arm-management.com",
+    logo:       "https://arm-management.com/images/logo.png",
+    image:      "https://arm-management.com/images/og-default.jpg",
+    description:"International business advisory headquartered in the UAE, with offices in Brussels, Zurich, Dubai, Riyadh and Shenzhen. ARM advises on company formation, corporate tax and VAT, cross-border transactions, payroll and HR, global mobility and crypto/Web3.",
+    slogan:     "Empowering Innovation — Quietly, across every border",
     email:      "info@arm-management.com",
-    address:    { "@type": "PostalAddress", addressCountry: "AE" },
+    founder:    { "@type": "Person", name: "Ata Rajput", jobTitle: "Founder", worksFor: "ARM Management" },
+    address:    { "@type": "PostalAddress", addressLocality: "Dubai", addressCountry: "AE" },
+    contactPoint: {
+      "@type": "ContactPoint",
+      contactType: "customer service",
+      email: "info@arm-management.com",
+      areaServed: ["AE","SA","BE","CH","CN","EU"],
+      availableLanguage: ["English"]
+    },
+    knowsAbout: [
+      "Company formation",
+      "Corporate tax compliance",
+      "Value added tax (VAT) compliance",
+      "Cross-border transaction advisory",
+      "Payroll and HR advisory",
+      "Global mobility and residence permits",
+      "Crypto and Web3 advisory"
+    ],
+    areaServed: [
+      { "@type": "Place", name: "European Union" },
+      { "@type": "Place", name: "GCC / Middle East" },
+      { "@type": "Place", name: "Asia Pacific" },
+      { "@type": "Place", name: "Latin America" }
+    ],
     location: [
       { "@type": "Place", name: "ARM Management — Brussels", address: { "@type": "PostalAddress", addressLocality: "Brussels", addressCountry: "BE" } },
       { "@type": "Place", name: "ARM Management — Zurich",   address: { "@type": "PostalAddress", addressLocality: "Zurich",   addressCountry: "CH" } },
