@@ -1,5 +1,6 @@
 ---
 import Base from '../../layouts/Base.astro';
+import JurisdictionDirectory from '../../components/JurisdictionDirectory.astro';
 ---
 <Base
   title="International Company Formation | ARM Management"
@@ -49,39 +50,8 @@ import Base from '../../layouts/Base.astro';
       <h2 class="reveal">Where We Form Companies</h2>
       <div class="gold-rule reveal"></div>
       <p class="reveal" style="max-width:680px;color:#2C3240">For our core markets we publish in-depth, regularly reviewed guides — entity types, corporate tax, VAT and the local regimes that matter. Read the guide for your target jurisdiction, then talk to us about your specific structure.</p>
-      <div class="grid-3" style="margin-top:40px">
-        <a class="card reveal reveal-delay-1" href="/insights/uae-company-formation" style="display:block;text-decoration:none">
-          <h3>🇦🇪 United Arab Emirates</h3>
-          <p>Mainland, free-zone and offshore — 100% foreign ownership, licence types and the full setup process.</p>
-          <span style="font-family:'Inter',sans-serif;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--gold)">Read the guide →</span>
-        </a>
-        <a class="card reveal reveal-delay-2" href="/insights/saudi-arabia-company-formation" style="display:block;text-decoration:none">
-          <h3>🇸🇦 Saudi Arabia</h3>
-          <p>MISA licensing, the 20% corporate tax / 2.5% Zakat split, 15% VAT and the 30-year RHQ incentive.</p>
-          <span style="font-family:'Inter',sans-serif;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--gold)">Read the guide →</span>
-        </a>
-        <a class="card reveal reveal-delay-3" href="/insights/germany-company-formation" style="display:block;text-decoration:none">
-          <h3>🇩🇪 Germany</h3>
-          <p>GmbH and UG structures, the three-part corporate tax stack (~30% combined) and 19% VAT.</p>
-          <span style="font-family:'Inter',sans-serif;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--gold)">Read the guide →</span>
-        </a>
-        <a class="card reveal reveal-delay-1" href="/insights/belgium-company-formation" style="display:block;text-decoration:none">
-          <h3>🇧🇪 Belgium</h3>
-          <p>The BV/SRL, 25% / 20% SME corporate tax, 21% VAT and the holding &amp; IP regimes.</p>
-          <span style="font-family:'Inter',sans-serif;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--gold)">Read the guide →</span>
-        </a>
-        <a class="card reveal reveal-delay-2" href="/insights/switzerland-company-formation" style="display:block;text-decoration:none">
-          <h3>🇨🇭 Switzerland</h3>
-          <p>GmbH vs AG, the three-tier tax (~12–21% by canton), 8.1% VAT and the participation exemption.</p>
-          <span style="font-family:'Inter',sans-serif;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--gold)">Read the guide →</span>
-        </a>
-        <a class="card reveal reveal-delay-3" href="/insights/georgia-company-formation" style="display:block;text-decoration:none">
-          <h3>🇬🇪 Georgia</h3>
-          <p>The Estonian model — 15% on distributed profit only — plus the Virtual Zone for IT businesses.</p>
-          <span style="font-family:'Inter',sans-serif;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--gold)">Read the guide →</span>
-        </a>
-      </div>
-      <p class="reveal" style="margin-top:36px;color:#2C3240;font-size:15px">Beyond our featured guides, ARM Management also forms companies in the United Kingdom, Netherlands, Singapore, Hong Kong, Malta, Lithuania, Mexico, Colombia, Panama and 30+ further jurisdictions. New jurisdiction guides are published regularly.</p>
+      <JurisdictionDirectory />
+      <p class="reveal" style="margin-top:36px;color:#2C3240;font-size:15px">Beyond the guides above, ARM also forms companies in Singapore, Hong Kong, Malta, Lithuania, Mexico, Colombia, Panama and other jurisdictions across the EU, GCC, Asia Pacific and Latin America. New jurisdiction guides are published regularly as our coverage expands.</p>
       <p class="reveal" style="margin-top:12px;color:#6B7280;font-size:15px;font-style:italic">Don't see your jurisdiction? Contact us to discuss your specific requirements.</p>
     </div>
   </section>

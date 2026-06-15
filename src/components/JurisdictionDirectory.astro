@@ -1,0 +1,58 @@
+---
+// Shared, region-grouped directory of all jurisdiction (company formation & tax) guides.
+// Single source of truth — used on /insights and /services/company-formation.
+// To add a country guide: add a card to the relevant region group below.
+const regions = [
+  {
+    label: "Middle East · GCC",
+    countries: [
+      { slug: "uae", name: "United Arab Emirates", blurb: "Mainland, free-zone and offshore — 100% foreign ownership, licence types and the setup process." },
+      { slug: "saudi-arabia", name: "Saudi Arabia", blurb: "MISA licensing, the 20% tax / 2.5% Zakat split, 15% VAT and the 30-year RHQ incentive." },
+    ],
+  },
+  {
+    label: "Western Europe",
+    countries: [
+      { slug: "united-kingdom", name: "United Kingdom", blurb: "The Ltd, tiered corporation tax (19%–25% with marginal relief), 20% VAT and Companies House." },
+      { slug: "netherlands", name: "Netherlands", blurb: "The BV, 19% / 25.8% corporate tax, 21% VAT and the participation exemption & Innovation Box." },
+      { slug: "france", name: "France", blurb: "SAS/SARL, 25% / 15% SME corporate tax, 20% VAT and the CIR R&D credit." },
+      { slug: "germany", name: "Germany", blurb: "The GmbH and UG, the three-part corporate tax stack (~30% combined) and 19% VAT." },
+      { slug: "belgium", name: "Belgium", blurb: "The BV/SRL, 25% / 20% SME corporate tax, 21% VAT and the holding & IP regimes." },
+      { slug: "switzerland", name: "Switzerland", blurb: "GmbH vs AG, the three-tier tax (~12–21% by canton), 8.1% VAT and the participation exemption." },
+      { slug: "italy", name: "Italy", blurb: "The SRL, IRES 24% plus IRAP (~28% combined), 22% VAT and mandatory e-invoicing." },
+      { slug: "spain", name: "Spain", blurb: "The SL, 25% / 15% new-company corporate tax, 21% VAT and the Startup Law." },
+    ],
+  },
+  {
+    label: "Northern Europe",
+    countries: [
+      { slug: "estonia", name: "Estonia", blurb: "e-Residency and the OÜ — 0% on retained profit, 22% on distributions, 24% VAT." },
+      { slug: "sweden", name: "Sweden", blurb: "The aktiebolag (AB), a flat 20.6% corporate tax, 25% VAT and the 3:12 owner rules." },
+      { slug: "finland", name: "Finland", blurb: "The Oy, a flat 20% corporate tax (18% from 2027) and 25.5% VAT." },
+      { slug: "norway", name: "Norway", blurb: "The AS, a flat 22% corporate tax, 25% VAT and EEA single-market access." },
+      { slug: "denmark", name: "Denmark", blurb: "The ApS, a flat 22% corporate tax, a single 25% VAT and fast digital setup." },
+    ],
+  },
+  {
+    label: "Caucasus",
+    countries: [
+      { slug: "georgia", name: "Georgia", blurb: "The Estonian model — 15% on distributed profit only — plus the Virtual Zone for IT." },
+    ],
+  },
+];
+const delay = ["", "reveal-delay-1", "reveal-delay-2"];
+---
+{regions.map((region, ri) => (
+  <Fragment>
+    <div class="reveal" style={`margin-top:${ri === 0 ? 44 : 52}px`}><span class="eyebrow">{region.label}</span></div>
+    <div class="grid-3" style="margin-top:20px">
+      {region.countries.map((c, i) => (
+        <a class={`card reveal ${delay[i % 3]}`} href={`/insights/${c.slug}-company-formation`} style="display:block;text-decoration:none">
+          <h3>{c.name}</h3>
+          <p>{c.blurb}</p>
+          <span style="font-family:'Inter',sans-serif;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--gold)">Read the guide →</span>
+        </a>
+      ))}
+    </div>
+  </Fragment>
+))}
