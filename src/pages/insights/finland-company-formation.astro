@@ -1,0 +1,89 @@
+---
+import Base from '../../layouts/Base.astro';
+const reviewed = "June 2026";
+---
+<Base
+  title="Company Formation & Tax in Finland 2026: Oy & Corporate Tax | ARM Management"
+  description="A current guide to setting up a company in Finland — the Oy, the flat 20% corporate tax (falling to 18% in 2027), 25.5% VAT, and registration via PRH, with official sources."
+>
+  <main>
+    <section class="page-hero">
+      <div class="page-hero__bg" style="background-image:url('/images/ed-brussels.jpg')"></div>
+      <div class="page-hero__overlay"></div>
+      <div class="page-hero__content container">
+        <span class="eyebrow">Guide · Finland</span>
+        <h1>Company Formation &amp; Tax in Finland</h1>
+        <p>A digital-first EU base with one of the Nordics' lowest corporate rates — the Oy, registration via PRH, VAT, and a rate cut on the horizon.</p>
+      </div>
+    </section>
+
+    <section class="section section--warm">
+      <div class="container--narrow">
+        <div class="guide-meta reveal">
+          <span><strong>Last reviewed:</strong> {reviewed}</span>
+          <span><strong>Primary source:</strong>
+            <a href="https://www.vero.fi/en/" target="_blank" rel="noopener">Vero (Tax Administration)</a> ·
+            <a href="https://www.prh.fi/en/" target="_blank" rel="noopener">PRH</a>
+          </span>
+        </div>
+
+        <div class="prose">
+          <p class="reveal lede">Finland combines EU single-market access with a highly digital administration and a flat 20% corporate tax — and that rate is set to fall further. With no minimum capital for a private company and no business property tax, it suits remote founders and international entrants wanting a credible Northern European base.</p>
+
+          <h2 class="reveal">Choosing an entity</h2>
+          <p class="reveal">The standard vehicle is the <strong>Oy</strong> (osakeyhtiö, private limited company), which has <strong>no mandatory minimum share capital</strong>. Larger and listed businesses use the <strong>Oyj</strong> (public limited, minimum €80,000). Registration runs through the <strong>PRH</strong> (Finnish Patent and Registration Office), which issues a Business ID (Y-tunnus) via the Business Information System; the company then registers with the Tax Administration (Vero). At least one board member is required, and the board and managing director must be EEA-resident unless PRH grants permission.</p>
+
+          <h2 class="reveal">Corporate tax and VAT</h2>
+          <div class="rate-table reveal">
+            <table>
+              <thead><tr><th>Tax</th><th>Rate</th></tr></thead>
+              <tbody>
+                <tr><td>Corporate income tax — 2026</td><td>20% (falling to 18% from 2027)</td></tr>
+                <tr><td>VAT (ALV, standard)</td><td>25.5%</td></tr>
+                <tr><td>VAT (reduced)</td><td>13.5% (food, restaurants, books) / 10% (press)</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="reveal">Corporate income tax is a flat <strong>20%</strong> on worldwide income — one of the lowest in the Nordics — and the government has announced a reduction to <strong>18% from January 2027</strong>. VAT (arvonlisävero, ALV) is <strong>25.5%</strong> standard (raised in late 2024), with a reduced rate of 13.5% on food, restaurants, books, accommodation, medicines and passenger transport (lowered from 14% on 1 January 2026) and 10% on newspapers. VAT registration is required above €20,000 of turnover.</p>
+
+          <div class="callout reveal">
+            <strong>A rate cut creates a planning window.</strong> A company incorporated in 2026 will be fully operational when the 18% rate takes effect in 2027. Finland also extended its loss carry-forward period from 10 to 25 years from 2026 and levies no business property tax — both meaningful for growth-stage and capital-intensive businesses.
+          </div>
+
+          <h2 class="reveal">Compliance</h2>
+          <p class="reveal">Companies file annual financial statements with PRH and corporate tax returns with Vero, and submit VAT returns monthly or quarterly. Registering for the Prepayment Register at formation is strongly advisable — without it, clients paying the company must withhold tax, creating administrative friction.</p>
+
+          <h2 class="reveal">Frequently asked questions</h2>
+          <div class="reveal">
+            <div class="faq-item"><h4>What is the corporate tax rate in Finland?</h4><p>A flat 20% for 2026, with a reduction to 18% announced from January 2027.</p></div>
+            <div class="faq-item"><h4>How much capital do I need for an Oy?</h4><p>None — there is no mandatory minimum share capital for a private limited company.</p></div>
+            <div class="faq-item"><h4>What is the Finnish VAT rate?</h4><p>25.5% standard, with reduced rates of 13.5% and 10%; registration is required above €20,000 turnover.</p></div>
+            <div class="faq-item"><h4>Do I need an EEA-resident director?</h4><p>The board and managing director must be EEA-resident unless PRH grants permission for non-residents.</p></div>
+          </div>
+
+          <h2 class="reveal">Official sources</h2>
+          <ul class="sources reveal">
+            <li><a href="https://www.prh.fi/en/" target="_blank" rel="noopener">PRH (Finnish Patent and Registration Office)</a></li>
+            <li><a href="https://www.vero.fi/en/" target="_blank" rel="noopener">Vero (Finnish Tax Administration)</a></li>
+            <li><a href="https://www.ytj.fi/en/" target="_blank" rel="noopener">Business Information System (YTJ)</a></li>
+          </ul>
+
+          <p class="reveal disclaimer">This guide is general information prepared by ARM Management and is current as at {reviewed}. It is not legal or tax advice; rates and thresholds change. Confirm against Vero, or with an advisor, before acting.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta-section guide-cta">
+      <span class="eyebrow is-center reveal" style="justify-content:center">Speak With ARM</span>
+      <h2 class="reveal">Establish in Finland ahead of the 2027 rate cut.</h2>
+      <p class="reveal">ARM Management advises international founders on Finnish entity formation, registration and tax positioning, alongside wider EU structuring. Begin with a confidential conversation.</p>
+      <div class="btn-row reveal">
+        <a href="/contact" class="btn-primary">Schedule a Consultation →</a>
+        <a href="/services/company-formation" class="btn-secondary">Company Formation Services</a>
+      </div>
+    </section>
+  </main>
+
+  <script type="application/ld+json" set:html={JSON.stringify({"@context":"https://schema.org","@type":"Article","headline":"Company Formation & Tax in Finland 2026","author":{"@type":"Organization","name":"ARM Management"},"publisher":{"@type":"Organization","name":"ARM Management"},"dateModified":"2026-06-01","mainEntityOfPage":"https://arm-management.com/insights/finland-company-formation"})} />
+  <script type="application/ld+json" set:html={JSON.stringify({"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is the corporate tax rate in Finland?","acceptedAnswer":{"@type":"Answer","text":"A flat 20% for 2026, with a reduction to 18% announced from January 2027."}},{"@type":"Question","name":"How much capital do I need for a Finnish Oy?","acceptedAnswer":{"@type":"Answer","text":"None — there is no mandatory minimum share capital for a private limited company."}},{"@type":"Question","name":"What is the Finnish VAT rate?","acceptedAnswer":{"@type":"Answer","text":"25.5% standard, with reduced rates of 13.5% and 10%; registration is required above €20,000 turnover."}}]})} />
+</Base>

@@ -1,0 +1,90 @@
+---
+import Base from '../../layouts/Base.astro';
+const reviewed = "June 2026";
+---
+<Base
+  title="Company Formation & Tax in Sweden 2026: AB & Corporate Tax | ARM Management"
+  description="A current guide to setting up a company in Sweden — the aktiebolag (AB), the flat 20.6% corporate tax, 25% VAT (moms), and registration via Bolagsverket, with official sources."
+>
+  <main>
+    <section class="page-hero">
+      <div class="page-hero__bg" style="background-image:url('/images/ed-zurich.jpg')"></div>
+      <div class="page-hero__overlay"></div>
+      <div class="page-hero__content container">
+        <span class="eyebrow">Guide · Sweden</span>
+        <h1>Company Formation &amp; Tax in Sweden</h1>
+        <p>A competitive Nordic base — the aktiebolag, one of the region's lowest corporate rates, VAT, and the closely-held-company rules founders need to understand.</p>
+      </div>
+    </section>
+
+    <section class="section section--warm">
+      <div class="container--narrow">
+        <div class="guide-meta reveal">
+          <span><strong>Last reviewed:</strong> {reviewed}</span>
+          <span><strong>Primary source:</strong>
+            <a href="https://www.skatteverket.se/servicelankar/otherlanguages/inenglish.4.html" target="_blank" rel="noopener">Skatteverket</a> ·
+            <a href="https://bolagsverket.se/en" target="_blank" rel="noopener">Bolagsverket</a>
+          </span>
+        </div>
+
+        <div class="prose">
+          <p class="reveal lede">Sweden offers a flat corporate tax that's among the lowest in the Nordics, a transparent and digital tax administration, and full EU access. The headline rate is straightforward — but how owners extract profit is governed by some of the country's more intricate rules.</p>
+
+          <h2 class="reveal">Choosing an entity</h2>
+          <p class="reveal">The standard vehicle is the <strong>AB</strong> (aktiebolag, private limited company), requiring a minimum share capital of <strong>SEK 25,000</strong>, fully paid before registration (a public AB requires SEK 500,000). Registration runs through <strong>Bolagsverket</strong> (the Companies Registration Office), often via the verksamt.se portal, which issues an organisationsnummer; the company then registers with Skatteverket for F-tax (F-skatt), VAT and employer status. Note that at least half the board must be EEA-resident, or the company must appoint a resident agent for service of process.</p>
+
+          <h2 class="reveal">Corporate tax and VAT</h2>
+          <div class="rate-table reveal">
+            <table>
+              <thead><tr><th>Tax</th><th>Rate</th></tr></thead>
+              <tbody>
+                <tr><td>Corporate income tax</td><td>20.6%</td></tr>
+                <tr><td>VAT (moms, standard)</td><td>25%</td></tr>
+                <tr><td>VAT (reduced)</td><td>12% (food, hotels) / 6% (books, transport)</td></tr>
+                <tr><td>Employer social contributions</td><td>≈ 31.42%</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="reveal">Corporate income tax is a flat <strong>20.6%</strong>, below the OECD average and competitive within Europe. VAT (moms) is <strong>25%</strong> standard, with reduced rates of 12% (food, hotels) and 6% (books, passenger transport); a temporary reduction to 6% on food runs from April 2026 to December 2027. The VAT registration threshold is SEK 120,000 (raised from SEK 80,000 in 2025). Employer social contributions add around 31.42% on top of gross wages.</p>
+
+          <div class="callout reveal">
+            <strong>Mind the 3:12 rules.</strong> For closely held companies, Sweden's "3:12" framework governs how much profit owner-managers can take as lower-taxed dividends versus salary — and it changed on 1 January 2026. For a founder-owned AB, getting the salary/dividend mix right is where the real planning lies, not in the flat 20.6% itself.
+          </div>
+
+          <h2 class="reveal">Compliance</h2>
+          <p class="reveal">Companies file an annual report (årsredovisning) with Bolagsverket and a corporate tax return with Skatteverket, and submit VAT returns periodically. Sweden also offers a participation exemption on qualifying shareholdings and R&amp;D-related relief on employer contributions.</p>
+
+          <h2 class="reveal">Frequently asked questions</h2>
+          <div class="reveal">
+            <div class="faq-item"><h4>What is the corporate tax rate in Sweden?</h4><p>A flat 20.6% — among the lowest in the Nordic region.</p></div>
+            <div class="faq-item"><h4>How much capital do I need for an AB?</h4><p>SEK 25,000 for a private AB, fully paid before registration.</p></div>
+            <div class="faq-item"><h4>What is the Swedish VAT rate?</h4><p>25% standard, with reduced rates of 12% and 6%; the registration threshold is SEK 120,000.</p></div>
+            <div class="faq-item"><h4>What are the 3:12 rules?</h4><p>The framework that determines how owners of closely held companies are taxed on dividends versus salary; it was revised on 1 January 2026.</p></div>
+          </div>
+
+          <h2 class="reveal">Official sources</h2>
+          <ul class="sources reveal">
+            <li><a href="https://bolagsverket.se/en" target="_blank" rel="noopener">Bolagsverket (Companies Registration Office)</a></li>
+            <li><a href="https://www.skatteverket.se/servicelankar/otherlanguages/inenglish.4.html" target="_blank" rel="noopener">Skatteverket (Swedish Tax Agency)</a></li>
+            <li><a href="https://www.verksamt.se/" target="_blank" rel="noopener">Verksamt.se — business portal</a></li>
+          </ul>
+
+          <p class="reveal disclaimer">This guide is general information prepared by ARM Management and is current as at {reviewed}. It is not legal or tax advice; the 3:12 rules and thresholds change. Confirm against Skatteverket, or with an advisor, before acting.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta-section guide-cta">
+      <span class="eyebrow is-center reveal" style="justify-content:center">Speak With ARM</span>
+      <h2 class="reveal">Set up your Swedish AB the right way.</h2>
+      <p class="reveal">ARM Management advises international founders on Swedish entity formation, the 3:12 owner-taxation rules and ongoing compliance, alongside wider EU structuring. Begin with a confidential conversation.</p>
+      <div class="btn-row reveal">
+        <a href="/contact" class="btn-primary">Schedule a Consultation →</a>
+        <a href="/services/company-formation" class="btn-secondary">Company Formation Services</a>
+      </div>
+    </section>
+  </main>
+
+  <script type="application/ld+json" set:html={JSON.stringify({"@context":"https://schema.org","@type":"Article","headline":"Company Formation & Tax in Sweden 2026","author":{"@type":"Organization","name":"ARM Management"},"publisher":{"@type":"Organization","name":"ARM Management"},"dateModified":"2026-06-01","mainEntityOfPage":"https://arm-management.com/insights/sweden-company-formation"})} />
+  <script type="application/ld+json" set:html={JSON.stringify({"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is the corporate tax rate in Sweden?","acceptedAnswer":{"@type":"Answer","text":"A flat 20.6% — among the lowest in the Nordic region."}},{"@type":"Question","name":"How much capital do I need for a Swedish AB?","acceptedAnswer":{"@type":"Answer","text":"SEK 25,000 for a private AB, fully paid before registration."}},{"@type":"Question","name":"What is the Swedish VAT rate?","acceptedAnswer":{"@type":"Answer","text":"25% standard, with reduced rates of 12% and 6%; the registration threshold is SEK 120,000."}}]})} />
+</Base>

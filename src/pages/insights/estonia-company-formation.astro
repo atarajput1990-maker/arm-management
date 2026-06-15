@@ -1,0 +1,87 @@
+---
+import Base from '../../layouts/Base.astro';
+const reviewed = "June 2026";
+---
+<Base
+  title="Company Formation & Tax in Estonia 2026: OÜ, e-Residency & the 22/78 Tax | ARM Management"
+  description="A current guide to setting up a company in Estonia — the OÜ, e-Residency, the distributed-profit corporate tax (0% on retained profit, 22% on distributions) and 24% VAT, with official sources."
+>
+  <main>
+    <section class="page-hero">
+      <div class="page-hero__bg" style="background-image:url('/images/ed-zurich.jpg')"></div>
+      <div class="page-hero__overlay"></div>
+      <div class="page-hero__content container">
+        <span class="eyebrow">Guide · Estonia</span>
+        <h1>Company Formation &amp; Tax in Estonia</h1>
+        <p>The fully digital EU company — e-Residency, the OÜ, and a corporate tax that falls due only when profits leave the business.</p>
+      </div>
+    </section>
+
+    <section class="section section--warm">
+      <div class="container--narrow">
+        <div class="guide-meta reveal">
+          <span><strong>Last reviewed:</strong> {reviewed}</span>
+          <span><strong>Primary source:</strong>
+            <a href="https://www.emta.ee/en" target="_blank" rel="noopener">Estonian Tax &amp; Customs Board</a> ·
+            <a href="https://www.e-resident.gov.ee/taxes-in-estonia/" target="_blank" rel="noopener">e-Residency</a>
+          </span>
+        </div>
+
+        <div class="prose">
+          <p class="reveal lede">Estonia pioneered two ideas that still set it apart: a corporate tax that only applies when profits are distributed, and e-Residency — a government digital identity that lets non-residents form and run an EU company entirely online. For reinvesting, scalable digital businesses, the combination is genuinely distinctive.</p>
+
+          <h2 class="reveal">Choosing an entity</h2>
+          <p class="reveal">The standard vehicle is the <strong>OÜ</strong> (osaühing, private limited company), which since 2023 has no practical minimum capital — it can be formed with as little as EUR 0.01. With <strong>e-Residency</strong>, the whole process — registration, signing, tax declarations — can be done remotely; the company is typically live within days. One essential caveat: e-Residency is a digital identity, <strong>not</strong> tax residency for you or your company, and it does not remove tax obligations where you actually live or operate.</p>
+
+          <h2 class="reveal">The distributed-profit model</h2>
+          <div class="rate-table reveal">
+            <table>
+              <thead><tr><th>Situation</th><th>Corporate tax</th></tr></thead>
+              <tbody>
+                <tr><td>Profits retained / reinvested</td><td>0%</td></tr>
+                <tr><td>Profits distributed (dividends) — 2026</td><td>22% (calculated as 22/78 of the net distribution)</td></tr>
+                <tr><td>VAT (standard)</td><td>24%</td></tr>
+                <tr><td>VAT (reduced)</td><td>13% (accommodation) / 9% (books, press, medicines)</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="reveal">Estonia levies no corporate income tax on retained or reinvested profit — tax arises only when profit is distributed, at <strong>22%</strong> for 2026, calculated as 22/78 of the net dividend (so a €78 dividend carries €22 of tax). A previously announced rise to 24% was <strong>cancelled by the Estonian Parliament in December 2025</strong>, keeping the rate at 22%. VAT (käibemaks) is <strong>24%</strong> standard since 1 July 2025, with a €40,000 registration threshold. Note that Estonia has legislated several recent rate changes, including discussion of a temporary security levy for 2026–2028 — always confirm the current position with the Tax and Customs Board.</p>
+
+          <div class="callout reveal">
+            <strong>Estonia rewards reinvestment, not extraction.</strong> If you keep profits in the company to grow, your corporate tax is zero until you distribute. That makes it efficient for SaaS, consulting and agency businesses scaling internationally — but the effective 22% on distributions sits above the 15% global minimum, so this is a growth incentive, not a low-tax haven.
+          </div>
+
+          <h2 class="reveal">Frequently asked questions</h2>
+          <div class="reveal">
+            <div class="faq-item"><h4>What is the corporate tax rate in Estonia?</h4><p>0% on retained and reinvested profit; 22% on distributed profit for 2026, calculated as 22/78 of the net dividend.</p></div>
+            <div class="faq-item"><h4>Does e-Residency make me an Estonian tax resident?</h4><p>No. It is a digital identity for administering an EU company online — your personal and corporate tax residency are determined separately.</p></div>
+            <div class="faq-item"><h4>How much capital do I need for an OÜ?</h4><p>Effectively none — there is no practical minimum since 2023 (EUR 0.01).</p></div>
+            <div class="faq-item"><h4>What is the Estonian VAT rate?</h4><p>24% standard since July 2025, with reduced rates of 13% and 9%; registration is required above €40,000 turnover.</p></div>
+          </div>
+
+          <h2 class="reveal">Official sources</h2>
+          <ul class="sources reveal">
+            <li><a href="https://www.emta.ee/en" target="_blank" rel="noopener">Estonian Tax and Customs Board (e-MTA)</a></li>
+            <li><a href="https://www.e-resident.gov.ee/taxes-in-estonia/" target="_blank" rel="noopener">e-Residency — Taxes in Estonia</a></li>
+            <li><a href="https://www.rik.ee/en" target="_blank" rel="noopener">Centre of Registers and Information Systems (company registry)</a></li>
+          </ul>
+
+          <p class="reveal disclaimer">This guide is general information prepared by ARM Management and is current as at {reviewed}. It is not legal or tax advice; Estonia has legislated several recent rate changes and rules continue to evolve. Confirm against the Estonian Tax and Customs Board, or with an advisor, before acting.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta-section guide-cta">
+      <span class="eyebrow is-center reveal" style="justify-content:center">Speak With ARM</span>
+      <h2 class="reveal">Set up your Estonian company correctly.</h2>
+      <p class="reveal">ARM Management advises international founders on Estonian OÜ formation, the distributed-profit model and the cross-border tax position that e-Residency does not resolve on its own. Begin with a confidential conversation.</p>
+      <div class="btn-row reveal">
+        <a href="/contact" class="btn-primary">Schedule a Consultation →</a>
+        <a href="/services/company-formation" class="btn-secondary">Company Formation Services</a>
+      </div>
+    </section>
+  </main>
+
+  <script type="application/ld+json" set:html={JSON.stringify({"@context":"https://schema.org","@type":"Article","headline":"Company Formation & Tax in Estonia 2026","author":{"@type":"Organization","name":"ARM Management"},"publisher":{"@type":"Organization","name":"ARM Management"},"dateModified":"2026-06-01","mainEntityOfPage":"https://arm-management.com/insights/estonia-company-formation"})} />
+  <script type="application/ld+json" set:html={JSON.stringify({"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is the corporate tax rate in Estonia?","acceptedAnswer":{"@type":"Answer","text":"0% on retained and reinvested profit; 22% on distributed profit for 2026, calculated as 22/78 of the net dividend."}},{"@type":"Question","name":"Does e-Residency make me an Estonian tax resident?","acceptedAnswer":{"@type":"Answer","text":"No. It is a digital identity for administering an EU company online; your personal and corporate tax residency are determined separately."}},{"@type":"Question","name":"What is the Estonian VAT rate?","acceptedAnswer":{"@type":"Answer","text":"24% standard since July 2025, with reduced rates of 13% and 9%; registration is required above €40,000 turnover."}}]})} />
+</Base>
