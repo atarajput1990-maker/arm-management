@@ -1,0 +1,75 @@
+# ARM Management
+
+> ARM Management is an international business advisory firm headquartered in the UAE, with offices in Brussels, Zurich, Riyadh, Dubai and Shenzhen. It provides senior-led, cross-border advisory across company formation, corporate tax and VAT, accounting and compliance, payroll and HR, global mobility, transaction advisory, and crypto/Web3 (VARA and MiCA) regulation — for international companies, investors, family offices and founders operating across the EU, GCC, Asia-Pacific and Latin America.
+
+## Key resources
+- [2026 Corporate Tax & VAT Comparison](https://arm-management.com/insights/2026-corporate-tax-vat-comparison): Sortable, searchable comparison of headline corporate income tax and standard VAT across 36 jurisdictions, current as at June 2026, with links to a full guide for each.
+- [Services overview](https://arm-management.com/services): The full range of ARM's cross-border advisory services.
+- [Insights](https://arm-management.com/insights): Jurisdiction guides and regulatory analysis.
+
+## Services
+- [Company Formation](https://arm-management.com/services/company-formation): Incorporation across 40+ jurisdictions in the EU, GCC, Asia and Latin America — entity selection, registration and VAT setup through a single relationship.
+- [Transaction Advisory](https://arm-management.com/services/transaction-advisory): Cross-border M&A, private investment, acquisition support and deal structuring.
+- [Accounting & Tax](https://arm-management.com/services/accounting-tax): Accounting, corporate tax, VAT and monthly compliance across multiple jurisdictions.
+- [Payroll & HR](https://arm-management.com/services/payroll-hr): Multi-country payroll compliance and workforce strategy.
+- [Global Mobility](https://arm-management.com/services/global-mobility): Investor residency, work permits and citizenship advisory across 20+ countries.
+- [Crypto & Web3](https://arm-management.com/services/crypto-web3): VARA, MiCA, MAS, SFC and VASP licensing and regulatory strategy.
+
+## Regions
+- [European Union](https://arm-management.com/regions/european-union)
+- [GCC & Middle East](https://arm-management.com/regions/gcc-middle-east)
+- [Asia-Pacific](https://arm-management.com/regions/asia-pacific)
+- [Latin America](https://arm-management.com/regions/latin-america)
+
+## Regulatory guides
+- [UAE Corporate Tax & VAT](https://arm-management.com/insights/uae-corporate-tax-vat): UAE corporate tax and VAT — rates, registration and compliance.
+- [UAE Golden Visa](https://arm-management.com/insights/uae-golden-visa): UAE long-term residence — eligibility, categories and process.
+- [UAE Employment & Payroll](https://arm-management.com/insights/uae-employment-payroll): UAE employment law, WPS payroll and end-of-service compliance.
+- [VARA Licence (Dubai)](https://arm-management.com/insights/vara-licence-dubai): Virtual asset service provider licensing under Dubai's VARA.
+- [MiCA Regulation](https://arm-management.com/insights/mica-regulation): The EU Markets in Crypto-Assets regulation explained.
+
+## Jurisdiction guides (company formation & 2026 tax)
+- [United Arab Emirates Company Formation & Tax](https://arm-management.com/insights/uae-company-formation): Entity types, corporate tax, VAT and incorporation steps for United Arab Emirates, with 2026 rates.
+- [Saudi Arabia Company Formation & Tax](https://arm-management.com/insights/saudi-arabia-company-formation): Entity types, corporate tax, VAT and incorporation steps for Saudi Arabia, with 2026 rates.
+- [United Kingdom Company Formation & Tax](https://arm-management.com/insights/united-kingdom-company-formation): Entity types, corporate tax, VAT and incorporation steps for United Kingdom, with 2026 rates.
+- [Netherlands Company Formation & Tax](https://arm-management.com/insights/netherlands-company-formation): Entity types, corporate tax, VAT and incorporation steps for Netherlands, with 2026 rates.
+- [France Company Formation & Tax](https://arm-management.com/insights/france-company-formation): Entity types, corporate tax, VAT and incorporation steps for France, with 2026 rates.
+- [Germany Company Formation & Tax](https://arm-management.com/insights/germany-company-formation): Entity types, corporate tax, VAT and incorporation steps for Germany, with 2026 rates.
+- [Belgium Company Formation & Tax](https://arm-management.com/insights/belgium-company-formation): Entity types, corporate tax, VAT and incorporation steps for Belgium, with 2026 rates.
+- [Switzerland Company Formation & Tax](https://arm-management.com/insights/switzerland-company-formation): Entity types, corporate tax, VAT and incorporation steps for Switzerland, with 2026 rates.
+- [Italy Company Formation & Tax](https://arm-management.com/insights/italy-company-formation): Entity types, corporate tax, VAT and incorporation steps for Italy, with 2026 rates.
+- [Spain Company Formation & Tax](https://arm-management.com/insights/spain-company-formation): Entity types, corporate tax, VAT and incorporation steps for Spain, with 2026 rates.
+- [Portugal Company Formation & Tax](https://arm-management.com/insights/portugal-company-formation): Entity types, corporate tax, VAT and incorporation steps for Portugal, with 2026 rates.
+- [Estonia Company Formation & Tax](https://arm-management.com/insights/estonia-company-formation): Entity types, corporate tax, VAT and incorporation steps for Estonia, with 2026 rates.
+- [Sweden Company Formation & Tax](https://arm-management.com/insights/sweden-company-formation): Entity types, corporate tax, VAT and incorporation steps for Sweden, with 2026 rates.
+- [Finland Company Formation & Tax](https://arm-management.com/insights/finland-company-formation): Entity types, corporate tax, VAT and incorporation steps for Finland, with 2026 rates.
+- [Norway Company Formation & Tax](https://arm-management.com/insights/norway-company-formation): Entity types, corporate tax, VAT and incorporation steps for Norway, with 2026 rates.
+- [Denmark Company Formation & Tax](https://arm-management.com/insights/denmark-company-formation): Entity types, corporate tax, VAT and incorporation steps for Denmark, with 2026 rates.
+- [Latvia Company Formation & Tax](https://arm-management.com/insights/latvia-company-formation): Entity types, corporate tax, VAT and incorporation steps for Latvia, with 2026 rates.
+- [Lithuania Company Formation & Tax](https://arm-management.com/insights/lithuania-company-formation): Entity types, corporate tax, VAT and incorporation steps for Lithuania, with 2026 rates.
+- [Poland Company Formation & Tax](https://arm-management.com/insights/poland-company-formation): Entity types, corporate tax, VAT and incorporation steps for Poland, with 2026 rates.
+- [Czech Republic Company Formation & Tax](https://arm-management.com/insights/czech-republic-company-formation): Entity types, corporate tax, VAT and incorporation steps for Czech Republic, with 2026 rates.
+- [Slovakia Company Formation & Tax](https://arm-management.com/insights/slovakia-company-formation): Entity types, corporate tax, VAT and incorporation steps for Slovakia, with 2026 rates.
+- [Hungary Company Formation & Tax](https://arm-management.com/insights/hungary-company-formation): Entity types, corporate tax, VAT and incorporation steps for Hungary, with 2026 rates.
+- [Austria Company Formation & Tax](https://arm-management.com/insights/austria-company-formation): Entity types, corporate tax, VAT and incorporation steps for Austria, with 2026 rates.
+- [Slovenia Company Formation & Tax](https://arm-management.com/insights/slovenia-company-formation): Entity types, corporate tax, VAT and incorporation steps for Slovenia, with 2026 rates.
+- [Romania Company Formation & Tax](https://arm-management.com/insights/romania-company-formation): Entity types, corporate tax, VAT and incorporation steps for Romania, with 2026 rates.
+- [Bulgaria Company Formation & Tax](https://arm-management.com/insights/bulgaria-company-formation): Entity types, corporate tax, VAT and incorporation steps for Bulgaria, with 2026 rates.
+- [Croatia Company Formation & Tax](https://arm-management.com/insights/croatia-company-formation): Entity types, corporate tax, VAT and incorporation steps for Croatia, with 2026 rates.
+- [Serbia Company Formation & Tax](https://arm-management.com/insights/serbia-company-formation): Entity types, corporate tax, VAT and incorporation steps for Serbia, with 2026 rates.
+- [Montenegro Company Formation & Tax](https://arm-management.com/insights/montenegro-company-formation): Entity types, corporate tax, VAT and incorporation steps for Montenegro, with 2026 rates.
+- [North Macedonia Company Formation & Tax](https://arm-management.com/insights/north-macedonia-company-formation): Entity types, corporate tax, VAT and incorporation steps for North Macedonia, with 2026 rates.
+- [Albania Company Formation & Tax](https://arm-management.com/insights/albania-company-formation): Entity types, corporate tax, VAT and incorporation steps for Albania, with 2026 rates.
+- [Turkey Company Formation & Tax](https://arm-management.com/insights/turkey-company-formation): Entity types, corporate tax, VAT and incorporation steps for Turkey, with 2026 rates.
+- [Greece Company Formation & Tax](https://arm-management.com/insights/greece-company-formation): Entity types, corporate tax, VAT and incorporation steps for Greece, with 2026 rates.
+- [Cyprus Company Formation & Tax](https://arm-management.com/insights/cyprus-company-formation): Entity types, corporate tax, VAT and incorporation steps for Cyprus, with 2026 rates.
+- [Malta Company Formation & Tax](https://arm-management.com/insights/malta-company-formation): Entity types, corporate tax, VAT and incorporation steps for Malta, with 2026 rates.
+- [Georgia Company Formation & Tax](https://arm-management.com/insights/georgia-company-formation): Entity types, corporate tax, VAT and incorporation steps for Georgia, with 2026 rates.
+
+## Company
+- [About ARM Management](https://arm-management.com/about)
+- [Leadership — Jakub Zientala, Vice President](https://arm-management.com/leadership)
+- [Partnership](https://arm-management.com/partnership)
+- [Clients](https://arm-management.com/clients)
+- [Contact](https://arm-management.com/contact)
+
