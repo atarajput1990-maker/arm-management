@@ -1,21 +1,38 @@
 ---
+import '../styles/global.css';
+import { t, LOCALE_META, LOCALES, localePath, hreflangs } from '../i18n/translations';
+import type { Locale } from '../i18n/translations';
+
 interface Props {
   title:       string;
   description: string;
   canonical?:  string;
   ogImage?:    string;
+  lang?:       Locale;
+  /** The canonical path WITHOUT locale prefix, e.g. "/" or "/services/company-formation" */
+  canonicalPath?: string;
 }
+
 const {
   title,
   description,
-  canonical  = `https://arm-management.com${Astro.url.pathname}`,
-  ogImage    = '/images/og-default.jpg',
+  ogImage      = '/images/og-default.jpg',
+  lang         = 'en',
+  canonicalPath = Astro.url.pathname,
 } = Astro.props;
 
-import '../styles/global.css';
+const locale    = lang as Locale;
+const tr        = t(locale);
+const meta      = LOCALE_META[locale];
+const isRTL     = meta.dir === 'rtl';
+const canonical = `https://arm-management.com${localePath(locale, canonicalPath)}`;
+const alternates = hreflangs(canonicalPath);
+
+// Build localised hrefs for nav/footer
+const lp = (path: string) => localePath(locale, path);
 ---
 <!DOCTYPE html>
-<html lang="en">
+<html lang={meta.htmlLang} dir={meta.dir}>
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -24,6 +41,10 @@ import '../styles/global.css';
   <title>{title}</title>
   <meta name="description" content={description}>
   <link rel="canonical" href={canonical}>
+
+  {alternates.map(a => (
+    <link rel="alternate" hreflang={a.lang} href={a.url} />
+  ))}
 
   <meta property="og:type"        content="website">
   <meta property="og:title"       content={title}>
@@ -44,7 +65,7 @@ import '../styles/global.css';
     url:        "https://arm-management.com",
     logo:       "https://arm-management.com/images/logo.png",
     image:      "https://arm-management.com/images/og-default.jpg",
-    description:"International business advisory headquartered in the UAE, with offices in Brussels, Zurich, Dubai, Riyadh and Shenzhen. ARM advises on company formation, corporate tax and VAT, cross-border transactions, payroll and HR, global mobility and crypto/Web3.",
+    description:"International business advisory headquartered in the UAE, with offices in Brussels, Zurich, Dubai, Riyadh and Shenzhen.",
     slogan:     "Empowering Innovation — Quietly, across every border",
     email:      "info@arm-management.com",
     founder:    { "@type": "Person", name: "Ata Rajput", jobTitle: "Founder", worksFor: "ARM Management" },
@@ -54,34 +75,19 @@ import '../styles/global.css';
       contactType: "customer service",
       email: "info@arm-management.com",
       areaServed: ["AE","SA","BE","CH","CN","EU"],
-      availableLanguage: ["English"]
+      availableLanguage: ["English","French","Spanish","Arabic","Russian","Chinese"],
     },
-    knowsAbout: [
-      "Company formation",
-      "Corporate tax compliance",
-      "Value added tax (VAT) compliance",
-      "Cross-border transaction advisory",
-      "Payroll and HR advisory",
-      "Global mobility and residence permits",
-      "Crypto and Web3 advisory"
-    ],
+    knowsAbout: ["Company formation","Corporate tax compliance","Cross-border transaction advisory","Payroll and HR advisory","Global mobility","Crypto and Web3 advisory"],
     areaServed: [
       { "@type": "Place", name: "European Union" },
       { "@type": "Place", name: "GCC / Middle East" },
       { "@type": "Place", name: "Asia Pacific" },
-      { "@type": "Place", name: "Latin America" }
-    ],
-    location: [
-      { "@type": "Place", name: "ARM Management — Brussels", address: { "@type": "PostalAddress", addressLocality: "Brussels", addressCountry: "BE" } },
-      { "@type": "Place", name: "ARM Management — Zurich",   address: { "@type": "PostalAddress", addressLocality: "Zurich",   addressCountry: "CH" } },
-      { "@type": "Place", name: "ARM Management — Dubai",    address: { "@type": "PostalAddress", addressLocality: "Dubai",    addressCountry: "AE" } },
-      { "@type": "Place", name: "ARM Management — Riyadh",   address: { "@type": "PostalAddress", addressLocality: "Riyadh",   addressCountry: "SA" } },
-      { "@type": "Place", name: "ARM Management — Shenzhen", address: { "@type": "PostalAddress", addressLocality: "Shenzhen", addressCountry: "CN" } },
+      { "@type": "Place", name: "Latin America" },
     ],
   })} />
 
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
-  <link rel="apple-touch-icon"          href="/apple-touch-icon.png">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 
   <!-- Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-QQTF5Z21P7"></script>
@@ -93,19 +99,21 @@ import '../styles/global.css';
     gtag('config', 'G-QQTF5Z21P7');
   </script>
 
-  <!-- Fonts -->
+  <!-- Fonts: Cormorant + Inter always; Noto Naskh Arabic only for ar -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
-  <!-- global.css injected via Astro import in frontmatter -->
+  {isRTL ? (
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Naskh+Arabic:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  ) : (
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  )}
 </head>
 <body>
 
 <!-- ── HEADER ──────────────────────────────────────────────────────────────── -->
 <header class="site-header" id="site-header">
   <div class="header-inner">
-    <a href="/" class="header-logo" aria-label="ARM Management Home">
+    <a href={lp('/')} class="header-logo" aria-label="ARM Management Home">
       <span class="logo-arm">ARM</span>
       <span class="logo-rule"></span>
       <span class="logo-mgmt">Management</span>
@@ -113,34 +121,53 @@ import '../styles/global.css';
     <nav class="header-nav" id="main-nav">
       <ul class="nav-list">
         <li class="has-dropdown">
-          <a href="/services" class="nav-link">Services</a>
+          <a href={lp('/services')} class="nav-link">{tr.nav.services}</a>
           <ul class="dropdown">
-            <li><a href="/services/transaction-advisory" class="dropdown-link">Transaction Advisory</a></li>
-            <li><a href="/services/company-formation"    class="dropdown-link">Company Formation</a></li>
-            <li><a href="/services/accounting-tax"       class="dropdown-link">Accounting &amp; Tax</a></li>
-            <li><a href="/services/payroll-hr"           class="dropdown-link">Payroll &amp; HR</a></li>
-            <li><a href="/services/global-mobility"      class="dropdown-link">Global Mobility</a></li>
-            <li><a href="/services/crypto-web3"          class="dropdown-link">Crypto &amp; Web3</a></li>
+            <li><a href={lp('/services/transaction-advisory')} class="dropdown-link">{tr.nav.servicesDropdown.transactionAdvisory}</a></li>
+            <li><a href={lp('/services/company-formation')}    class="dropdown-link">{tr.nav.servicesDropdown.companyFormation}</a></li>
+            <li><a href={lp('/services/accounting-tax')}       class="dropdown-link">{tr.nav.servicesDropdown.accountingTax}</a></li>
+            <li><a href={lp('/services/payroll-hr')}           class="dropdown-link">{tr.nav.servicesDropdown.payrollHr}</a></li>
+            <li><a href={lp('/services/global-mobility')}      class="dropdown-link">{tr.nav.servicesDropdown.globalMobility}</a></li>
+            <li><a href={lp('/services/crypto-web3')}          class="dropdown-link">{tr.nav.servicesDropdown.cryptoWeb3}</a></li>
           </ul>
         </li>
         <li class="has-dropdown">
-          <a href="#" class="nav-link">Regions</a>
+          <a href="#" class="nav-link">{tr.nav.regions}</a>
           <ul class="dropdown">
-            <li><a href="/regions/european-union" class="dropdown-link">European Union</a></li>
-            <li><a href="/regions/gcc-middle-east" class="dropdown-link">GCC &amp; Middle East</a></li>
-            <li><a href="/regions/asia-pacific"    class="dropdown-link">Asia Pacific</a></li>
-            <li><a href="/regions/latin-america"   class="dropdown-link">Latin America</a></li>
+            <li><a href={lp('/regions/european-union')}  class="dropdown-link">{tr.nav.regionsDropdown.eu}</a></li>
+            <li><a href={lp('/regions/gcc-middle-east')} class="dropdown-link">{tr.nav.regionsDropdown.gcc}</a></li>
+            <li><a href={lp('/regions/asia-pacific')}    class="dropdown-link">{tr.nav.regionsDropdown.asia}</a></li>
+            <li><a href={lp('/regions/latin-america')}   class="dropdown-link">{tr.nav.regionsDropdown.latam}</a></li>
           </ul>
         </li>
-        <li><a href="/about"       class="nav-link">About</a></li>
-        <li><a href="/leadership"  class="nav-link">Leadership</a></li>
-        <li><a href="/clients"     class="nav-link">Clients</a></li>
-        <li><a href="/insights"    class="nav-link">Insights</a></li>
-        <li><a href="/partnership" class="nav-link">Partnership</a></li>
+        <li><a href={lp('/about')}       class="nav-link">{tr.nav.about}</a></li>
+        <li><a href={lp('/leadership')}  class="nav-link">{tr.nav.leadership}</a></li>
+        <li><a href={lp('/clients')}     class="nav-link">{tr.nav.clients}</a></li>
+        <li><a href={lp('/insights')}    class="nav-link">{tr.nav.insights}</a></li>
+        <li><a href={lp('/partnership')} class="nav-link">{tr.nav.partnership}</a></li>
       </ul>
     </nav>
     <div style="display:flex;align-items:center;gap:12px">
-      <a href="/contact" class="header-cta">Contact</a>
+      <!-- Language Switcher -->
+      <div class="lang-switcher has-dropdown" id="lang-switcher">
+        <button class="lang-trigger nav-link" aria-label="Change language" title="Change language">
+          <!-- Globe icon -->
+          <svg class="lang-globe" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+          <span class="lang-label">{meta.label}</span>
+          <svg class="lang-chevron" width="9" height="5" viewBox="0 0 10 6" fill="none"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <ul class="dropdown lang-dropdown">
+          {LOCALES.map(l => (
+            <li>
+              <a href={localePath(l, canonicalPath)} class={`dropdown-link lang-option${l === locale ? ' is-active' : ''}`} hreflang={LOCALE_META[l].htmlLang}>
+                <span class="lang-opt-flag">{LOCALE_META[l].flag}</span>
+                <span>{LOCALE_META[l].label}</span>
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+      <a href={lp('/contact')} class="header-cta">{tr.nav.contact}</a>
       <button class="mobile-toggle" id="mobile-toggle" aria-label="Toggle menu">
         <span></span><span></span><span></span>
       </button>
@@ -156,45 +183,44 @@ import '../styles/global.css';
     <div class="container">
       <div class="footer-grid">
         <div class="footer-brand">
-          <a href="/" class="footer-logo">
+          <a href={lp('/')} class="footer-logo">
             <span class="logo-arm">ARM</span>
             <span class="logo-rule"></span>
             <span class="logo-mgmt">Management</span>
           </a>
-          <p class="footer-tagline">Empowering Innovation —<br>Quietly, across every border</p>
+          <p class="footer-tagline">{tr.footer.tagline}</p>
           <div class="footer-cities">Brussels &nbsp;·&nbsp; Zurich &nbsp;·&nbsp; Riyadh &nbsp;·&nbsp; Dubai &nbsp;·&nbsp; Shenzhen</div>
           <a href="mailto:info@arm-management.com" class="footer-email">info@arm-management.com</a>
         </div>
         <div class="footer-col">
-          <h4 class="footer-col-title">Services</h4>
+          <h4 class="footer-col-title">{tr.footer.colServices}</h4>
           <ul class="footer-links">
-            <li><a href="/services/transaction-advisory">Transaction Advisory</a></li>
-            <li><a href="/services/company-formation">Company Formation</a></li>
-            <li><a href="/services/accounting-tax">Accounting &amp; Tax</a></li>
-            <li><a href="/services/payroll-hr">Payroll &amp; HR</a></li>
-            <li><a href="/services/global-mobility">Global Mobility</a></li>
-            <li><a href="/services/crypto-web3">Crypto &amp; Web3</a></li>
+            <li><a href={lp('/services/transaction-advisory')}>{tr.nav.servicesDropdown.transactionAdvisory}</a></li>
+            <li><a href={lp('/services/company-formation')}>{tr.nav.servicesDropdown.companyFormation}</a></li>
+            <li><a href={lp('/services/accounting-tax')}>{tr.nav.servicesDropdown.accountingTax}</a></li>
+            <li><a href={lp('/services/payroll-hr')}>{tr.nav.servicesDropdown.payrollHr}</a></li>
+            <li><a href={lp('/services/global-mobility')}>{tr.nav.servicesDropdown.globalMobility}</a></li>
+            <li><a href={lp('/services/crypto-web3')}>{tr.nav.servicesDropdown.cryptoWeb3}</a></li>
           </ul>
         </div>
         <div class="footer-col">
-          <h4 class="footer-col-title">Company</h4>
+          <h4 class="footer-col-title">{tr.footer.colCompany}</h4>
           <ul class="footer-links">
-            <li><a href="/about">About ARM</a></li>
-            <li><a href="/leadership">Leadership</a></li>
-            <li><a href="/clients">Who We Work With</a></li>
-            <li><a href="/insights">Insights</a></li>
-            <li><a href="/partnership">Partnership</a></li>
-            <li><a href="/contact">Contact</a></li>
-            <li><a href="https://verify.arm-management.com">ARM Verify</a></li>
+            <li><a href={lp('/about')}>{tr.footer.links.aboutArm}</a></li>
+            <li><a href={lp('/leadership')}>{tr.footer.links.leadership}</a></li>
+            <li><a href={lp('/clients')}>{tr.nav.clients}</a></li>
+            <li><a href={lp('/insights')}>{tr.footer.links.insights}</a></li>
+            <li><a href={lp('/partnership')}>{tr.footer.links.partnership}</a></li>
+            <li><a href={lp('/contact')}>{tr.footer.links.contact}</a></li>
           </ul>
         </div>
         <div class="footer-col">
-          <h4 class="footer-col-title">Regions</h4>
+          <h4 class="footer-col-title">{tr.footer.colRegions}</h4>
           <ul class="footer-links">
-            <li><a href="/regions/european-union">European Union</a></li>
-            <li><a href="/regions/gcc-middle-east">GCC &amp; Middle East</a></li>
-            <li><a href="/regions/asia-pacific">Asia Pacific</a></li>
-            <li><a href="/regions/latin-america">Latin America</a></li>
+            <li><a href={lp('/regions/european-union')}>{tr.nav.regionsDropdown.eu}</a></li>
+            <li><a href={lp('/regions/gcc-middle-east')}>{tr.nav.regionsDropdown.gcc}</a></li>
+            <li><a href={lp('/regions/asia-pacific')}>{tr.nav.regionsDropdown.asia}</a></li>
+            <li><a href={lp('/regions/latin-america')}>{tr.nav.regionsDropdown.latam}</a></li>
           </ul>
         </div>
       </div>
@@ -202,11 +228,19 @@ import '../styles/global.css';
   </div>
   <div class="footer-bottom">
     <div class="container">
+      <!-- Language strip -->
+      <div class="footer-langs">
+        {LOCALES.map(l => (
+          <a href={localePath(l, canonicalPath)} class={`footer-lang-link${l === locale ? ' is-active' : ''}`} hreflang={LOCALE_META[l].htmlLang} title={LOCALE_META[l].label}>
+            {LOCALE_META[l].label}
+          </a>
+        ))}
+      </div>
       <div class="footer-bottom-inner">
-        <p>© 2026 ARM Management. All rights reserved. ARM Management is an independent international business advisory. Nothing on this website constitutes regulated investment, legal, financial, or immigration advice.</p>
+        <p>{tr.footer.copyright}</p>
         <div class="footer-legal">
-          <a href="/privacy-policy">Privacy Policy</a>
-          <a href="/legal-disclaimer">Legal Disclaimer</a>
+          <a href={lp('/privacy-policy')}>{tr.footer.links.privacyPolicy}</a>
+          <a href={lp('/legal-disclaimer')}>{tr.footer.links.legalDisclaimer}</a>
         </div>
       </div>
     </div>
@@ -214,7 +248,7 @@ import '../styles/global.css';
 </footer>
 
 <style>
-  /* Header */
+  /* ── Header ──────────────────────────────────────────────────────────────── */
   .site-header { position: fixed; top: 0; left: 0; right: 0; z-index: 100; padding: 18px 0; transition: background .3s, box-shadow .3s; }
   .site-header.scrolled { background: rgba(13,27,42,.96); box-shadow: 0 2px 24px rgba(0,0,0,.28); }
   .header-inner { display: flex; align-items: center; justify-content: space-between; max-width: 1160px; margin: 0 auto; padding: 0 32px; }
@@ -226,14 +260,11 @@ import '../styles/global.css';
   .nav-link  { font-size: 13px; font-weight: 500; letter-spacing: .04em; color: rgba(247,243,236,.78); padding: 8px 12px; border-radius: 2px; transition: color .2s; }
   .nav-link:hover { color: #B8960C; }
   .has-dropdown { position: relative; }
-  /* Dropdown: top:100% = zero gap; padding-top:12px = transparent CSS bridge so
-     the mouse stays inside .has-dropdown while travelling from trigger to menu */
   .dropdown { display: none; position: absolute; top: 100%; padding-top: 12px; left: 0; background: transparent; isolation: isolate; min-width: 220px; list-style: none; z-index: 200; }
-  /* Visual navy box rendered via ::before, starting below the 12px bridge */
   .dropdown::before { content: ''; position: absolute; inset: 12px 0 0; background: #0D1B2A; border-top: 2px solid #B8960C; box-shadow: 0 8px 32px rgba(0,0,0,.4); z-index: -1; }
   .has-dropdown.is-open > .dropdown { display: block; }
   .dropdown-link { display: block; padding: 10px 20px; font-size: 13px; color: rgba(247,243,236,.72); transition: color .15s; }
-  .dropdown-link:hover { color: #B8960C; }
+  .dropdown-link:hover, .dropdown-link.is-active { color: #B8960C; }
   @media (max-width: 900px) {
     .has-dropdown.is-open > .dropdown { position: static; background: transparent; isolation: auto; padding: 4px 0 4px 12px; border-top: 1px solid rgba(184,150,12,.2); border-left: 2px solid rgba(184,150,12,.3); box-shadow: none; min-width: 0; margin: 4px 0 8px; }
     .has-dropdown.is-open > .dropdown::before { display: none; }
@@ -245,7 +276,27 @@ import '../styles/global.css';
   .mobile-toggle span { display: block; width: 22px; height: 2px; background: rgba(247,243,236,.8); margin: 5px 0; }
   @media (max-width: 900px) { .header-nav { display: none; } .mobile-toggle { display: block; } }
 
-  /* Footer */
+  /* ── Language Switcher ───────────────────────────────────────────────────── */
+  /* ── Language switcher ──────────────────────────────────────────────────── */
+  .lang-switcher { display: flex; align-items: center; }
+  .lang-trigger { display: flex; align-items: center; gap: 6px; background: none; border: 1px solid rgba(184,150,12,.28); border-radius: 2px; cursor: pointer; font-family: 'Inter', sans-serif; padding: 6px 10px; transition: border-color .2s; }
+  .lang-trigger:hover { border-color: rgba(184,150,12,.65); }
+  .lang-globe { color: rgba(247,243,236,.6); flex-shrink: 0; }
+  .lang-label { font-size: 11px; font-weight: 500; letter-spacing: .06em; color: rgba(247,243,236,.72); }
+  .lang-chevron { color: rgba(247,243,236,.4); margin-top: 1px; flex-shrink: 0; }
+  .lang-dropdown { min-width: 170px; }
+  .lang-option { display: flex; align-items: center; gap: 10px; }
+  .lang-opt-flag { font-size: 14px; }
+  @media (max-width: 900px) { .lang-label { display: none; } .lang-trigger { padding: 6px 8px; } }
+
+  /* ── Footer language strip ──────────────────────────────────────────────── */
+  .footer-langs { display: flex; flex-wrap: wrap; gap: 0; border-bottom: 1px solid rgba(247,243,236,.06); padding-bottom: 18px; margin-bottom: 18px; }
+  .footer-lang-link { font-family: 'Inter', sans-serif; font-size: 11px; font-weight: 400; letter-spacing: .06em; color: rgba(247,243,236,.28); text-decoration: none; padding: 4px 14px 4px 0; transition: color .2s; white-space: nowrap; }
+  .footer-lang-link:not(:last-child)::after { content: "·"; margin-left: 14px; color: rgba(247,243,236,.15); }
+  .footer-lang-link:hover { color: rgba(247,243,236,.6); }
+  .footer-lang-link.is-active { color: #B8960C; }
+
+  /* ── Footer ──────────────────────────────────────────────────────────────── */
   .site-footer { background: #0D1B2A; }
   .footer-main { padding: 80px 0 40px; }
   .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px; }
@@ -266,6 +317,12 @@ import '../styles/global.css';
   .footer-legal a:hover { color: #B8960C; }
   @media (max-width: 900px) { .footer-grid { grid-template-columns: 1fr 1fr; } }
   @media (max-width: 560px) { .footer-grid { grid-template-columns: 1fr; } }
+
+  /* ── RTL overrides ───────────────────────────────────────────────────────── */
+  [dir="rtl"] .dropdown { left: auto; right: 0; }
+  [dir="rtl"] .logo-arm,
+  [dir="rtl"] .footer-logo .logo-arm { font-family: 'Inter', sans-serif; }
+  [dir="rtl"] .lang-dropdown { left: auto; right: 0; }
 </style>
 
 <script>
@@ -291,18 +348,16 @@ import '../styles/global.css';
   }
 
   ddItems.forEach(el => {
-    // Desktop hover (only on true pointer devices — not touch)
     if (hasHover) {
       el.addEventListener('mouseenter', () => openDD(el));
       el.addEventListener('mouseleave', () => closeDD(el));
     }
-    // Click/tap toggles on every device
-    const trigger = el.querySelector(':scope > .nav-link');
+    const trigger = el.querySelector(':scope > .nav-link, :scope > .lang-trigger');
     trigger?.addEventListener('click', e => {
       const href = trigger.getAttribute('href');
       if (el.classList.contains('is-open')) {
         closeDD(el, true);
-        if (!href || href === '#') e.preventDefault(); // don't jump to top on #
+        if (!href || href === '#') e.preventDefault();
       } else {
         e.preventDefault();
         openDD(el);
@@ -310,7 +365,6 @@ import '../styles/global.css';
     });
   });
 
-  // Close dropdowns when clicking anywhere outside
   document.addEventListener('click', e => {
     if (!e.target.closest('.has-dropdown')) ddItems.forEach(d => closeDD(d, true));
   });
@@ -323,13 +377,13 @@ import '../styles/global.css';
     if (nav) {
       nav.style.display = isOpen ? '' : 'flex';
       if (!isOpen) Object.assign(nav.style, { flexDirection:'column', position:'absolute', top:'70px', left:'0', right:'0', background:'#0D1B2A', padding:'20px 32px', gap:'4px', zIndex:'999' });
-      if (isOpen) ddItems.forEach(d => closeDD(d, true)); // close all dropdowns when nav closes
+      if (isOpen) ddItems.forEach(d => closeDD(d, true));
     }
   });
 
   // ── Reveal animations ─────────────────────────────────────────────────────────
-  const reveals   = document.querySelectorAll('.reveal');
-  const observer  = new IntersectionObserver(entries => {
+  const reveals  = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver(entries => {
     entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
   }, { threshold: 0.12 });
   reveals.forEach(el => observer.observe(el));
