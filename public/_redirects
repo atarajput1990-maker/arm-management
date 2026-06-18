@@ -1,0 +1,46 @@
+# ── i18n fallbacks — pages not yet translated redirect to English ──────────────
+
+# French fallbacks
+/fr/insights              /insights              302
+/fr/services              /services              302
+/fr/privacy-policy        /privacy-policy        302
+/fr/legal-disclaimer      /legal-disclaimer      302
+/fr/thank-you             /thank-you             302
+/fr/arm-verify            /arm-verify            302
+/fr/insights/*            /insights/:splat       302
+
+# Spanish fallbacks
+/es/insights              /insights              302
+/es/services              /services              302
+/es/privacy-policy        /privacy-policy        302
+/es/legal-disclaimer      /legal-disclaimer      302
+/es/thank-you             /thank-you             302
+/es/arm-verify            /arm-verify            302
+/es/insights/*            /insights/:splat       302
+
+# Arabic fallbacks
+/ar/insights              /insights              302
+/ar/services              /services              302
+/ar/privacy-policy        /privacy-policy        302
+/ar/legal-disclaimer      /legal-disclaimer      302
+/ar/thank-you             /thank-you             302
+/ar/arm-verify            /arm-verify            302
+/ar/insights/*            /insights/:splat       302
+
+# Russian fallbacks
+/ru/insights              /insights              302
+/ru/services              /services              302
+/ru/privacy-policy        /privacy-policy        302
+/ru/legal-disclaimer      /legal-disclaimer      302
+/ru/thank-you             /thank-you             302
+/ru/arm-verify            /arm-verify            302
+/ru/insights/*            /insights/:splat       302
+
+# Chinese fallbacks
+/zh/insights              /insights              302
+/zh/services              /services              302
+/zh/privacy-policy        /privacy-policy        302
+/zh/legal-disclaimer      /legal-disclaimer      302
+/zh/thank-you             /thank-you             302
+/zh/arm-verify            /arm-verify            302
+/zh/insights/*            /insights/:splat       302
