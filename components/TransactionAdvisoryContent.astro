@@ -1,0 +1,53 @@
+---
+import PageWrapper from './PageWrapper.astro';
+import { localePath } from '../i18n/translations';
+import type { Locale } from '../i18n/translations';
+interface Props { lang: Locale; }
+const { lang } = Astro.props;
+const lp = (p: string) => localePath(lang, p);
+const isRTL = lang === 'ar';
+const copy: Record<string, any> = {
+  en: { title:'Transaction Advisory | ARM Management', desc:'Senior-led cross-border transaction advisory — private investment, M&A, deal structuring across 40+ jurisdictions.', eyebrow:'Transaction Advisory', h1:'Cross-Border Transaction\nAdvisory', hero:'Private investment, M&A, acquisition support, and deal structuring across 40+ jurisdictions. Advisory-first. Success-aligned.', s2h:'Senior-Led Advisory on Every Transaction', s2p1:"ARM Management's Transaction Advisory practice provides senior-level guidance across the full lifecycle of cross-border transactions — from initial mandate assessment and deal structuring through to execution, closing, and post-transaction compliance.", s2p2:'We advise on transactions across the EU, GCC, Asia Pacific, and Latin America, including private equity, family offices acquiring businesses, founders seeking investors, and multinationals expanding through acquisition.' },
+  fr: { title:'Conseil en transactions | ARM Management', desc:'Conseil en transactions transfrontalières de haut niveau — investissement privé, fusions-acquisitions et structuration dans 40+ juridictions.', eyebrow:'Conseil en transactions', h1:'Conseil en transactions\ntransfrontalières', hero:"Investissement privé, fusions-acquisitions, et structuration d'opérations dans plus de 40 juridictions. Advisory-first. Aligné sur la réussite.", s2h:'Un conseil senior à chaque transaction', s2p1:"La pratique Conseil en transactions d'ARM Management apporte une guidance de haut niveau sur tout le cycle de vie des transactions transfrontalières — de l'évaluation initiale du mandat et la structuration de l'opération jusqu'à l'exécution, le closing et la conformité post-transaction.", s2p2:"Nous conseillons des transactions dans l'UE, le CCG, l'Asie-Pacifique et l'Amérique latine." },
+  es: { title:'Asesoría en Transacciones | ARM Management', desc:'Asesoría en transacciones transfronterizas liderada por seniors — inversión privada, fusiones y adquisiciones, estructuración en 40+ jurisdicciones.', eyebrow:'Asesoría en Transacciones', h1:'Asesoría en Transacciones\nTransfronterizas', hero:'Inversión privada, fusiones y adquisiciones, y estructuración de operaciones en más de 40 jurisdicciones. Advisory-first. Alineado con el éxito.', s2h:'Asesoría senior en cada transacción', s2p1:'La práctica de Asesoría en Transacciones de ARM Management proporciona orientación de alto nivel en todo el ciclo de vida de las transacciones transfronterizas — desde la evaluación inicial del mandato y la estructuración hasta la ejecución, el cierre y el cumplimiento post-transacción.', s2p2:'Asesoramos transacciones en la UE, el CCG, Asia Pacífico y América Latina.' },
+  ar: { title:'استشارات المعاملات | ARM Management', desc:'استشارات معاملات عابرة للحدود بقيادة كبار المستشارين — استثمار خاص، اندماجات واستحواذات، هيكلة صفقات في 40+ ولاية قضائية.', eyebrow:'استشارات المعاملات', h1:'استشارات المعاملات\nالعابرة للحدود', hero:'الاستثمار الخاص، وعمليات الاندماج والاستحواذ، ودعم الاستحواذ، وهيكلة الصفقات في أكثر من 40 ولاية قضائية. نهج استشاري أولاً. متوافق مع النجاح.', s2h:'استشارة كبار المستشارين في كل معاملة', s2p1:'تقدّم ممارسة استشارات المعاملات في ARM Management توجيهاً رفيع المستوى عبر الدورة الكاملة للمعاملات العابرة للحدود — من تقييم المشروع الأولي وهيكلة الصفقة وصولاً إلى التنفيذ والإغلاق والامتثال بعد المعاملة.', s2p2:'نقدّم المشورة في المعاملات عبر الاتحاد الأوروبي ودول الخليج وآسيا والمحيط الهادئ وأمريكا اللاتينية.' },
+  ru: { title:'Транзакционный консалтинг | ARM Management', desc:'Транзакционный консалтинг высокого уровня — частные инвестиции, M&A, структурирование сделок в 40+ юрисдикциях.', eyebrow:'Транзакционный консалтинг', h1:'Транзакционный\nконсалтинг', hero:'Частные инвестиции, сделки M&A, поддержка сделок и структурирование в 40+ юрисдикциях. Принцип advisory-first. Ориентация на результат.', s2h:'Старший консультант на каждой сделке', s2p1:'Практика транзакционного консалтинга ARM Management обеспечивает руководство высокого уровня на протяжении всего жизненного цикла трансграничных сделок — от первоначальной оценки мандата и структурирования до исполнения, закрытия и пост-транзакционного комплаенс.', s2p2:'Мы консультируем по сделкам в ЕС, Заливе, Азиатско-Тихоокеанском регионе и Латинской Америке.' },
+  zh: { title:'交易咨询 | ARM Management', desc:'资深主导的跨境交易咨询——私人投资、并购、40+司法管辖区交易架构。', eyebrow:'交易咨询', h1:'跨境交易\n咨询', hero:'在40余个司法管辖区提供私人投资、并购、收购支持和交易架构服务。以顾问视角优先，与成果深度绑定。', s2h:'每笔交易均由资深顾问主导', s2p1:'ARM Management的交易咨询业务在跨境交易的整个生命周期提供高级指导——从初始委托评估和交易架构，到执行、交割和交易后合规。', s2p2:'我们在欧盟、海湾、亚太和拉丁美洲提供交易咨询。' },
+};
+const speakBtn: Record<string,string> = {"en": "Speak With a Senior Advisor →", "fr": "Parler à un conseiller senior →", "es": "Hablar con un asesor senior →", "ar": "تحدّث مع مستشار متخصص ←", "ru": "Связаться со старшим консультантом →", "zh": "与资深顾问交流 →"};
+const ctaBtn: Record<string,string> = {"en": "Schedule a Consultation →", "fr": "Planifier une consultation →", "es": "Programar una consulta →", "ar": "جدوِّل استشارة ←", "ru": "Записаться на консультацию →", "zh": "预约咨询 →"};
+const ctaH: Record<string,string> = {"en": "Ready to discuss your requirements?", "fr": "Prêt à discuter de vos besoins ?", "es": "¿Listo para hablar sobre sus necesidades?", "ar": "هل أنت مستعد لمناقشة متطلباتك؟", "ru": "Готовы обсудить ваши задачи?", "zh": "准备好讨论您的需求了吗？"};
+const c = copy[lang];
+---
+<PageWrapper lang={lang} title={c.title} description={c.desc} canonicalPath="/services/transaction-advisory">
+<main>
+  <section class="page-hero">
+    <div class="page-hero__bg" style="background-image:url('https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=1600&q=80&auto=format&fit=crop')"></div>
+    <div class="page-hero__overlay"></div>
+    <div class="page-hero__content container" dir={isRTL ? 'rtl' : 'ltr'}>
+      <span class="eyebrow">{c.eyebrow}</span>
+      <h1 set:html={c.h1.replace('\n','<br>')}></h1>
+      <p>{c.hero}</p>
+      <div class="btn-row" style="justify-content:flex-start;margin-top:30px">
+        <a href={lp('/contact')} class="btn-primary">{speakBtn[lang]}</a>
+        <a href={lp('/services')} class="btn-secondary">{lang==='fr'?'Nos services':lang==='es'?'Nuestros servicios':lang==='ar'?'خدماتنا':lang==='ru'?'Наши услуги':lang==='zh'?'我们的服务':'Our Services'}</a>
+      </div>
+    </div>
+  </section>
+  <section class="section section--cream" dir={isRTL ? 'rtl' : 'ltr'}>
+    <div class="container--narrow">
+      <span class="eyebrow reveal">{lang==='fr'?'Ce que nous faisons':lang==='es'?'Lo que hacemos':lang==='ar'?'ما نقدّمه':lang==='ru'?'Что мы делаем':lang==='zh'?'我们的服务内容':'What We Do'}</span>
+      <h2 class="reveal">{c.s2h}</h2>
+      <div class="gold-rule reveal"></div>
+      <p class="reveal">{c.s2p1}</p>
+      <p class="reveal" style="margin-top:20px">{c.s2p2}</p>
+    </div>
+  </section>
+  <section class="cta-section" dir={isRTL ? 'rtl' : 'ltr'}>
+    <h2 class="reveal">{ctaH[lang]}</h2>
+    <div class="btn-row reveal reveal-delay-1">
+      <a href={lp('/contact')} class="btn-primary">{ctaBtn[lang]}</a>
+    </div>
+  </section>
+</main>
+</PageWrapper>

@@ -1,0 +1,53 @@
+---
+import PageWrapper from './PageWrapper.astro';
+import { localePath } from '../i18n/translations';
+import type { Locale } from '../i18n/translations';
+interface Props { lang: Locale; }
+const { lang } = Astro.props;
+const lp = (p: string) => localePath(lang, p);
+const isRTL = lang === 'ar';
+const copy: Record<string, any> = {
+  en: { title:'International Company Formation | ARM Management', desc:'Incorporate in 40+ jurisdictions across the EU, GCC, Asia, and Latin America through a single ARM relationship.', eyebrow:'Company Formation', h1:'International Company\nFormation', hero:'Incorporate in 40+ jurisdictions across the EU, GCC, Asia, and Latin America. From legal entity selection to VAT registration — fully coordinated.', s2h:'One Relationship. Every Jurisdiction.', s2p1:'Setting up a legal entity in a foreign jurisdiction involves far more than filing incorporation documents. It requires selecting the right legal structure, understanding local ownership rules, appointing directors, registering for tax, and ensuring ongoing compliance — all while managing advisors who may speak a different language and operate in a different time zone.', s2p2:'ARM Management provides a single relationship that coordinates everything from entity selection through to ongoing compliance across all your jurisdictions.' },
+  fr: { title:"Création de sociétés à l'international | ARM Management", desc:"Immatriculation dans 40+ juridictions à travers l'UE, le CCG, l'Asie et l'Amérique latine via une seule relation ARM.", eyebrow:'Création de sociétés', h1:"Création de sociétés\nà l'international", hero:"Immatriculation dans plus de 40 juridictions — de l'UE au CCG, en passant par l'Asie et l'Amérique latine. Du choix de la structure à l'enregistrement TVA — entièrement coordonné.", s2h:'Une relation. Chaque juridiction.', s2p1:"La création d'une entité juridique dans une juridiction étrangère implique bien plus que le simple dépôt de documents d'immatriculation. Elle nécessite de choisir la bonne structure juridique, de comprendre les règles locales de propriété, de nommer des dirigeants appropriés, de s'enregistrer aux impôts et d'assurer la conformité continue.", s2p2:"ARM Management fournit une relation unique qui coordonne tout, du choix de l'entité à la conformité continue dans toutes vos juridictions." },
+  es: { title:'Constitución Internacional de Sociedades | ARM Management', desc:'Incorporación en 40+ jurisdicciones en la UE, CCG, Asia y América Latina a través de una única relación ARM.', eyebrow:'Constitución de Sociedades', h1:'Constitución Internacional\nde Sociedades', hero:'Incorporación en más de 40 jurisdicciones en la UE, el CCG, Asia y América Latina. Desde la selección de entidad legal hasta el registro de IVA — totalmente coordinado.', s2h:'Una relación. Cada jurisdicción.', s2p1:'Establecer una entidad legal en una jurisdicción extranjera implica mucho más que presentar documentos de incorporación. Requiere seleccionar la estructura legal adecuada, entender las reglas de propiedad locales, nombrar directores, registrarse para impuestos y garantizar el cumplimiento continuo.', s2p2:'ARM Management proporciona una relación única que coordina todo, desde la selección de entidad hasta el cumplimiento continuo en todas sus jurisdicciones.' },
+  ar: { title:'تأسيس الشركات الدولية | ARM Management', desc:'التأسيس في 40+ ولاية قضائية عبر الاتحاد الأوروبي ودول الخليج وآسيا وأمريكا اللاتينية من خلال علاقة ARM واحدة.', eyebrow:'تأسيس الشركات', h1:'تأسيس الشركات\nالدولية', hero:'التأسيس في أكثر من 40 ولاية قضائية عبر الاتحاد الأوروبي ودول الخليج وآسيا وأمريكا اللاتينية. من اختيار الكيان القانوني إلى التسجيل الضريبي — منسّق بالكامل.', s2h:'علاقة واحدة. كل الولايات القضائية.', s2p1:'يتضمّن إنشاء كيان قانوني في ولاية قضائية أجنبية ما هو أكثر بكثير من مجرد تقديم وثائق التأسيس. يتطلب اختيار الهيكل القانوني الصحيح، وفهم قواعد الملكية المحلية، وتعيين المديرين المناسبين، والتسجيل الضريبي، وضمان الامتثال المستمر.', s2p2:'توفّر ARM Management علاقة واحدة تنسّق كل شيء من اختيار الكيان إلى الامتثال المستمر عبر جميع ولاياتك القضائية.' },
+  ru: { title:'Международная регистрация компаний | ARM Management', desc:'Инкорпорация в 40+ юрисдикциях в ЕС, Заливе, Азии и Латинской Америке через единственные отношения с ARM.', eyebrow:'Регистрация компаний', h1:'Международная\nрегистрация компаний', hero:'Инкорпорация в 40+ юрисдикциях в ЕС, Заливе, Азии и Латинской Америке. От выбора юридической структуры до регистрации НДС — полная координация.', s2h:'Один контакт. Любая юрисдикция.', s2p1:'Регистрация юридического лица в иностранной юрисдикции — это гораздо больше, чем просто подача документов. Она требует выбора правильной структуры, понимания местных правил владения, назначения директоров, налоговой регистрации и обеспечения постоянного комплаенс.', s2p2:'ARM Management предоставляет единый контакт, который координирует всё — от выбора структуры до текущего комплаенс во всех ваших юрисдикциях.' },
+  zh: { title:'国际公司注册 | ARM Management', desc:'在欧盟、海湾、亚洲和拉丁美洲40+司法管辖区注册公司，通过单一ARM关系全程协调。', eyebrow:'公司注册', h1:'国际公司\n注册', hero:'在欧盟、海湾、亚洲和拉丁美洲40余个司法管辖区注册公司。从法律实体选择到增值税注册——全程协调。', s2h:'一个关系。覆盖每个司法管辖区。', s2p1:'在境外司法管辖区设立法律实体远不止于提交注册文件。它需要选择正确的法律结构、了解当地所有权规则、任命适当的董事、进行税务登记并确保持续合规。', s2p2:'ARM Management提供单一联络关系，协调从实体选择到所有司法管辖区持续合规的一切事务。' },
+};
+const speakBtn: Record<string,string> = {"en": "Speak With a Senior Advisor →", "fr": "Parler à un conseiller senior →", "es": "Hablar con un asesor senior →", "ar": "تحدّث مع مستشار متخصص ←", "ru": "Связаться со старшим консультантом →", "zh": "与资深顾问交流 →"};
+const ctaBtn: Record<string,string> = {"en": "Schedule a Consultation →", "fr": "Planifier une consultation →", "es": "Programar una consulta →", "ar": "جدوِّل استشارة ←", "ru": "Записаться на консультацию →", "zh": "预约咨询 →"};
+const ctaH: Record<string,string> = {"en": "Ready to discuss your requirements?", "fr": "Prêt à discuter de vos besoins ?", "es": "¿Listo para hablar sobre sus necesidades?", "ar": "هل أنت مستعد لمناقشة متطلباتك؟", "ru": "Готовы обсудить ваши задачи?", "zh": "准备好讨论您的需求了吗？"};
+const c = copy[lang];
+---
+<PageWrapper lang={lang} title={c.title} description={c.desc} canonicalPath="/services/company-formation">
+<main>
+  <section class="page-hero">
+    <div class="page-hero__bg" style="background-image:url('https://images.unsplash.com/photo-1507679799987-c73779587ccf?w=1600&q=80&auto=format&fit=crop')"></div>
+    <div class="page-hero__overlay"></div>
+    <div class="page-hero__content container" dir={isRTL ? 'rtl' : 'ltr'}>
+      <span class="eyebrow">{c.eyebrow}</span>
+      <h1 set:html={c.h1.replace('\n','<br>')}></h1>
+      <p>{c.hero}</p>
+      <div class="btn-row" style="justify-content:flex-start;margin-top:30px">
+        <a href={lp('/contact')} class="btn-primary">{speakBtn[lang]}</a>
+        <a href={lp('/services')} class="btn-secondary">{lang==='fr'?'Nos services':lang==='es'?'Nuestros servicios':lang==='ar'?'خدماتنا':lang==='ru'?'Наши услуги':lang==='zh'?'我们的服务':'Our Services'}</a>
+      </div>
+    </div>
+  </section>
+  <section class="section section--cream" dir={isRTL ? 'rtl' : 'ltr'}>
+    <div class="container--narrow">
+      <span class="eyebrow reveal">{lang==='fr'?'Ce que nous faisons':lang==='es'?'Lo que hacemos':lang==='ar'?'ما نقدّمه':lang==='ru'?'Что мы делаем':lang==='zh'?'我们的服务内容':'What We Do'}</span>
+      <h2 class="reveal">{c.s2h}</h2>
+      <div class="gold-rule reveal"></div>
+      <p class="reveal">{c.s2p1}</p>
+      <p class="reveal" style="margin-top:20px">{c.s2p2}</p>
+    </div>
+  </section>
+  <section class="cta-section" dir={isRTL ? 'rtl' : 'ltr'}>
+    <h2 class="reveal">{ctaH[lang]}</h2>
+    <div class="btn-row reveal reveal-delay-1">
+      <a href={lp('/contact')} class="btn-primary">{ctaBtn[lang]}</a>
+    </div>
+  </section>
+</main>
+</PageWrapper>

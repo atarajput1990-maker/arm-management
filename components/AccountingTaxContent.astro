@@ -1,0 +1,53 @@
+---
+import PageWrapper from './PageWrapper.astro';
+import { localePath } from '../i18n/translations';
+import type { Locale } from '../i18n/translations';
+interface Props { lang: Locale; }
+const { lang } = Astro.props;
+const lp = (p: string) => localePath(lang, p);
+const isRTL = lang === 'ar';
+const copy: Record<string, any> = {
+  en: { title:'Accounting, Tax & Compliance | ARM Management', desc:'Monthly bookkeeping, VAT returns, corporate tax filings, and statutory accounts across multiple jurisdictions.', eyebrow:'Accounting & Tax', h1:'Accounting, Tax &\nMonthly Compliance', hero:'One relationship. All jurisdictions. Every deadline met.', s2h:'A Single Relationship Across Every Jurisdiction', s2p1:'Managing accounting and tax compliance across multiple jurisdictions is one of the most operationally demanding aspects of running an international business. Deadlines, reporting formats, VAT regimes, and audit requirements vary dramatically — and the consequences of missed filings extend beyond penalties to damaged banking relationships.', s2p2:'ARM Management offers a single relationship: one senior contact who coordinates local accountants and tax advisors across all your jurisdictions, ensures nothing is missed, and translates compliance requirements into actionable management information.' },
+  fr: { title:'Comptabilité, Fiscalité & Conformité | ARM Management', desc:'Tenue de comptes mensuelle, TVA, déclarations fiscales et comptes annuels dans plusieurs juridictions.', eyebrow:'Comptabilité & Fiscalité', h1:'Comptabilité, Fiscalité\net Conformité', hero:'Une seule relation. Toutes les juridictions. Chaque échéance respectée.', s2h:'Une relation unique dans chaque juridiction', s2p1:"Gérer la comptabilité et la conformité fiscale dans plusieurs juridictions est l'un des aspects les plus exigeants de la gestion d'une entreprise internationale. Les délais, les formats de reporting, les régimes TVA et les exigences d'audit varient considérablement.", s2p2:"ARM Management offre une relation unique : un interlocuteur senior qui coordonne les comptables et conseillers fiscaux locaux dans toutes vos juridictions, s'assure que rien n'est manqué." },
+  es: { title:'Contabilidad, Impuestos y Cumplimiento | ARM Management', desc:'Contabilidad mensual, declaraciones de IVA, declaraciones fiscales y cuentas estatutarias en múltiples jurisdicciones.', eyebrow:'Contabilidad & Impuestos', h1:'Contabilidad, Impuestos\ny Cumplimiento', hero:'Una relación. Todas las jurisdicciones. Cada plazo cumplido.', s2h:'Una única relación en cada jurisdicción', s2p1:'Gestionar la contabilidad y el cumplimiento fiscal en múltiples jurisdicciones es uno de los aspectos operativamente más exigentes de gestionar un negocio internacional. Los plazos, los formatos de informes, los regímenes de IVA y los requisitos de auditoría varían enormemente.', s2p2:'ARM Management ofrece una única relación: un contacto senior que coordina a los contadores y asesores fiscales locales en todas sus jurisdicciones.' },
+  ar: { title:'المحاسبة والضرائب والامتثال | ARM Management', desc:'مسك الدفاتر الشهري، وإقرارات ضريبة القيمة المضافة، والإقرارات الضريبية، والحسابات القانونية عبر ولايات قضائية متعددة.', eyebrow:'المحاسبة والضرائب', h1:'المحاسبة والضرائب\nوالامتثال الشهري', hero:'علاقة واحدة. جميع الولايات القضائية. كل موعد نهائي محترَم.', s2h:'علاقة واحدة عبر كل ولاية قضائية', s2p1:'إدارة المحاسبة والامتثال الضريبي عبر ولايات قضائية متعددة هي من أكثر جوانب إدارة الأعمال الدولية تطلباً. تتباين المواعيد النهائية وصيغ الإبلاغ وأنظمة ضريبة القيمة المضافة ومتطلبات المراجعة بشكل كبير.', s2p2:'تقدّم ARM Management علاقة واحدة: جهة تواصل كبيرة واحدة تنسّق المحاسبين والمستشارين الضريبيين المحليين في جميع ولاياتك القضائية.' },
+  ru: { title:'Бухучёт, налоги и комплаенс | ARM Management', desc:'Ежемесячное ведение учёта, НДС, налоговые декларации и годовая отчётность в нескольких юрисдикциях.', eyebrow:'Учёт и налоги', h1:'Бухучёт, налоги\nи комплаенс', hero:'Один контакт. Все юрисдикции. Все сроки соблюдены.', s2h:'Один контакт в каждой юрисдикции', s2p1:'Управление бухгалтерским учётом и налоговым комплаенс в нескольких юрисдикциях — один из наиболее операционно сложных аспектов международного бизнеса. Сроки, форматы отчётности, режимы НДС и требования к аудиту существенно различаются.', s2p2:'ARM Management предлагает единый контакт: один старший куратор координирует местных бухгалтеров и налоговых консультантов во всех ваших юрисдикциях.' },
+  zh: { title:'会计、税务与合规 | ARM Management', desc:'在多个司法管辖区提供月度记账、增值税申报、企业所得税申报及年度财务报告服务。', eyebrow:'会计与税务', h1:'会计、税务\n与月度合规', hero:'一个联络人。所有司法管辖区。每个截止日期均按时完成。', s2h:'覆盖每个司法管辖区的单一关系', s2p1:'在多个司法管辖区管理会计和税务合规是运营国际业务最具挑战性的方面之一。截止日期、报告格式、增值税制度和审计要求差异巨大。', s2p2:'ARM Management提供单一联络关系：一位资深联络人协调您所有司法管辖区的当地会计师和税务顾问。' },
+};
+const speakBtn: Record<string,string> = {"en": "Speak With a Senior Advisor →", "fr": "Parler à un conseiller senior →", "es": "Hablar con un asesor senior →", "ar": "تحدّث مع مستشار متخصص ←", "ru": "Связаться со старшим консультантом →", "zh": "与资深顾问交流 →"};
+const ctaBtn: Record<string,string> = {"en": "Schedule a Consultation →", "fr": "Planifier une consultation →", "es": "Programar una consulta →", "ar": "جدوِّل استشارة ←", "ru": "Записаться на консультацию →", "zh": "预约咨询 →"};
+const ctaH: Record<string,string> = {"en": "Ready to discuss your requirements?", "fr": "Prêt à discuter de vos besoins ?", "es": "¿Listo para hablar sobre sus necesidades?", "ar": "هل أنت مستعد لمناقشة متطلباتك؟", "ru": "Готовы обсудить ваши задачи?", "zh": "准备好讨论您的需求了吗？"};
+const c = copy[lang];
+---
+<PageWrapper lang={lang} title={c.title} description={c.desc} canonicalPath="/services/accounting-tax">
+<main>
+  <section class="page-hero">
+    <div class="page-hero__bg" style="background-image:url('https://images.unsplash.com/photo-1554224154-26032ffc0d07?w=1600&q=80&auto=format&fit=crop')"></div>
+    <div class="page-hero__overlay"></div>
+    <div class="page-hero__content container" dir={isRTL ? 'rtl' : 'ltr'}>
+      <span class="eyebrow">{c.eyebrow}</span>
+      <h1 set:html={c.h1.replace('\n','<br>')}></h1>
+      <p>{c.hero}</p>
+      <div class="btn-row" style="justify-content:flex-start;margin-top:30px">
+        <a href={lp('/contact')} class="btn-primary">{speakBtn[lang]}</a>
+        <a href={lp('/services')} class="btn-secondary">{lang==='fr'?'Nos services':lang==='es'?'Nuestros servicios':lang==='ar'?'خدماتنا':lang==='ru'?'Наши услуги':lang==='zh'?'我们的服务':'Our Services'}</a>
+      </div>
+    </div>
+  </section>
+  <section class="section section--cream" dir={isRTL ? 'rtl' : 'ltr'}>
+    <div class="container--narrow">
+      <span class="eyebrow reveal">{lang==='fr'?'Ce que nous faisons':lang==='es'?'Lo que hacemos':lang==='ar'?'ما نقدّمه':lang==='ru'?'Что мы делаем':lang==='zh'?'我们的服务内容':'What We Do'}</span>
+      <h2 class="reveal">{c.s2h}</h2>
+      <div class="gold-rule reveal"></div>
+      <p class="reveal">{c.s2p1}</p>
+      <p class="reveal" style="margin-top:20px">{c.s2p2}</p>
+    </div>
+  </section>
+  <section class="cta-section" dir={isRTL ? 'rtl' : 'ltr'}>
+    <h2 class="reveal">{ctaH[lang]}</h2>
+    <div class="btn-row reveal reveal-delay-1">
+      <a href={lp('/contact')} class="btn-primary">{ctaBtn[lang]}</a>
+    </div>
+  </section>
+</main>
+</PageWrapper>

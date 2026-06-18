@@ -1,0 +1,219 @@
+---
+import PageWrapper from './PageWrapper.astro';
+import { localePath } from '../i18n/translations';
+import type { Locale } from '../i18n/translations';
+
+interface Props { lang: Locale; }
+const { lang } = Astro.props;
+const lp = (p: string) => localePath(lang, p);
+const isRTL = lang === 'ar';
+
+const copy: Record<Locale, {
+  title: string; desc: string;
+  eyebrow: string; h1a: string; h1b: string; hero: string;
+  emailEye: string; emailH3: string; emailP: string; emailBtn: string;
+  schedEye: string; schedH3: string; schedP: string; schedBtn: string;
+  confEye: string; confH3: string; confP: string;
+  formH2: string; formP: string;
+  fName: string; fNamePh: string; fEmail: string; fEmailPh: string;
+  fCompany: string; fCompanyPh: string; fCountry: string; fCountryPh: string;
+  fService: string; fServicePh: string;
+  fServices: string[];
+  fMessage: string; fMessagePh: string;
+  fSource: string; fSourcePh: string; fSources: string[];
+  fSubmit: string;
+}> = {
+  en: {
+    title: "Contact ARM Management | International Business Advisory",
+    desc: "Start with a confidential conversation. Every ARM engagement begins with a direct conversation with a senior advisor who will assess your situation honestly.",
+    eyebrow: "Contact", h1a: "Start With a Confidential", h1b: "Conversation.",
+    hero: "Every ARM engagement begins the same way: a direct conversation with a senior advisor who will assess your situation honestly and tell you exactly what is achievable.",
+    emailEye: "Email", emailH3: "Write to Us", emailP: "For detailed enquiries or where you prefer to communicate in writing. A senior advisor responds within one business day.", emailBtn: "info@arm-management.com",
+    schedEye: "Schedule", schedH3: "Book a Consultation", schedP: "Select a time that works for you. A senior ARM advisor will join the call prepared to discuss your specific situation.", schedBtn: "Request a Time →",
+    confEye: "Confidentiality", confH3: "Complete Discretion", confP: "ARM Management treats all enquiries with complete confidentiality. Your information is not shared with any third party. All engagements are governed by formal service agreements.",
+    formH2: "Send Us a Message", formP: "Complete the form below and a senior ARM advisor will respond within one business day.",
+    fName: "Full Name *", fNamePh: "Your full name", fEmail: "Email Address *", fEmailPh: "your@email.com",
+    fCompany: "Company / Organisation", fCompanyPh: "Your company name", fCountry: "Country of Residence", fCountryPh: "e.g. United Arab Emirates",
+    fService: "Service Area", fServicePh: "Select a service area",
+    fServices: ["Transaction Advisory","Company Formation","Accounting & Tax","Payroll & HR Advisory","Global Mobility & Residency","Crypto & Web3","Other"],
+    fMessage: "Brief Description *", fMessagePh: "Please briefly describe your situation and what you need assistance with...",
+    fSource: "How did you hear about ARM Management?", fSourcePh: "Please select", fSources: ["Google Search","Referral","LinkedIn","Event / Conference","Other"],
+    fSubmit: "Submit Enquiry →",
+  },
+  fr: {
+    title: "Contacter ARM Management | Conseil en affaires internationales",
+    desc: "Commencez par une conversation confidentielle. Chaque mission ARM débute par un entretien direct avec un conseiller senior qui évaluera votre situation avec franchise.",
+    eyebrow: "Contact", h1a: "Commencez par une conversation", h1b: "confidentielle.",
+    hero: "Chaque mission ARM commence de la même façon : un entretien direct avec un conseiller senior qui évaluera votre situation avec honnêteté et vous dira exactement ce qui est réalisable.",
+    emailEye: "Email", emailH3: "Écrivez-nous", emailP: "Pour des demandes détaillées ou si vous préférez communiquer par écrit. Un conseiller senior répond dans un délai d'un jour ouvrable.", emailBtn: "info@arm-management.com",
+    schedEye: "Rendez-vous", schedH3: "Réserver une consultation", schedP: "Choisissez un créneau qui vous convient. Un conseiller senior ARM participera à l'appel prêt à discuter de votre situation spécifique.", schedBtn: "Demander un créneau →",
+    confEye: "Confidentialité", confH3: "Discrétion totale", confP: "ARM Management traite toutes les demandes avec une confidentialité absolue. Vos informations ne sont pas partagées avec des tiers. Toutes les missions sont régies par des conventions de services formelles.",
+    formH2: "Envoyez-nous un message", formP: "Remplissez le formulaire ci-dessous et un conseiller senior ARM vous répondra dans un délai d'un jour ouvrable.",
+    fName: "Nom complet *", fNamePh: "Votre nom complet", fEmail: "Adresse email *", fEmailPh: "votre@email.com",
+    fCompany: "Société / Organisation", fCompanyPh: "Nom de votre société", fCountry: "Pays de résidence", fCountryPh: "ex. Émirats arabes unis",
+    fService: "Domaine de service", fServicePh: "Sélectionnez un domaine",
+    fServices: ["Conseil en transactions","Création de sociétés","Comptabilité & Fiscalité","Paie & RH","Mobilité internationale & Résidence","Crypto & Web3","Autre"],
+    fMessage: "Brève description *", fMessagePh: "Décrivez brièvement votre situation et ce pour quoi vous avez besoin d'aide...",
+    fSource: "Comment avez-vous connu ARM Management ?", fSourcePh: "Veuillez sélectionner", fSources: ["Recherche Google","Recommandation","LinkedIn","Événement / Conférence","Autre"],
+    fSubmit: "Soumettre la demande →",
+  },
+  es: {
+    title: "Contactar ARM Management | Asesoría de Negocios Internacional",
+    desc: "Comience con una conversación confidencial. Cada proyecto ARM comienza con una conversación directa con un asesor senior que evaluará su situación con honestidad.",
+    eyebrow: "Contacto", h1a: "Comience con una conversación", h1b: "confidencial.",
+    hero: "Cada proyecto ARM comienza de la misma manera: una conversación directa con un asesor senior que evaluará su situación con honestidad y le dirá exactamente qué es alcanzable.",
+    emailEye: "Email", emailH3: "Escríbanos", emailP: "Para consultas detalladas o si prefiere comunicarse por escrito. Un asesor senior responde en un día hábil.", emailBtn: "info@arm-management.com",
+    schedEye: "Agenda", schedH3: "Reserve una consulta", schedP: "Seleccione un horario que le convenga. Un asesor senior de ARM se unirá a la llamada preparado para discutir su situación específica.", schedBtn: "Solicitar un horario →",
+    confEye: "Confidencialidad", confH3: "Discreción total", confP: "ARM Management trata todas las consultas con absoluta confidencialidad. Su información no se comparte con terceros. Todos los proyectos están regidos por acuerdos de servicio formales.",
+    formH2: "Envíenos un mensaje", formP: "Complete el formulario a continuación y un asesor senior de ARM responderá en un día hábil.",
+    fName: "Nombre completo *", fNamePh: "Su nombre completo", fEmail: "Dirección de email *", fEmailPh: "su@email.com",
+    fCompany: "Empresa / Organización", fCompanyPh: "Nombre de su empresa", fCountry: "País de residencia", fCountryPh: "ej. Emiratos Árabes Unidos",
+    fService: "Área de servicio", fServicePh: "Seleccione un área de servicio",
+    fServices: ["Asesoría en Transacciones","Constitución de Sociedades","Contabilidad e Impuestos","Nómina y RRHH","Movilidad Global y Residencia","Cripto y Web3","Otro"],
+    fMessage: "Descripción breve *", fMessagePh: "Describa brevemente su situación y en qué necesita ayuda...",
+    fSource: "¿Cómo conoció ARM Management?", fSourcePh: "Por favor seleccione", fSources: ["Búsqueda en Google","Referencia","LinkedIn","Evento / Conferencia","Otro"],
+    fSubmit: "Enviar consulta →",
+  },
+  ar: {
+    title: "تواصل مع ARM Management | استشارات الأعمال الدولية",
+    desc: "ابدأ بمحادثة سرية. كل مشروع في ARM يبدأ بمحادثة مباشرة مع مستشار كبير يقيّم وضعك بصدق.",
+    eyebrow: "تواصل معنا", h1a: "ابدأ بمحادثة", h1b: "سرية.",
+    hero: "كل مشروع في ARM يبدأ بالطريقة نفسها: محادثة مباشرة مع مستشار كبير يقيّم وضعك بصدق ويخبرك بالضبط بما هو قابل للتحقيق.",
+    emailEye: "البريد الإلكتروني", emailH3: "راسلنا", emailP: "للاستفسارات التفصيلية أو إذا كنت تفضّل التواصل كتابةً. يردّ مستشار كبير خلال يوم عمل واحد.", emailBtn: "info@arm-management.com",
+    schedEye: "الجدولة", schedH3: "احجز استشارة", schedP: "اختر وقتاً يناسبك. سينضم إليك مستشار ARM الكبير مستعداً لمناقشة وضعك المحدد.", schedBtn: "طلب موعد ←",
+    confEye: "السرية", confH3: "تكتّم تام", confP: "تتعامل ARM Management مع جميع الاستفسارات بسرية تامة. لا تُشارَك معلوماتك مع أي طرف ثالث. تخضع جميع المشاريع لاتفاقيات خدمة رسمية.",
+    formH2: "أرسل لنا رسالة", formP: "أكمل النموذج أدناه وسيردّ عليك مستشار ARM الكبير خلال يوم عمل واحد.",
+    fName: "الاسم الكامل *", fNamePh: "اسمك الكامل", fEmail: "البريد الإلكتروني *", fEmailPh: "بريدك@الإلكتروني.com",
+    fCompany: "الشركة / المنظمة", fCompanyPh: "اسم شركتك", fCountry: "بلد الإقامة", fCountryPh: "مثلاً: الإمارات العربية المتحدة",
+    fService: "مجال الخدمة", fServicePh: "اختر مجال الخدمة",
+    fServices: ["استشارات المعاملات","تأسيس الشركات","المحاسبة والضرائب","الرواتب والموارد البشرية","التنقل الدولي والإقامة","العملات الرقمية وWeb3","أخرى"],
+    fMessage: "وصف موجز *", fMessagePh: "يرجى وصف وضعك بإيجاز وما تحتاج المساعدة فيه...",
+    fSource: "كيف سمعت عن ARM Management؟", fSourcePh: "يرجى الاختيار", fSources: ["البحث على Google","إحالة","LinkedIn","فعالية / مؤتمر","أخرى"],
+    fSubmit: "إرسال الاستفسار ←",
+  },
+  ru: {
+    title: "Контакты ARM Management | Международный бизнес-консалтинг",
+    desc: "Начните с конфиденциального разговора. Каждый проект ARM начинается с прямого разговора со старшим консультантом, который честно оценит вашу ситуацию.",
+    eyebrow: "Контакты", h1a: "Начните с конфиденциального", h1b: "разговора.",
+    hero: "Каждый проект ARM начинается одинаково: прямой разговор со старшим консультантом, который честно оценит вашу ситуацию и скажет именно, что достижимо.",
+    emailEye: "Email", emailH3: "Напишите нам", emailP: "Для подробных запросов или если вы предпочитаете письменное общение. Старший консультант отвечает в течение одного рабочего дня.", emailBtn: "info@arm-management.com",
+    schedEye: "Запись", schedH3: "Записаться на консультацию", schedP: "Выберите удобное время. Старший консультант ARM присоединится к звонку, готовый обсудить вашу конкретную ситуацию.", schedBtn: "Запросить время →",
+    confEye: "Конфиденциальность", confH3: "Полная дискретность", confP: "ARM Management обрабатывает все запросы с соблюдением полной конфиденциальности. Ваши данные не передаются третьим лицам. Все проекты регулируются официальными соглашениями об услугах.",
+    formH2: "Напишите нам", formP: "Заполните форму ниже, и старший консультант ARM ответит в течение одного рабочего дня.",
+    fName: "Полное имя *", fNamePh: "Ваше полное имя", fEmail: "Адрес электронной почты *", fEmailPh: "ваш@email.com",
+    fCompany: "Компания / Организация", fCompanyPh: "Название вашей компании", fCountry: "Страна проживания", fCountryPh: "напр. Объединённые Арабские Эмираты",
+    fService: "Направление услуг", fServicePh: "Выберите направление",
+    fServices: ["Транзакционный консалтинг","Регистрация компаний","Бухучёт и налоги","Расчёт зарплат и HR","Международная мобильность и резидентство","Крипто и Web3","Другое"],
+    fMessage: "Краткое описание *", fMessagePh: "Пожалуйста, кратко опишите вашу ситуацию и с чем вам нужна помощь...",
+    fSource: "Как вы узнали об ARM Management?", fSourcePh: "Пожалуйста, выберите", fSources: ["Поиск Google","Рекомендация","LinkedIn","Мероприятие / Конференция","Другое"],
+    fSubmit: "Отправить запрос →",
+  },
+  zh: {
+    title: "联系ARM Management | 国际商业咨询",
+    desc: "从一次保密对话开始。每个ARM项目都始于与资深顾问的直接对话，顾问将坦诚评估您的情况。",
+    eyebrow: "联系我们", h1a: "从一次保密对话", h1b: "开始。",
+    hero: "每个ARM项目都以同样的方式开始：与资深顾问进行直接对话，他将坦诚评估您的情况，并准确告知什么是可实现的。",
+    emailEye: "电子邮件", emailH3: "给我们写信", emailP: "适用于详细咨询或您倾向以书面方式沟通的情况。资深顾问将在一个工作日内回复。", emailBtn: "info@arm-management.com",
+    schedEye: "预约", schedH3: "预约咨询", schedP: "选择适合您的时间。ARM资深顾问将做好准备加入通话，讨论您的具体情况。", schedBtn: "申请时间 →",
+    confEye: "保密性", confH3: "完全保密", confP: "ARM Management对所有咨询保持完全保密。您的信息不会与任何第三方共享。所有项目均受正式服务协议约束。",
+    formH2: "给我们发送消息", formP: "填写以下表格，ARM资深顾问将在一个工作日内回复。",
+    fName: "全名 *", fNamePh: "您的全名", fEmail: "电子邮件地址 *", fEmailPh: "您的@邮箱.com",
+    fCompany: "公司 / 机构", fCompanyPh: "您的公司名称", fCountry: "居住国家", fCountryPh: "如：阿拉伯联合酋长国",
+    fService: "服务领域", fServicePh: "选择服务领域",
+    fServices: ["交易咨询","公司注册","会计与税务","薪酬与人力资源","全球移民与居留","加密货币与Web3","其他"],
+    fMessage: "简要描述 *", fMessagePh: "请简要描述您的情况以及您需要哪方面的帮助...",
+    fSource: "您是如何了解到ARM Management的？", fSourcePh: "请选择", fSources: ["Google搜索","推荐","LinkedIn","活动 / 会议","其他"],
+    fSubmit: "提交咨询 →",
+  },
+};
+
+const c = copy[lang];
+---
+<PageWrapper lang={lang} title={c.title} description={c.desc} canonicalPath="/contact">
+<main>
+  <section class="page-hero">
+    <div class="page-hero__bg" style="background-image:url('https://images.unsplash.com/photo-1497366216548-37526070297c?w=1600&q=80&auto=format&fit=crop')"></div>
+    <div class="page-hero__overlay"></div>
+    <div class="page-hero__content container" dir={isRTL ? 'rtl' : 'ltr'}>
+      <span class="eyebrow">{c.eyebrow}</span>
+      <h1>{c.h1a}<br>{c.h1b}</h1>
+      <p>{c.hero}</p>
+    </div>
+  </section>
+
+  <section class="section section--cream" dir={isRTL ? 'rtl' : 'ltr'}>
+    <div class="container">
+      <div class="contact-grid reveal">
+        <div class="contact-card">
+          <span class="eyebrow">{c.emailEye}</span>
+          <h3>{c.emailH3}</h3>
+          <p>{c.emailP}</p>
+          <a href="mailto:info@arm-management.com" class="btn-navy">{c.emailBtn}</a>
+        </div>
+        <div class="contact-card">
+          <span class="eyebrow">{c.schedEye}</span>
+          <h3>{c.schedH3}</h3>
+          <p>{c.schedP}</p>
+          <a href="mailto:info@arm-management.com?subject=Consultation Request" class="btn-navy">{c.schedBtn}</a>
+        </div>
+        <div class="contact-card">
+          <span class="eyebrow">{c.confEye}</span>
+          <h3>{c.confH3}</h3>
+          <p>{c.confP}</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--warm" style="border-top:1px solid #E2DDD6" dir={isRTL ? 'rtl' : 'ltr'}>
+    <div class="container--narrow">
+      <h2 class="reveal">{c.formH2}</h2>
+      <div class="gold-rule reveal"></div>
+      <p class="reveal" style="color:#6B7280;margin-bottom:40px">{c.formP}</p>
+      <form class="contact-form reveal" name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" action={lp('/thank-you')}>
+        <input type="hidden" name="form-name" value="contact">
+        <p style="display:none"><input name="bot-field"></p>
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label" for={`name-${lang}`}>{c.fName}</label>
+            <input class="form-input" type="text" id={`name-${lang}`} name="name" required placeholder={c.fNamePh}>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for={`email-${lang}`}>{c.fEmail}</label>
+            <input class="form-input" type="email" id={`email-${lang}`} name="email" required placeholder={c.fEmailPh}>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label" for={`company-${lang}`}>{c.fCompany}</label>
+            <input class="form-input" type="text" id={`company-${lang}`} name="company" placeholder={c.fCompanyPh}>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for={`country-${lang}`}>{c.fCountry}</label>
+            <input class="form-input" type="text" id={`country-${lang}`} name="country" placeholder={c.fCountryPh}>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for={`service-${lang}`}>{c.fService}</label>
+          <select class="form-select" id={`service-${lang}`} name="service">
+            <option value="">{c.fServicePh}</option>
+            {c.fServices.map(s => <option>{s}</option>)}
+          </select>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for={`message-${lang}`}>{c.fMessage}</label>
+          <textarea class="form-textarea" id={`message-${lang}`} name="message" required placeholder={c.fMessagePh}></textarea>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for={`source-${lang}`}>{c.fSource}</label>
+          <select class="form-select" id={`source-${lang}`} name="source">
+            <option value="">{c.fSourcePh}</option>
+            {c.fSources.map(s => <option>{s}</option>)}
+          </select>
+        </div>
+        <button type="submit" class="btn-primary" style="border:none;cursor:pointer;font-size:12px">{c.fSubmit}</button>
+      </form>
+    </div>
+  </section>
+</main>
+</PageWrapper>

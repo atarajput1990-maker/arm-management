@@ -1,0 +1,50 @@
+---
+import PageWrapper from './PageWrapper.astro';
+import { localePath } from '../i18n/translations';
+import type { Locale } from '../i18n/translations';
+interface Props { lang: Locale; }
+const { lang } = Astro.props;
+const lp = (p: string) => localePath(lang, p);
+const isRTL = lang === 'ar';
+const copy: Record<string, any> = {
+  en: { title:'Latin America | ARM Management', desc:'ARM Management advises on company formation, accounting, payroll, and transaction advisory across Mexico, Colombia, Brazil, Chile, Panama, and Uruguay.', eyebrow:'Latin America', h1:'Latin America', hero:'Mexico, Colombia, Brazil, Chile, Panama, and Uruguay.', s2h:'ARM Management in Latin America', s2p1:'Latin America represents a rapidly expanding market for international businesses. Mexico, Colombia, Brazil, Chile, Panama, and Uruguay each offer distinct investment opportunities — but also complex local regulatory environments, significant bureaucratic processes, and jurisdiction-specific legal requirements that require experienced local coordination.', s2p2:'ARM Management advises on market entry, entity formation, tax compliance, payroll, and transaction structuring across the region, coordinating with vetted local professionals to ensure efficient, compliant operations.' },
+  fr: { title:'Amérique latine | ARM Management', desc:'ARM Management conseille sur la création de sociétés, la comptabilité, la paie et les transactions au Mexique, Colombie, Brésil, Chili, Panama et Uruguay.', eyebrow:'Amérique latine', h1:'Amérique latine', hero:'Mexique, Colombie, Brésil, Chili, Panama et Uruguay.', s2h:'ARM Management en Amérique latine', s2p1:"L'Amérique latine représente un marché en expansion rapide pour les entreprises internationales. Le Mexique, la Colombie, le Brésil, le Chili, le Panama et l'Uruguay offrent chacun des opportunités d'investissement distinctes — mais aussi des environnements réglementaires locaux complexes.", s2p2:"ARM Management conseille sur l'entrée sur le marché, la création d'entités, la conformité fiscale, la paie et la structuration des transactions dans toute la région." },
+  es: { title:'América Latina | ARM Management', desc:'ARM Management asesora en constitución de sociedades, contabilidad, nómina y transacciones en México, Colombia, Brasil, Chile, Panamá y Uruguay.', eyebrow:'América Latina', h1:'América Latina', hero:'México, Colombia, Brasil, Chile, Panamá y Uruguay.', s2h:'ARM Management en América Latina', s2p1:'América Latina representa un mercado en rápida expansión para las empresas internacionales. México, Colombia, Brasil, Chile, Panamá y Uruguay ofrecen distintas oportunidades de inversión — pero también entornos regulatorios locales complejos y procesos burocráticos significativos.', s2p2:'ARM Management asesora sobre entrada al mercado, constitución de entidades, cumplimiento fiscal, nómina y estructuración de transacciones en toda la región.' },
+  ar: { title:'أمريكا اللاتينية | ARM Management', desc:'تقدّم ARM Management المشورة في تأسيس الشركات والمحاسبة والرواتب والمعاملات في المكسيك وكولومبيا والبرازيل وتشيلي وبنما والأوروغواي.', eyebrow:'أمريكا اللاتينية', h1:'أمريكا اللاتينية', hero:'المكسيك، وكولومبيا، والبرازيل، وتشيلي، وبنما، والأوروغواي.', s2h:'ARM Management في أمريكا اللاتينية', s2p1:'تُمثّل أمريكا اللاتينية سوقاً سريعة التوسع للشركات الدولية. تقدّم كل من المكسيك وكولومبيا والبرازيل وتشيلي وبنما والأوروغواي فرصاً استثمارية مميزة — مع بيئات تنظيمية محلية معقدة وإجراءات بيروقراطية مهمة.', s2p2:'تقدّم ARM Management المشورة في دخول السوق وتأسيس الكيانات والامتثال الضريبي والرواتب وهيكلة المعاملات عبر المنطقة.' },
+  ru: { title:'Латинская Америка | ARM Management', desc:'ARM Management консультирует по регистрации компаний, бухучёту, зарплатам и сделкам в Мексике, Колумбии, Бразилии, Чили, Панаме и Уругвае.', eyebrow:'Латинская Америка', h1:'Латинская Америка', hero:'Мексика, Колумбия, Бразилия, Чили, Панама и Уругвай.', s2h:'ARM Management в Латинской Америке', s2p1:'Латинская Америка представляет быстро растущий рынок для международных компаний. Мексика, Колумбия, Бразилия, Чили, Панама и Уругвай предлагают уникальные инвестиционные возможности — но и сложные местные регуляторные среды.', s2p2:'ARM Management консультирует по выходу на рынок, регистрации структур, налоговому комплаенс, расчёту зарплат и структурированию сделок по всему региону.' },
+  zh: { title:'拉丁美洲 | ARM Management', desc:'ARM Management在墨西哥、哥伦比亚、巴西、智利、巴拿马和乌拉圭提供公司注册、会计、薪酬及交易咨询服务。', eyebrow:'拉丁美洲', h1:'拉丁美洲', hero:'墨西哥、哥伦比亚、巴西、智利、巴拿马及乌拉圭。', s2h:'ARM Management在拉丁美洲', s2p1:'拉丁美洲是国际企业快速扩张的市场。墨西哥、哥伦比亚、巴西、智利、巴拿马和乌拉圭各自提供独特的投资机会——但也面临复杂的当地监管环境、重大的官僚流程和特定司法管辖区的法律要求。', s2p2:'ARM Management提供市场进入、实体设立、税务合规、薪酬及整个地区的交易架构咨询，与经过核验的当地专业人士协调合作。' },
+};
+const speakBtn: Record<string,string> = {"en": "Speak With a Senior Advisor →", "fr": "Parler à un conseiller senior →", "es": "Hablar con un asesor senior →", "ar": "تحدّث مع مستشار متخصص ←", "ru": "Связаться со старшим консультантом →", "zh": "与资深顾问交流 →"};
+const ctaBtn: Record<string,string> = {"en": "Schedule a Consultation →", "fr": "Planifier une consultation →", "es": "Programar una consulta →", "ar": "جدوِّل استشارة ←", "ru": "Записаться на консультацию →", "zh": "预约咨询 →"};
+const overviewLabel: Record<string,string> = {"en": "Overview", "fr": "Aperçu", "es": "Panorama", "ar": "نظرة عامة", "ru": "Обзор", "zh": "概述"};
+const c = copy[lang];
+---
+<PageWrapper lang={lang} title={c.title} description={c.desc} canonicalPath="/regions/latin-america">
+<main>
+  <section class="page-hero">
+    <div class="page-hero__bg" style="background-image:url('https://images.unsplash.com/photo-1483729558449-99ef09a8c325?w=1600&q=80&auto=format&fit=crop')"></div>
+    <div class="page-hero__overlay"></div>
+    <div class="page-hero__content container" dir={isRTL ? 'rtl' : 'ltr'}>
+      <span class="eyebrow">{c.eyebrow}</span>
+      <h1>{c.h1}</h1>
+      <p>{c.hero}</p>
+    </div>
+  </section>
+  <section class="section section--cream" dir={isRTL ? 'rtl' : 'ltr'}>
+    <div class="container--narrow">
+      <span class="eyebrow reveal">{overviewLabel[lang]}</span>
+      <h2 class="reveal">{c.s2h}</h2>
+      <div class="gold-rule reveal"></div>
+      <p class="reveal">{c.s2p1}</p>
+      <p class="reveal" style="margin-top:20px">{c.s2p2}</p>
+    </div>
+  </section>
+  <section class="cta-section" dir={isRTL ? 'rtl' : 'ltr'}>
+    <h2 class="reveal">{lang==='fr'?'Démarrez la conversation':lang==='es'?'Inicie la conversación':lang==='ar'?'ابدأ المحادثة':lang==='ru'?'Начните разговор':lang==='zh'?'开启对话':'Begin the Conversation'}</h2>
+    <div class="btn-row reveal reveal-delay-1">
+      <a href={lp('/contact')} class="btn-primary">{ctaBtn[lang]}</a>
+      <a href={lp('/services')} class="btn-secondary">{lang==='fr'?'Nos services':lang==='es'?'Nuestros servicios':lang==='ar'?'خدماتنا':lang==='ru'?'Наши услуги':lang==='zh'?'我们的服务':'Our Services'}</a>
+    </div>
+  </section>
+</main>
+</PageWrapper>

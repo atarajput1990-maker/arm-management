@@ -1,0 +1,50 @@
+---
+import PageWrapper from './PageWrapper.astro';
+import { localePath } from '../i18n/translations';
+import type { Locale } from '../i18n/translations';
+interface Props { lang: Locale; }
+const { lang } = Astro.props;
+const lp = (p: string) => localePath(lang, p);
+const isRTL = lang === 'ar';
+const L: Record<string, any> = {
+  en: { title:'Partnership | ARM Management', desc:'Professional partnerships built on mutual expertise, shared standards, and complementary capabilities.', eyebrow:'Partnership', h1:'Build Something Together.', hero:'Professional partnerships built on mutual expertise, shared standards, and complementary capabilities.', btn1:'Become a Partner →', btn2:'About ARM', s2h:'Not a Referral Arrangement. A Professional Relationship.', s2p1:'ARM Management works with a select network of professional partners across the EU, GCC, Asia, and Latin America. Partnership with ARM is not a referral arrangement — it is a professional relationship built on mutual expertise, shared standards, and complementary capabilities.', s2p2:'We are selective about the partnerships we form for the same reason we are selective about the clients we serve.', ctaH:'Ready to Begin?', ctaP:'If you advise clients with international business requirements and believe there is a basis for a professional relationship with ARM Management, we would welcome an initial conversation.', ctaBtn:'Schedule a Consultation →' },
+  fr: { title:'Partenariat | ARM Management', desc:"Des partenariats professionnels fondés sur l'expertise mutuelle, des normes partagées et des capacités complémentaires.", eyebrow:'Partenariat', h1:'Construisons quelque chose ensemble.', hero:"Des partenariats professionnels fondés sur l'expertise mutuelle, des normes partagées et des capacités complémentaires.", btn1:'Devenir partenaire →', btn2:"À propos d'ARM", s2h:'Pas un arrangement de référencement. Une relation professionnelle.', s2p1:"ARM Management travaille avec un réseau sélectionné de partenaires professionnels à travers l'UE, le CCG, l'Asie et l'Amérique latine. Le partenariat avec ARM n'est pas un arrangement de référencement — c'est une relation professionnelle fondée sur l'expertise mutuelle, des normes partagées et des capacités complémentaires.", s2p2:'Nous sommes sélectifs dans les partenariats que nous formons pour la même raison que nous le sommes dans les clients que nous servons.', ctaH:'Prêt à commencer ?', ctaP:"Si vous conseillez des clients ayant des besoins en affaires internationales et pensez qu'il y a une base pour une relation professionnelle avec ARM Management, nous vous accueillerions volontiers pour une première conversation.", ctaBtn:'Planifier une consultation →' },
+  es: { title:'Alianzas | ARM Management', desc:'Alianzas profesionales basadas en experiencia mutua, estándares compartidos y capacidades complementarias.', eyebrow:'Alianzas', h1:'Construyamos algo juntos.', hero:'Alianzas profesionales basadas en experiencia mutua, estándares compartidos y capacidades complementarias.', btn1:'Convertirse en socio →', btn2:'Sobre ARM', s2h:'No es un acuerdo de derivación. Es una relación profesional.', s2p1:'ARM Management trabaja con una red selecta de socios profesionales en la UE, el CCG, Asia y América Latina. La asociación con ARM no es un acuerdo de derivación — es una relación profesional basada en experiencia mutua, estándares compartidos y capacidades complementarias.', s2p2:'Somos selectivos con las alianzas que formamos por la misma razón que lo somos con los clientes que servimos.', ctaH:'¿Listo para comenzar?', ctaP:'Si asesora a clientes con requisitos de negocios internacionales y cree que hay base para una relación profesional con ARM Management, nos complacería mantener una conversación inicial.', ctaBtn:'Programar una consulta →' },
+  ar: { title:'الشراكة | ARM Management', desc:'شراكات مهنية مبنية على الخبرة المتبادلة والمعايير المشتركة والقدرات التكاملية.', eyebrow:'الشراكة', h1:'لنبني شيئاً معاً.', hero:'شراكات مهنية مبنية على الخبرة المتبادلة والمعايير المشتركة والقدرات التكاملية.', btn1:'كن شريكاً ←', btn2:'عن ARM', s2h:'ليست ترتيب إحالة. إنها علاقة مهنية.', s2p1:'تعمل ARM Management مع شبكة مختارة من الشركاء المهنيين عبر الاتحاد الأوروبي ودول الخليج وآسيا وأمريكا اللاتينية. الشراكة مع ARM ليست ترتيب إحالة — إنها علاقة مهنية مبنية على الخبرة المتبادلة والمعايير المشتركة والقدرات التكاملية.', s2p2:'نحن انتقائيون في الشراكات التي نُبرمها للسبب نفسه الذي يجعلنا انتقائيين في العملاء الذين نخدمهم.', ctaH:'هل أنت مستعد للبدء؟', ctaP:'إذا كنت تقدّم المشورة للعملاء ذوي المتطلبات التجارية الدولية وتعتقد أن هناك أساساً لعلاقة مهنية مع ARM Management، فنحن نرحّب بمحادثة أولية.', ctaBtn:'جدوِّل استشارة ←' },
+  ru: { title:'Партнёрство | ARM Management', desc:'Профессиональные партнёрства, основанные на взаимной экспертизе, общих стандартах и взаимодополняющих возможностях.', eyebrow:'Партнёрство', h1:'Создадим что-то вместе.', hero:'Профессиональные партнёрства, основанные на взаимной экспертизе, общих стандартах и взаимодополняющих возможностях.', btn1:'Стать партнёром →', btn2:'Об ARM', s2h:'Не реферальный договор. Профессиональное партнёрство.', s2p1:'ARM Management работает с избранной сетью профессиональных партнёров в ЕС, Заливе, Азии и Латинской Америке. Партнёрство с ARM — это не реферальное соглашение, а профессиональные отношения, основанные на взаимной экспертизе, общих стандартах и дополняющих друг друга возможностях.', s2p2:'Мы столь же избирательны в партнёрствах, как и в клиентах, которых берём на сопровождение.', ctaH:'Готовы начать?', ctaP:'Если вы консультируете клиентов с международными бизнес-потребностями и считаете, что есть основание для профессиональных отношений с ARM Management, мы будем рады первоначальному разговору.', ctaBtn:'Записаться на консультацию →' },
+  zh: { title:'合作 | ARM Management', desc:'建立在共同专业知识、共同标准和互补能力之上的专业合作关系。', eyebrow:'合作', h1:'共同构建未来。', hero:'建立在共同专业知识、共同标准和互补能力之上的专业合作关系。', btn1:'成为合作伙伴 →', btn2:'关于ARM', s2h:'不是转介安排，而是专业关系。', s2p1:'ARM Management与欧盟、海湾、亚洲和拉丁美洲精选的专业合作伙伴网络合作。与ARM的合作不是转介安排——而是建立在相互专业知识、共同标准和互补能力基础上的专业关系。', s2p2:'我们在合作伙伴关系上的选择性与我们在客户服务上的选择性出于同样的原因。', ctaH:'准备好开始了吗？', ctaP:'如果您为有国际业务需求的客户提供咨询，并认为与ARM Management建立专业关系有基础，我们欢迎进行初步交流。', ctaBtn:'预约咨询 →' },
+};
+const c = L[lang];
+---
+<PageWrapper lang={lang} title={c.title} description={c.desc} canonicalPath="/partnership">
+<main>
+  <section class="page-hero">
+    <div class="page-hero__bg" style="background-image:url('https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=1600&q=80&auto=format&fit=crop')"></div>
+    <div class="page-hero__overlay"></div>
+    <div class="page-hero__content container" dir={isRTL ? 'rtl' : 'ltr'}>
+      <span class="eyebrow">{c.eyebrow}</span>
+      <h1>{c.h1}</h1>
+      <p>{c.hero}</p>
+      <div class="btn-row" style="justify-content:flex-start;margin-top:30px">
+        <a href={lp('/contact')} class="btn-primary">{c.btn1}</a>
+        <a href={lp('/about')} class="btn-secondary">{c.btn2}</a>
+      </div>
+    </div>
+  </section>
+  <section class="section section--cream" dir={isRTL ? 'rtl' : 'ltr'}>
+    <div class="container--narrow">
+      <h2 class="reveal">{c.s2h}</h2>
+      <div class="gold-rule reveal"></div>
+      <p class="reveal">{c.s2p1}</p>
+      <p class="reveal" style="margin-top:20px">{c.s2p2}</p>
+    </div>
+  </section>
+  <section class="cta-section" dir={isRTL ? 'rtl' : 'ltr'}>
+    <h2 class="reveal">{c.ctaH}</h2>
+    <p class="reveal reveal-delay-1">{c.ctaP}</p>
+    <div class="btn-row reveal reveal-delay-2">
+      <a href={lp('/contact')} class="btn-primary">{c.ctaBtn}</a>
+    </div>
+  </section>
+</main>
+</PageWrapper>

@@ -1,0 +1,50 @@
+---
+import PageWrapper from './PageWrapper.astro';
+import { localePath } from '../i18n/translations';
+import type { Locale } from '../i18n/translations';
+interface Props { lang: Locale; }
+const { lang } = Astro.props;
+const lp = (p: string) => localePath(lang, p);
+const isRTL = lang === 'ar';
+const copy: Record<string, any> = {
+  en: { title:'Asia Pacific | ARM Management', desc:'ARM Management advises on company formation, accounting, payroll, and transaction advisory across Singapore, Hong Kong, Malaysia, India, Vietnam, and Japan.', eyebrow:'Asia Pacific', h1:'Asia Pacific', hero:'Singapore, Hong Kong, Malaysia, India, Vietnam, Thailand, Indonesia, and Japan.', s2h:'ARM Management in Asia Pacific', s2p1:"Asia Pacific represents some of the world's most dynamic and commercially significant markets. Singapore and Hong Kong serve as the region's primary entry points for international businesses — offering common law legal systems, strong financial infrastructure, and favourable tax regimes. ARM Management advises clients expanding into these and the wider APAC region from initial market assessment through to ongoing compliance.", s2p2:'Our Shenzhen office serves our China and wider North Asia practice, advising on market entry, entity formation, and cross-border structuring for businesses with interests in China, Japan, and Korea.' },
+  fr: { title:'Asie-Pacifique | ARM Management', desc:'ARM Management conseille sur la création de sociétés, la comptabilité, la paie et les transactions à Singapour, Hong Kong, Malaisie, Inde, Vietnam et Japon.', eyebrow:'Asie-Pacifique', h1:'Asie-Pacifique', hero:'Singapour, Hong Kong, Malaisie, Inde, Vietnam, Thaïlande, Indonésie et Japon.', s2h:'ARM Management en Asie-Pacifique', s2p1:"L'Asie-Pacifique représente certains des marchés les plus dynamiques et commercialement significatifs au monde. Singapour et Hong Kong servent de points d'entrée principaux pour les entreprises internationales dans la région.", s2p2:"Notre bureau de Shenzhen sert notre pratique Chine et Asie du Nord, conseillant sur l'entrée sur le marché, la création d'entités et la structuration transfrontalière." },
+  es: { title:'Asia-Pacífico | ARM Management', desc:'ARM Management asesora en constitución de sociedades, contabilidad, nómina y transacciones en Singapur, Hong Kong, Malasia, India, Vietnam y Japón.', eyebrow:'Asia-Pacífico', h1:'Asia-Pacífico', hero:'Singapur, Hong Kong, Malasia, India, Vietnam, Tailandia, Indonesia y Japón.', s2h:'ARM Management en Asia-Pacífico', s2p1:'Asia-Pacífico representa algunos de los mercados más dinámicos y comercialmente significativos del mundo. Singapur y Hong Kong sirven como los principales puntos de entrada para las empresas internacionales en la región.', s2p2:'Nuestra oficina en Shenzhen atiende nuestra práctica en China y Asia del Norte, asesorando en entrada al mercado, constitución de entidades y estructuración transfronteriza.' },
+  ar: { title:'آسيا والمحيط الهادئ | ARM Management', desc:'تقدّم ARM Management المشورة في تأسيس الشركات والمحاسبة والرواتب والمعاملات في سنغافورة وهونغ كونغ وماليزيا والهند وفيتنام واليابان.', eyebrow:'آسيا والمحيط الهادئ', h1:'آسيا والمحيط الهادئ', hero:'سنغافورة، وهونغ كونغ، وماليزيا، والهند، وفيتنام، وتايلاند، وإندونيسيا، واليابان.', s2h:'ARM Management في آسيا والمحيط الهادئ', s2p1:'تُمثّل منطقة آسيا والمحيط الهادئ بعضاً من أكثر الأسواق ديناميكيةً وأهميةً تجاريةً في العالم. تُعدّ سنغافورة وهونغ كونغ نقاط الدخول الرئيسية في المنطقة للشركات الدولية.', s2p2:'يخدم مكتبنا في شنجن ممارستنا في الصين وشمال آسيا، مقدّماً المشورة في دخول السوق وتأسيس الكيانات والهيكلة العابرة للحدود.' },
+  ru: { title:'Азиатско-Тихоокеанский регион | ARM Management', desc:'ARM Management консультирует по регистрации компаний, бухучёту, зарплатам и сделкам в Сингапуре, Гонконге, Малайзии, Индии, Вьетнаме и Японии.', eyebrow:'АТР', h1:'Азиатско-Тихоокеанский регион', hero:'Сингапур, Гонконг, Малайзия, Индия, Вьетнам, Таиланд, Индонезия и Япония.', s2h:'ARM Management в Азиатско-Тихоокеанском регионе', s2p1:'Азиатско-Тихоокеанский регион представляет одни из наиболее динамичных и коммерчески значимых рынков мира. Сингапур и Гонконг служат основными точками входа для международных компаний в регион.', s2p2:'Наш офис в Шэньчжэне обслуживает практику по Китаю и Северной Азии, консультируя по выходу на рынок, регистрации структур и трансграничному структурированию.' },
+  zh: { title:'亚太地区 | ARM Management', desc:'ARM Management在新加坡、香港、马来西亚、印度、越南和日本提供公司注册、会计、薪酬及交易咨询服务。', eyebrow:'亚太地区', h1:'亚太地区', hero:'新加坡、香港、马来西亚、印度、越南、泰国、印度尼西亚及日本。', s2h:'ARM Management在亚太地区', s2p1:'亚太地区拥有世界上一些最具活力和商业价值的市场。新加坡和香港是国际企业进入该地区的主要门户——提供普通法法律体系、强大的金融基础设施和优惠的税收制度。', s2p2:'我们的深圳办公室服务于中国和北亚业务，为在中国、日本和韩国有业务的企业提供市场进入、实体设立和跨境架构咨询。' },
+};
+const speakBtn: Record<string,string> = {"en": "Speak With a Senior Advisor →", "fr": "Parler à un conseiller senior →", "es": "Hablar con un asesor senior →", "ar": "تحدّث مع مستشار متخصص ←", "ru": "Связаться со старшим консультантом →", "zh": "与资深顾问交流 →"};
+const ctaBtn: Record<string,string> = {"en": "Schedule a Consultation →", "fr": "Planifier une consultation →", "es": "Programar una consulta →", "ar": "جدوِّل استشارة ←", "ru": "Записаться на консультацию →", "zh": "预约咨询 →"};
+const overviewLabel: Record<string,string> = {"en": "Overview", "fr": "Aperçu", "es": "Panorama", "ar": "نظرة عامة", "ru": "Обзор", "zh": "概述"};
+const c = copy[lang];
+---
+<PageWrapper lang={lang} title={c.title} description={c.desc} canonicalPath="/regions/asia-pacific">
+<main>
+  <section class="page-hero">
+    <div class="page-hero__bg" style="background-image:url('https://images.unsplash.com/photo-1525625293386-3f8f99389edd?w=1600&q=80&auto=format&fit=crop')"></div>
+    <div class="page-hero__overlay"></div>
+    <div class="page-hero__content container" dir={isRTL ? 'rtl' : 'ltr'}>
+      <span class="eyebrow">{c.eyebrow}</span>
+      <h1>{c.h1}</h1>
+      <p>{c.hero}</p>
+    </div>
+  </section>
+  <section class="section section--cream" dir={isRTL ? 'rtl' : 'ltr'}>
+    <div class="container--narrow">
+      <span class="eyebrow reveal">{overviewLabel[lang]}</span>
+      <h2 class="reveal">{c.s2h}</h2>
+      <div class="gold-rule reveal"></div>
+      <p class="reveal">{c.s2p1}</p>
+      <p class="reveal" style="margin-top:20px">{c.s2p2}</p>
+    </div>
+  </section>
+  <section class="cta-section" dir={isRTL ? 'rtl' : 'ltr'}>
+    <h2 class="reveal">{lang==='fr'?'Démarrez la conversation':lang==='es'?'Inicie la conversación':lang==='ar'?'ابدأ المحادثة':lang==='ru'?'Начните разговор':lang==='zh'?'开启对话':'Begin the Conversation'}</h2>
+    <div class="btn-row reveal reveal-delay-1">
+      <a href={lp('/contact')} class="btn-primary">{ctaBtn[lang]}</a>
+      <a href={lp('/services')} class="btn-secondary">{lang==='fr'?'Nos services':lang==='es'?'Nuestros servicios':lang==='ar'?'خدماتنا':lang==='ru'?'Наши услуги':lang==='zh'?'我们的服务':'Our Services'}</a>
+    </div>
+  </section>
+</main>
+</PageWrapper>

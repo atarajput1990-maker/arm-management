@@ -1,0 +1,53 @@
+---
+import PageWrapper from './PageWrapper.astro';
+import { localePath } from '../i18n/translations';
+import type { Locale } from '../i18n/translations';
+interface Props { lang: Locale; }
+const { lang } = Astro.props;
+const lp = (p: string) => localePath(lang, p);
+const isRTL = lang === 'ar';
+const copy: Record<string, any> = {
+  en: { title:'Payroll & HR Advisory | ARM Management', desc:'Global payroll strategy, multi-country payroll compliance, international assignment planning, and HR advisory.', eyebrow:'Payroll & HR', h1:'Payroll & HR Advisory', hero:'Multi-country payroll compliance and workforce strategy across every jurisdiction you employ in.', s2h:'International Payroll Without the Exposure', s2p1:'Running payroll across multiple countries is one of the most compliance-intensive activities an international business undertakes. Employment law, social security contributions, income tax withholding, benefits requirements, and termination rules vary dramatically by jurisdiction — and non-compliance exposes both the business and its directors to significant legal and financial risk.', s2p2:'ARM Management provides strategic advisory on global payroll structure, multi-country payroll compliance, international assignment planning, and workforce strategy — coordinated through a single senior relationship.' },
+  fr: { title:'Paie & Conseil RH | ARM Management', desc:'Stratégie de paie internationale, conformité multi-pays, planification des missions et conseil RH.', eyebrow:'Paie & RH', h1:'Paie & Conseil RH', hero:'Conformité de la paie multi-pays et stratégie de workforce dans chaque juridiction où vous employez.', s2h:'La paie internationale sans les risques', s2p1:"Gérer la paie dans plusieurs pays est l'une des activités les plus intensives en conformité qu'une entreprise internationale entreprend. Le droit du travail, les cotisations sociales, la retenue à la source et les règles de licenciement varient considérablement selon les juridictions.", s2p2:'ARM Management fournit des conseils stratégiques sur la structure de paie globale, la conformité de la paie multi-pays, la planification des missions internationales et la stratégie de workforce.' },
+  es: { title:'Nómina y Asesoría de RRHH | ARM Management', desc:'Estrategia global de nómina, cumplimiento de nómina multi-país, planificación de asignaciones internacionales y asesoría de RRHH.', eyebrow:'Nómina & RRHH', h1:'Nómina y Asesoría\nde RRHH', hero:'Cumplimiento de nómina multi-país y estrategia de plantilla en cada jurisdicción donde emplea.', s2h:'Nómina internacional sin la exposición', s2p1:'Gestionar la nómina en múltiples países es una de las actividades más intensivas en cumplimiento que realiza una empresa internacional. El derecho laboral, las contribuciones a la seguridad social, la retención de impuestos y las reglas de despido varían enormemente.', s2p2:'ARM Management proporciona asesoría estratégica sobre estructura de nómina global, cumplimiento de nómina multi-país, planificación de asignaciones internacionales y estrategia de plantilla.' },
+  ar: { title:'الرواتب والاستشارات في الموارد البشرية | ARM Management', desc:'استراتيجية الرواتب العالمية، والامتثال متعدد الدول، وتخطيط المهمات الدولية، واستشارات الموارد البشرية.', eyebrow:'الرواتب والموارد البشرية', h1:'الرواتب والاستشارات\nفي الموارد البشرية', hero:'الامتثال في الرواتب متعدد الدول واستراتيجية القوى العاملة في كل ولاية قضائية تعمل بها.', s2h:'الرواتب الدولية بلا مخاطر', s2p1:'إدارة الرواتب عبر دول متعددة هي من أكثر الأنشطة التي تتطلب الامتثال في المؤسسات الدولية. يتباين قانون العمل والاشتراكات الاجتماعية وحجب الضرائب وقواعد إنهاء الخدمة بشكل كبير بين الولايات القضائية.', s2p2:'توفّر ARM Management استشارة استراتيجية حول هيكل الرواتب العالمية، والامتثال متعدد الدول، وتخطيط المهمات الدولية، واستراتيجية القوى العاملة.' },
+  ru: { title:'Расчёт зарплат и HR | ARM Management', desc:'Глобальная стратегия расчёта зарплат, многострановой комплаенс, планирование командировок и HR-консалтинг.', eyebrow:'Зарплаты и HR', h1:'Расчёт зарплат\nи HR-консалтинг', hero:'Многострановой комплаенс зарплат и стратегия персонала в каждой юрисдикции, где вы работаете.', s2h:'Международный расчёт зарплат без рисков', s2p1:'Расчёт зарплат в нескольких странах — одна из наиболее требовательных с точки зрения комплаенс задач международного бизнеса. Трудовое законодательство, социальные взносы, налогообложение и правила увольнения существенно различаются по юрисдикциям.', s2p2:'ARM Management предоставляет стратегические консультации по глобальной структуре расчёта зарплат, многострановому комплаенс, планированию международных командировок и стратегии персонала.' },
+  zh: { title:'薪酬与人力资源咨询 | ARM Management', desc:'全球薪酬战略、多国薪酬合规、国际外派规划及人力资源咨询。', eyebrow:'薪酬与人力资源', h1:'薪酬与人力\n资源咨询', hero:'覆盖您雇员所在每个司法管辖区的多国薪酬合规与劳动力战略。', s2h:'国际薪酬，零风险敞口', s2p1:'跨多国运营薪酬是国际企业最具合规要求的活动之一。劳动法、社会保险缴纳、所得税预扣、福利要求和终止规则因司法管辖区而差异巨大。', s2p2:'ARM Management就全球薪酬架构、多国薪酬合规、国际外派规划和劳动力战略提供战略咨询——通过单一资深关系进行协调。' },
+};
+const speakBtn: Record<string,string> = {"en": "Speak With a Senior Advisor →", "fr": "Parler à un conseiller senior →", "es": "Hablar con un asesor senior →", "ar": "تحدّث مع مستشار متخصص ←", "ru": "Связаться со старшим консультантом →", "zh": "与资深顾问交流 →"};
+const ctaBtn: Record<string,string> = {"en": "Schedule a Consultation →", "fr": "Planifier une consultation →", "es": "Programar una consulta →", "ar": "جدوِّل استشارة ←", "ru": "Записаться на консультацию →", "zh": "预约咨询 →"};
+const ctaH: Record<string,string> = {"en": "Ready to discuss your requirements?", "fr": "Prêt à discuter de vos besoins ?", "es": "¿Listo para hablar sobre sus necesidades?", "ar": "هل أنت مستعد لمناقشة متطلباتك؟", "ru": "Готовы обсудить ваши задачи?", "zh": "准备好讨论您的需求了吗？"};
+const c = copy[lang];
+---
+<PageWrapper lang={lang} title={c.title} description={c.desc} canonicalPath="/services/payroll-hr">
+<main>
+  <section class="page-hero">
+    <div class="page-hero__bg" style="background-image:url('https://images.unsplash.com/photo-1521791136064-7986c2920216?w=1600&q=80&auto=format&fit=crop')"></div>
+    <div class="page-hero__overlay"></div>
+    <div class="page-hero__content container" dir={isRTL ? 'rtl' : 'ltr'}>
+      <span class="eyebrow">{c.eyebrow}</span>
+      <h1 set:html={c.h1.replace('\n','<br>')}></h1>
+      <p>{c.hero}</p>
+      <div class="btn-row" style="justify-content:flex-start;margin-top:30px">
+        <a href={lp('/contact')} class="btn-primary">{speakBtn[lang]}</a>
+        <a href={lp('/services')} class="btn-secondary">{lang==='fr'?'Nos services':lang==='es'?'Nuestros servicios':lang==='ar'?'خدماتنا':lang==='ru'?'Наши услуги':lang==='zh'?'我们的服务':'Our Services'}</a>
+      </div>
+    </div>
+  </section>
+  <section class="section section--cream" dir={isRTL ? 'rtl' : 'ltr'}>
+    <div class="container--narrow">
+      <span class="eyebrow reveal">{lang==='fr'?'Ce que nous faisons':lang==='es'?'Lo que hacemos':lang==='ar'?'ما نقدّمه':lang==='ru'?'Что мы делаем':lang==='zh'?'我们的服务内容':'What We Do'}</span>
+      <h2 class="reveal">{c.s2h}</h2>
+      <div class="gold-rule reveal"></div>
+      <p class="reveal">{c.s2p1}</p>
+      <p class="reveal" style="margin-top:20px">{c.s2p2}</p>
+    </div>
+  </section>
+  <section class="cta-section" dir={isRTL ? 'rtl' : 'ltr'}>
+    <h2 class="reveal">{ctaH[lang]}</h2>
+    <div class="btn-row reveal reveal-delay-1">
+      <a href={lp('/contact')} class="btn-primary">{ctaBtn[lang]}</a>
+    </div>
+  </section>
+</main>
+</PageWrapper>

@@ -1,0 +1,50 @@
+---
+import PageWrapper from './PageWrapper.astro';
+import { localePath } from '../i18n/translations';
+import type { Locale } from '../i18n/translations';
+interface Props { lang: Locale; }
+const { lang } = Astro.props;
+const lp = (p: string) => localePath(lang, p);
+const isRTL = lang === 'ar';
+const copy: Record<string, any> = {
+  en: { title:'GCC & Middle East | ARM Management', desc:"ARM Management's home market — company formation, transaction advisory, and VARA crypto licensing across UAE, Saudi Arabia, Qatar, and the wider GCC.", eyebrow:'GCC & Middle East', h1:'GCC & Middle East', hero:'UAE, Saudi Arabia, Qatar, Bahrain, Kuwait, and Oman — with offices in Dubai and Riyadh.', s2h:'ARM Management in GCC & Middle East', s2p1:"The GCC is ARM Management's home market. We are headquartered in the UAE with deep operational experience across Dubai mainland, all major free zones, DIFC, and ADGM — as well as a dedicated office in Riyadh serving the Kingdom of Saudi Arabia directly, and active practices across Qatar, Bahrain, Kuwait, and Oman.", s2p2:'Our GCC practice covers the full range of ARM services: company formation, transaction advisory, accounting and tax compliance, payroll and HR, global mobility and Golden Visa, and crypto/Web3 advisory under the VARA framework.' },
+  fr: { title:'CCG & Moyen-Orient | ARM Management', desc:"Le marché d'origine d'ARM Management — création de sociétés, conseil en transactions et licences crypto VARA aux EAU, en Arabie Saoudite, au Qatar et dans le CCG.", eyebrow:'CCG & Moyen-Orient', h1:'CCG & Moyen-Orient', hero:'EAU, Arabie Saoudite, Qatar, Bahreïn, Koweït et Oman — avec des bureaux à Dubaï et Riyad.', s2h:'ARM Management dans le CCG & Moyen-Orient', s2p1:"Le CCG est le marché d'origine d'ARM Management. Nous sommes basés aux EAU avec une expérience opérationnelle approfondie à Dubaï, dans toutes les zones franches majeures, le DIFC et l'ADGM — ainsi qu'un bureau dédié à Riyad.", s2p2:'Notre pratique CCG couvre toute la gamme des services ARM : création de sociétés, conseil en transactions, conformité comptable et fiscale, paie et RH, mobilité internationale et Visa doré, et conseil crypto/Web3 sous le cadre VARA.' },
+  es: { title:'CCG y Oriente Medio | ARM Management', desc:'El mercado de origen de ARM Management — constitución de sociedades, asesoría en transacciones y licencias crypto VARA en los EAU, Arabia Saudita, Qatar y el CCG.', eyebrow:'CCG y Oriente Medio', h1:'CCG y Oriente Medio', hero:'EAU, Arabia Saudita, Qatar, Bahréin, Kuwait y Omán — con oficinas en Dubái y Riad.', s2h:'ARM Management en el CCG y Oriente Medio', s2p1:'El CCG es el mercado de origen de ARM Management. Tenemos sede en los EAU con profunda experiencia operativa en Dubai mainland, todas las principales zonas francas, DIFC y ADGM — así como una oficina dedicada en Riad.', s2p2:'Nuestra práctica en el CCG cubre toda la gama de servicios ARM: constitución de sociedades, asesoría en transacciones, cumplimiento contable y fiscal, nómina y RRHH, movilidad global y visa dorada, y asesoría crypto/Web3 bajo el marco VARA.' },
+  ar: { title:'دول الخليج والشرق الأوسط | ARM Management', desc:'السوق الرئيسية لـ ARM Management — تأسيس الشركات، واستشارات المعاملات، وتراخيص العملات الرقمية وفق VARA في الإمارات والسعودية وقطر ودول الخليج.', eyebrow:'دول الخليج والشرق الأوسط', h1:'دول الخليج والشرق الأوسط', hero:'الإمارات العربية المتحدة، والمملكة العربية السعودية، وقطر، والبحرين، والكويت، وعُمان — مع مكاتب في دبي والرياض.', s2h:'ARM Management في دول الخليج والشرق الأوسط', s2p1:'دول الخليج هي السوق الرئيسية لـ ARM Management. مقرّنا في الإمارات العربية المتحدة مع خبرة تشغيلية عميقة في البر الرئيسي لدبي وجميع المناطق الحرة الرئيسية ومركز دبي المالي العالمي وسوق أبوظبي العالمي — إضافةً إلى مكتب مخصص في الرياض.', s2p2:'تغطي ممارستنا في دول الخليج النطاق الكامل لخدمات ARM: تأسيس الشركات، واستشارات المعاملات، والامتثال المحاسبي والضريبي، والرواتب والموارد البشرية، والتنقل الدولي والتأشيرة الذهبية، واستشارات العملات الرقمية/Web3 تحت إطار VARA.' },
+  ru: { title:'Страны Залива и Ближний Восток | ARM Management', desc:'Домашний рынок ARM Management — регистрация компаний, транзакционный консалтинг и крипто-лицензирование VARA в ОАЭ, Саудовской Аравии, Катаре и шире по региону.', eyebrow:'Залив и Ближний Восток', h1:'Залив и Ближний Восток', hero:'ОАЭ, Саудовская Аравия, Катар, Бахрейн, Кувейт и Оман — с офисами в Дубае и Эр-Рияде.', s2h:'ARM Management в Заливе и на Ближнем Востоке', s2p1:'Страны Залива — домашний рынок ARM Management. Штаб-квартира в ОАЭ с глубоким операционным опытом на материке Дубая, во всех основных свободных зонах, DIFC и ADGM — а также выделенный офис в Эр-Рияде.', s2p2:'Наша практика в Заливе охватывает полный спектр услуг ARM: регистрацию компаний, транзакционный консалтинг, налоговый комплаенс, расчёт зарплат, международную мобильность и Золотую визу, а также крипто/Web3-консалтинг в рамках VARA.' },
+  zh: { title:'海湾合作委员会及中东 | ARM Management', desc:'ARM Management的核心市场——阿联酋、沙特阿拉伯、卡塔尔及更广泛海湾地区的公司注册、交易咨询及VARA加密货币许可。', eyebrow:'海湾及中东地区', h1:'海湾合作委员会及中东', hero:'阿联酋、沙特阿拉伯、卡塔尔、巴林、科威特及阿曼——在迪拜和利雅得设有办公室。', s2h:'ARM Management在海湾及中东', s2p1:'海湾合作委员会是ARM Management的核心市场。总部位于阿联酋，在迪拜大陆、所有主要自由区、DIFC和ADGM拥有深厚的运营经验——并在利雅得设有专门办公室直接服务沙特阿拉伯王国。', s2p2:'我们的海湾业务涵盖ARM全系列服务：公司注册、交易咨询、会计和税务合规、薪酬与人力资源、全球移民和黄金签证，以及VARA框架下的加密货币/Web3咨询。' },
+};
+const speakBtn: Record<string,string> = {"en": "Speak With a Senior Advisor →", "fr": "Parler à un conseiller senior →", "es": "Hablar con un asesor senior →", "ar": "تحدّث مع مستشار متخصص ←", "ru": "Связаться со старшим консультантом →", "zh": "与资深顾问交流 →"};
+const ctaBtn: Record<string,string> = {"en": "Schedule a Consultation →", "fr": "Planifier une consultation →", "es": "Programar una consulta →", "ar": "جدوِّل استشارة ←", "ru": "Записаться на консультацию →", "zh": "预约咨询 →"};
+const overviewLabel: Record<string,string> = {"en": "Overview", "fr": "Aperçu", "es": "Panorama", "ar": "نظرة عامة", "ru": "Обзор", "zh": "概述"};
+const c = copy[lang];
+---
+<PageWrapper lang={lang} title={c.title} description={c.desc} canonicalPath="/regions/gcc-middle-east">
+<main>
+  <section class="page-hero">
+    <div class="page-hero__bg" style="background-image:url('/images/riyadh-day.jpg')"></div>
+    <div class="page-hero__overlay"></div>
+    <div class="page-hero__content container" dir={isRTL ? 'rtl' : 'ltr'}>
+      <span class="eyebrow">{c.eyebrow}</span>
+      <h1>{c.h1}</h1>
+      <p>{c.hero}</p>
+    </div>
+  </section>
+  <section class="section section--cream" dir={isRTL ? 'rtl' : 'ltr'}>
+    <div class="container--narrow">
+      <span class="eyebrow reveal">{overviewLabel[lang]}</span>
+      <h2 class="reveal">{c.s2h}</h2>
+      <div class="gold-rule reveal"></div>
+      <p class="reveal">{c.s2p1}</p>
+      <p class="reveal" style="margin-top:20px">{c.s2p2}</p>
+    </div>
+  </section>
+  <section class="cta-section" dir={isRTL ? 'rtl' : 'ltr'}>
+    <h2 class="reveal">{lang==='fr'?'Démarrez la conversation':lang==='es'?'Inicie la conversación':lang==='ar'?'ابدأ المحادثة':lang==='ru'?'Начните разговор':lang==='zh'?'开启对话':'Begin the Conversation'}</h2>
+    <div class="btn-row reveal reveal-delay-1">
+      <a href={lp('/contact')} class="btn-primary">{ctaBtn[lang]}</a>
+      <a href={lp('/services')} class="btn-secondary">{lang==='fr'?'Nos services':lang==='es'?'Nuestros servicios':lang==='ar'?'خدماتنا':lang==='ru'?'Наши услуги':lang==='zh'?'我们的服务':'Our Services'}</a>
+    </div>
+  </section>
+</main>
+</PageWrapper>

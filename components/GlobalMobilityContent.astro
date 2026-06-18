@@ -1,0 +1,53 @@
+---
+import PageWrapper from './PageWrapper.astro';
+import { localePath } from '../i18n/translations';
+import type { Locale } from '../i18n/translations';
+interface Props { lang: Locale; }
+const { lang } = Astro.props;
+const lp = (p: string) => localePath(lang, p);
+const isRTL = lang === 'ar';
+const copy: Record<string, any> = {
+  en: { title:'Global Mobility & Residence Permits | ARM Management', desc:'UAE Golden Visa, EU investor residency, citizenship by investment, and international mobility solutions across 20+ countries.', eyebrow:'Global Mobility', h1:'Global Mobility &\nResidence Permits', hero:'Investor residency, work permits, and citizenship advisory across 20+ countries.', s2h:'Freedom of Movement as a Strategic Asset', s2p1:'For internationally mobile investors, entrepreneurs, and professionals, the ability to live, work, and travel freely across key markets is a fundamental strategic asset. The right residency or citizenship programme can transform your personal and commercial options.', s2p2:'ARM Management advises across more than 20 countries, managing residency applications from document preparation and government submissions through to collection and post-approval support.' },
+  fr: { title:'Mobilité internationale & Titres de séjour | ARM Management', desc:'Visa doré des EAU, résidence investisseur européenne, citoyenneté par investissement et solutions de mobilité internationale dans 20+ pays.', eyebrow:'Mobilité internationale', h1:'Mobilité internationale\net Titres de séjour', hero:'Résidence investisseur, permis de travail et conseil en citoyenneté dans plus de 20 pays.', s2h:'La liberté de circulation comme atout stratégique', s2p1:"Pour les investisseurs, entrepreneurs et professionnels mobiles à l'international, la capacité de vivre, travailler et voyager librement dans les marchés clés est un atout stratégique fondamental.", s2p2:'ARM Management intervient dans plus de 20 pays, gérant les demandes de résidence de la préparation des documents aux soumissions gouvernementales.' },
+  es: { title:'Movilidad Global y Permisos de Residencia | ARM Management', desc:'Visa dorada de los EAU, residencia de inversor europeo, ciudadanía por inversión y soluciones de movilidad internacional en 20+ países.', eyebrow:'Movilidad Global', h1:'Movilidad Global y\nPermisos de Residencia', hero:'Residencia de inversor, permisos de trabajo y asesoría en ciudadanía en más de 20 países.', s2h:'La libertad de movimiento como activo estratégico', s2p1:'Para inversores, emprendedores y profesionales con movilidad internacional, la capacidad de vivir, trabajar y viajar libremente en los mercados clave es un activo estratégico fundamental.', s2p2:'ARM Management asesora en más de 20 países, gestionando solicitudes de residencia desde la preparación de documentos hasta las presentaciones gubernamentales.' },
+  ar: { title:'التنقل الدولي وتصاريح الإقامة | ARM Management', desc:'التأشيرة الذهبية الإماراتية، وإقامة المستثمر الأوروبية، والجنسية عن طريق الاستثمار، وحلول التنقل الدولي في 20+ دولة.', eyebrow:'التنقل الدولي', h1:'التنقل الدولي\nوتصاريح الإقامة', hero:'إقامة المستثمر، وتصاريح العمل، واستشارات الجنسية في أكثر من 20 دولة.', s2h:'حرية التنقل كأصل استراتيجي', s2p1:'بالنسبة للمستثمرين ورجال الأعمال والمهنيين المتنقلين دولياً، تُعدّ القدرة على العيش والعمل والسفر بحرية في الأسواق الرئيسية أصلاً استراتيجياً أساسياً.', s2p2:'تقدّم ARM Management المشورة في أكثر من 20 دولة، وتدير طلبات الإقامة من إعداد الوثائق إلى التقديم الحكومي وما بعد الموافقة.' },
+  ru: { title:'Международная мобильность и виды на жительство | ARM Management', desc:'Золотая виза ОАЭ, резидентство для инвесторов в ЕС, гражданство через инвестиции и решения по международной мобильности в 20+ странах.', eyebrow:'Мобильность', h1:'Международная мобильность\nи виды на жительство', hero:'Резидентство для инвесторов, разрешения на работу и консультирование по гражданству в 20+ странах.', s2h:'Свобода передвижения как стратегический актив', s2p1:'Для международно мобильных инвесторов, предпринимателей и профессионалов способность свободно жить, работать и путешествовать в ключевых рынках является фундаментальным стратегическим активом.', s2p2:'ARM Management консультирует в более чем 20 странах, сопровождая заявки на резидентство от подготовки документов до получения статуса.' },
+  zh: { title:'全球移民与居留许可 | ARM Management', desc:'阿联酋黄金签证、欧洲投资人居留、投资入籍及20+国家国际移民解决方案。', eyebrow:'全球移民', h1:'全球移民与\n居留许可', hero:'在20余个国家提供投资人居留、工作许可及国籍咨询服务。', s2h:'行动自由作为战略资产', s2p1:'对于国际移动的投资者、创业者和专业人士而言，在关键市场自由生活、工作和旅行的能力是一项根本性的战略资产。', s2p2:'ARM Management在20余个国家提供咨询，从文件准备和政府申请到领取及批准后支持，全程管理居留申请。' },
+};
+const speakBtn: Record<string,string> = {"en": "Speak With a Senior Advisor →", "fr": "Parler à un conseiller senior →", "es": "Hablar con un asesor senior →", "ar": "تحدّث مع مستشار متخصص ←", "ru": "Связаться со старшим консультантом →", "zh": "与资深顾问交流 →"};
+const ctaBtn: Record<string,string> = {"en": "Schedule a Consultation →", "fr": "Planifier une consultation →", "es": "Programar una consulta →", "ar": "جدوِّل استشارة ←", "ru": "Записаться на консультацию →", "zh": "预约咨询 →"};
+const ctaH: Record<string,string> = {"en": "Ready to discuss your requirements?", "fr": "Prêt à discuter de vos besoins ?", "es": "¿Listo para hablar sobre sus necesidades?", "ar": "هل أنت مستعد لمناقشة متطلباتك؟", "ru": "Готовы обсудить ваши задачи?", "zh": "准备好讨论您的需求了吗？"};
+const c = copy[lang];
+---
+<PageWrapper lang={lang} title={c.title} description={c.desc} canonicalPath="/services/global-mobility">
+<main>
+  <section class="page-hero">
+    <div class="page-hero__bg" style="background-image:url('https://images.unsplash.com/photo-1530521954074-e64f6810b32d?w=1600&q=80&auto=format&fit=crop')"></div>
+    <div class="page-hero__overlay"></div>
+    <div class="page-hero__content container" dir={isRTL ? 'rtl' : 'ltr'}>
+      <span class="eyebrow">{c.eyebrow}</span>
+      <h1 set:html={c.h1.replace('\n','<br>')}></h1>
+      <p>{c.hero}</p>
+      <div class="btn-row" style="justify-content:flex-start;margin-top:30px">
+        <a href={lp('/contact')} class="btn-primary">{speakBtn[lang]}</a>
+        <a href={lp('/services')} class="btn-secondary">{lang==='fr'?'Nos services':lang==='es'?'Nuestros servicios':lang==='ar'?'خدماتنا':lang==='ru'?'Наши услуги':lang==='zh'?'我们的服务':'Our Services'}</a>
+      </div>
+    </div>
+  </section>
+  <section class="section section--cream" dir={isRTL ? 'rtl' : 'ltr'}>
+    <div class="container--narrow">
+      <span class="eyebrow reveal">{lang==='fr'?'Ce que nous faisons':lang==='es'?'Lo que hacemos':lang==='ar'?'ما نقدّمه':lang==='ru'?'Что мы делаем':lang==='zh'?'我们的服务内容':'What We Do'}</span>
+      <h2 class="reveal">{c.s2h}</h2>
+      <div class="gold-rule reveal"></div>
+      <p class="reveal">{c.s2p1}</p>
+      <p class="reveal" style="margin-top:20px">{c.s2p2}</p>
+    </div>
+  </section>
+  <section class="cta-section" dir={isRTL ? 'rtl' : 'ltr'}>
+    <h2 class="reveal">{ctaH[lang]}</h2>
+    <div class="btn-row reveal reveal-delay-1">
+      <a href={lp('/contact')} class="btn-primary">{ctaBtn[lang]}</a>
+    </div>
+  </section>
+</main>
+</PageWrapper>

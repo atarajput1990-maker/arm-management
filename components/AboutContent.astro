@@ -1,0 +1,208 @@
+---
+import PageWrapper from './PageWrapper.astro';
+import { localePath } from '../i18n/translations';
+import type { Locale } from '../i18n/translations';
+
+interface Props { lang: Locale; }
+const { lang } = Astro.props;
+const lp = (p: string) => localePath(lang, p);
+const isRTL = lang === 'ar';
+
+const copy: Record<Locale, {
+  title: string; desc: string;
+  eyebrow: string; h1a: string; h1b: string; hero: string;
+  btnSpeak: string; btnServices: string;
+  s2eyebrow: string; s2h2: string;
+  s2p1: string; s2p2: string;
+  s3h2: string;
+  items: [string, string, string][];
+  ctah2: string; ctap: string; ctabtn: string;
+}> = {
+  en: {
+    title: "About ARM Management | International Advisory — UAE Headquartered",
+    desc: "ARM Management is an international business advisory headquartered in the UAE, delivering senior-led advisory across cross-border transactions, company formation, and compliance.",
+    eyebrow: "About ARM Management", h1a: "An Advisory Built on", h1b: "Accountability, Not Process.",
+    hero: "ARM Management was founded on a conviction: that clients engaged in complex, cross-border business deserve an advisor who is genuinely accountable for outcomes.",
+    btnSpeak: "Speak With Us →", btnServices: "Explore Our Services",
+    s2eyebrow: "Our Story", s2h2: "Our Story",
+    s2p1: "ARM Management was established in the UAE, at the intersection of the world's most dynamic cross-border business environments. We work with international companies expanding into new markets, investment funds deploying capital across borders, family offices managing complex multi-jurisdiction structures, and founders building businesses without boundaries. Today ARM operates from five offices — Brussels, Zurich, Dubai, Riyadh and Shenzhen — spanning Europe, the Gulf and Asia.",
+    s2p2: "What we observed in the international advisory market was a consistent failure: sophisticated clients being served by firms whose senior partners were present at pitch stage and absent at every stage after. ARM Management was built to be different in three specific ways: senior advisors on every engagement, honest assessment from the first conversation, and a commitment to finding an alternative when the primary route is not available.",
+    s3h2: "The ARM Methodology",
+    items: [
+      ["1","Honest Assessment Before Commitment","Every mandate begins with a frank conversation about what is achievable. ARM does not accept mandates it cannot execute."],
+      ["2","Senior Advisory — No Handoffs","The senior advisor who assesses your mandate is the person who manages it. We do not operate a model where relationship partners hand off to delivery teams."],
+      ["3","Always an Alternative","ARM has never closed an engagement without providing a viable path forward. When the obvious route is unavailable, we identify what else is possible."],
+      ["4","24/7 Accessibility","Active clients reach their ARM advisor directly, at any hour. International business does not keep office hours and neither do we."],
+      ["5","Vetted Partner Network","Where local professionals are required, ARM works with partners selected for track record, compliance culture, and responsiveness — not for commercial convenience."],
+      ["6","Transparent Fees","All fees are agreed before work begins. Scope changes are discussed before additional charges are incurred. No surprise invoices."],
+    ],
+    ctah2: "Work With an Advisory That Is Accountable.",
+    ctap: "Begin with a confidential conversation. No obligation. No pitch. A senior advisor will tell you honestly what ARM can do for your situation.",
+    ctabtn: "Schedule a Consultation →",
+  },
+  fr: {
+    title: "À propos d'ARM Management | Conseil en affaires internationales",
+    desc: "ARM Management est un cabinet de conseil en affaires internationales dont le siège est aux Émirats arabes unis, offrant un conseil de haut niveau sur les transactions transfrontalières, la création de sociétés et la conformité.",
+    eyebrow: "À propos d'ARM Management", h1a: "Un cabinet fondé sur", h1b: "la responsabilité, pas sur le processus.",
+    hero: "ARM Management a été fondé sur une conviction : les clients engagés dans des affaires transfrontalières complexes méritent un conseiller véritablement responsable des résultats.",
+    btnSpeak: "Parler avec nous →", btnServices: "Découvrir nos services",
+    s2eyebrow: "Notre histoire", s2h2: "Notre histoire",
+    s2p1: "ARM Management a été fondé aux Émirats arabes unis, à l'intersection des environnements d'affaires transfrontaliers les plus dynamiques au monde. Nous travaillons avec des entreprises internationales en expansion, des fonds d'investissement déployant des capitaux à travers les frontières, des family offices gérant des structures multi-juridictions complexes, et des fondateurs qui construisent des entreprises sans frontières. Aujourd'hui, ARM opère depuis cinq bureaux — Bruxelles, Zurich, Dubaï, Riyad et Shenzhen — couvrant l'Europe, le Golfe et l'Asie.",
+    s2p2: "Ce que nous avons observé sur le marché du conseil international était un échec récurrent : des clients sophistiqués servis par des cabinets dont les associés seniors étaient présents lors de la présentation et absents à chaque étape suivante. ARM Management a été construit pour être différent sur trois points précis : des conseillers seniors à chaque mission, une évaluation honnête dès la première conversation, et un engagement à trouver une alternative quand la voie principale n'est pas disponible.",
+    s3h2: "La méthodologie ARM",
+    items: [
+      ["1","Évaluation honnête avant tout engagement","Chaque mandat commence par une conversation franche sur ce qui est réalisable. ARM n'accepte pas de mandats qu'il ne peut pas exécuter."],
+      ["2","Conseil senior — sans transfert","Le conseiller senior qui évalue votre mandat est celui qui le gère. Nous n'opérons pas selon un modèle où les partenaires passent le relais aux équipes d'exécution."],
+      ["3","Toujours une alternative","ARM n'a jamais clôturé un engagement sans proposer de voie viable. Quand la solution évidente n'est pas disponible, nous identifions ce qui est possible."],
+      ["4","Accessibilité 24/7","Les clients actifs atteignent directement leur conseiller ARM, à toute heure. Les affaires internationales ne respectent pas les horaires de bureau — nous non plus."],
+      ["5","Réseau de partenaires sélectionnés","Lorsque des professionnels locaux sont nécessaires, ARM travaille avec des partenaires choisis pour leur bilan, leur culture de conformité et leur réactivité — pas pour leur commodité commerciale."],
+      ["6","Honoraires transparents","Tous les honoraires sont convenus avant le début des travaux. Les modifications de périmètre sont discutées avant toute facturation supplémentaire. Pas de factures surprises."],
+    ],
+    ctah2: "Travaillez avec un cabinet qui est responsable.",
+    ctap: "Commencez par une conversation confidentielle. Sans engagement. Sans présentation commerciale. Un conseiller senior vous dira honnêtement ce qu'ARM peut faire pour votre situation.",
+    ctabtn: "Prendre un rendez-vous →",
+  },
+  es: {
+    title: "Sobre ARM Management | Asesoría de Negocios Internacional",
+    desc: "ARM Management es una firma de asesoría de negocios internacionales con sede en los EAU, que ofrece asesoría de alto nivel en transacciones transfronterizas, constitución de sociedades y cumplimiento.",
+    eyebrow: "Sobre ARM Management", h1a: "Una firma construida sobre", h1b: "la responsabilidad, no el proceso.",
+    hero: "ARM Management se fundó sobre una convicción: que los clientes involucrados en negocios transfronterizos complejos merecen un asesor genuinamente responsable de los resultados.",
+    btnSpeak: "Hablar con nosotros →", btnServices: "Explorar nuestros servicios",
+    s2eyebrow: "Nuestra historia", s2h2: "Nuestra historia",
+    s2p1: "ARM Management fue fundada en los EAU, en la intersección de los entornos de negocios transfronterizos más dinámicos del mundo. Trabajamos con empresas internacionales en expansión, fondos de inversión que despliegan capital a través de fronteras, family offices que gestionan estructuras multi-jurisdicción complejas, y fundadores que construyen negocios sin fronteras. Hoy ARM opera desde cinco oficinas — Bruselas, Zúrich, Dubái, Riad y Shenzhen — abarcando Europa, el Golfo y Asia.",
+    s2p2: "Lo que observamos en el mercado de asesoría internacional fue un fracaso recurrente: clientes sofisticados siendo servidos por firmas cuyos socios senior estaban presentes en la presentación y ausentes en cada etapa posterior. ARM Management fue construida para ser diferente en tres aspectos específicos: asesores senior en cada proyecto, evaluación honesta desde la primera conversación, y el compromiso de encontrar una alternativa cuando la vía principal no está disponible.",
+    s3h2: "La metodología ARM",
+    items: [
+      ["1","Evaluación honesta antes del compromiso","Cada mandato comienza con una conversación franca sobre lo que es alcanzable. ARM no acepta mandatos que no puede ejecutar."],
+      ["2","Asesoría senior — sin traspasos","El asesor senior que evalúa su mandato es quien lo gestiona. No operamos un modelo donde los socios de relación pasan el trabajo a los equipos de entrega."],
+      ["3","Siempre una alternativa","ARM nunca ha cerrado un proyecto sin proporcionar un camino viable. Cuando la ruta obvia no está disponible, identificamos qué más es posible."],
+      ["4","Accesibilidad 24/7","Los clientes activos contactan directamente a su asesor ARM, a cualquier hora. Los negocios internacionales no respetan horarios de oficina, y nosotros tampoco."],
+      ["5","Red de socios verificados","Cuando se requieren profesionales locales, ARM trabaja con socios seleccionados por su trayectoria, cultura de cumplimiento y capacidad de respuesta — no por conveniencia comercial."],
+      ["6","Honorarios transparentes","Todos los honorarios se acuerdan antes de comenzar el trabajo. Los cambios de alcance se discuten antes de incurrir en cargos adicionales. Sin facturas sorpresa."],
+    ],
+    ctah2: "Trabaje con una firma que rinde cuentas.",
+    ctap: "Comience con una conversación confidencial. Sin compromiso. Sin presentación comercial. Un asesor senior le dirá honestamente qué puede hacer ARM por su situación.",
+    ctabtn: "Programar una consulta →",
+  },
+  ar: {
+    title: "عن ARM Management | استشارات الأعمال الدولية",
+    desc: "ARM Management هي شركة استشارات أعمال دولية مقرها الإمارات العربية المتحدة، تقدم استشارات رفيعة المستوى في المعاملات العابرة للحدود، وتأسيس الشركات، والامتثال التنظيمي.",
+    eyebrow: "عن ARM Management", h1a: "مكتب مبني على", h1b: "المسؤولية، لا على الإجراءات.",
+    hero: "تأسّست ARM Management على قناعة راسخة: أن العملاء المنخرطين في أعمال معقدة عابرة للحدود يستحقون مستشاراً مسؤولاً فعلاً عن النتائج.",
+    btnSpeak: "تحدّث معنا ←", btnServices: "اكتشف خدماتنا",
+    s2eyebrow: "قصتنا", s2h2: "قصتنا",
+    s2p1: "تأسّست ARM Management في الإمارات العربية المتحدة، عند تقاطع أكثر بيئات الأعمال العابرة للحدود ديناميكيةً في العالم. نعمل مع شركات دولية تتوسع في أسواق جديدة، وصناديق استثمار تنشر رؤوس أموال عبر الحدود، ومكاتب عائلية تدير هياكل متعددة الولايات القضائية، ومؤسسين يبنون أعمالاً بلا حدود. يعمل ARM اليوم من خمسة مكاتب — بروكسل وزيورخ ودبي والرياض وشنجن — تغطي أوروبا والخليج وآسيا.",
+    s2p2: "ما لاحظناه في سوق الاستشارات الدولية كان إخفاقاً متكرراً: عملاء متطورون تخدمهم شركات يكون فيها الشركاء الكبار حاضرين في مرحلة التقديم وغائبين في كل مرحلة بعدها. بُنيَت ARM Management لتكون مختلفة في ثلاثة جوانب محددة: مستشارون كبار في كل مشروع، وتقييم صادق منذ أول محادثة، والتزام بإيجاد البديل عندما يكون المسار الرئيسي غير متاح.",
+    s3h2: "منهجية ARM",
+    items: [
+      ["١","تقييم صادق قبل الالتزام","يبدأ كل مشروع بمحادثة صريحة حول ما هو قابل للتحقيق. ARM لا تقبل مشاريع لا تستطيع تنفيذها."],
+      ["٢","استشارة كبار المستشارين — بلا إحالات داخلية","المستشار الكبير الذي يقيّم مشروعك هو من يديره. لا نعمل وفق نموذج يُحيل فيه الشركاء المهام إلى فرق التنفيذ."],
+      ["٣","دائماً بديل","لم تُغلق ARM أي مشروع دون تقديم مسار بديل قابل للتطبيق. عندما لا يكون المسار الواضح متاحاً، نحدد ما هو ممكن."],
+      ["٤","إمكانية الوصول ٢٤/٧","يتواصل العملاء النشطون مباشرة مع مستشارهم في ARM، في أي وقت. الأعمال الدولية لا تلتزم بساعات المكتب، ونحن كذلك."],
+      ["٥","شبكة شركاء مُختارة","عند الحاجة إلى متخصصين محليين، يعمل ARM مع شركاء مختارين بناءً على سجلهم وثقافة الامتثال لديهم وسرعة استجابتهم — لا بناءً على الملاءمة التجارية."],
+      ["٦","أتعاب شفافة","تُتفق على جميع الأتعاب قبل بدء العمل. تُناقَش تغييرات النطاق قبل تكبّد أي تكاليف إضافية. لا فواتير مفاجئة."],
+    ],
+    ctah2: "اعمل مع مكتب استشاري يتحمّل المسؤولية.",
+    ctap: "ابدأ بمحادثة سرية. بلا التزام. بلا عرض تسويقي. سيخبرك مستشار كبير بصدق بما يمكن لـ ARM أن يفعله لوضعك.",
+    ctabtn: "جدوِّل استشارة ←",
+  },
+  ru: {
+    title: "Об ARM Management | Международный бизнес-консалтинг",
+    desc: "ARM Management — международная консалтинговая компания со штаб-квартирой в ОАЭ, предоставляющая экспертный консалтинг по трансграничным сделкам, регистрации компаний и комплаенс.",
+    eyebrow: "Об ARM Management", h1a: "Консалтинг, построенный на", h1b: "ответственности, а не на процессах.",
+    hero: "ARM Management была основана с убеждением: клиенты, вовлечённые в сложный трансграничный бизнес, заслуживают консультанта, который по-настоящему отвечает за результат.",
+    btnSpeak: "Связаться с нами →", btnServices: "Наши услуги",
+    s2eyebrow: "Наша история", s2h2: "Наша история",
+    s2p1: "ARM Management была основана в ОАЭ — на пересечении наиболее динамичных трансграничных бизнес-сред мира. Мы работаем с международными компаниями, выходящими на новые рынки, инвестиционными фондами, размещающими капитал за рубежом, семейными офисами, управляющими сложными многоюрисдикционными структурами, и основателями, строящими бизнес без границ. Сегодня ARM работает из пяти офисов — Брюссель, Цюрих, Дубай, Эр-Рияд и Шэньчжэнь — охватывая Европу, Залив и Азию.",
+    s2p2: "На международном консалтинговом рынке мы наблюдали одну и ту же проблему: опытные клиенты обслуживались фирмами, чьи старшие партнёры присутствовали на этапе презентации и исчезали на всех последующих этапах. ARM Management создана иной по трём параметрам: старшие консультанты на каждом проекте, честная оценка с первого разговора, и обязательство найти альтернативу, когда основной путь недоступен.",
+    s3h2: "Методология ARM",
+    items: [
+      ["1","Честная оценка до принятия обязательств","Каждый мандат начинается с откровенного разговора о том, что реально достижимо. ARM не берётся за проекты, которые не может выполнить."],
+      ["2","Старший консультант — никаких передач","Старший консультант, который оценивает ваш мандат, и управляет им. Мы не работаем по модели, где партнёры передают проекты командам исполнения."],
+      ["3","Всегда есть альтернатива","ARM никогда не закрывала проект без предоставления жизнеспособного пути вперёд. Когда очевидный маршрут недоступен, мы находим другие возможности."],
+      ["4","Доступность 24/7","Активные клиенты связываются с консультантом ARM напрямую, в любое время. Международный бизнес не работает по офисному расписанию — и мы тоже."],
+      ["5","Проверенная партнёрская сеть","Когда требуются местные специалисты, ARM работает с партнёрами, отобранными по репутации, культуре комплаенс и оперативности — не из коммерческих соображений."],
+      ["6","Прозрачные гонорары","Все гонорары согласовываются до начала работы. Изменения объёма обсуждаются до возникновения дополнительных расходов. Никаких неожиданных счетов."],
+    ],
+    ctah2: "Работайте с консультантом, который несёт ответственность.",
+    ctap: "Начните с конфиденциального разговора. Без обязательств. Без коммерческой презентации. Старший консультант честно расскажет, чем ARM может помочь в вашей ситуации.",
+    ctabtn: "Записаться на консультацию →",
+  },
+  zh: {
+    title: "关于ARM Management | 国际商业咨询",
+    desc: "ARM Management是一家总部位于阿联酋的国际商业咨询公司，在跨境交易、公司注册及合规领域提供资深顾问服务。",
+    eyebrow: "关于ARM Management", h1a: "以责任为基础，", h1b: "而非流程。",
+    hero: "ARM Management的创立基于一个信念：参与复杂跨境业务的客户，理应拥有一位真正对结果负责的顾问。",
+    btnSpeak: "与我们交流 →", btnServices: "探索我们的服务",
+    s2eyebrow: "我们的故事", s2h2: "我们的故事",
+    s2p1: "ARM Management在阿联酋创立，恰处世界上最具活力的跨境商业环境交汇之处。我们服务于进入新市场的国际企业、跨境配置资本的投资基金、管理复杂多辖区架构的家族办公室，以及无国界创业的创始人。如今，ARM从五个办公室运营——布鲁塞尔、苏黎世、迪拜、利雅得和深圳——横跨欧洲、海湾及亚洲。",
+    s2p2: "我们在国际咨询市场上观察到一个持续性的缺失：老练的客户由那些高级合伙人在提案阶段出现、此后销声匿迹的公司服务。ARM Management的构建在三个具体方面与众不同：每个项目均有资深顾问参与、首次对话即进行坦诚评估、以及在主要路径不可用时承诺寻找替代方案。",
+    s3h2: "ARM方法论",
+    items: [
+      ["1","承诺前的诚实评估","每个项目都从坦率的对话开始，讨论什么是可实现的。ARM不接受自身无法执行的委托。"],
+      ["2","资深顾问——无转介","评估您委托的资深顾问，就是管理它的那个人。我们不采用关系合伙人将项目移交执行团队的模式。"],
+      ["3","始终有替代方案","ARM从未在没有提供可行路径的情况下结束项目。当明显的路线不可用时，我们识别其他可能性。"],
+      ["4","全天候可及","活跃客户可随时直接联系其ARM顾问。国际业务不受办公时间限制，我们亦如此。"],
+      ["5","经过核验的合作伙伴网络","当需要当地专业人士时，ARM与根据业绩记录、合规文化和响应能力筛选的合作伙伴合作——而非出于商业便利。"],
+      ["6","透明收费","所有费用在开始工作前商定。范围变更在产生额外费用前讨论。无意外账单。"],
+    ],
+    ctah2: "与一家真正负责的咨询公司合作。",
+    ctap: "从一次保密对话开始。无需承诺，无需推销。资深顾问将坦诚地告诉您ARM能为您的情况做些什么。",
+    ctabtn: "预约咨询 →",
+  },
+};
+
+const c = copy[lang];
+---
+<PageWrapper lang={lang} title={c.title} description={c.desc} canonicalPath="/about">
+<main>
+  <section class="page-hero">
+    <div class="page-hero__bg" style="background-image:url('https://images.unsplash.com/photo-1486325212027-8081e485255e?w=1600&q=80&auto=format&fit=crop')"></div>
+    <div class="page-hero__overlay"></div>
+    <div class="page-hero__content container" dir={isRTL ? 'rtl' : 'ltr'}>
+      <span class="eyebrow">{c.eyebrow}</span>
+      <h1>{c.h1a}<br>{c.h1b}</h1>
+      <p>{c.hero}</p>
+      <div class="btn-row" style="justify-content:flex-start;margin-top:30px">
+        <a href={lp('/contact')} class="btn-primary">{c.btnSpeak}</a>
+        <a href={lp('/services')} class="btn-secondary">{c.btnServices}</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--cream" dir={isRTL ? 'rtl' : 'ltr'}>
+    <div class="container--narrow">
+      <h2 class="reveal">{c.s2h2}</h2>
+      <div class="gold-rule reveal"></div>
+      <p class="reveal">{c.s2p1}</p>
+      <p class="reveal" style="margin-top:20px">{c.s2p2}</p>
+    </div>
+  </section>
+
+  <section class="section section--warm" style="border-top:1px solid #E2DDD6" dir={isRTL ? 'rtl' : 'ltr'}>
+    <div class="container">
+      <h2 class="reveal">{c.s3h2}</h2>
+      <div class="gold-rule reveal"></div>
+      <div class="grid-2" style="margin-top:40px;gap:40px">
+        {c.items.map(([n, heading, body], i) => (
+          <div class={`reveal reveal-delay-${(i % 2) + 1}`} style="display:flex;gap:24px;align-items:flex-start">
+            <span style="font-family:'Cormorant Garamond',serif;font-size:52px;font-weight:300;color:#B8960C;line-height:1;flex-shrink:0">{n}</span>
+            <div>
+              <h4 style="font-family:'Inter',sans-serif;font-size:12px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:#0D1B2A;margin-bottom:10px;padding-bottom:10px;border-bottom:1px solid #E2DDD6">{heading}</h4>
+              <p style="font-size:16px;color:#6B7280;line-height:1.75">{body}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-section" dir={isRTL ? 'rtl' : 'ltr'}>
+    <h2 class="reveal">{c.ctah2}</h2>
+    <p class="reveal reveal-delay-1">{c.ctap}</p>
+    <div class="btn-row reveal reveal-delay-2">
+      <a href={lp('/contact')} class="btn-primary">{c.ctabtn}</a>
+    </div>
+  </section>
+</main>
+</PageWrapper>

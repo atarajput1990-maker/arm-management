@@ -1,0 +1,50 @@
+---
+import PageWrapper from './PageWrapper.astro';
+import { localePath } from '../i18n/translations';
+import type { Locale } from '../i18n/translations';
+interface Props { lang: Locale; }
+const { lang } = Astro.props;
+const lp = (p: string) => localePath(lang, p);
+const isRTL = lang === 'ar';
+const copy: Record<string, any> = {
+  en: { title:'European Union | ARM Management', desc:'ARM Management advises across all 27 EU member states plus UK and Switzerland.', eyebrow:'EU Region', h1:'European Union', hero:'All 27 EU member states plus UK and Switzerland.', s2h:'ARM Management in European Union', s2p1:"ARM Management has operated across the European Union since the firm's founding. We advise on company formation across all 27 member states plus the UK and Switzerland, coordinate VAT and corporate tax compliance, manage payroll across EU jurisdictions, and handle EU Golden Visa residency applications.", s2p2:'Our Brussels office is our European hub, staffed by advisors with direct experience in EU regulatory affairs, market access strategy, and cross-border structuring across the Single Market.' },
+  fr: { title:'Union européenne | ARM Management', desc:"ARM Management conseille dans les 27 États membres de l'UE plus le Royaume-Uni et la Suisse.", eyebrow:'Région UE', h1:'Union européenne', hero:"Les 27 États membres de l'UE plus le Royaume-Uni et la Suisse.", s2h:"ARM Management dans l'Union européenne", s2p1:"ARM Management opère dans l'Union européenne depuis sa création. Nous conseillons sur la création de sociétés dans les 27 États membres ainsi qu'au Royaume-Uni et en Suisse, coordonnons la conformité TVA et fiscale, gérons la paie dans les juridictions européennes et traitons les demandes de résidence du Visa doré européen.", s2p2:'Notre bureau de Bruxelles est notre hub européen, avec des conseillers ayant une expérience directe en affaires réglementaires européennes.' },
+  es: { title:'Unión Europea | ARM Management', desc:'ARM Management asesora en los 27 Estados miembros de la UE más Reino Unido y Suiza.', eyebrow:'Región UE', h1:'Unión Europea', hero:'Los 27 Estados miembros de la UE más Reino Unido y Suiza.', s2h:'ARM Management en la Unión Europea', s2p1:'ARM Management ha operado en la Unión Europea desde la fundación de la firma. Asesoramos sobre constitución de sociedades en los 27 Estados miembros más el Reino Unido y Suiza, coordinamos el cumplimiento del IVA e impuesto de sociedades, y gestionamos solicitudes de residencia de visa dorada.', s2p2:'Nuestra oficina de Bruselas es nuestro hub europeo, con asesores con experiencia directa en asuntos regulatorios europeos.' },
+  ar: { title:'الاتحاد الأوروبي | ARM Management', desc:'تقدّم ARM Management المشورة في جميع الدول الأعضاء الـ27 في الاتحاد الأوروبي إضافةً إلى المملكة المتحدة وسويسرا.', eyebrow:'منطقة الاتحاد الأوروبي', h1:'الاتحاد الأوروبي', hero:'جميع الدول الأعضاء الـ27 في الاتحاد الأوروبي إضافةً إلى المملكة المتحدة وسويسرا.', s2h:'ARM Management في الاتحاد الأوروبي', s2p1:'تعمل ARM Management عبر الاتحاد الأوروبي منذ تأسيسها. نقدّم المشورة بشأن تأسيس الشركات في جميع الدول الأعضاء الـ27 إضافةً إلى المملكة المتحدة وسويسرا، وننسّق الامتثال الضريبي وضريبة القيمة المضافة، وندير الرواتب في الولايات القضائية الأوروبية.', s2p2:'يُعدّ مكتبنا في بروكسل مركزنا الأوروبي، بمستشارين ذوي خبرة مباشرة في الشؤون التنظيمية الأوروبية.' },
+  ru: { title:'Европейский союз | ARM Management', desc:'ARM Management консультирует во всех 27 государствах-членах ЕС, а также в Великобритании и Швейцарии.', eyebrow:'Регион ЕС', h1:'Европейский союз', hero:'Все 27 государств-членов ЕС, а также Великобритания и Швейцария.', s2h:'ARM Management в Европейском союзе', s2p1:'ARM Management работает в Европейском союзе с момента основания. Мы консультируем по регистрации компаний во всех 27 государствах-членах, а также в Великобритании и Швейцарии, координируем НДС и корпоративный комплаенс, управляем расчётом зарплат и сопровождаем заявки на резидентство по Золотой визе.', s2p2:'Наш офис в Брюсселе — европейский хаб с консультантами, имеющими непосредственный опыт в EU-регулировании.' },
+  zh: { title:'欧盟 | ARM Management', desc:'ARM Management在欧盟全部27个成员国及英国、瑞士提供咨询服务。', eyebrow:'欧盟地区', h1:'欧盟', hero:'欧盟全部27个成员国及英国、瑞士。', s2h:'ARM Management在欧盟', s2p1:'ARM Management自创立以来一直在欧盟全境运营。我们在全部27个成员国及英国和瑞士提供公司注册咨询，协调增值税和企业所得税合规，管理欧盟司法管辖区薪酬事务，并处理欧盟黄金签证居留申请。', s2p2:'我们的布鲁塞尔办公室是欧洲业务中心，顾问团队在欧盟监管事务方面具有丰富的直接经验。' },
+};
+const speakBtn: Record<string,string> = {"en": "Speak With a Senior Advisor →", "fr": "Parler à un conseiller senior →", "es": "Hablar con un asesor senior →", "ar": "تحدّث مع مستشار متخصص ←", "ru": "Связаться со старшим консультантом →", "zh": "与资深顾问交流 →"};
+const ctaBtn: Record<string,string> = {"en": "Schedule a Consultation →", "fr": "Planifier une consultation →", "es": "Programar una consulta →", "ar": "جدوِّل استشارة ←", "ru": "Записаться на консультацию →", "zh": "预约咨询 →"};
+const overviewLabel: Record<string,string> = {"en": "Overview", "fr": "Aperçu", "es": "Panorama", "ar": "نظرة عامة", "ru": "Обзор", "zh": "概述"};
+const c = copy[lang];
+---
+<PageWrapper lang={lang} title={c.title} description={c.desc} canonicalPath="/regions/european-union">
+<main>
+  <section class="page-hero">
+    <div class="page-hero__bg" style="background-image:url('https://images.unsplash.com/photo-1467269204594-9661b134dd2b?w=1600&q=80&auto=format&fit=crop')"></div>
+    <div class="page-hero__overlay"></div>
+    <div class="page-hero__content container" dir={isRTL ? 'rtl' : 'ltr'}>
+      <span class="eyebrow">{c.eyebrow}</span>
+      <h1>{c.h1}</h1>
+      <p>{c.hero}</p>
+    </div>
+  </section>
+  <section class="section section--cream" dir={isRTL ? 'rtl' : 'ltr'}>
+    <div class="container--narrow">
+      <span class="eyebrow reveal">{overviewLabel[lang]}</span>
+      <h2 class="reveal">{c.s2h}</h2>
+      <div class="gold-rule reveal"></div>
+      <p class="reveal">{c.s2p1}</p>
+      <p class="reveal" style="margin-top:20px">{c.s2p2}</p>
+    </div>
+  </section>
+  <section class="cta-section" dir={isRTL ? 'rtl' : 'ltr'}>
+    <h2 class="reveal">{lang==='fr'?'Démarrez la conversation':lang==='es'?'Inicie la conversación':lang==='ar'?'ابدأ المحادثة':lang==='ru'?'Начните разговор':lang==='zh'?'开启对话':'Begin the Conversation'}</h2>
+    <div class="btn-row reveal reveal-delay-1">
+      <a href={lp('/contact')} class="btn-primary">{ctaBtn[lang]}</a>
+      <a href={lp('/services')} class="btn-secondary">{lang==='fr'?'Nos services':lang==='es'?'Nuestros servicios':lang==='ar'?'خدماتنا':lang==='ru'?'Наши услуги':lang==='zh'?'我们的服务':'Our Services'}</a>
+    </div>
+  </section>
+</main>
+</PageWrapper>

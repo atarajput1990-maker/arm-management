@@ -1,0 +1,53 @@
+---
+import PageWrapper from './PageWrapper.astro';
+import { localePath } from '../i18n/translations';
+import type { Locale } from '../i18n/translations';
+interface Props { lang: Locale; }
+const { lang } = Astro.props;
+const lp = (p: string) => localePath(lang, p);
+const isRTL = lang === 'ar';
+const copy: Record<string, any> = {
+  en: { title:'Crypto & Web3 Advisory | ARM Management', desc:'VARA licence advisory, MiCA CASP authorisation, token structuring, DAO legal frameworks, and crypto company formation.', eyebrow:'Crypto & Web3', h1:'Crypto & Web3 Advisory', hero:'VARA · MiCA · MAS · SFC · VASP licensing and regulatory strategy across major crypto jurisdictions.', s2h:'Regulated Crypto Operations, Built Correctly.', s2p1:"The regulatory environment for virtual assets and Web3 businesses has changed dramatically. The UAE's VARA framework, the EU's MiCA regulation, and licensing regimes in Singapore, Hong Kong, and other major jurisdictions have created clear pathways for compliant crypto operations.", s2p2:'ARM Management advises exchanges, DeFi protocols, NFT platforms, token issuers, DAOs, and Web3 infrastructure businesses on regulatory strategy across major crypto jurisdictions.' },
+  fr: { title:'Conseil Crypto & Web3 | ARM Management', desc:"Conseil en licence VARA, autorisation CASP MiCA, structuration de tokens, cadres juridiques DAO et création d'entités crypto.", eyebrow:'Crypto & Web3', h1:'Conseil Crypto\net Web3', hero:'VARA · MiCA · MAS · SFC · Licences VASP et stratégie réglementaire dans les principales juridictions crypto.', s2h:'Des opérations crypto régulées, construites correctement.', s2p1:"L'environnement réglementaire pour les actifs virtuels et les entreprises Web3 a radicalement évolué. Le cadre VARA des EAU, le règlement MiCA de l'UE et les régimes de licence à Singapour et Hong Kong ont créé des voies claires pour des opérations crypto conformes.", s2p2:"ARM Management conseille les exchanges, protocoles DeFi, plateformes NFT, émetteurs de tokens, DAOs et entreprises d'infrastructure Web3 sur la stratégie réglementaire." },
+  es: { title:'Asesoría Crypto y Web3 | ARM Management', desc:'Asesoría de licencia VARA, autorización CASP MiCA, estructuración de tokens, marcos legales DAO y constitución de entidades crypto.', eyebrow:'Crypto & Web3', h1:'Asesoría Crypto\ny Web3', hero:'VARA · MiCA · MAS · SFC · Licencias VASP y estrategia regulatoria en las principales jurisdicciones crypto.', s2h:'Operaciones crypto reguladas, construidas correctamente.', s2p1:'El entorno regulatorio para los activos virtuales y los negocios Web3 ha cambiado drásticamente. El marco VARA de los EAU, el reglamento MiCA de la UE y los regímenes de licencias en Singapur y Hong Kong han creado vías claras para operaciones crypto conformes.', s2p2:'ARM Management asesora a exchanges, protocolos DeFi, plataformas NFT, emisores de tokens, DAOs y empresas de infraestructura Web3 sobre estrategia regulatoria.' },
+  ar: { title:'استشارات العملات الرقمية وWeb3 | ARM Management', desc:'استشارات ترخيص VARA، وترخيص CASP وفق MiCA، وهيكلة الرموز، والأطر القانونية لـ DAO، وتأسيس شركات العملات الرقمية.', eyebrow:'العملات الرقمية وWeb3', h1:'استشارات العملات\nالرقمية وWeb3', hero:'VARA · MiCA · MAS · SFC · تراخيص VASP والاستراتيجية التنظيمية عبر الولايات القضائية الرئيسية للعملات الرقمية.', s2h:'عمليات مشفّرة منظّمة، مبنية بشكل صحيح.', s2p1:'تغيّر البيئة التنظيمية للأصول الافتراضية وأعمال Web3 بشكل جذري. أنشأ إطار VARA الإماراتي ولوائح MiCA الأوروبية وأنظمة الترخيص في سنغافورة وهونغ كونغ مسارات واضحة للعمليات المشفّرة المتوافقة.', s2p2:'تقدّم ARM Management الاستشارات للبورصات وبروتوكولات DeFi ومنصات NFT ومُصدري الرموز وـ DAOs وشركات البنية التحتية لـ Web3 حول الاستراتيجية التنظيمية.' },
+  ru: { title:'Крипто и Web3-консалтинг | ARM Management', desc:'Консалтинг по лицензии VARA, авторизация CASP по MiCA, структурирование токенов, юридические рамки DAO и регистрация крипто-компаний.', eyebrow:'Крипто и Web3', h1:'Крипто и Web3\nконсалтинг', hero:'VARA · MiCA · MAS · SFC · Лицензирование VASP и регуляторная стратегия в ведущих крипто-юрисдикциях.', s2h:'Регулируемые крипто-операции, выстроенные правильно.', s2p1:'Регуляторная среда для виртуальных активов и Web3-бизнесов кардинально изменилась. Фреймворк VARA ОАЭ, регламент MiCA ЕС и режимы лицензирования в Сингапуре и Гонконге создали чёткие пути для соответствующих крипто-операций.', s2p2:'ARM Management консультирует биржи, DeFi-протоколы, NFT-платформы, эмитентов токенов, DAO и инфраструктурные Web3-компании по регуляторной стратегии.' },
+  zh: { title:'加密货币与Web3咨询 | ARM Management', desc:'VARA牌照咨询、MiCA CASP授权、代币架构、DAO法律框架及加密货币公司注册。', eyebrow:'加密货币与Web3', h1:'加密货币与\nWeb3咨询', hero:'VARA · MiCA · MAS · SFC · VASP许可及主要加密货币司法管辖区监管战略。', s2h:'合规的加密货币运营，从正确的架构开始。', s2p1:'虚拟资产和Web3业务的监管环境已发生根本性变化。阿联酋VARA框架、欧盟MiCA法规以及新加坡、香港等主要司法管辖区的许可制度，为合规的加密货币运营创造了清晰的路径。', s2p2:'ARM Management为交易所、DeFi协议、NFT平台、代币发行方、DAO和Web3基础设施企业提供主要加密货币司法管辖区的监管战略咨询。' },
+};
+const speakBtn: Record<string,string> = {"en": "Speak With a Senior Advisor →", "fr": "Parler à un conseiller senior →", "es": "Hablar con un asesor senior →", "ar": "تحدّث مع مستشار متخصص ←", "ru": "Связаться со старшим консультантом →", "zh": "与资深顾问交流 →"};
+const ctaBtn: Record<string,string> = {"en": "Schedule a Consultation →", "fr": "Planifier une consultation →", "es": "Programar una consulta →", "ar": "جدوِّل استشارة ←", "ru": "Записаться на консультацию →", "zh": "预约咨询 →"};
+const ctaH: Record<string,string> = {"en": "Ready to discuss your requirements?", "fr": "Prêt à discuter de vos besoins ?", "es": "¿Listo para hablar sobre sus necesidades?", "ar": "هل أنت مستعد لمناقشة متطلباتك؟", "ru": "Готовы обсудить ваши задачи?", "zh": "准备好讨论您的需求了吗？"};
+const c = copy[lang];
+---
+<PageWrapper lang={lang} title={c.title} description={c.desc} canonicalPath="/services/crypto-web3">
+<main>
+  <section class="page-hero">
+    <div class="page-hero__bg" style="background-image:url('https://images.unsplash.com/photo-1639762681485-074b7f938ba0?w=1600&q=80&auto=format&fit=crop')"></div>
+    <div class="page-hero__overlay"></div>
+    <div class="page-hero__content container" dir={isRTL ? 'rtl' : 'ltr'}>
+      <span class="eyebrow">{c.eyebrow}</span>
+      <h1 set:html={c.h1.replace('\n','<br>')}></h1>
+      <p>{c.hero}</p>
+      <div class="btn-row" style="justify-content:flex-start;margin-top:30px">
+        <a href={lp('/contact')} class="btn-primary">{speakBtn[lang]}</a>
+        <a href={lp('/services')} class="btn-secondary">{lang==='fr'?'Nos services':lang==='es'?'Nuestros servicios':lang==='ar'?'خدماتنا':lang==='ru'?'Наши услуги':lang==='zh'?'我们的服务':'Our Services'}</a>
+      </div>
+    </div>
+  </section>
+  <section class="section section--cream" dir={isRTL ? 'rtl' : 'ltr'}>
+    <div class="container--narrow">
+      <span class="eyebrow reveal">{lang==='fr'?'Ce que nous faisons':lang==='es'?'Lo que hacemos':lang==='ar'?'ما نقدّمه':lang==='ru'?'Что мы делаем':lang==='zh'?'我们的服务内容':'What We Do'}</span>
+      <h2 class="reveal">{c.s2h}</h2>
+      <div class="gold-rule reveal"></div>
+      <p class="reveal">{c.s2p1}</p>
+      <p class="reveal" style="margin-top:20px">{c.s2p2}</p>
+    </div>
+  </section>
+  <section class="cta-section" dir={isRTL ? 'rtl' : 'ltr'}>
+    <h2 class="reveal">{ctaH[lang]}</h2>
+    <div class="btn-row reveal reveal-delay-1">
+      <a href={lp('/contact')} class="btn-primary">{ctaBtn[lang]}</a>
+    </div>
+  </section>
+</main>
+</PageWrapper>
