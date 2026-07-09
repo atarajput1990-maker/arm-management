@@ -1,0 +1,195 @@
+---
+import Base from '../../layouts/Base.astro';
+const reviewed = "July 2026";
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: [
+    {
+      "@type": "Question",
+      name: "Can Indian nationals set up a company in Singapore?",
+      acceptedAnswer: { "@type": "Answer", text: "Yes. Singapore allows 100% foreign ownership of private limited companies (Pte. Ltd.). Indian nationals are among the most common Singapore company founders. There is no minimum capital requirement to incorporate, though the Singapore Employment Pass (EP) for working there has separate salary requirements." }
+    },
+    {
+      "@type": "Question",
+      name: "What is the corporate tax rate in Singapore?",
+      acceptedAnswer: { "@type": "Answer", text: "Singapore's corporate tax rate is a flat 17%. However, new companies enjoy significant tax exemptions in the first three years: 75% exemption on the first SGD 100,000 of chargeable income and 50% on the next SGD 100,000, resulting in an effective rate of around 4.25–8.5% for most early-stage companies." }
+    },
+    {
+      "@type": "Question",
+      name: "Do I need to move to Singapore to run a Singapore company?",
+      acceptedAnswer: { "@type": "Answer", text: "Not necessarily. Singapore requires every private limited company to have at least one locally resident director (a Singapore citizen, PR, or Employment Pass holder). Indian founders who do not plan to relocate typically appoint a nominee director to satisfy this requirement. However, a nominee director arrangement has implications for control and banking — this should be structured properly." }
+    },
+    {
+      "@type": "Question",
+      name: "Why do Indian startup founders choose Singapore over UAE?",
+      acceptedAnswer: { "@type": "Answer", text: "Singapore is preferred by founders targeting Southeast Asian markets, raising from US or Asian VCs who are familiar with Singapore structures, or seeking access to Singapore's MAS-regulated financial ecosystem. The UAE is often preferred for GCC-facing businesses, real estate investment, or founders who want personal income tax savings alongside the company. Many founders hold both." }
+    },
+    {
+      "@type": "Question",
+      name: "What is the India-Singapore DTAA?",
+      acceptedAnswer: { "@type": "Answer", text: "India and Singapore have a Double Taxation Avoidance Agreement (DTAA) that prevents the same income being taxed in both countries. The treaty covers dividends, interest, royalties, and capital gains. The capital gains article was revised in 2016 to give India taxation rights over capital gains from shares of Indian companies — so the old Singapore route for avoiding Indian capital gains tax on Indian share sales no longer works as it once did." }
+    }
+  ]
+};
+
+const articleSchema = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  headline: "Singapore Company Formation for Indian Nationals & Founders 2026",
+  description: "How Indian founders and businesses set up Singapore Pte. Ltd. companies — 17% corporate tax, 100% foreign ownership, MAS licensing, and the India-Singapore DTAA explained.",
+  author: { "@type": "Organization", name: "ARM Management" },
+  publisher: { "@type": "Organization", name: "ARM Management" },
+  dateModified: "2026-07-01",
+  mainEntityOfPage: "https://arm-management.com/india/singapore-company-formation-for-indians",
+  about: [
+    { "@type": "Thing", name: "Singapore company formation" },
+    { "@type": "Thing", name: "Indian founders Singapore" },
+    { "@type": "Country", name: "India" },
+    { "@type": "Country", name: "Singapore" }
+  ]
+};
+---
+<Base
+  title="Singapore Company Formation for Indian Nationals 2026 | ARM Management"
+  description="How Indian founders set up Singapore Pte. Ltd. companies — 17% corporate tax (4% effective for startups), 100% foreign ownership, MAS licensing, and the India-Singapore DTAA. ARM Management handles the full process."
+  canonicalPath="/india/singapore-company-formation-for-indians"
+>
+  <main>
+    <section class="page-hero">
+      <div class="page-hero__bg" style="background-image:url('/images/ed-hero.jpg')"></div>
+      <div class="page-hero__overlay"></div>
+      <div class="page-hero__content container">
+        <span class="eyebrow">India · Singapore Company Formation</span>
+        <h1>Singapore Company Formation for Indian Nationals</h1>
+        <p>Singapore is the preferred international base for Indian founders targeting Southeast Asia, raising US or Asian VC, or building in fintech, Web3, or financial services. Here is how it works.</p>
+        <div class="btn-row" style="justify-content:flex-start;margin-top:30px">
+          <a href="/contact" class="btn-primary">Speak With a Senior Advisor →</a>
+          <a href="/services/company-formation" class="btn-secondary">Company Formation</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--warm">
+      <div class="container--narrow">
+        <div class="guide-meta reveal">
+          <span><strong>Last reviewed:</strong> {reviewed}</span>
+          <span><strong>Relevant for:</strong> Indian founders, IT/SaaS companies, fintech founders, investors targeting APAC</span>
+        </div>
+
+        <div class="prose">
+
+          <p class="reveal lede">Singapore has been a natural second home for Indian founders for decades. English common law, a 17% corporate tax rate with substantial startup exemptions (effective ~4–8% for early-stage companies), 100% foreign ownership, and MAS — one of the most respected financial regulators in Asia — make it the default international base for India-origin businesses with Asian or global ambitions.</p>
+
+          <h2 class="reveal">Why Indian founders choose Singapore</h2>
+          <ul class="reveal">
+            <li><strong>VC familiarity.</strong> US, Japanese, and Southeast Asian VCs are very comfortable investing through Singapore Pte. Ltd. entities. Many Indian-origin unicorns (Grab, Sea, Gojek — all had Indian-origin investors or founders) use Singapore structures.</li>
+            <li><strong>MAS regulation.</strong> For fintech, digital payments, and Web3, MAS is highly respected globally. MAS's Major Payment Institution (MPI) licence and Variable Capital Company (VCC) structure are strong credentials.</li>
+            <li><strong>APAC proximity.</strong> If your market is Southeast Asia, Singapore is the operational hub — not just a holding company location.</li>
+            <li><strong>English common law.</strong> Familiar legal system, strong IP protection, efficient courts. Investor agreements drafted under Singapore law are trusted globally.</li>
+            <li><strong>Low effective tax for startups.</strong> The partial tax exemption scheme makes Singapore's effective corporate tax rate very low in the first three years.</li>
+          </ul>
+
+          <h2 class="reveal">The Singapore Pte. Ltd. — what it is</h2>
+          <p class="reveal">The standard structure for Indian founders is the Singapore Private Limited Company (Pte. Ltd.), equivalent to a UK Ltd or Indian Pvt. Ltd. Key features:</p>
+          <ul class="reveal">
+            <li>100% foreign (Indian) ownership permitted</li>
+            <li>Minimum 1 shareholder, maximum 50</li>
+            <li>Minimum 1 director who is ordinarily resident in Singapore (citizen, PR, or Employment Pass holder)</li>
+            <li>Minimum paid-up capital: SGD 1 (approximately ₹60)</li>
+            <li>Must file annual returns with ACRA (Accounting and Corporate Regulatory Authority)</li>
+            <li>Annual audit required if revenue exceeds SGD 10 million or more than 50 employees</li>
+          </ul>
+
+          <h2 class="reveal">Corporate tax: what Indian founders actually pay</h2>
+          <div class="rate-table reveal">
+            <table>
+              <thead>
+                <tr><th>Income (SGD)</th><th>Standard rate</th><th>Startup exemption (first 3 years)</th><th>Effective rate</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>First SGD 100,000</td><td>17%</td><td>75% exempt</td><td>4.25%</td></tr>
+                <tr><td>Next SGD 100,000</td><td>17%</td><td>50% exempt</td><td>8.5%</td></tr>
+                <tr><td>Above SGD 200,000</td><td>17%</td><td>—</td><td>17%</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="reveal">For a Singapore company earning SGD 200,000 in Year 1, the tax payable is approximately SGD 12,750 — an effective rate of 6.4%. This compares very favourably with India's 25% corporate tax plus surcharges on similar income.</p>
+
+          <h2 class="reveal">The resident director requirement</h2>
+          <p class="reveal">Every Singapore Pte. Ltd. must have at least one director who is "ordinarily resident" in Singapore — a Singapore citizen, permanent resident, or someone holding a valid Employment Pass (EP), EntrePass, or Dependant's Pass with a Letter of Consent. Indian founders who do not plan to relocate have two options:</p>
+          <ol class="reveal">
+            <li><strong>Nominee director service.</strong> A professional director service provider acts as the resident director for compliance purposes. The nominee has no operational role. This is common for holding companies and early-stage businesses. ARM can facilitate this through our Singapore network.</li>
+            <li><strong>Obtain an Employment Pass or EntrePass.</strong> If you plan to work from Singapore, applying for an EP (for employed executives) or EntrePass (for entrepreneur-founders) lets you be the resident director yourself. EP requires a salary of at least SGD 5,000/month (SGD 10,500+ for financial services).</li>
+          </ol>
+
+          <h2 class="reveal">MAS licensing for Indian founders in fintech and Web3</h2>
+          <p class="reveal">Singapore's Monetary Authority of Singapore (MAS) regulates payments, financial services, capital markets, and virtual assets. For Indian founders building in these areas:</p>
+          <ul class="reveal">
+            <li><strong>Major Payment Institution (MPI) licence.</strong> Required for digital payment token services (crypto on/off ramp, digital asset custody). One of the most sought-after licences for Indian crypto founders globally.</li>
+            <li><strong>Capital Markets Services (CMS) licence.</strong> For fund management, dealing in securities, real estate investment trust management.</li>
+            <li><strong>Variable Capital Company (VCC).</strong> A Singapore-specific fund structure popular with family offices and fund managers — more flexible than a standard Pte. Ltd. for investment funds.</li>
+          </ul>
+          <p class="reveal">MAS licensing is a significant undertaking — typically 6–18 months, with substantial compliance and capital requirements. ARM advises on MAS licensing strategy, application preparation, and ongoing compliance.</p>
+
+          <h2 class="reveal">India-Singapore DTAA: what it means for Indian founders</h2>
+          <p class="reveal">India and Singapore have a comprehensive Double Taxation Avoidance Agreement (DTAA). Key provisions for Indian founders:</p>
+          <ul class="reveal">
+            <li><strong>Dividends:</strong> 10–15% withholding tax when a Singapore company pays dividends to Indian shareholders (varies by shareholding)</li>
+            <li><strong>Royalties and technical services:</strong> 10% withholding tax on payments from India to Singapore entity</li>
+            <li><strong>Capital gains:</strong> Revised in 2016 — India now has taxation rights on capital gains from sale of shares of Indian companies, even if the seller is a Singapore entity. The old route to avoid Indian CGT via Singapore no longer works cleanly.</li>
+          </ul>
+          <div class="callout reveal">
+            <strong>Important for founders planning an exit.</strong> If you hold shares of your Indian operating company via a Singapore holding company and plan to sell, the revised India-Singapore DTAA means Indian capital gains tax likely still applies. Structure your holdco before the first fundraising round, with advice, not after.
+          </div>
+
+          <h2 class="reveal">Singapore vs UAE: how to choose</h2>
+          <div class="rate-table reveal">
+            <table>
+              <thead>
+                <tr><th>Factor</th><th>Singapore</th><th>UAE (Dubai)</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>Corporate tax</td><td>17% (4% effective for startups)</td><td>9% (0% below AED 375k)</td></tr>
+                <tr><td>Personal income tax</td><td>0–24%</td><td>0%</td></tr>
+                <tr><td>VC / investor familiarity</td><td>Very high (APAC, US)</td><td>High (GCC, European)</td></tr>
+                <tr><td>Fintech regulation</td><td>MAS — globally respected</td><td>VARA, ADGM FSRA — strong for crypto</td></tr>
+                <tr><td>Legal system</td><td>English common law</td><td>UAE civil law (DIFC/ADGM = common law)</td></tr>
+                <tr><td>Target market</td><td>APAC, global</td><td>GCC, MENA, global</td></tr>
+                <tr><td>Cost of living</td><td>Very high</td><td>High</td></tr>
+                <tr><td>India flight time</td><td>~5.5 hours</td><td>~3 hours</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="reveal">Many Indian founders hold both — a UAE entity for the GCC market and personal residency, and a Singapore entity for APAC operations or institutional fundraising. ARM can advise on and coordinate both structures.</p>
+
+          <h2 class="reveal">Frequently asked questions</h2>
+          <div class="reveal">
+            {faqSchema.mainEntity.map((q: any) => (
+              <div class="faq-item">
+                <h4>{q.name}</h4>
+                <p>{q.acceptedAnswer.text}</p>
+              </div>
+            ))}
+          </div>
+
+          <p class="reveal disclaimer">This guide is general information prepared by ARM Management, current as at {reviewed}. Singapore, Indian, and UAE corporate and tax laws change. This is not legal or tax advice. Confirm your specific situation with qualified advisors before acting.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta-section guide-cta">
+      <span class="eyebrow is-center reveal" style="justify-content:center">Speak With ARM</span>
+      <h2 class="reveal">Set up your Singapore company.</h2>
+      <p class="reveal">ARM Management handles Singapore Pte. Ltd. incorporation for Indian nationals — entity setup, nominee director, corporate bank account introduction, MAS licensing advisory, and ongoing compliance. We also advise on the India-Singapore tax and FEMA implications.</p>
+      <div class="btn-row reveal">
+        <a href="/contact" class="btn-primary">Schedule a Confidential Consultation →</a>
+        <a href="/regions/asia-pacific" class="btn-secondary">Asia Pacific</a>
+      </div>
+    </section>
+  </main>
+
+  <script type="application/ld+json" set:html={JSON.stringify(articleSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+</Base>

@@ -1,0 +1,193 @@
+---
+import Base from '../../layouts/Base.astro';
+const reviewed = "July 2026";
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: [
+    {
+      "@type": "Question",
+      name: "Can an Indian national own 100% of a UAE company?",
+      acceptedAnswer: { "@type": "Answer", text: "Yes. Since the UAE Commercial Companies Law amendment in 2021, Indian nationals (and all foreign nationals) can own 100% of a UAE mainland LLC in most sectors. Free zones have always permitted 100% foreign ownership. DIFC and ADGM also permit 100% foreign ownership." }
+    },
+    {
+      "@type": "Question",
+      name: "What is the best UAE free zone for Indian founders?",
+      acceptedAnswer: { "@type": "Answer", text: "The best free zone depends on your business activity. DIFC and ADGM are the top choices for fintech, Web3, and financial services. JAFZA suits trading businesses. DMCC is popular for commodities and general trading. For IT and tech companies, Dubai Internet City or Meydan Free Zone are common. ARM advises clients on the right choice based on their specific activity and investor requirements." }
+    },
+    {
+      "@type": "Question",
+      name: "What is the corporate tax rate in the UAE for Indian-owned companies?",
+      acceptedAnswer: { "@type": "Answer", text: "The UAE introduced corporate tax in June 2023 at a standard rate of 9% on taxable income above AED 375,000 (approximately INR 86 lakh). Income below this threshold is taxed at 0%. Qualifying Free Zone entities can benefit from a 0% rate on qualifying income. This compares to Indian corporate tax rates of 22–25% plus surcharges." }
+    },
+    {
+      "@type": "Question",
+      name: "How long does it take to set up a UAE company for an Indian national?",
+      acceptedAnswer: { "@type": "Answer", text: "A free zone company can typically be set up in 3–7 working days once all documents are in order. A mainland LLC takes approximately 2–3 weeks including the Memorandum of Association and trade licence. DIFC and ADGM entities take 4–8 weeks due to regulatory review." }
+    },
+    {
+      "@type": "Question",
+      name: "Do I need to be physically in the UAE to set up a company?",
+      acceptedAnswer: { "@type": "Answer", text: "Not always. Many free zone incorporations can be done remotely for non-resident founders. However, corporate bank account opening almost always requires an in-person visit to the UAE. ARM can advise on which banks and free zones have the most flexible requirements for Indian founders." }
+    },
+    {
+      "@type": "Question",
+      name: "Can an Indian company invest in a UAE company (outbound FDI)?",
+      acceptedAnswer: { "@type": "Answer", text: "Yes, subject to RBI approval under the Overseas Direct Investment (ODI) rules. Indian companies can invest outbound into UAE entities within the prescribed limits (400% of net worth for listed companies, with approval for higher amounts). Automatic route limits and prohibited sectors apply. This should be structured carefully with an Indian legal advisor alongside ARM." }
+    }
+  ]
+};
+
+const articleSchema = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  headline: "UAE Company Formation for Indian Nationals & Founders 2026",
+  description: "How Indian nationals and Indian-origin founders set up companies in Dubai — mainland LLC, DIFC, ADGM, and free zones. Corporate tax, 100% ownership, banking, and the flip structure explained.",
+  author: { "@type": "Organization", name: "ARM Management" },
+  publisher: { "@type": "Organization", name: "ARM Management" },
+  dateModified: "2026-07-01",
+  mainEntityOfPage: "https://arm-management.com/india/uae-company-formation-for-indians",
+  about: [
+    { "@type": "Thing", name: "UAE company formation" },
+    { "@type": "Thing", name: "Indian founders UAE" },
+    { "@type": "Country", name: "India" },
+    { "@type": "Country", name: "United Arab Emirates" }
+  ]
+};
+---
+<Base
+  title="UAE Company Formation for Indian Nationals & Founders 2026 | ARM Management"
+  description="How Indian nationals set up companies in Dubai — mainland LLC, DIFC, ADGM, free zones. 9% corporate tax vs India's 25%. 100% foreign ownership. Banking. The startup flip structure. ARM Management handles the full process."
+  canonicalPath="/india/uae-company-formation-for-indians"
+>
+  <main>
+    <section class="page-hero">
+      <div class="page-hero__bg" style="background-image:url('/images/riyadh-day.jpg')"></div>
+      <div class="page-hero__overlay"></div>
+      <div class="page-hero__content container">
+        <span class="eyebrow">India · UAE Company Formation</span>
+        <h1>UAE Company Formation for Indian Nationals</h1>
+        <p>9% corporate tax. 100% foreign ownership. No personal income tax. Here is how Indian founders and investors set up UAE companies — and what the structure actually means for your business.</p>
+        <div class="btn-row" style="justify-content:flex-start;margin-top:30px">
+          <a href="/contact" class="btn-primary">Speak With a Senior Advisor →</a>
+          <a href="/services/company-formation" class="btn-secondary">Company Formation</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--warm">
+      <div class="container--narrow">
+        <div class="guide-meta reveal">
+          <span><strong>Last reviewed:</strong> {reviewed}</span>
+          <span><strong>Relevant for:</strong> Indian founders, NRIs, Indian corporates expanding internationally</span>
+        </div>
+
+        <div class="prose">
+
+          <p class="reveal lede">Indian nationals are among the most active foreign investors setting up companies in the UAE. The combination of 100% foreign ownership (since 2021), a 9% corporate tax rate (versus India's 22–25%), zero personal income tax, and the UAE's position as a global business hub makes Dubai a natural base for Indian founders, traders, and investors building internationally.</p>
+
+          <h2 class="reveal">Key differences: UAE vs India for business</h2>
+          <div class="rate-table reveal">
+            <table>
+              <thead>
+                <tr><th>Factor</th><th>UAE</th><th>India</th></tr>
+              </thead>
+              <tbody>
+                <tr><td><strong>Corporate tax</strong></td><td>9% (0% below AED 375k)</td><td>22–25% + surcharges</td></tr>
+                <tr><td><strong>Personal income tax</strong></td><td>0%</td><td>Up to 30% + surcharge</td></tr>
+                <tr><td><strong>Foreign ownership</strong></td><td>100% in most sectors</td><td>Sector-dependent (FDI caps)</td></tr>
+                <tr><td><strong>VAT</strong></td><td>5%</td><td>GST 5–28%</td></tr>
+                <tr><td><strong>Capital gains tax</strong></td><td>0% (no CGT)</td><td>10–20% (LTCG/STCG)</td></tr>
+                <tr><td><strong>Dividend withholding</strong></td><td>0%</td><td>10–20%</td></tr>
+                <tr><td><strong>Company setup time</strong></td><td>3–21 days</td><td>7–30 days</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h2 class="reveal">The four main UAE entity options for Indian nationals</h2>
+
+          <h3 class="reveal">1. UAE Mainland LLC</h3>
+          <p class="reveal">Since the 2021 amendment to the UAE Commercial Companies Law, Indian nationals can own 100% of a UAE mainland LLC in most sectors (a small list of strategic sectors still requires a UAE national partner). A mainland LLC allows you to trade anywhere in the UAE and internationally, hire staff on UAE visas, and obtain most UAE trade licences.</p>
+          <p class="reveal"><strong>Best for:</strong> Trading businesses, consultancies, professional services, companies that need to operate in the UAE domestic market or tender for government contracts.</p>
+
+          <h3 class="reveal">2. Dubai Free Zone</h3>
+          <p class="reveal">Over 40 free zones across the UAE, each with their own regulator, licence types, and visa quotas. Free zones have always allowed 100% foreign ownership. Key ones for Indian founders:</p>
+          <ul class="reveal">
+            <li><strong>JAFZA (Jebel Ali)</strong> — largest, best for import/export and trading</li>
+            <li><strong>DMCC</strong> — commodities, gold, diamonds, general trading</li>
+            <li><strong>Dubai Internet City / Dubai Silicon Oasis</strong> — tech and IT companies</li>
+            <li><strong>Meydan Free Zone</strong> — one of the lowest-cost options, popular with startups</li>
+            <li><strong>RAKEZ / Fujairah</strong> — even lower cost, good for service businesses</li>
+          </ul>
+
+          <h3 class="reveal">3. DIFC (Dubai International Financial Centre)</h3>
+          <p class="reveal">A financial free zone with its own English common law courts, independent regulator (DFSA), and a concentrated financial services ecosystem. DIFC entities are the preferred structure for Indian-origin fintech founders, fund managers, and anyone raising international institutional capital — investors prefer the DIFC's legal framework.</p>
+          <p class="reveal"><strong>Best for:</strong> Fintech, asset management, family offices, Web3/crypto, VC-backed startups targeting institutional investors.</p>
+
+          <h3 class="reveal">4. ADGM (Abu Dhabi Global Market)</h3>
+          <p class="reveal">Abu Dhabi's international financial centre, operating under English common law with its own regulator (FSRA). Similar to DIFC but Abu Dhabi-based. Growing in crypto/Web3 (ADGM's FSRA was one of the first to regulate virtual assets). Lower setup costs than DIFC for some entity types.</p>
+
+          <h2 class="reveal">The startup flip: Indian company → UAE holding structure</h2>
+          <p class="reveal">One of the most common structures ARM advises Indian founders on is the "flip" — restructuring an Indian-founded startup so that a UAE company becomes the parent holding entity, with the Indian operating company becoming a wholly owned subsidiary.</p>
+          <p class="reveal">Why founders flip to the UAE:</p>
+          <ul class="reveal">
+            <li>International (especially US, European, and GCC) investors prefer non-Indian holding structures for tax efficiency</li>
+            <li>UAE holdco simplifies cap table management in a common law jurisdiction</li>
+            <li>IP can be held at the UAE level, reducing Indian withholding tax on royalties</li>
+            <li>Exit proceeds (from share sale) may benefit from UAE's zero capital gains tax vs India's 20%+ LTCG</li>
+          </ul>
+          <div class="callout reveal">
+            <strong>The flip has tax implications in India.</strong> Transferring shares of an Indian company to a UAE entity triggers Indian capital gains tax rules and requires RBI approval under the Overseas Direct Investment (ODI) regulations. This should be planned carefully before execution — ideally before any fundraising round.
+          </div>
+
+          <h2 class="reveal">Corporate banking in the UAE for Indian nationals</h2>
+          <p class="reveal">Opening a UAE corporate bank account is the step where many Indian founders encounter friction. UAE banks conduct thorough KYC on Indian nationals due to historical FATF concerns and Indian FEMA regulations. What helps:</p>
+          <ul class="reveal">
+            <li>A UAE trade licence and established company (not a shell)</li>
+            <li>Genuine UAE business activity — transactions flowing through the account</li>
+            <li>Physical presence in the UAE — most banks require an in-person meeting</li>
+            <li>A clean source of funds — FEMA-compliant transfers from India or documented international income</li>
+            <li>An established UAE address (office or flexi-desk in a recognised location)</li>
+          </ul>
+          <p class="reveal">ARM has working relationships with UAE banking institutions and can facilitate introductions for clients with clean structures. We do not guarantee account opening — no honest advisor does — but we significantly improve the process.</p>
+
+          <h2 class="reveal">What Indian founders need to know about UAE corporate tax</h2>
+          <p class="reveal">The UAE introduced a 9% federal corporate tax on 1 June 2023. Key points for Indian founders:</p>
+          <ul class="reveal">
+            <li>The 9% rate applies to taxable income above AED 375,000 (approximately ₹86 lakh / $102,000)</li>
+            <li>Income below AED 375,000 is taxed at 0%</li>
+            <li>Qualifying Free Zone entities can maintain a 0% rate on qualifying income — but must meet substance requirements</li>
+            <li>The India-UAE DTAA applies, preventing double taxation on the same income</li>
+            <li>Transfer pricing rules apply to transactions between related parties (Indian parent/subsidiary and UAE entity)</li>
+          </ul>
+
+          <h2 class="reveal">Frequently asked questions</h2>
+          <div class="reveal">
+            {faqSchema.mainEntity.map((q: any) => (
+              <div class="faq-item">
+                <h4>{q.name}</h4>
+                <p>{q.acceptedAnswer.text}</p>
+              </div>
+            ))}
+          </div>
+
+          <p class="reveal disclaimer">This guide is general information prepared by ARM Management, current as at {reviewed}. UAE and Indian corporate, tax, and foreign exchange laws change. This is not legal or tax advice. Confirm your specific situation with qualified advisors in both the UAE and India before acting.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta-section guide-cta">
+      <span class="eyebrow is-center reveal" style="justify-content:center">Speak With ARM</span>
+      <h2 class="reveal">Set up your UAE company.</h2>
+      <p class="reveal">ARM Management handles UAE company formation for Indian nationals end to end — entity selection, trade licence, shareholder structure, bank introductions, and ongoing compliance. We also advise on the India-UAE tax implications of your structure.</p>
+      <div class="btn-row reveal">
+        <a href="/contact" class="btn-primary">Schedule a Confidential Consultation →</a>
+        <a href="/services/company-formation" class="btn-secondary">Company Formation Services</a>
+      </div>
+    </section>
+  </main>
+
+  <script type="application/ld+json" set:html={JSON.stringify(articleSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+</Base>
