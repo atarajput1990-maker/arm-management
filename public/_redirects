@@ -39,3 +39,38 @@
 /zh/thank-you             /thank-you             302
 /zh/arm-verify            /arm-verify            302
 /zh/insights/*            /insights/:splat       302
+
+# ── Old WordPress URLs — 301 permanent redirects to correct new pages ──────────
+# These fix the 8 x 404s Google has in its index from the old site
+
+/contact-2/                          /contact                           301
+/what-we-do/                         /services                          301
+/gcc-middle-east/                    /regions/gcc-middle-east           301
+/who-we-work-with/                   /clients                           301
+/services/crypto-web3-advisory/      /services/crypto-web3              301
+/european-union/                     /regions/european-union            301
+/leadership-advisory-board-2/        /leadership                        301
+/wp-*.php                            /                                  301
+
+# www variants of old WordPress URLs (Google indexed these with www)
+https://www.arm-management.com/contact-2/                     /contact                   301
+https://www.arm-management.com/what-we-do/                    /services                  301
+https://www.arm-management.com/gcc-middle-east/               /regions/gcc-middle-east   301
+https://www.arm-management.com/who-we-work-with/              /clients                   301
+https://www.arm-management.com/services/crypto-web3-advisory/ /services/crypto-web3      301
+https://www.arm-management.com/european-union/                /regions/european-union    301
+https://www.arm-management.com/leadership-advisory-board-2/   /leadership                301
+https://www.arm-management.com/wp-*.php                       /                          301
+
+# ── Trailing slash canonicalisation ───────────────────────────────────────────
+# Fix the transaction-advisory without trailing slash issue
+
+/services/transaction-advisory       /services/transaction-advisory/    301
+/services/company-formation          /services/company-formation/       301
+/services/accounting-tax             /services/accounting-tax/          301
+/services/payroll-hr                 /services/payroll-hr/              301
+/services/global-mobility            /services/global-mobility/         301
+/services/crypto-web3                /services/crypto-web3/             301
+
+# ── www → non-www catch-all (belt and braces) ─────────────────────────────────
+https://www.arm-management.com/*     https://arm-management.com/:splat  301
