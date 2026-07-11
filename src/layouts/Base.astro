@@ -25,7 +25,7 @@ const locale    = lang as Locale;
 const tr        = t(locale);
 const meta      = LOCALE_META[locale];
 const isRTL     = meta.dir === 'rtl';
-const canonical = `https://arm-management.com${localePath(locale, canonicalPath)}`;
+const canonical = `https://www.arm-management.com${localePath(locale, canonicalPath)}`;
 const alternates = hreflangs(canonicalPath);
 
 // Build localised hrefs for nav/footer
@@ -62,9 +62,9 @@ const lp = (path: string) => localePath(locale, path);
     "@type":    "Organization",
     name:       "ARM Management",
     alternateName: "ARM",
-    url:        "https://arm-management.com",
-    logo:       "https://arm-management.com/images/logo.png",
-    image:      "https://arm-management.com/images/og-default.jpg",
+    url:        "https://www.arm-management.com",
+    logo:       "https://www.arm-management.com/images/logo.png",
+    image:      "https://www.arm-management.com/images/og-default.jpg",
     description:"International business advisory headquartered in the UAE, with offices in Brussels, Zurich, Dubai, Riyadh and Shenzhen.",
     slogan:     "Empowering Innovation — Quietly, across every border",
     email:      "info@arm-management.com",

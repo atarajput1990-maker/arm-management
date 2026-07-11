@@ -3,6 +3,6 @@ import sitemap from '@astrojs/sitemap';
 
 export default defineConfig({
   output: 'static',
-  site:   'https://arm-management.com',
+  site:   'https://www.arm-management.com',
   integrations: [sitemap()],
 });

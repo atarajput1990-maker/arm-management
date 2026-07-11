@@ -45,7 +45,7 @@ export function localePath(locale: Locale, path: string): string {
 
 /** Generate hreflang alternate link objects for a given canonical path */
 export function hreflangs(canonicalPath: string): { lang: string; url: string }[] {
-  const base = 'https://arm-management.com';
+  const base = 'https://www.arm-management.com';
   const clean = canonicalPath.replace(/^\/(en|fr|es|ar|ru|zh)\//, '/').replace(/^\/+/, '');
   return [
     ...LOCALES.map(l => ({

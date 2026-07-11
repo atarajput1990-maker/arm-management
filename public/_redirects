@@ -53,14 +53,14 @@
 /wp-*.php                            /                                  301
 
 # www variants of old WordPress URLs (Google indexed these with www)
-https://www.arm-management.com/contact-2/                     /contact                   301
-https://www.arm-management.com/what-we-do/                    /services                  301
-https://www.arm-management.com/gcc-middle-east/               /regions/gcc-middle-east   301
-https://www.arm-management.com/who-we-work-with/              /clients                   301
-https://www.arm-management.com/services/crypto-web3-advisory/ /services/crypto-web3      301
-https://www.arm-management.com/european-union/                /regions/european-union    301
-https://www.arm-management.com/leadership-advisory-board-2/   /leadership                301
-https://www.arm-management.com/wp-*.php                       /                          301
+https://www.arm-management.com/contact-2/                     https://www.arm-management.com/contact                   301
+https://www.arm-management.com/what-we-do/                    https://www.arm-management.com/services                  301
+https://www.arm-management.com/gcc-middle-east/               https://www.arm-management.com/regions/gcc-middle-east   301
+https://www.arm-management.com/who-we-work-with/              https://www.arm-management.com/clients                   301
+https://www.arm-management.com/services/crypto-web3-advisory/ https://www.arm-management.com/services/crypto-web3      301
+https://www.arm-management.com/european-union/                https://www.arm-management.com/regions/european-union    301
+https://www.arm-management.com/leadership-advisory-board-2/   https://www.arm-management.com/leadership                301
+https://www.arm-management.com/wp-*.php                       https://www.arm-management.com/                          301
 
 # ── Trailing slash canonicalisation ───────────────────────────────────────────
 # Fix the transaction-advisory without trailing slash issue
@@ -72,5 +72,6 @@ https://www.arm-management.com/wp-*.php                       /                 
 /services/global-mobility            /services/global-mobility/         301
 /services/crypto-web3                /services/crypto-web3/             301
 
-# ── www → non-www catch-all (belt and braces) ─────────────────────────────────
-https://www.arm-management.com/*     https://arm-management.com/:splat  301
+# ── non-www → www catch-all (canonical = www) ────────────────────────────────
+http://arm-management.com/*          https://www.arm-management.com/:splat  301
+https://arm-management.com/*         https://www.arm-management.com/:splat  301
