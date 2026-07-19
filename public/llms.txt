@@ -26,7 +26,7 @@ ARM Management provides specialist advisory for Indian nationals, NRIs, Indian H
 
 ## Key resources
 
-- [2026 Corporate Tax & VAT Comparison](https://arm-management.com/insights/2026-corporate-tax-vat-comparison): Sortable, searchable comparison of headline corporate income tax and standard VAT across 46 jurisdictions, current as at July 2026, with links to a full guide for each.
+- [2026 Corporate Tax & VAT Comparison](https://arm-management.com/insights/2026-corporate-tax-vat-comparison): Sortable, searchable comparison of headline corporate income tax and standard VAT across 67 jurisdictions, current as at July 2026, with links to a full guide for each.
 - [Services overview](https://arm-management.com/services): The full range of ARM's cross-border advisory services.
 - [Insights](https://arm-management.com/insights): Jurisdiction guides and regulatory analysis.
 
@@ -80,3 +80,21 @@ ARM Management provides specialist advisory for Indian nationals, NRIs, Indian H
 - [Vietnam Company Formation & Tax](https://arm-management.com/insights/vietnam-company-formation): Entity types, corporate tax, VAT and incorporation steps for Vietnam, with 2026 rates.
 - [Indonesia Company Formation & Tax](https://arm-management.com/insights/indonesia-company-formation): Entity types, corporate tax, VAT and incorporation steps for Indonesia, with 2026 rates.
 - [Philippines Company Formation & Tax](https://arm-management.com/insights/philippines-company-formation): Entity types, corporate tax, VAT and incorporation steps for Philippines, with 2026 rates.
+- [China Company Formation & Tax](https://arm-management.com/insights/china-company-formation): WFOE, JV and FTZ structures, Negative List, 25%/15% HTE corporate tax, and incorporation steps for China, with 2026 rates.
+- [Taiwan Company Formation & Tax](https://arm-management.com/insights/taiwan-company-formation): Company Limited by Shares, MOEAIC approval, 20% CIT, 5% Business Tax, and incorporation steps for Taiwan, with 2026 rates.
+- [Mongolia Company Formation & Tax](https://arm-management.com/insights/mongolia-company-formation): LLC, JSC, mining investment framework, 10% CIT (one of Asia's lowest), and incorporation steps for Mongolia, with 2026 rates.
+- [Qatar Company Formation & Tax](https://arm-management.com/insights/qatar-company-formation): QFC, Manateq free zone and onshore LLC, 100% foreign ownership under Law No. 1 of 2019, 10% CIT, no VAT, with 2026 rates.
+- [Kuwait Company Formation & Tax](https://arm-management.com/insights/kuwait-company-formation): WLL, KSC, KDIPA 100% foreign ownership licences, 15% CIT on foreign companies, no VAT, with 2026 rates.
+- [Bahrain Company Formation & Tax](https://arm-management.com/insights/bahrain-company-formation): WLL and SPC, 100% foreign ownership (no local partner), 0% CIT, 10% VAT, Sijilat online registration, with 2026 rates.
+- [Oman Company Formation & Tax](https://arm-management.com/insights/oman-company-formation): LLC, SAOC and free zones (Salalah, Sohar), 100% foreign ownership under Royal Decree 50/2019, 15% CIT, 5% VAT, with 2026 rates.
+- [Jordan Company Formation & Tax](https://arm-management.com/insights/jordan-company-formation): LLC, PLC and Aqaba ASEZA (5% corporate tax), 100% foreign ownership for most activities, 20% CIT, 16% GST, with 2026 rates.
+- [Egypt Company Formation & Tax](https://arm-management.com/insights/egypt-company-formation): LLC, SAE, GAFI registration, Investment Law zones, 22.5% CIT, 14% VAT, and free-zone 1–2% sales tax, with 2026 rates.
+- [Israel Company Formation & Tax](https://arm-management.com/insights/israel-company-formation): Private Ltd, Preferred Enterprise status (7.5–16%), IIA R&D grants (up to 50%), 23% standard CIT, 17% VAT, with 2026 rates.
+- [Bangladesh Company Formation & Tax](https://arm-management.com/insights/bangladesh-company-formation): Private Limited Company, BIDA registration, EPZs (0% CIT for 10 years), 27.5% standard CIT, 15% VAT, with 2026 rates.
+- [Pakistan Company Formation & Tax](https://arm-management.com/insights/pakistan-company-formation): Private Ltd, SMC, SECP registration, SEZ 10-year tax holiday, 29% CIT, 18% GST, with 2026 rates.
+- [Sri Lanka Company Formation & Tax](https://arm-management.com/insights/sri-lanka-company-formation): Private Ltd, BOI incentives, Colombo Port City (0% CIT 40 years), 30% standard CIT, 18% VAT, with 2026 rates.
+- [Nepal Company Formation & Tax](https://arm-management.com/insights/nepal-company-formation): Private Ltd, FITTA 2019 FDI framework, hydropower tax holidays (10–15 years), 25% standard CIT, 13% VAT, with 2026 rates.
+- [Myanmar Company Formation & Tax](https://arm-management.com/insights/myanmar-company-formation): Private Ltd, MIC permit, Thilawa SEZ, 22% CIT, 5% commercial tax — includes sanctions risk guidance for 2026.
+- [Cambodia Company Formation & Tax](https://arm-management.com/insights/cambodia-company-formation): Private Ltd, QIP incentives (3–9 year tax holiday), 20% CIT, 10% VAT, USD-dollarised economy, with 2026 rates.
+- [Kazakhstan Company Formation & Tax](https://arm-management.com/insights/kazakhstan-company-formation): LLP, JSC, AIFC (0% CIT until 2066), 20% standard CIT, 12% VAT, SEZ holidays, with 2026 rates.
+- [Uzbekistan Company Formation & Tax](https://arm-management.com/insights/uzbekistan-company-formation): LLC, TIFC (0% CIT until 2043), 20+ FEZs, 15% standard CIT, 12% VAT, with 2026 rates.
