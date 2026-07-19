@@ -41,8 +41,18 @@ const J = [
   {n:"Cyprus", r:"Mediterranean", lat:35.0, lng:33.0, ct:"15%", vat:"19%", s:"cyprus"},
   {n:"Malta", r:"Mediterranean", lat:35.9, lng:14.4, ct:"35% / 5%", vat:"18%", s:"malta"},
   {n:"Georgia", r:"Caucasus", lat:42.3, lng:43.4, ct:"15%", vat:"18%", s:"georgia"},
+  {n:"India", r:"South Asia", lat:21.0, lng:78.0, ct:"25.17%", vat:"GST 5 / 18%", s:"india"},
+  {n:"Singapore", r:"Southeast Asia", lat:1.35, lng:103.8, ct:"17%", vat:"GST 9%", s:"singapore"},
+  {n:"Malaysia", r:"Southeast Asia", lat:4.2, lng:102.0, ct:"24%", vat:"SST 6–10%", s:"malaysia"},
+  {n:"Thailand", r:"Southeast Asia", lat:15.0, lng:101.0, ct:"20%", vat:"7%", s:"thailand"},
+  {n:"Vietnam", r:"Southeast Asia", lat:16.0, lng:107.8, ct:"20%", vat:"8 / 10%", s:"vietnam"},
+  {n:"Indonesia", r:"Southeast Asia", lat:-2.5, lng:118.0, ct:"22%", vat:"11 / 12%", s:"indonesia"},
+  {n:"Philippines", r:"Southeast Asia", lat:12.9, lng:121.8, ct:"20 / 25%", vat:"12%", s:"philippines"},
+  {n:"Hong Kong", r:"East Asia", lat:22.3, lng:114.2, ct:"8.25 / 16.5%", vat:"None", s:"hong-kong"},
+  {n:"Japan", r:"East Asia", lat:36.2, lng:138.3, ct:"~30%", vat:"10%", s:"japan"},
+  {n:"South Korea", r:"East Asia", lat:36.5, lng:127.9, ct:"9–24%", vat:"10%", s:"south-korea"},
 ];
-const ORDER = ["Middle East · GCC","Western Europe","Northern Europe","Central Europe","Southeast Europe","Balkans & Türkiye","Mediterranean","Caucasus"];
+const ORDER = ["Middle East · GCC","Western Europe","Northern Europe","Central Europe","Southeast Europe","Balkans & Türkiye","Mediterranean","Caucasus","South Asia","Southeast Asia","East Asia"];
 const groups = ORDER.map(r => ({ r, items: J.filter(d => d.r === r) }));
 const pills = [{r:"All", n:J.length}].concat(ORDER.map(r => ({ r, n: J.filter(d=>d.r===r).length })));
 ---

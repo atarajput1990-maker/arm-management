@@ -26,7 +26,7 @@ ARM Management provides specialist advisory for Indian nationals, NRIs, Indian H
 
 ## Key resources
 
-- [2026 Corporate Tax & VAT Comparison](https://arm-management.com/insights/2026-corporate-tax-vat-comparison): Sortable, searchable comparison of headline corporate income tax and standard VAT across 36 jurisdictions, current as at July 2026, with links to a full guide for each.
+- [2026 Corporate Tax & VAT Comparison](https://arm-management.com/insights/2026-corporate-tax-vat-comparison): Sortable, searchable comparison of headline corporate income tax and standard VAT across 46 jurisdictions, current as at July 2026, with links to a full guide for each.
 - [Services overview](https://arm-management.com/services): The full range of ARM's cross-border advisory services.
 - [Insights](https://arm-management.com/insights): Jurisdiction guides and regulatory analysis.
 
@@ -70,3 +70,13 @@ ARM Management provides specialist advisory for Indian nationals, NRIs, Indian H
 - [Portugal Company Formation & Tax](https://arm-management.com/insights/portugal-company-formation): Entity types, corporate tax, VAT and incorporation steps for Portugal, with 2026 rates.
 - [Greece Company Formation & Tax](https://arm-management.com/insights/greece-company-formation): Entity types, corporate tax, VAT and incorporation steps for Greece, with 2026 rates.
 - [Malta Company Formation & Tax](https://arm-management.com/insights/malta-company-formation): Entity types, corporate tax, VAT and incorporation steps for Malta, with 2026 rates.
+- [India Company Formation & Tax](https://arm-management.com/insights/india-company-formation): Entity types, corporate tax, VAT and incorporation steps for India, with 2026 rates.
+- [Singapore Company Formation & Tax](https://arm-management.com/insights/singapore-company-formation): Entity types, corporate tax, VAT and incorporation steps for Singapore, with 2026 rates.
+- [Hong Kong Company Formation & Tax](https://arm-management.com/insights/hong-kong-company-formation): Entity types, corporate tax, VAT and incorporation steps for Hong Kong, with 2026 rates.
+- [Japan Company Formation & Tax](https://arm-management.com/insights/japan-company-formation): Entity types, corporate tax, VAT and incorporation steps for Japan, with 2026 rates.
+- [South Korea Company Formation & Tax](https://arm-management.com/insights/south-korea-company-formation): Entity types, corporate tax, VAT and incorporation steps for South Korea, with 2026 rates.
+- [Malaysia Company Formation & Tax](https://arm-management.com/insights/malaysia-company-formation): Entity types, corporate tax, VAT and incorporation steps for Malaysia, with 2026 rates.
+- [Thailand Company Formation & Tax](https://arm-management.com/insights/thailand-company-formation): Entity types, corporate tax, VAT and incorporation steps for Thailand, with 2026 rates.
+- [Vietnam Company Formation & Tax](https://arm-management.com/insights/vietnam-company-formation): Entity types, corporate tax, VAT and incorporation steps for Vietnam, with 2026 rates.
+- [Indonesia Company Formation & Tax](https://arm-management.com/insights/indonesia-company-formation): Entity types, corporate tax, VAT and incorporation steps for Indonesia, with 2026 rates.
+- [Philippines Company Formation & Tax](https://arm-management.com/insights/philippines-company-formation): Entity types, corporate tax, VAT and incorporation steps for Philippines, with 2026 rates.

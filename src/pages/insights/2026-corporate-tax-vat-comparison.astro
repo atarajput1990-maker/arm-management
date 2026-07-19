@@ -1,6 +1,6 @@
 ---
 import Base from '../../layouts/Base.astro';
-const reviewed = "June 2026";
+const reviewed = "July 2026";
 
 const ENT = {
   "uae":"LLC / Free Zone", "saudi-arabia":"LLC", "united-kingdom":"Ltd", "netherlands":"B.V.",
@@ -10,7 +10,10 @@ const ENT = {
   "czech-republic":"s.r.o.", "slovakia":"s.r.o.", "hungary":"Kft.", "austria":"GmbH",
   "slovenia":"d.o.o.", "romania":"SRL", "bulgaria":"EOOD", "croatia":"d.o.o.", "serbia":"d.o.o.",
   "montenegro":"d.o.o.", "north-macedonia":"DOO", "albania":"SHPK", "turkey":"Limited Şirket",
-  "greece":"IKE", "cyprus":"Ltd", "malta":"Ltd", "georgia":"LLC"
+  "greece":"IKE", "cyprus":"Ltd", "malta":"Ltd", "georgia":"LLC",
+  "india":"Pvt. Ltd.", "singapore":"Pte. Ltd.", "malaysia":"Sdn. Bhd.", "thailand":"Co., Ltd.",
+  "vietnam":"LLC", "indonesia":"PT PMA", "philippines":"Corp. / OPC", "hong-kong":"Ltd",
+  "japan":"KK / GK", "south-korea":"Yuhan Hoesa"
 };
 const J = [
   {n:"United Arab Emirates", r:"Middle East · GCC", ct:"9%", vat:"5%", s:"uae"},
@@ -49,27 +52,39 @@ const J = [
   {n:"Cyprus", r:"Mediterranean", ct:"15%", vat:"19%", s:"cyprus"},
   {n:"Malta", r:"Mediterranean", ct:"35% / 5%", vat:"18%", s:"malta"},
   {n:"Georgia", r:"Caucasus", ct:"15%", vat:"18%", s:"georgia"},
+  {n:"India", r:"South Asia", ct:"25.17%", vat:"GST 5 / 18%", s:"india"},
+  {n:"Singapore", r:"Southeast Asia", ct:"17%", vat:"GST 9%", s:"singapore"},
+  {n:"Malaysia", r:"Southeast Asia", ct:"24%", vat:"SST 6–10%", s:"malaysia"},
+  {n:"Thailand", r:"Southeast Asia", ct:"20%", vat:"7%", s:"thailand"},
+  {n:"Vietnam", r:"Southeast Asia", ct:"20%", vat:"8 / 10%", s:"vietnam"},
+  {n:"Indonesia", r:"Southeast Asia", ct:"22%", vat:"11 / 12%", s:"indonesia"},
+  {n:"Philippines", r:"Southeast Asia", ct:"20 / 25%", vat:"12%", s:"philippines"},
+  {n:"Hong Kong", r:"East Asia", ct:"8.25 / 16.5%", vat:"None", s:"hong-kong"},
+  {n:"Japan", r:"East Asia", ct:"~30%", vat:"10%", s:"japan"},
+  {n:"South Korea", r:"East Asia", ct:"9–24%", vat:"10%", s:"south-korea"},
 ];
 const rows = J.map(x => ({...x, entity: ENT[x.s] || "—"}));
 
 const faqs = [
   ["Which country has the lowest corporate tax in 2026?",
-   "Among these 36 jurisdictions, the UAE and Hungary have the lowest headline corporate tax at 9%. Estonia and Latvia effectively charge 0% on retained (reinvested) profits, taxing only distributed profits at around 20–22%. Bulgaria applies a 10% flat rate."],
+   "Among these 46 jurisdictions, Hong Kong has the lowest entry rate at 8.25% on the first HK$2 million of profits, followed by the UAE and Hungary at 9%. Estonia and Latvia effectively charge 0% on retained (reinvested) profits, taxing only distributed profits at around 20–22%. Bulgaria applies a 10% flat rate."],
   ["Which country has the lowest VAT?",
-   "The UAE (5%) and Switzerland (8.1%) have the lowest VAT in this set. Within the EU, Malta (18%), then Cyprus and Germany (19%) are among the lowest."],
+   "Hong Kong has no VAT or sales tax at all. Among jurisdictions with VAT, the UAE (5%), Thailand (7%, extended to September 2026) and Switzerland (8.1%) are the lowest in this set. Within the EU, Malta (18%), then Cyprus and Germany (19%) are among the lowest."],
   ["Which countries do not tax retained earnings?",
    "Estonia and Latvia operate a distributed-profit tax system: profits kept inside the company are taxed at 0%, and corporate tax (around 20–22%) is only due when profits are distributed."],
   ["What is Cyprus's corporate tax rate in 2026?",
    "15% from 1 January 2026, raised from 12.5% to align with the OECD Pillar Two minimum — still among the lowest in the EU, with no withholding tax on outbound dividends."],
   ["Is Malta's corporate tax really 5%?",
    "Malta's headline rate is 35%, but a shareholder refund of 6/7ths on trading income can bring the effective rate to about 5%. It requires correct structuring and is increasingly scrutinised under CFC and substance rules."],
+  ["Which Asian jurisdiction has the lowest corporate tax?",
+   "Hong Kong, with 8.25% on the first HK$2 million of profits and 16.5% above — and no VAT, capital gains or dividend tax. Singapore's flat 17% falls to an effective 4–8% on early profits after start-up and partial exemptions."],
   ["Which country has the highest VAT?",
    "Hungary has the highest VAT in this set at 27%, followed by Finland at 25.5% and Sweden, Norway, Denmark and Croatia at 25%."],
 ];
 ---
 <Base
-  title="2026 Corporate Tax & VAT Comparison: 36 Jurisdictions | ARM Management"
-  description="Compare 2026 corporate tax and VAT rates across 36 jurisdictions in the EU, GCC, Balkans, Mediterranean and beyond. Sortable and searchable, with links to full company-formation guides. Reviewed June 2026."
+  title="2026 Corporate Tax & VAT Comparison: 46 Jurisdictions | ARM Management"
+  description="Compare 2026 corporate tax and VAT rates across 46 jurisdictions in the EU, GCC, Asia-Pacific, Balkans, Mediterranean and beyond. Sortable and searchable, with links to full company-formation guides. Reviewed July 2026."
 >
   <main>
     <section class="page-hero">
@@ -77,7 +92,7 @@ const faqs = [
       <div class="page-hero__overlay"></div>
       <div class="page-hero__content container">
         <span class="eyebrow">Comparison · 2026</span>
-        <h1>2026 Corporate Tax &amp; VAT,<br>Compared Across 36 Jurisdictions</h1>
+        <h1>2026 Corporate Tax &amp; VAT,<br>Compared Across 46 Jurisdictions</h1>
         <p>Headline corporate income tax and standard VAT for every jurisdiction ARM covers — sortable, searchable, and current as at June 2026.</p>
         <div class="btn-row" style="justify-content:flex-start;margin-top:30px">
           <a href="/contact" class="btn-primary">Speak With a Senior Advisor →</a>
@@ -90,15 +105,15 @@ const faqs = [
       <div class="container">
         <div class="guide-meta reveal" style="max-width:760px;margin:0 auto 8px">
           <span><strong>Last reviewed:</strong> {reviewed}</span>
-          <span><strong>Scope:</strong> 36 jurisdictions · headline rates</span>
+          <span><strong>Scope:</strong> 46 jurisdictions · headline rates</span>
         </div>
 
         <div class="prose" style="max-width:760px;margin:0 auto">
-          <p class="reveal lede">Across the 36 jurisdictions below, 2026 headline corporate income tax ranges from <strong>0%</strong> on retained earnings (Estonia, Latvia) and <strong>9%</strong> (UAE, Hungary) up to roughly <strong>30%</strong> (Germany), while standard VAT runs from <strong>5%</strong> (UAE) to <strong>27%</strong> (Hungary). The table is sortable and searchable; every row links to a full, sourced guide for that jurisdiction.</p>
+          <p class="reveal lede">Across the 46 jurisdictions below, 2026 headline corporate income tax ranges from <strong>0%</strong> on retained earnings (Estonia, Latvia) through <strong>8.25%</strong> (Hong Kong, first tier) and <strong>9%</strong> (UAE, Hungary) up to roughly <strong>30%</strong> (Germany, Japan), while indirect tax runs from <strong>none at all</strong> (Hong Kong) and <strong>5%</strong> (UAE) to <strong>27%</strong> (Hungary). The table is sortable and searchable; every row links to a full, sourced guide for that jurisdiction.</p>
         </div>
 
         <div class="cmp-stats reveal">
-          <div class="cmp-stat"><div class="cmp-stat__n">36</div><div class="cmp-stat__l">Jurisdictions</div></div>
+          <div class="cmp-stat"><div class="cmp-stat__n">46</div><div class="cmp-stat__l">Jurisdictions</div></div>
           <div class="cmp-stat"><div class="cmp-stat__n">9% / 0%*</div><div class="cmp-stat__l">Lowest corporate tax<br><span>UAE &amp; Hungary · *0% on retained earnings (EE, LV)</span></div></div>
           <div class="cmp-stat"><div class="cmp-stat__n">5%</div><div class="cmp-stat__l">Lowest VAT<br><span>United Arab Emirates</span></div></div>
           <div class="cmp-stat"><div class="cmp-stat__n">27%</div><div class="cmp-stat__l">Highest VAT<br><span>Hungary</span></div></div>
@@ -152,7 +167,7 @@ const faqs = [
     <section class="cta-section guide-cta">
       <span class="eyebrow is-center reveal" style="justify-content:center">Speak With ARM</span>
       <h2 class="reveal">Choosing where to establish?</h2>
-      <p class="reveal">ARM Management advises international companies and investors on jurisdiction selection, formation and ongoing tax compliance across all 36 markets above. Begin with a confidential conversation.</p>
+      <p class="reveal">ARM Management advises international companies and investors on jurisdiction selection, formation and ongoing tax compliance across all 46 markets above. Begin with a confidential conversation.</p>
       <div class="btn-row reveal">
         <a href="/contact" class="btn-primary">Schedule a Consultation →</a>
         <a href="/services/company-formation" class="btn-secondary">Company Formation Services</a>
@@ -160,8 +175,8 @@ const faqs = [
     </section>
   </main>
 
-  <script type="application/ld+json" set:html={JSON.stringify({"@context":"https://schema.org","@type":"Article","headline":"2026 Corporate Tax & VAT Comparison: 36 Jurisdictions","description":"Sortable comparison of 2026 headline corporate income tax and standard VAT across 36 jurisdictions in the EU, GCC, Balkans, Mediterranean and beyond.","author":{"@type":"Organization","name":"ARM Management"},"publisher":{"@type":"Organization","name":"ARM Management","logo":{"@type":"ImageObject","url":"https://www.arm-management.com/images/logo.png"}},"dateModified":"2026-06-01","mainEntityOfPage":"https://www.arm-management.com/insights/2026-corporate-tax-vat-comparison"})} />
-  <script type="application/ld+json" set:html={JSON.stringify({"@context":"https://schema.org","@type":"Dataset","name":"2026 Corporate Tax & VAT Rates — 36 Jurisdictions","description":"Headline corporate income tax and standard VAT rates for 36 jurisdictions across the EU, GCC, Balkans, Mediterranean and Caucasus, current as at June 2026.","creator":{"@type":"Organization","name":"ARM Management"},"dateModified":"2026-06-01","keywords":["corporate tax 2026","VAT rates 2026","company formation","EU corporate tax","GCC tax"],"license":"https://creativecommons.org/licenses/by/4.0/","url":"https://www.arm-management.com/insights/2026-corporate-tax-vat-comparison","isAccessibleForFree":true,"distribution":[{"@type":"DataDownload","encodingFormat":"text/html","contentUrl":"https://www.arm-management.com/insights/2026-corporate-tax-vat-comparison"}]})} />
+  <script type="application/ld+json" set:html={JSON.stringify({"@context":"https://schema.org","@type":"Article","headline":"2026 Corporate Tax & VAT Comparison: 46 Jurisdictions","description":"Sortable comparison of 2026 headline corporate income tax and standard VAT across 46 jurisdictions in the EU, GCC, Asia-Pacific, Balkans, Mediterranean and beyond.","author":{"@type":"Organization","name":"ARM Management"},"publisher":{"@type":"Organization","name":"ARM Management","logo":{"@type":"ImageObject","url":"https://www.arm-management.com/images/logo.png"}},"dateModified":"2026-06-01","mainEntityOfPage":"https://www.arm-management.com/insights/2026-corporate-tax-vat-comparison"})} />
+  <script type="application/ld+json" set:html={JSON.stringify({"@context":"https://schema.org","@type":"Dataset","name":"2026 Corporate Tax & VAT Rates — 46 Jurisdictions","description":"Headline corporate income tax and standard VAT rates for 46 jurisdictions across the EU, GCC, Asia-Pacific, Balkans, Mediterranean and Caucasus, current as at July 2026.","creator":{"@type":"Organization","name":"ARM Management"},"dateModified":"2026-06-01","keywords":["corporate tax 2026","VAT rates 2026","company formation","EU corporate tax","GCC tax"],"license":"https://creativecommons.org/licenses/by/4.0/","url":"https://www.arm-management.com/insights/2026-corporate-tax-vat-comparison","isAccessibleForFree":true,"distribution":[{"@type":"DataDownload","encodingFormat":"text/html","contentUrl":"https://www.arm-management.com/insights/2026-corporate-tax-vat-comparison"}]})} />
   <script type="application/ld+json" set:html={JSON.stringify({"@context":"https://schema.org","@type":"FAQPage","mainEntity":faqs.map(([q,a]) => ({"@type":"Question","name":q,"acceptedAnswer":{"@type":"Answer","text":a}}))})} />
   <script type="application/ld+json" set:html={JSON.stringify({"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.arm-management.com/"},{"@type":"ListItem","position":2,"name":"Insights","item":"https://www.arm-management.com/insights"},{"@type":"ListItem","position":3,"name":"2026 Corporate Tax & VAT Comparison","item":"https://www.arm-management.com/insights/2026-corporate-tax-vat-comparison"}]})} />
 
